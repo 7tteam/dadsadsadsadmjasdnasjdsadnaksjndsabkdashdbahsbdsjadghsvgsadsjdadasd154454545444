@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Users Dashbord</title>
+      <!-- الوصف الذي يظهر أسفل العنوان في نتائج البحث -->
+   <meta name="description" content="Nutro Cloud offers affordable hosting services for websites and
+     game servers with both free and paid plans. Powered by 7T Team.">
+
+    <!-- الكلمات المفتاحية باللغة الإنجليزية -->
+    <meta name="keywords" content="hosting, cheap hosting, Nutro Cloud, web hosting, free hosting, paid hosting, 7T Team, game servers, website hosting">
+
+    <!-- لغة الصفحة -->
+    <meta http-equiv="Content-Language" content="en">
+
+    <!-- ضبط العرض للموبايل -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- فهرسة الصفحة من قبل محركات البحث -->
+    <meta name="robots" content="index, follow">
+
+    <!-- رفع الأيقونة أو اللوجو الخاص بالموقع -->
+    <link rel="icon" href="https://www.nutro.cloud/assets/images/fav.png" type="image/x-icon">
+
+    <!-- Open Graph Tags لتحسين الظهور عند مشاركة الروابط على الشبكات الاجتماعية -->
+    <meta property="og:title" content="Nutro Cloud | Users Hosting Services">
+    <meta property="og:description" content="Hosting solutions for websites and game servers with affordable pricing .">
+    <meta property="og:image" content="https://www.nutro.cloud/banner.jpg">
+    <meta property="og:url" content="https://www.nutro.cloud">
+
+    <!-- Twitter Card Tags لتحسين الظهور على تويتر -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nutro Cloud | Affordable Hosting Services">
+    <meta name="twitter:description" content="Affordable and reliable hosting for websites .">
+    <meta name="twitter:image" content="https://www.nutro.cloud/banner.jpg">
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/fav.png">
+
+ 
+    <!-- Preconnect to Google Fonts and Google Fonts Static -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+    <!-- Importing Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;1,400;1,800&amp;display=swap" rel="stylesheet">
+    <!-- all styles -->
+    <link rel="preload stylesheet" href="assets/css/plugins.min.css" as="style">
+    <!-- fontawesome css -->
+    <link rel="preload stylesheet" href="assets/css/plugins/fontawesome.min.css" as="style">
+    <!-- Custom css -->
+    <link rel="preload stylesheet" href="assets/css/style.css" as="style">
+    <meta name="keywords" content="استضافة, استضافة رخيصة, Nutro Cloud, خدمات استضافة, استضافة مجانية, استضافة مدفوعة, 7T Team, خوادم الألعاب, استضافة المواقع">
+
+      <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-size: cover; /* يجعل الصورة تغطي الخلفية بالكامل */
+            background-position: center; /* يضمن توسيط الصورة */
+            background-attachment: fixed; /* يجعل الصورة ثابتة أثناء التمرير */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+              -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera, and Edge */
+
+        }
+
+        .pricing-options {
+            display: flex;
+            gap: 30px;
+        }
+
+        .option-box {
+            width: 320px;
+            padding: 20px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.3); /* خلفية شبه شفافة */
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px); /* تطبيق تأثير البلور على الخلفية */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .option-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .option-title {
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .option-description {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .option-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .option-btn:hover {
+            background-color: #0056b3;
+        }
+            
+  
+    </style>
+</head>
+<body>
+
+    <div class="pricing-options">
+        <!-- Free Access Box -->
+        <div class="option-box">
+            <h2 class="option-title">Free Access</h2>
+            <p class="option-description">Get access to basic features for free.</p>
+            <a href="https://free.nutro.cloud" class="option-btn">Free Access</a>
+        </div>
+
+        <!-- Paid Access Box -->
+        <div class="option-box">
+            <h2 class="option-title">Paid Access</h2>
+            <p class="option-description">Unlock all premium features with a paid plan.</p>
+            <a href="https://paid.nutro.cloud" class="option-btn">Paid Access</a>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('contextmenu', function(event) {
+          event.preventDefault();
+        });
+      </script>
+</body>
+</html>
