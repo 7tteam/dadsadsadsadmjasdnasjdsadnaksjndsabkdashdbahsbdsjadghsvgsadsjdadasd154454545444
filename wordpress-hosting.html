@@ -39,6 +39,7 @@
 
     <!-- favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
+    <script defer src="main.js"></script>
 
  
     <!-- Preconnect to Google Fonts and Google Fonts Static -->
@@ -1370,8 +1371,19 @@
     <script defer src="assets/js/plugins.min.js"></script>
     <!-- main js -->
     <script defer src="assets/js/main.js"></script>
-    <script defer src="main.js"></script>
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/145121546.js"></script>
+    <script>
+        async function loadFooter() {
+            try {
+                const response = await fetch('footer.html');
+                const data = await response.text();
+                document.getElementById('footer').innerHTML = data;
+                setupSidebarEvents(); // إعادة تهيئة الأحداث
+            } catch (error) {
+                console.error('حدث خطأ في تحميل الفوتر:', error);
+            }
+        }
+        loadFooter();
+    </script>    <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/145121546.js"></script>
 
     <!-- FirWall MAN -->
     <script>
