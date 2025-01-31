@@ -1,0 +1,16 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/?$ $1.html [L]
+
+# صفحة خطأ 404 مخصصة
+ErrorDocument 404 /404.html
+
+# صفحة خطأ 500 مخصصة
+ErrorDocument 500 /404.html
+
+# صفحات أخطاء مخصصة أخرى
+ErrorDocument 403 /404.html
+ErrorDocument 401 /404.html
+deny from 95.57.232.68
