@@ -68,11 +68,11 @@
         "description": "Nutro Cloud provides affordable and secure VPS hosting for websites and game servers, ensuring reliability and scalability.",
         "url": "https://www.nutro.cloud/vps-hosting",
         "logo": "https://www.nutro.cloud/logo.png",
-        "priceRange": "$10 - $50",
+        "priceRange": "$1 - $100",
         "offers": {
             "@type": "Offer",
             "priceCurrency": "USD",
-            "price": "10",
+            "price": "1",
             "eligibleRegion": {
                 "@type": "Place",
                 "name": "Worldwide"
@@ -93,6 +93,23 @@
             /* Non-prefixed version */
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const key = "dailyNumber";
+            let storedData = localStorage.getItem(key);
+            let data = storedData ? JSON.parse(storedData) : { value: 100000, lastUpdate: new Date().toDateString() };
+            
+            const today = new Date().toDateString();
+            if (data.lastUpdate !== today) {
+                let randomIncrease = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
+                data.value += randomIncrease;
+                data.lastUpdate = today;
+                localStorage.setItem(key, JSON.stringify(data));
+            }
+            
+            document.getElementById("number").textContent = data.value;
+        });
+    </script>
 </head>
 
 
@@ -116,7 +133,7 @@
                         <div class="hosting-action">
                             <a href="#buy" class="btn__two secondary__bg secondary__color">Buy VPS <i
                                     class="fa-regular fa-arrow-right"></i></a>
-                            <a href="#buy" class="btn__white">Starting @ $6.99/mo</a>
+                            <a href="#buy" class="btn__white">Starting @ $2.99/mo</a>
                         </div>
                     </div>
                     <div class="rts-hosting-banner__image vps">
@@ -143,7 +160,7 @@
                         </h2>
                         <p data-sal="slide-down" data-sal-delay="200" data-sal-duration="800">
                             Own your virtual presence with the power of nutro
-                            with 1.5 million websites already under our care,
+                            with <  <span id="number">...</span> <br> websites already under our care,
                         </p>
                     </div>
                 </div>
@@ -345,75 +362,45 @@
                                     </div>
                                     <h4 class="package__name">Basic</h4>
                                 </div>
-                                <p class="card-plan__desc">Everything need to your app</p>
-                                <div class="card-plan__offer">
-                                    <span class="past-price">$8.50</span>
-                                    <span class="offer-given">Save 20%</span>
-                                </div>
+                                <p class="card-plan__desc">Everything need to your app</p>                             
                                 <h5 class="card-plan__price">
-                                    <sup>$</sup> 6.99 <sub>/ month</sub>
+                                    <sup>$</sup> 2.99 <sub>/ month</sub>
                                 </h5>
                                 <div class="card-plan__cartbtn">
                                     <a href="https://pro.nutro.cloud/pay.php?package=vps1mo">add to cart</a>
                                 </div>
                                 <p class="card-plan__renew-price">
-                                    $ 6.99 /mo when you renew
+                                    $ 2.99 /mo when you renew
                                 </p>
                                 <div class="card-plan__feature">
                                     <ul class="card-plan__feature--list">
                                         <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> 4 Vcpus</span>
+                                            <span class="text"><i class="fa-regular fa-check"></i> 2 Vcpus</span>
                                             <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                 title=""
                                                 data-bs-original-title="Explore, discover, and learn on our innovative and informative website."><i
                                                     class="fa-light fa-circle-question"></i></span>
                                         </li>
                                         <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> 5.50Gb RAM</span>
+                                            <span class="text"><i class="fa-regular fa-check"></i> 2GB RAM</span>
                                             <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                 title=""
                                                 data-bs-original-title="Unlock superior online experiences with our standard performance solutions, ensuring reliability, speed, and seamless functionality for your website needs."><i
                                                     class="fa-light fa-circle-question"></i></span>
                                         </li>
                                         <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> 24/7/365
-                                                Support</span>
+                                            <span class="text"><i class="fa-regular fa-check"></i> 50GB NVMe</span>
                                             <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                 title=""
                                                 data-bs-original-title="Nutro provides reliable 24/7 support for your hosting needs, ensuring assistance whenever you require help."><i
                                                     class="fa-light fa-circle-question"></i></span>
                                         </li>
                                         <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> Free Setup</span>
+                                            <span class="text"><i class="fa-regular fa-check"></i>30 TB Traffic<span> Unlimited Incoming</span></span>
+                                             
                                             <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                 title=""
                                                 data-bs-original-title="Nutro offers complimentary email services, empowering your online communication with reliable and secure free email solutions."><i
-                                                    class="fa-light fa-circle-question"></i></span>
-                                        </li>
-                                        <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> Unlimited
-                                                Bandwidth</span>
-                                            <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                title=""
-                                                data-bs-original-title="Nutro provides unlimited bandwidth, ensuring seamless data transfer for your website's optimal performance and user experience."><i
-                                                    class="fa-light fa-circle-question"></i></span>
-                                        </li>
-                                        <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> 350 GB SSD
-                                                Storage</span>
-                                            <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                title=""
-                                                data-bs-original-title="Elevate your online presence with Nutro, offering unlimited bandwidth for your domain, ensuring optimal performance and seamless data flow."><i
-                                                    class="fa-light fa-circle-question"></i></span>
-                                        </li>
-
-
-                                        <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> Unlimited Free
-                                                Panel</span>
-                                            <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                title=""
-                                                data-bs-original-title="Secure your website with Nutro's unlimited free SSL certificates, ensuring encrypted and safe online transactions for your users."><i
                                                     class="fa-light fa-circle-question"></i></span>
                                         </li>
                                         <li class="card-plan__feature--list-item">
@@ -440,7 +427,7 @@
                                     </ul>
                                     <ul class="card-plan__feature--list more__feature">
                                         <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> DDos Protact</span>
+                                            <span class="text"><i class="fa-regular fa-check"></i> Ddos Protact</span>
                                             <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                 title=""
                                                 data-bs-original-title="Nutro offers generous hosting with 100GB SSD storage, providing ample space for your data and ensuring high-performance storage solutions."><i
@@ -454,8 +441,7 @@
                                                     class="fa-light fa-circle-question"></i></span>
                                         </li>
                                         <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> Hight Cloud
-                                                Platform</span>
+                                            <span class="text"><i class="fa-regular fa-check"></i>10+ OS</span>
                                             <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                 title=""
                                                 data-bs-original-title="Nutro guarantees 99% uptime, ensuring your website is consistently available and reliable for visitors around the clock."><i
@@ -478,40 +464,40 @@
                                 </div>
                                 <p class="card-plan__desc">Level-up more power features</p>
                                 <h5 class="card-plan__price">
-                                    <sup>$</sup> 14.63 <sub>/ month</sub>
+                                    <sup>$</sup> 8.15 <sub>/ month</sub>
                                 </h5>
                                 <div class="card-plan__cartbtn">
                                     <a href="https://pro.nutro.cloud/pay.php?package=vps2mo">add to cart</a>
                                 </div>
                                 <p class="card-plan__renew-price">
-                                    $ 14.50 /mo when you renew
+                                    $ 8.15 /mo when you renew
                                 </p>
                                 <div class="card-plan__feature">
                                     <ul class="card-plan__feature--list">
                                         <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> 8 Vcpu</span>
+                                            <span class="text"><i class="fa-regular fa-check"></i> 4 vCPU Cores</span>
                                             <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                 title=""
                                                 data-bs-original-title="Explore, discover, and learn on our innovative and informative website."><i
                                                     class="fa-light fa-circle-question"></i></span>
                                         </li>
                                         <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> 16GB RAM</span>
+                                            <span class="text"><i class="fa-regular fa-check"></i> 4GB RAM</span>
                                             <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                 title=""
                                                 data-bs-original-title="Unlock superior online experiences with our standard performance solutions, ensuring reliability, speed, and seamless functionality for your website needs."><i
                                                     class="fa-light fa-circle-question"></i></span>
                                         </li>
                                         <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> 24/7/365
-                                                Support</span>
+                                            <span class="text"><i class="fa-regular fa-check"></i> 200 GB SSD
+                                                </span>
                                             <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                 title=""
                                                 data-bs-original-title="Nutro provides reliable 24/7 support for your hosting needs, ensuring assistance whenever you require help."><i
                                                     class="fa-light fa-circle-question"></i></span>
                                         </li>
                                         <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> Free Setup</span>
+                                            <span class="text"><i class="fa-regular fa-check"></i> 1Snapshot </span>
                                             <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                 title=""
                                                 data-bs-original-title="NUtro offers complimentary email services, empowering your online communication with reliable and secure free email solutions."><i
@@ -525,24 +511,8 @@
                                                 data-bs-original-title="nutro provides unlimited bandwidth, ensuring seamless data transfer for your website's optimal performance and user experience."><i
                                                     class="fa-light fa-circle-question"></i></span>
                                         </li>
-                                        <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> 350 GB SSD
-                                                Storage</span>
-                                            <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                title=""
-                                                data-bs-original-title="Elevate your online presence with Nutro, offering unlimited bandwidth for your domain, ensuring optimal performance and seamless data flow."><i
-                                                    class="fa-light fa-circle-question"></i></span>
-                                        </li>
-
-
-                                        <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> Unlimited Free
-                                                SSL</span>
-                                            <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                title=""
-                                                data-bs-original-title="Secure your website with Nutro's unlimited free SSL certificates, ensuring encrypted and safe online transactions for your users."><i
-                                                    class="fa-light fa-circle-question"></i></span>
-                                        </li>
+                                        
+                                 
                                         <li class="card-plan__feature--list-item">
                                             <span class="text"><i class="fa-regular fa-check"></i> 99.9% Uptime
                                                 Guarantee</span>
@@ -567,8 +537,8 @@
                                     </ul>
                                     <ul class="card-plan__feature--list more__feature">
                                         <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> Unlimited
-                                                Panel</span>
+                                            <span class="text"><i class="fa-regular fa-check"></i> Ddos Protact</span>
+                                            
                                             <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                 title=""
                                                 data-bs-original-title="Nutro offers generous hosting with 100GB SSD storage, providing ample space for your data and ensuring high-performance storage solutions."><i
@@ -581,21 +551,8 @@
                                                 data-bs-original-title="Secure your website with Nutro's unlimited free SSL certificates, ensuring encrypted and safe online transactions for your users."><i
                                                     class="fa-light fa-circle-question"></i></span>
                                         </li>
-                                        <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> 99.9% Uptime
-                                                Guarantee</span>
-                                            <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                title=""
-                                                data-bs-original-title="NUtro guarantees 99% uptime, ensuring your website is consistently available and reliable for visitors around the clock."><i
-                                                    class="fa-light fa-circle-question"></i></span>
-                                        </li>
-                                        <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> DDos Protact</span>
-                                            <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                title=""
-                                                data-bs-original-title="Enhance your website's security with Nutro's Web Application Firewall, protecting against online threats and ensuring a safe online environment."><i
-                                                    class="fa-light fa-circle-question"></i></span>
-                                        </li>
+                                        
+                                        
                                         <li class="card-plan__feature--list-trigered">
                                             <span class="text">See less Features <i
                                                     class="fa-sharp fa-regular fa-chevron-up"></i>
@@ -609,7 +566,7 @@
                         <!-- single card -->
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card-plan active">
-                                <div class="popular-tag">most popular</div>
+                                <div class="popular-tag">Most Popular</div>
                                 <div class="card-plan__package">
                                     <div class="icon">
                                         <img src="assets/images/pricing/business.svg" height="30" width="30" alt="">
@@ -617,45 +574,41 @@
                                     <h4 class="package__name">Business</h4>
                                 </div>
                                 <p class="card-plan__desc">Everything need to your website</p>
-                                <div class="card-plan__offer">
-                                    <span class="past-price">$23</span>
-                                    <span class="offer-given">Save 20%</span>
-                                </div>
+                                
                                 <h5 class="card-plan__price">
-                                    <sup>$</sup> 19.63 <sub>/ month</sub>
+                                    <sup>$</sup> 25.99 <sub>/ month</sub>
                                 </h5>
                                 <div class="card-plan__cartbtn">
                                     <a href="https://pro.nutro.cloud/pay.php?package=vps3mo">add to cart</a>
                                 </div>
                                 <p class="card-plan__renew-price">
-                                    $ 20.50 /mo when you renew
+                                    $ 25.50 /mo when you renew
                                 </p>
                                 <div class="card-plan__feature">
                                     <ul class="card-plan__feature--list">
                                         <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> 8Vcpu</span>
+                                            <span class="text"><i class="fa-regular fa-check"></i> 8vCPU Cores</span>
                                             <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                 title=""
                                                 data-bs-original-title="Explore, discover, and learn on our innovative and informative website."><i
                                                     class="fa-light fa-circle-question"></i></span>
                                         </li>
                                         <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> 23GB RAM</span>
+                                            <span class="text"><i class="fa-regular fa-check"></i> 19.44 GB RAM</span>
                                             <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                 title=""
                                                 data-bs-original-title="Unlock superior online experiences with our standard performance solutions, ensuring reliability, speed, and seamless functionality for your website needs."><i
                                                     class="fa-light fa-circle-question"></i></span>
                                         </li>
                                         <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> 24/7/365
-                                                Support</span>
+                                            <span class="text"><i class="fa-regular fa-check"></i> 350GB SSD</span>
                                             <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                 title=""
                                                 data-bs-original-title="Nutro provides reliable 24/7 support for your hosting needs, ensuring assistance whenever you require help."><i
                                                     class="fa-light fa-circle-question"></i></span>
                                         </li>
                                         <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> Free Setup</span>
+                                            <span class="text"><i class="fa-regular fa-check"></i>  2 Snapshots</span>
                                             <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                 title=""
                                                 data-bs-original-title="NUtro offers complimentary email services, empowering your online communication with reliable and secure free email solutions."><i
@@ -669,18 +622,10 @@
                                                 data-bs-original-title="nutro provides unlimited bandwidth, ensuring seamless data transfer for your website's optimal performance and user experience."><i
                                                     class="fa-light fa-circle-question"></i></span>
                                         </li>
-                                        <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> 1TB SSD
-                                                Storage</span>
-                                            <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                title=""
-                                                data-bs-original-title="Elevate your online presence with nutro, offering unlimited bandwidth for your domain, ensuring optimal performance and seamless data flow."><i
-                                                    class="fa-light fa-circle-question"></i></span>
-                                        </li>
-
+                                        
 
                                         <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> 7GOST free pro
+                                            <span class="text"><i class="fa-regular fa-check"></i> 7GOST pro
                                                 Protact</span>
                                             <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                 title=""
@@ -723,33 +668,32 @@
                                 <p class="card-plan__desc">Everything need to your website</p>
 
                                 <h5 class="card-plan__price">
-                                    <sup>$</sup> 37.63 <sub>/ month</sub>
+                                    <sup>$</sup> 59.55 <sub>/ month</sub>
                                 </h5>
                                 <div class="card-plan__cartbtn">
                                     <a href="https://pro.nutro.cloud/pay.php?package=vps4mo">add to cart</a>
                                 </div>
                                 <p class="card-plan__renew-price">
-                                    $ 37.50 /mo when you renew
+                                    $ 59 /mo when you renew
                                 </p>
                                 <div class="card-plan__feature">
                                     <ul class="card-plan__feature--list">
                                         <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> 12 vCPU</span>
+                                            <span class="text"><i class="fa-regular fa-check"></i> 14 vCPU</span>
                                             <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                 title=""
                                                 data-bs-original-title="Explore, discover, and learn on our innovative and informative website."><i
                                                     class="fa-light fa-circle-question"></i></span>
                                         </li>
                                         <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> 37 GB RAM</span>
+                                            <span class="text"><i class="fa-regular fa-check"></i> 40 GB RAM + 7GB Free </span>
                                             <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                 title=""
                                                 data-bs-original-title="Unlock superior online experiences with our standard performance solutions, ensuring reliability, speed, and seamless functionality for your website needs."><i
                                                     class="fa-light fa-circle-question"></i></span>
                                         </li>
                                         <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> 24/7/365
-                                                Support</span>
+                                            <span class="text"><i class="fa-regular fa-check"></i>580GB SSD </span>
                                             <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                 title=""
                                                 data-bs-original-title="Nutro provides reliable 24/7 support for your hosting needs, ensuring assistance whenever you require help."><i
@@ -770,18 +714,9 @@
                                                 data-bs-original-title="Nutro provides unlimited bandwidth, ensuring seamless data transfer for your website's optimal performance and user experience."><i
                                                     class="fa-light fa-circle-question"></i></span>
                                         </li>
+                                       
                                         <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> 1 TB SSD Storage +
-                                                500GB Free</span>
-                                            <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                title=""
-                                                data-bs-original-title="Elevate your online presence with Nutro, offering unlimited bandwidth for your domain, ensuring optimal performance and seamless data flow."><i
-                                                    class="fa-light fa-circle-question"></i></span>
-                                        </li>
-
-
-                                        <li class="card-plan__feature--list-item">
-                                            <span class="text"><i class="fa-regular fa-check"></i> DDos Protact Pro +
+                                            <span class="text"><i class="fa-regular fa-check"></i> DDos Protact  +
                                                 7GOST</span>
                                             <span class="tolltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                 title=""
@@ -1411,6 +1346,7 @@
         </div>
     </div>
     <!-- PRICING PLAN START END -->
+
 
     <!-- VPS PERFORMANCE -->
     <div class="rts-vps-performance pt--120">
