@@ -576,15 +576,25 @@
                         <h2 class="rts-section__title mb-0" data-sal="slide-down" data-sal-delay="100"
                             data-sal-duration="800">Our Discord Server  </h2>
                     </div>
-<div class="discord-widget">
-
-    <iframe src="https://discord.com/widget?id=1195367996202422382&theme=dark" 
-        width="350" height="500" allowtransparency="true" frameborder="0" 
-        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
-    </iframe>
+<div class="container">
+    <div class="discord-widget">
+        <iframe src="https://discord.com/widget?id=1195367996202422382&theme=dark" 
+            width="350" height="500" allowtransparency="true" frameborder="0" 
+            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+        </iframe>
+    </div>
 </div>
 
 <style>
+    /* جعل العنصر في منتصف الصفحة */
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* يملأ كامل ارتفاع الشاشة */
+    }
+
+    /* تصميم مستقبلي للويدجت */
     .discord-widget {
         width: 360px;
         height: 510px;
