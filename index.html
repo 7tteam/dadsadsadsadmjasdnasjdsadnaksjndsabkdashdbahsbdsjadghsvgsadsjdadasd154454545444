@@ -163,7 +163,7 @@
         document.addEventListener("DOMContentLoaded", function () {
             const key = "dynamicNumber";
             let storedData = localStorage.getItem(key);
-            let data = storedData ? JSON.parse(storedData) : { value: 2500, dailyIncrease: 0, lastUpdate: new Date().toDateString() };
+            let data = storedData ? JSON.parse(storedData) : { value: 2630, dailyIncrease: 0, lastUpdate: new Date().toDateString() };
 
             const today = new Date().toDateString();
             if (data.lastUpdate !== today) {
