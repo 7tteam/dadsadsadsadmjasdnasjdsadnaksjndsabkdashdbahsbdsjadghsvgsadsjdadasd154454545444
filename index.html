@@ -165,7 +165,7 @@
         document.addEventListener("DOMContentLoaded", function () {
             const key = "dynamicNumber";
             let storedData = localStorage.getItem(key);
-            let data = storedData ? JSON.parse(storedData) : { value: 2630, dailyIncrease: 0, lastUpdate: new Date().toDateString() };
+            let data = storedData ? JSON.parse(storedData) : { value: 4630, dailyIncrease: 0, lastUpdate: new Date().toDateString() };
 
             const today = new Date().toDateString();
             if (data.lastUpdate !== today) {
@@ -176,7 +176,7 @@
 
             function updateNumber() {
                 if (data.dailyIncrease < 2) {
-                    let shouldIncrease = Math.random() < 0.5; // 50% احتمال الزيادة
+                    let shouldIncrease = Math.random() < 0.5; 
                     if (shouldIncrease) {
                         let randomIncrease = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
                         if (data.dailyIncrease + randomIncrease <= 2) {
@@ -190,7 +190,7 @@
             }
 
             document.getElementById("number").textContent = data.value;
-            setInterval(updateNumber, 10 * 60 * 1000); // تنفيذ كل 10 دقائق
+            setInterval(updateNumber, 10 * 60 * 1000); 
         });
     </script>
 </head>
