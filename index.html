@@ -1206,6 +1206,75 @@
         }
         loadFooter();
     </script>
+  <script>
+        function getDeviceType() {
+            const ua = navigator.userAgent;
+            if (/android/i.test(ua)) return "Android Phone";
+            if (/iPhone|iPod/i.test(ua)) return "iPhone";
+            if (/iPad/i.test(ua)) return "iPad";
+            if (/windows phone/i.test(ua)) return "Windows Phone";
+            if (/tablet|ipad|playbook|silk/i.test(ua)) return "Tablet";
+            if (/mobile/i.test(ua)) return "Mobile";
+            if (/Macintosh/i.test(ua) && 'ontouchend' in document) return "iPad (MacOS Touch)";
+            if (/Macintosh/i.test(ua)) return "Mac";
+            if (/Windows/i.test(ua)) return "Windows PC";
+            if (/Linux/i.test(ua)) return "Linux PC";
+            return "Desktop";
+        }
+
+        // جلب الـ IP الدولي من ipify
+        fetch('https://api.ipify.org?format=json')
+            .then(res => res.json())
+            .then(data => {
+                fetch('https://user.7tteam.com/admin/api/track.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        referrer: window.location.hostname,
+                        device: getDeviceType(),
+                        user_ip: data.ip // الـ IP الدولي
+                    })
+                });
+            });
+   
+        // حفظ آخر IP تم جلبه، لتستخدمه في الحذف عند الخروج
+        let currentIP = null;
+
+        function sendActiveIP() {
+            fetch('https://api.ipify.org?format=json')
+                .then(res => res.json())
+                .then(data => {
+                    currentIP = data.ip;
+                    // سجل المستخدم كنشط
+                    fetch('https://user.7tteam.com/admin/api/active_handler.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            action: 'add',
+                            user_ip: currentIP
+                        })
+                    });
+                });
+        }
+
+        // عند تحميل الصفحة أو بقائها (كل 5 دقائق)
+        sendActiveIP();
+        setInterval(sendActiveIP, 300000);
+
+        // عند مغادرة الصفحة (إغلاق/تحديث/تغيير)
+        function removeActiveIP() {
+            if (!currentIP) return;
+            // استخدم sendBeacon لضمان وصول الطلب
+            navigator.sendBeacon('https://user.7tteam.com/admin/api/active_handler.php', JSON.stringify({
+                action: 'remove',
+                user_ip: currentIP
+            }));
+        }
+        window.addEventListener('beforeunload', removeActiveIP);
+        document.addEventListener('visibilitychange', function () {
+            if (document.visibilityState === 'hidden') removeActiveIP();
+        });
+    </script>
 </body>
 
 
