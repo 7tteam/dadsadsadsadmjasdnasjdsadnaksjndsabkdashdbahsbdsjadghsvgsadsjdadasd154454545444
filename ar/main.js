@@ -50,4 +50,12 @@ document.addEventListener("DOMContentLoaded", function() {
       document.getElementById('promo-banner').innerHTML = data;
     });
 });
+
+ src="http://play.nutro.cloud:25606/aias/assets/widget.js"
+  data-site="admin"
+  data-chatcolor="#5c3df5"
+  data-headercolor="#f0f0f0"
+  data-username="BemoN"
+  data-status="Available to help you now!"
+  data-questions="I want to buy WordPrass |How Can i buy from Nutro|I need help choosing the right hosting plan"
          
