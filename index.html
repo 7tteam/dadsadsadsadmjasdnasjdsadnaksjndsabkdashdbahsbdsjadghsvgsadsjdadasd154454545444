@@ -2,6 +2,29 @@
 <html lang="en">
 
 <head>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // استدعاء API لتحديد الدولة من IP
+    fetch("https://ipapi.co/json/")
+      .then(response => response.json())
+      .then(data => {
+        const countryCode = data.country_code; // مثل "EG" أو "SA" أو "US"
+
+        // قائمة بالدول العربية المشهورة
+        const arabCountries = ["EG", "SA", "AE", "IQ", "JO", "KW", "MA", "DZ", "TN", "QA", "OM", "BH", "LY", "YE", "SD", "SY", "PS", "LB"];
+
+        // لو الدولة عربية و مش في صفحة /ar/ بالفعل
+        if (arabCountries.includes(countryCode) && !location.pathname.startsWith("/ar/")) {
+          window.location.href = "/ar/";
+        }
+      })
+      .catch(error => {
+        console.error("فشل في تحديد الدولة:", error);
+        // fallback: ممكن تستخدم اللغة هنا لو حبيت
+      });
+  });
+</script>
+
     <!-- Charset & Responsive -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
