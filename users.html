@@ -4,70 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Users Dashboard</title>
-    <!-- SEO Meta -->
-    <meta name="description" content="Nutro Cloud offers affordable hosting services for websites and game servers with both free and paid plans. Powered by 7T Team.">
-    <meta name="keywords" content="hosting, cheap hosting, Nutro Cloud, web hosting, free hosting, paid hosting, 7T Team, game servers, website hosting">
-    <meta http-equiv="Content-Language" content="en">
-    <meta name="robots" content="index, follow">
-    <link rel="icon" href="https://www.nutro.cloud/assets/images/fav.png" type="image/x-icon">
-    <!-- Open Graph & Twitter -->
-    <meta property="og:title" content="Nutro Cloud | Users Hosting Services">
-    <meta property="og:description" content="Hosting solutions for websites and game servers with affordable pricing.">
-    <meta property="og:image" content="https://www.nutro.cloud/banner.jpg">
-    <meta property="og:url" content="https://www.nutro.cloud">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Nutro Cloud | Affordable Hosting Services">
-    <meta name="twitter:description" content="Affordable and reliable hosting for websites.">
-    <meta name="twitter:image" content="https://www.nutro.cloud/banner.jpg">
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
     <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
-    <!-- Custom Styles -->
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggtNH8fiqZ0yQFSo0wFQ_-PgPJBAUrtGxIk1418sBcWN6J7qqA7og_zqU36gc6G9GQe186T_YpjNCEpUwD7_4nshAhK-rV10Dm3a8RwtVVWJ88BunkNJWeETQesoA6MIrwR30uzyqheYDeNI8XJpqPW05cUA-svTaYYJkZUZK49Z1hrmCtta34YgXTHDoM/s320/banner.jpg') no-repeat center center fixed;
-            background-size: cover;
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 50%, #f0fdfa 100%);
             min-height: 100vh;
             margin: 0;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
         .glass-card {
-            background: rgba(255, 255, 255, 0.75);
-            border-radius: 20px;
-            box-shadow: 0 10px 24px rgba(0,0,0,0.2);
-            backdrop-filter: blur(14px);
-            padding: 40px 30px;
+            background: rgba(255,255,255,0.85);
+            border-radius: 18px;
+            box-shadow: 0 6px 32px rgba(0,30,80,0.09);
+            backdrop-filter: blur(12px);
+            padding: 38px 26px;
             text-align: center;
             min-width: 310px;
+            position: relative;
+            overflow: hidden;
             transition: transform 0.25s, box-shadow 0.25s;
         }
-
+        .glass-card::before {
+            content: "";
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle,#818cf8 0%,#f0fdfa 90%);
+            opacity: 0.10;
+            filter: blur(10px);
+            z-index: 0;
+        }
         .glass-card:hover {
-            transform: translateY(-10px) scale(1.04);
-            box-shadow: 0 18px 32px rgba(0,0,0,0.25);
+            transform: translateY(-7px) scale(1.03);
+            box-shadow: 0 14px 32px rgba(99,102,241,0.10);
         }
-
-        .pricing-options {
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
         .btn-custom {
-            background: linear-gradient(90deg, #4CAF50, #43e97b 99%);
+            background: linear-gradient(90deg, #6366f1 0%, #0ea5e9 100%);
             border: none;
             color: #fff;
             padding: 12px 30px;
@@ -75,34 +59,26 @@
             font-size: 1.1rem;
             font-weight: 600;
             transition: background 0.3s, transform 0.2s;
-            box-shadow: 0 2px 12px rgba(76, 175, 80, 0.14);
+            box-shadow: 0 2px 12px rgba(99,102,241,0.08);
         }
         .btn-custom:hover {
-            background: linear-gradient(90deg, #43e97b, #38f9d7 99%);
+            background: linear-gradient(90deg, #0ea5e9 0%, #818cf8 100%);
             transform: scale(1.07);
-            box-shadow: 0 8px 22px rgba(67, 233, 123, 0.16);
+            box-shadow: 0 8px 22px rgba(99,102,241,0.14);
         }
-
-        .shine {
-            position: relative;
-            overflow: hidden;
+        .pricing-options {
+            gap: 38px;
+            flex-wrap: wrap;
         }
-        .shine::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(130deg, rgba(255,255,255,0.1) 40%, rgba(255,255,255,0.5) 47%, rgba(255,255,255,0.05) 60%);
-            transform: rotate(25deg);
-            pointer-events: none;
-            animation: shine 2.5s infinite linear;
+        .glass-card .icon {
+            font-size: 38px;
+            margin-bottom: 12px;
+            color: #6366f1;
+            animation: float 2s infinite alternate cubic-bezier(.7,.05,.66,.93);
         }
-        @keyframes shine {
-            0% {left: -60%;}
-            60% {left: 120%;}
-            100% {left: 120%;}
+        @keyframes float {
+            0% { transform: translateY(0);}
+            100% { transform: translateY(-12px);}
         }
     </style>
 </head>
@@ -111,31 +87,31 @@
         <div class="row pricing-options justify-content-center w-100">
             <!-- Free Access Box -->
             <div class="col-md-4 mb-4">
-                <div class="glass-card animate__animated animate__fadeInLeft shine" @mouseover="addPulse('free')" @mouseleave="removePulse('free')" :class="{'animate__pulse': isPulse.free}">
-                    <h2 class="text-2xl font-bold text-green-700 mb-2">Free Access</h2>
+                <div class="glass-card animate__animated animate__fadeInLeft" @mouseover="addPulse('free')" @mouseleave="removePulse('free')" :class="{'animate__pulse': isPulse.free}">
+                    <div class="icon"><i class="fas fa-leaf"></i></div>
+                    <h2 class="text-2xl font-bold text-indigo-700 mb-2">Free Access</h2>
                     <p class="mb-4 text-gray-600">Get access to basic features for free.</p>
                     <button class="btn btn-custom mt-2" @click="go('https://free.nutro.cloud')">Free Access</button>
                 </div>
             </div>
             <!-- Paid Access Box -->
             <div class="col-md-4 mb-4">
-                <div class="glass-card animate__animated animate__fadeInRight shine" @mouseover="addPulse('paid')" @mouseleave="removePulse('paid')" :class="{'animate__pulse': isPulse.paid}">
-                    <h2 class="text-2xl font-bold text-blue-700 mb-2">Paid Access</h2>
+                <div class="glass-card animate__animated animate__fadeInRight" @mouseover="addPulse('paid')" @mouseleave="removePulse('paid')" :class="{'animate__pulse': isPulse.paid}">
+                    <div class="icon"><i class="fas fa-gem"></i></div>
+                    <h2 class="text-2xl font-bold text-cyan-700 mb-2">Paid Access</h2>
                     <p class="mb-4 text-gray-600">Unlock all premium features with a paid plan.</p>
                     <button class="btn btn-custom mt-2" @click="go('https://pro.nutro.cloud')">Paid Access</button>
                 </div>
             </div>
         </div>
-        <!-- Example AJAX: يمكن ربطها مع زر لاحقًا -->
-        <div class="d-none" id="ajax-demo"></div>
     </div>
-
-    <!-- Scripts -->
+    <!-- FontAwesome for icons -->
+    <script src="https://kit.fontawesome.com/7ca458b8b6.js" crossorigin="anonymous"></script>
+    <!-- Vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Vue.js interaction
         new Vue({
             el: "#app",
             data: {
@@ -147,19 +123,6 @@
                 go(url) { window.open(url, "_blank"); }
             }
         });
-
-        // مثال AJAX بـ jQuery (يمكن ربطه بأي زر أو حدث)
-        // $(function() {
-        //     $.ajax({
-        //         url: "https://api.nutro.cloud/demo",
-        //         method: "GET",
-        //         success: function(data) {
-        //             $("#ajax-demo").html("<pre>" + JSON.stringify(data, null, 2) + "</pre>").removeClass('d-none');
-        //         }
-        //     });
-        // });
-
-        // حجب كليك يمين
         document.addEventListener('contextmenu', function (event) {
             event.preventDefault();
         });
