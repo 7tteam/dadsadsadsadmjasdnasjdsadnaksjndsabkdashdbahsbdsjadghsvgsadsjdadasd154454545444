@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Price Page - Under Maintenance</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      color: white;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+    #countdown {
+      font-size: 2em;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>Price Page is Under Maintenance</h1>
+  <p>We’ll be back shortly. Thanks for your patience ❤️</p>
+  <div id="countdown">Loading countdown...</div>
+
+  <script>
+    // Set the date 3 days from now
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 3);
+
+    const countdown = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        countdown.innerHTML = "Maintenance completed ✅";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    updateCountdown(); // Initial call
+    setInterval(updateCountdown, 1000); // Update every second
+  </script>
+</body>
+</html>
