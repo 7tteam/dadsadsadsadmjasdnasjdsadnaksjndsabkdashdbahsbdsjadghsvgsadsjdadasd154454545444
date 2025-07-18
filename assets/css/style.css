@@ -17319,11 +17319,10 @@ header.heder-two .sub-dropdown .submenu.third-lvl.base {
     padding: 100px 0;
   }
 }
-.rts-hero-four.rts-hero__four {
-  background-position: center;
-  background-repeat: no-repeat;
+.rts-hero-four.rts-hero__four {  
+  background-repeat: repeat;
   position: relative;
- 
+  z-index: 2;
 }
 .rts-hero-four.rts-hero__four::after {
   position: absolute;
