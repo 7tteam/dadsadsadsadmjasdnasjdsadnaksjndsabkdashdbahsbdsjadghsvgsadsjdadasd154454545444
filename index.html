@@ -208,20 +208,7 @@
 </style>
 
 
-<!-- Toast Container -->
-<div id="language-toast">
-  <div class="toast-header">
-    <i class="fas fa-globe-americas"></i>
-    <span>تم التعرف على بلدك</span>
-  </div>
-  <div class="toast-body">
-    <p class="mb-2" id="countryMessage">يبدو أنك من دولة عربية. هل ترغب في الانتقال إلى النسخة العربية؟</p>
-    <div class="toast-actions">
-      <button class="btn btn-sm btn-primary" id="goToArabic">نعم</button>
-      <button class="btn btn-sm btn-outline-secondary" id="stayHere">لا</button>
-    </div>
-  </div>
-</div>
+
 
 <!-- Script -->
 <script>
@@ -237,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (arabCountries.includes(countryCode) && !location.pathname.startsWith("/ar/")) {
         document.getElementById("countryMessage").textContent =
-          `لقد تم اكتشاف أنك من ${countryName}. هل ترغب في الانتقال إلى النسخة العربية؟`;
+          ` Would you like to visit an Nutro ${countryName} site closer to you?. `;
 
         const toast = document.getElementById("language-toast");
         toast.classList.add("show");
@@ -259,6 +246,20 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
     <div id="header"></div>
+<!-- Toast Container -->
+<div id="language-toast">
+  <div class="toast-header">
+    <i class="fas fa-globe-americas"></i>
+    <span>تم التعرف على بلدك</span>
+  </div>
+  <div class="toast-body">
+    <p class="mb-2" id="countryMessage">Would you like to visit an Nutro country site closer to you?</p>
+    <div class="toast-actions">
+      <button class="btn btn-sm btn-primary" id="goToArabic">Visit Nutro Arabic</button>
+      <button class="btn btn-sm btn-outline-secondary" id="stayHere">No thanks, I'll stay here</button>
+    </div>
+  </div>
+</div>
     <!-- HERO BANNER ONE -->
      <section class="rts-hero-four rts-hero__four" style="background-image: url(assets/images/banner/newnutro.png);">
         <div class="container">
