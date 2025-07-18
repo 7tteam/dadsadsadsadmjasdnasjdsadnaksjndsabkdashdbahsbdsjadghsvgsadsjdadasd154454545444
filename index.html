@@ -318,10 +318,41 @@ document.addEventListener("DOMContentLoaded", function () {
 No experience needed. Just click and launch.</p>
                         <div class="rts-hero__content--group" data-sal="slide-down" data-sal-delay="0"
                             data-sal-duration="0">
-                            <a href="#plan" class="primary__btn white__bg" data-gta>Get Started <i
+                            <a href="#plan" class="primary__btn white__bg" data-gta>Grab deal<i
                                     class="fa-regular fa-long-arrow-right"></i></a>
-                            <a href="#plan" class="btn__zero plan__btn">Plans & Pricing <i
-                                    class="fa-regular fa-long-arrow-right"></i></a>
+                            <a href="#plan" class="btn__zero plan__btn d-inline-flex align-items-center gap-2">
+
+  <span id="countdown" style="font-weight: bold; font-size: 0.9rem;" class="text-warning"></span>
+  <i class="fa-regular fa-long-arrow-right"></i>
+</a>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const countdownElement = document.getElementById("countdown");
+  const targetDate = new Date("2024-07-30T00:00:00");
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+      countdownElement.textContent = "انتهى ⛔";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    countdownElement.textContent = `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+
+  updateCountdown(); // مرة واحدة بالبداية
+  setInterval(updateCountdown, 1000); // ثم كل ثانية
+});
+</script>
+
+
                         </div>
                         <p data-sal="slide-down" data-sal-delay="0" data-sal-duration="0"><img
                                 src="assets/images/icon/dollar.svg" alt="">WebHosting &VPS Starting from <span>$2.99</span>
