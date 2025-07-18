@@ -193,11 +193,10 @@
 
 <body id="main-body">
 
-
 <style>
   #language-toast {
     position: fixed;
-    bottom: 20px;
+    top: 20px; /* بدل bottom */
     right: 20px;
     background: #fff;
     border-left: 5px solid #0d6efd;
@@ -213,12 +212,12 @@
 
   #language-toast.show {
     display: block;
-    animation: fadeIn 0.5s ease-in-out;
+    animation: fadeInDown 0.5s ease-in-out;
   }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateX(20px); }
-    to { opacity: 1; transform: translateX(0); }
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   #language-toast .toast-header {
@@ -243,6 +242,7 @@
     padding: 4px 12px;
   }
 </style>
+
 
 <!-- Toast Container -->
 <div id="language-toast">
