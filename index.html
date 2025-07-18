@@ -328,14 +328,16 @@ No experience needed. Just click and launch.</p>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const countdownElement = document.getElementById("countdown");
-  const targetDate = new Date("2024-07-30T00:00:00");
+
+  // 2024-07-30 00:00:00 UTC
+  const targetDateUTC = Date.UTC(2024, 6, 30, 0, 0, 0); // ملاحظة: الشهر 6 = يوليو (0-based)
 
   function updateCountdown() {
-    const now = new Date();
-    const diff = targetDate - now;
+    const nowUTC = new Date().getTime(); // الزمن الحالي بالميللي ثانية (يُحسب تلقائيًا حسب UTC)
+    const diff = targetDateUTC - nowUTC;
 
     if (diff <= 0) {
-      countdownElement.textContent = "انتهى ⛔";
+      countdownElement.textContent = "⛔ انتهى";
       return;
     }
 
@@ -347,10 +349,11 @@ document.addEventListener("DOMContentLoaded", function () {
     countdownElement.textContent = `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s`;
   }
 
-  updateCountdown(); // مرة واحدة بالبداية
-  setInterval(updateCountdown, 1000); // ثم كل ثانية
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
 });
 </script>
+
 
 
                         </div>
