@@ -327,7 +327,41 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     </section>
     <!-- HERO BANNER ONE END -->
-
+<script>
+        // تحديد التاريخ المستهدف - 30 يوليو 2025 الساعة 00:00 بتوقيت GMT
+        const targetDate = new Date("2025-07-30T00:00:00Z").getTime();
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+        
+            // التحقق إذا انتهى الوقت
+            if (distance <= 0) {
+                document.getElementById("countdown").innerHTML = "انتهى الوقت";
+                clearInterval(timer);
+                return;
+            }
+        
+            // حساب الأيام والساعات والدقائق والثواني
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+            // عرض النتيجة
+        
+            document.getElementById("countdown").innerHTML =
+                `${days} : ${hours} : ${minutes} : ${seconds}`;
+        }
+        
+        // تحديث العداد كل ثانية
+        const timer = setInterval(updateCountdown, 1000);
+        
+        // تشغيل أولي عند التحميل
+        updateCountdown();
+        
+        </script>
+        
     <!-- BRAND AREA -->
     <div class="rts-brand rts-brand__bg--section pt-100 pb-120">
         <div class="container">
