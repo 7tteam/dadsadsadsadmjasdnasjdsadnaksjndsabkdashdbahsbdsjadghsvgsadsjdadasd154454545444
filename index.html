@@ -318,11 +318,11 @@ document.addEventListener("DOMContentLoaded", function () {
 No experience needed. Just click and launch.</p>
                         <div class="rts-hero__content--group" data-sal="slide-down" data-sal-delay="0"
                             data-sal-duration="0">
-                            <a href="#plan" class="primary__btn white__bg" data-gta>Grab deal<i
+                            <a href="deals" class="primary__btn white__bg" data-gta>Grab deal<i
                                     class="fa-regular fa-long-arrow-right"></i></a>
-                            <a href="#plan" class="btn__zero plan__btn d-inline-flex align-items-center gap-2">
+                            <a href="deals" class="btn__zero plan__btn d-inline-flex align-items-center gap-2">
 
-  <span id="countdown" style="font-weight: bold; font-size: 0.9rem;" class="text-warning"></span>
+  <p id="countdown" style="font-size: 50px; font-weight: bold; font-family: 'Courier New', monospace; text-align: center;" class="text-warning"></p>
   <i class="fa-regular fa-long-arrow-right"></i>
 </a>
 <script>
@@ -347,11 +347,9 @@ function updateCountdown() {
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // عرض النتيجة
-    document.getElementById("countdown").innerHTML = 
-        days + " يوم " + 
-        hours + " ساعة " + 
-        minutes + " دقيقة " + 
-        seconds + " ثانية ";
+
+    document.getElementById("countdown").innerHTML =
+        `${days} : ${hours} : ${minutes} : ${seconds}`;
 }
 
 // تحديث العداد كل ثانية
