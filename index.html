@@ -50,45 +50,110 @@
     <meta name="twitter:description"
         content="Nutro Cloud provides affordable and reliable hosting for websites and game servers. Choose from free or paid plans for the best experience.">
     <meta name="twitter:image" content="https://www.nutro.cloud/assets/images/banner.jpg">
-
+    <link rel="alternate" hreflang="ar" href="https://nutro.cloud/ar/">
     <!-- Structured Data: Service -->
-    <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Web Hosting Service",
-    "provider": {
-      "@type": "Organization",
-      "name": "NutroCloud",
-      "url": "https://www.nutro.cloud/"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "Egypt"
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": "2.99",
-      "priceCurrency": "USD"
-    }
-  }
-  </script>
-
-    <!-- Structured Data: Organization -->
-    <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
+   <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Nutro Cloud",
+  "url": "https://www.nutro.cloud/",
+  "logo": "https://www.nutro.cloud/assets/images/logo/logo2.png",
+  "description": "Nutro Cloud is a global hosting provider powered by 7T Team. We offer lightning-fast and reliable web hosting, game server hosting, domains, and VPS – all at affordable prices. With plans starting from $0, we empower gamers, developers, and startups worldwide to build, launch, and scale their online presence with ease.",
+  "founder": {
     "@type": "Organization",
-    "name": "Nutro Cloud",
-    "url": "https://www.nutro.cloud/",
-    "logo": "https://www.nutro.cloud/assets/images/logo/logo2.png",
-    "description": "Nutro Cloud offers affordable web hosting and game server solutions with free and paid plans, powered by 7T Team.",
-    "sameAs": [
-      "https://www.facebook.com/7tteam",
-      "https://www.twitter.com/7tteame"
+    "name": "7T Team"
+  },
+  "brand": {
+    "@type": "Brand",
+    "name": "Nutro Cloud"
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "Worldwide"
+  },
+  "sameAs": [
+    "https://www.facebook.com/7tteam",
+    "https://www.twitter.com/7tteame",
+    "https://www.instagram.com/7tteam",
+    "https://www.youtube.com/@7tteam",
+    "https://discord.gg/7tteam"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Support",
+    "email": "support@nutro.cloud",
+    "availableLanguage": ["English", "Arabic"],
+    "areaServed": "Worldwide"
+  },
+  "makesOffer": {
+    "@type": "OfferCatalog",
+    "name": "Nutro Cloud Hosting Plans",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Free Web Hosting Plan",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "description": "A beginner-friendly plan with essential resources to get started online for free.",
+        "eligibleRegion": "Worldwide"
+      },
+      {
+        "@type": "Offer",
+        "name": "Premium Web Hosting",
+        "price": "2.99",
+        "priceCurrency": "USD",
+        "description": "Powerful and fast shared hosting suitable for small to medium businesses.",
+        "eligibleRegion": "Worldwide"
+      },
+      {
+        "@type": "Offer",
+        "name": "Game Server Hosting",
+        "price": "4.99",
+        "priceCurrency": "USD",
+        "description": "High-performance Minecraft and multiplayer game hosting with DDoS protection.",
+        "eligibleRegion": "Worldwide"
+      },
+      {
+        "@type": "Offer",
+        "name": "VPS Hosting",
+        "price": "7.99",
+        "priceCurrency": "USD",
+        "description": "SSD-powered VPS for developers and agencies who need full control and scalability.",
+        "eligibleRegion": "Worldwide"
+      }
+    ]
+  },
+  "serviceType": "Web Hosting, Game Server Hosting, Domain Registration, VPS Hosting",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Hosting Services by Nutro Cloud",
+    "itemListElement": [
+      {
+        "@type": "Service",
+        "name": "Shared Web Hosting",
+        "description": "Affordable hosting with 99.9% uptime, cPanel, and fast SSD storage."
+      },
+      {
+        "@type": "Service",
+        "name": "Game Server Hosting",
+        "description": "Instant setup servers for Minecraft, FiveM, and more – with global low-latency nodes."
+      },
+      {
+        "@type": "Service",
+        "name": "Domain Registration",
+        "description": "Get your domain starting from $0.99 with instant activation."
+      },
+      {
+        "@type": "Service",
+        "name": "Virtual Private Servers (VPS)",
+        "description": "Full root access, SSD storage, and scalable resources for high-demand apps."
+      }
     ]
   }
-  </script>
+}
+</script>
+
 
     <!-- Google Fonts Preconnect & Import -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -112,16 +177,16 @@
     <script async src="https://www.clarity.ms/tag/o1zhuhfssa"></script>
 
     <!-- Google Tag Manager & Analytics -->
-    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PLLMNQXR"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0Y4C75MTRQ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-0Y4C75MTRQ');
+  <!-- Google Tag Manager -->
+   <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PLLMNQXR');
     </script>
-
-    <!-- Facebook Pixel -->
+<!-- End Google Tag Manager -->
+   <!-- Facebook Pixel -->
     <script>
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
@@ -137,10 +202,9 @@
         fbq('init', '2032051840631688');
         fbq('track', 'PageView');
     </script>
-    <noscript>
-        <img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=2032051840631688&ev=PageView&noscript=1" />
-    </noscript>
+
+
+ 
 
     <!-- Custom User Styles -->
     <style>
@@ -156,7 +220,16 @@
 
 
 <body id="main-body">
-
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLLMNQXR"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <noscript>
+        <img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=2032051840631688&ev=PageView&noscript=1" />
+    </noscript>
 <style>
   #language-toast {
     position: fixed;
