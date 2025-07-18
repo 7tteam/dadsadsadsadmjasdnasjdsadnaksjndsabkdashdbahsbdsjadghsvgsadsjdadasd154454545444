@@ -17321,10 +17321,9 @@ header.heder-two .sub-dropdown .submenu.third-lvl.base {
 }
 .rts-hero-four.rts-hero__four {
   background-position: center;
-  background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  z-index: 2;
+ 
 }
 .rts-hero-four.rts-hero__four::after {
   position: absolute;
