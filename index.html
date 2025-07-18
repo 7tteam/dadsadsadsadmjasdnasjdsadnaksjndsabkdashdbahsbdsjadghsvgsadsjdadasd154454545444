@@ -326,31 +326,40 @@ No experience needed. Just click and launch.</p>
   <i class="fa-regular fa-long-arrow-right"></i>
 </a>
 <script>
-// التاريخ النهائي - 30 يوليو 2024 الساعة 23:59 بتوقيت مصر (GMT+2)
-const targetDate = new Date('2024-07-30T23:59:59+02:00');
+// تحديد التاريخ المستهدف - 30 يوليو 2025 الساعة 00:00 بتوقيت GMT
+const targetDate = new Date("2025-07-30T00:00:00Z").getTime();
 
 function updateCountdown() {
-  const now = new Date();
-  const nowGMT2 = new Date(now.toLocaleString("en-US", { timeZone: "Africa/Cairo" }));
-  const diff = targetDate - nowGMT2;
+    const now = new Date().getTime();
+    const distance = targetDate - now;
 
-  if (diff <= 0) {
-    document.getElementById('countdown').innerHTML = 'انتهى العرض';
-    return;
-  }
+    // التحقق إذا انتهى الوقت
+    if (distance <= 0) {
+        document.getElementById("countdown").innerHTML = "انتهى الوقت";
+        clearInterval(timer);
+        return;
+    }
 
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((diff / (1000 * 60)) % 60);
-  const seconds = Math.floor((diff / 1000) % 60);
+    // حساب الأيام والساعات والدقائق والثواني
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  document.getElementById('countdown').innerHTML =
-    `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    // عرض النتيجة
+    document.getElementById("countdown").innerHTML = 
+        days + " يوم " + 
+        hours + " ساعة " + 
+        minutes + " دقيقة " + 
+        seconds + " ثانية ";
 }
 
-// شغله كل ثانية
-setInterval(updateCountdown, 1000);
-updateCountdown(); // تشغيل فوري أول مرة
+// تحديث العداد كل ثانية
+const timer = setInterval(updateCountdown, 1000);
+
+// تشغيل أولي عند التحميل
+updateCountdown();
+
 </script>
 
 
