@@ -192,35 +192,76 @@
 
 
 <body id="main-body">
-<!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Modal -->
-<div class="modal fade" id="arabicModal" tabindex="-1" aria-labelledby="arabicModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content text-center">
-      <div class="modal-header">
-        <h5 class="modal-title w-100" id="arabicModalLabel"> Welcome!</h5>
-      </div>
-      <div class="modal-body">
-        <div id="countryFlag" style="font-size: 2rem;"></div>
-        <p class="mt-2" id="countryMessage">تم اكتشاف أنك من دولة عربية.</p>
-        <p>هل ترغب في الانتقال إلى النسخة العربية من الموقع؟</p>
-      </div>
-      <div class="modal-footer justify-content-center">
-        <button type="button" class="btn btn-success" id="goToArabic">نعم، خذني إلى العربية</button>
-        <button type="button" class="btn btn-secondary" id="stayHere">لا، أريد المتابعة هنا</button>
-      </div>
+
+<style>
+  #language-toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #fff;
+    border-left: 5px solid #0d6efd;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    padding: 16px 20px;
+    z-index: 9999;
+    display: none;
+    width: 320px;
+    max-width: 90%;
+    transition: all 0.3s ease-in-out;
+  }
+
+  #language-toast.show {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  #language-toast .toast-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #0d6efd;
+    margin-bottom: 8px;
+  }
+
+  #language-toast .toast-actions {
+    margin-top: 12px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  #language-toast .btn {
+    font-size: 0.9rem;
+    padding: 4px 12px;
+  }
+</style>
+
+<!-- Toast Container -->
+<div id="language-toast">
+  <div class="toast-header">
+    <i class="fas fa-globe-americas"></i>
+    <span>تم التعرف على بلدك</span>
+  </div>
+  <div class="toast-body">
+    <p class="mb-2" id="countryMessage">يبدو أنك من دولة عربية. هل ترغب في الانتقال إلى النسخة العربية؟</p>
+    <div class="toast-actions">
+      <button class="btn btn-sm btn-primary" id="goToArabic">نعم</button>
+      <button class="btn btn-sm btn-outline-secondary" id="stayHere">لا</button>
     </div>
   </div>
 </div>
 
-<!-- Bootstrap JS (Modal functionality) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+<!-- Script -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // لو المستخدم اختار البقاء، لا نعرض المودال مرة أخرى
   if (localStorage.getItem("stayOnEnglish") === "true") return;
 
   fetch("https://ipapi.co/json/")
@@ -228,41 +269,28 @@ document.addEventListener("DOMContentLoaded", function () {
     .then(data => {
       const countryCode = data.country_code;
       const countryName = data.country_name;
-      const flagEmoji = getFlagEmoji(countryCode);
-
       const arabCountries = ["EG", "SA", "AE", "IQ", "JO", "KW", "MA", "DZ", "TN", "QA", "OM", "BH", "LY", "YE", "SD", "SY", "PS", "LB"];
 
       if (arabCountries.includes(countryCode) && !location.pathname.startsWith("/ar/")) {
-        document.getElementById("countryMessage").textContent = `تم اكتشاف أنك من ${countryName}`;
-        document.getElementById("countryFlag").textContent = flagEmoji;
+        document.getElementById("countryMessage").textContent =
+          `لقد تم اكتشاف أنك من ${countryName}. هل ترغب في الانتقال إلى النسخة العربية؟`;
 
-        const myModal = new bootstrap.Modal(document.getElementById("arabicModal"));
-        myModal.show();
+        const toast = document.getElementById("language-toast");
+        toast.classList.add("show");
 
-        // Yes -> redirect to Arabic version
         document.getElementById("goToArabic").addEventListener("click", () => {
           window.location.href = "/ar/";
         });
 
-        // No -> set flag in localStorage to not show again
         document.getElementById("stayHere").addEventListener("click", () => {
           localStorage.setItem("stayOnEnglish", "true");
-          myModal.hide();
+          toast.remove();
         });
       }
     })
     .catch(error => {
       console.error("فشل في تحديد الدولة:", error);
     });
-
-  // Function to convert country code to emoji flag
-  function getFlagEmoji(countryCode) {
-    const codePoints = countryCode
-      .toUpperCase()
-      .split('')
-      .map(char => 127397 + char.charCodeAt());
-    return String.fromCodePoint(...codePoints);
-  }
 });
 </script>
 
