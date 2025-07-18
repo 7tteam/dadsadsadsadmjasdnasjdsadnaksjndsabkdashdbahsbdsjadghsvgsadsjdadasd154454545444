@@ -326,32 +326,31 @@ No experience needed. Just click and launch.</p>
   <i class="fa-regular fa-long-arrow-right"></i>
 </a>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const countdownElement = document.getElementById("countdown");
+// التاريخ النهائي - 30 يوليو 2024 الساعة 23:59 بتوقيت مصر (GMT+2)
+const targetDate = new Date('2024-07-30T23:59:59+02:00');
 
-  // 2024-07-30 00:00:00 UTC
-  const targetDateUTC = Date.UTC(2024, 6, 30, 0, 0, 0); // ملاحظة: الشهر 6 = يوليو (0-based)
+function updateCountdown() {
+  const now = new Date();
+  const nowGMT2 = new Date(now.toLocaleString("en-US", { timeZone: "Africa/Cairo" }));
+  const diff = targetDate - nowGMT2;
 
-  function updateCountdown() {
-    const nowUTC = new Date().getTime(); // الزمن الحالي بالميللي ثانية (يُحسب تلقائيًا حسب UTC)
-    const diff = targetDateUTC - nowUTC;
-
-    if (diff <= 0) {
-      countdownElement.textContent = "⛔ انتهى";
-      return;
-    }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
-
-    countdownElement.textContent = `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s`;
+  if (diff <= 0) {
+    document.getElementById('countdown').innerHTML = 'انتهى العرض';
+    return;
   }
 
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-});
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  document.getElementById('countdown').innerHTML =
+    `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+
+// شغله كل ثانية
+setInterval(updateCountdown, 1000);
+updateCountdown(); // تشغيل فوري أول مرة
 </script>
 
 
