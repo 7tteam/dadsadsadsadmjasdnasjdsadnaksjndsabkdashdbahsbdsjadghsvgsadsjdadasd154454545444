@@ -1,0 +1,167 @@
+/* تحسينات شاملة للتصميم */
+
+/* تحسين أزرار التنقل */
+.plan-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.plan-nav-btn {
+    padding: 12px 20px;
+    border-radius: 30px;
+    background: #fff;
+    color: var(--dark-text);
+    font-weight: 600;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-align: center;
+    min-width: 120px;
+}
+
+/* تحسين العرض على الهاتف */
+@media (max-width: 768px) {
+    .plan-navigation {
+        gap: 8px;
+    }
+    
+    .plan-nav-btn {
+        width: calc(33.33% - 8px);
+        padding: 10px 5px;
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+    
+    .plan-nav-btn i {
+        margin-right: 5px;
+        font-size: 12px;
+    }
+}
+
+/* تحسين جدول المقارنة */
+#comparison-table-container-en,
+#comparison-table-container-ar {
+    overflow-x: auto;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+}
+
+.comparison-table {
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* تحسين مربعات المميزات */
+.feature-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 5px 15px;
+}
+
+.feature-card h4 {
+    margin-top: 0;
+}
+
+.feature-card p {
+    flex-grow: 1;
+}
+
+.feature-card.text-center {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+/* تحسين مربعات الاستخدامات */
+@media (min-width: 768px) {
+    #gpu-plans .row.mt-5 .col-md-4,
+    #deepseek-plans .row.mt-5 .col-md-3 {
+        display: flex;
+        float: left;
+    }
+    
+    #gpu-plans .row.mt-5 .col-md-4 {
+        width: 33.33%;
+    }
+    
+    #deepseek-plans .row.mt-5 .col-md-3 {
+        width: 25%;
+    }
+    
+    #s3-plans .row.mb-5 .col-md-4 {
+        width: 33.33%;
+        float: left;
+        display: flex;
+    }
+    
+    #nodejs-plans .row.mb-5 .col-md-3 {
+        width: 25%;
+        float: left;
+        display: flex;
+    }
+    
+    #gpu-plans .row.mb-5 .col-lg-3 {
+        width: 25%;
+        float: left;
+        display: flex;
+    }
+    
+    #deepseek-plans .row.mb-5 .col-lg-4 {
+        width: 33.33%;
+        float: left;
+        display: flex;
+    }
+}
+
+/* تحسين زر المقارنة */
+.feature-toggle {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* تحسين الجداول */
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+/* إصلاح مشكلة الصفوف بعد استخدام float */
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* تحسين عرض الجداول على الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .table td, .table th {
+        white-space: nowrap;
+        padding: 10px 8px;
+        font-size: 14px;
+    }
+    
+    .table th i {
+        display: block;
+        margin: 0 auto 5px;
+    }
+}
