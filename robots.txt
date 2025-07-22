@@ -1,5 +1,41 @@
 User-agent: *
-Disallow:
 Allow: /
+Disallow: /users/admin/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /*.sql$
+Disallow: /*.tgz$
+Disallow: /*.gz$
+Disallow: /*.zip$
+Disallow: /error_log
+Disallow: /error
+Disallow: /admin
+Disallow: /includes
+Disallow: /install
+Disallow: /log
+Disallow: /logs
+Disallow: /cache
+Disallow: /cgi-bin
+Disallow: /tmp
 
+# Allow search engines to access JS and CSS files
+Allow: /*.js$
+Allow: /*.css$
+
+# Image files
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
+
+# Document files
+Allow: /*.pdf$
+Allow: /*.doc$
+Allow: /*.docx$
+Allow: /*.xls$
+Allow: /*.xlsx$
+
+# Sitemap files
 Sitemap: https://www.nutro.cloud/sitemap.xml
