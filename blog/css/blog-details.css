@@ -78,7 +78,7 @@
 }
 
 .article-title {
-    font-size: 3.5rem;
+    font-size: 6rem;
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 2rem;
@@ -116,7 +116,7 @@
 .content-body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
     font-size: 4rem; /* 16px */
-    line-height: 2;
+    line-height: 3;
     color: #2e2e2e;
     text-align: left;
     max-width: 760px;
@@ -127,6 +127,12 @@
 }
 
 /* Headings */
+.content-body h1 { font-size: 6rem; }    /* كان 4.5rem */
+.content-body h2 { font-size: 5rem; }    /* كان 4rem */
+.content-body h3 { font-size: 4.5rem; }  /* كان 3.625rem */
+.content-body h4 { font-size: 4rem; }    /* كان 3.375rem */
+.content-body h5 { font-size: 3.5rem; }  /* كان 3.125rem */
+.content-body h6 { font-size: 3.25rem; } /* كان 3rem */
 .content-body h1,
 .content-body h2,
 .content-body h3,
@@ -141,19 +147,13 @@
     letter-spacing: -0.01em;
 }
 
-.content-body h1 { font-size: 4.5rem; }   /* ~40px */
-.content-body h2 { font-size: 4rem; }     /* ~32px */
-.content-body h3 { font-size: 3.625rem; } /* ~26px */
-.content-body h4 { font-size: 3.375rem; } /* ~22px */
-.content-body h5 { font-size: 3.125rem; } /* ~18px */
-.content-body h6 { font-size: 3rem; }     /* 16px */
 
 /* Paragraphs */
 .content-body p {
     margin-bottom: 3rem;
-    font-size: 1.125rem; /* ~18px */
+    font-size: 4rem; /* ~18px */
     color: #374151;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 /* Lists */
@@ -189,7 +189,7 @@
 /* Blockquote */
 .content-body blockquote {
     border-left: 4px solid #d1d5db;
-    padding-left: 1rem;
+    padding-left: 4rem;
     color: #6b7280;
     font-style: italic;
     margin: 2rem 0;
@@ -200,7 +200,7 @@
 .content-body code {
     background: #f9fafb;
     font-family: 'Fira Code', monospace;
-    padding: 0.25rem 0.5rem;
+    padding: 2rem 2rem;
     border-radius: 4px;
     font-size: 0.95rem;
 }
