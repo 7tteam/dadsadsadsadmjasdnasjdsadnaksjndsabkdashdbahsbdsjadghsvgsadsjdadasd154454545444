@@ -42,18 +42,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
-    margin-bottom: 3rem;
+    gap: 6rem;
+    margin-bottom: 4rem;
     flex-wrap: wrap;
-    font-size: 0.95rem;
+    font-size: 6rem;
 }
 
 .article-category {
     background: #4f46e5;
     color: white;
-    padding: 0.75rem 1.5rem;
+    padding: 2rem 2rem;
     border-radius: 25px;
-    font-size: 0.8rem;
+    font-size: 2rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -64,10 +64,10 @@
 .article-author,
 .reading-time {
     color: #6b7280;
-    font-size: 0.9rem;
+    font-size: 2rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 2rem;
     font-weight: 500;
 }
 
@@ -150,10 +150,9 @@
 
 /* Paragraphs */
 .content-body p {
-    margin-bottom: 3rem;
-    font-size: 4rem; /* ~18px */
+    margin-bottom: 6rem;
+    font-size: 8rem; /* ~18px */
     color: #374151;
-    font-weight: 500;
 }
 
 /* Lists */
