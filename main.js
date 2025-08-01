@@ -1,9 +1,10 @@
-// Simple main.js file for NutroCloud
+// NutroCloud Main.js - يعمل مع جميع القوائم والصفحات
+
 document.addEventListener('DOMContentLoaded', function() {
     const headerElement = document.getElementById('header');
     const footerElement = document.getElementById('footer');
 
-    // Load header
+    // تحميل الهيدر
     if (headerElement) {
         fetch('header.html')
             .then(response => {
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(error => console.log('Header could not be loaded:', error));
     }
 
-    // Load footer
+    // تحميل الفوتر
     if (footerElement) {
         fetch('footer.html')
             .then(response => {
@@ -25,22 +26,32 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(data => {
                 footerElement.innerHTML = data;
-
-                // Dynamically load the script that defines setupSidebarEvents
-                const script = document.createElement('script');
-                script.src = 'setupSidebarEvents.js';
-                script.onload = () => {
-                    if (typeof setupSidebarEvents === 'function') {
-                        setupSidebarEvents();
-                    }
-                };
-                script.onerror = () => {
-                    console.warn('setupSidebarEvents.js could not be loaded.');
-                };
-                document.body.appendChild(script);
             })
             .catch(error => console.log('Footer could not be loaded:', error));
     }
 
     console.log('NutroCloud main.js loaded successfully');
+});
+
+// تفعيل جميع القوائم المنسدلة (submenus) في كل الصفحات ولكل القوائم
+document.addEventListener("click", function(event) {
+    let mainLink = event.target.closest('.main');
+    if (mainLink) {
+        event.preventDefault();
+
+        // إغلاق أي قائمة أخرى مفتوحة (اختياري)
+        document.querySelectorAll('.submenu.mm-show').forEach(function(openSubmenu) {
+            if (openSubmenu !== mainLink.nextElementSibling) {
+                openSubmenu.classList.remove('mm-show');
+                openSubmenu.classList.add('mm-collapse');
+            }
+        });
+
+        // فتح/إغلاق القائمة الخاصة بالعنصر الحالي
+        let submenu = mainLink.nextElementSibling;
+        if (submenu && submenu.classList.contains('submenu')) {
+            submenu.classList.toggle('mm-show');
+            submenu.classList.toggle('mm-collapse');
+        }
+    }
 });
