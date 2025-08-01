@@ -97,11 +97,35 @@
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>https://nutro.cloud/blog</loc>
-      <lastmod>2023-08-01</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
+    <loc>https://nutro.cloud/blog</loc>
+    <lastmod>2025-08-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://nutro.cloud/blog/blog-details.html?id=why-game-developers-love-custom-hosting-panels-and-why-you-will-too</loc>
+    <lastmod>2025-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nutro.cloud/blog/blog-details.html?id=top-10-free-web-hosting-providers-in-2025-full-review</loc>
+    <lastmod>2025-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nutro.cloud/blog/blog-details.html?id=top-5-hosting-features-you-didnt-know-you-needed</loc>
+    <lastmod>2025-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nutro.cloud/blog/blog-details.html?id=how-to-choose-the-right-hosting-as-a-beginner-2025-guide</loc>
+    <lastmod>2025-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
    <url>
       <loc>https://nutro.cloud/ddos-protection</loc>
       <lastmod>2023-08-01</lastmod>
