@@ -475,6 +475,17 @@
 
 
         }
+/* يخلي الجدول على الموبايل قابل للتمرير أفقي */
+@media (max-width: 768px) {
+    .pricing-section .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .pricing-section table {
+        min-width: 600px; /* عرض أدنى للجدول علشان ما يتكسرش */
+    }
+}
 
         /* Special Offers */
         .special-offer {
