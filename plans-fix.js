@@ -179,7 +179,7 @@ function loadS3Plans() {
       performance: "Fast I/O",
       price: "0.99",
       renew_price: "1.99",
-      link: "https://pro.nutro.cloud/checkout.php?package=server1mo",
+      link: "https://pro.nutro.cloud/checkout/?pay=s3g1",
       popular: false
     },
     {
@@ -190,7 +190,7 @@ function loadS3Plans() {
       performance: "High I/O",
       price: "3.49",
       renew_price: "5.99",
-      link: "https://pro.nutro.cloud/checkout.php?package=server2mo",
+      link: "https://pro.nutro.cloud/checkout/?pay=s3g2",
       popular: true
     },
     {
@@ -201,7 +201,7 @@ function loadS3Plans() {
       performance: "Ultra Fast I/O",
       price: "14.99",
       renew_price: "25.00",
-      link: "https://pro.nutro.cloud/checkout.php?package=server3mo",
+      link: "https://pro.nutro.cloud/checkout/?pay=s3g3",
       popular: false
     },
     {
@@ -212,7 +212,7 @@ function loadS3Plans() {
       performance: "Ultra Fast NVMe",
       price: "29.99",
       renew_price: "60.00",
-      link: "https://pro.nutro.cloud/checkout.php?package=server4mo",
+      link: "https://pro.nutro.cloud/checkout/?pay=s3g4",
       popular: false
     }
   ];
@@ -287,7 +287,7 @@ function loadNodeJSPlans() {
       bandwidth: "1TB Bandwidth",
       price: "3.00",
       renew_price: "5.99",
-      link: "#",
+      link: "https://pro.nutro.cloud/checkout/?pay=nodeg1",
       popular: false
     },
     {
@@ -309,7 +309,7 @@ function loadNodeJSPlans() {
       bandwidth: "5TB Bandwidth",
       price: "16.99",
       renew_price: "24.99",
-      link: "#",
+      link: "https://pro.nutro.cloud/checkout/?pay=nodeg2",
       popular: false
     },
     {
@@ -320,7 +320,7 @@ function loadNodeJSPlans() {
       bandwidth: "10TB Bandwidth",
       price: "29.99",
       renew_price: "39.99",
-      link: "#",
+      link: "https://pro.nutro.cloud/checkout/?pay=nodeg3",
       popular: false
     }
   ];
@@ -395,7 +395,7 @@ function loadGPUPlans() {
       storage: "150GB NVMe SSD",
       price: "90.00",
       renew_price: "105.99",
-      link: "#",
+      link: "support",
       popular: false
     },
     {
@@ -406,7 +406,7 @@ function loadGPUPlans() {
       storage: "300GB NVMe SSD",
       price: "169.99",
       renew_price: "199.99",
-      link: "#",
+      link: "support",
       popular: true
     },
     {
@@ -417,7 +417,7 @@ function loadGPUPlans() {
       storage: "500GB NVMe SSD",
       price: "424.99",
       renew_price: "499.99",
-      link: "#",
+      link: "support",
       popular: false
     },
     {
@@ -428,7 +428,7 @@ function loadGPUPlans() {
       storage: "1TB NVMe SSD",
       price: "849.99",
       renew_price: "999.99",
-      link: "#",
+      link: "support",
       popular: false
     }
   ];
@@ -503,7 +503,7 @@ function loadDeepSeekPlans() {
       storage: "100GB SSD",
       price: "92.10",
       renew_price: "97.10",
-      link: "#",
+      link: "support",
       popular: false
     },
     {
@@ -514,7 +514,7 @@ function loadDeepSeekPlans() {
       storage: "250GB SSD",
       price: "133.75",
       renew_price: "138.75",
-      link: "#",
+      link: "support",
       popular: true
     },
     {
@@ -525,7 +525,7 @@ function loadDeepSeekPlans() {
       storage: "500GB SSD",
       price: "174.21",
       renew_price: "179.21",
-      link: "#",
+      link: "support",
       popular: false
     },
     {
@@ -536,7 +536,7 @@ function loadDeepSeekPlans() {
       storage: "1TB NVMe SSD",
       price: "242.04",
       renew_price: "247.04",
-      link: "#",
+      link: "support",
       popular: false
     }
   ];
