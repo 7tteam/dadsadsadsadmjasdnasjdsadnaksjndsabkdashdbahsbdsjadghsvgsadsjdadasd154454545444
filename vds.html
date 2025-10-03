@@ -363,7 +363,7 @@
                         window.addEventListener("load", function() {
                           // delay بالمللي ثانية (هنا 1200 ملي ثانية = 1.2 ثانية)
                           setTimeout(function() {
-                            fetch("https://user.7tteam.com/admin/nutrocloud/plan.php")
+                            fetch("https://user.7tteam.com/admin/nutrocloud/vds.php")
                               .then(res => {
                                 if (!res.ok) throw new Error('Network response was not ok');
                                 return res.json();
