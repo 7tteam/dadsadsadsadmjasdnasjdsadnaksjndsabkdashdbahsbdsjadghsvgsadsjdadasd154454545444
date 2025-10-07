@@ -264,7 +264,6 @@
             color: white;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
             display: inline-block;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -272,8 +271,6 @@
         
         .card-plan__cartbtn a:hover {
             background: linear-gradient(135deg, #0056b3, #004085);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
         }
         
         .card-plan.active .card-plan__cartbtn a {
@@ -534,9 +531,6 @@
                                       <span class="discount-badge">${plan.discount}</span>
                                     </div>
                                     <div class="card-plan__package">
-                                      <div class="icon">
-                                        <img src="assets/images/icon/shared.svg" height="30" width="30" alt="">
-                                      </div>
                                       <h4 class="package__name">${plan.name}</h4>
                                       <p class="package__tagline">${plan.tagline}</p>
                                     </div>
@@ -549,7 +543,7 @@
                                       <p class="card-plan__renew-price">${plan.renew_price}</p>
                                     </div>
                                     <div class="card-plan__cartbtn">
-                                      <a href="${plan.link}">Get Started</a>
+                                      <a href="${plan.link}" target="_blank" rel="noopener">Get Started</a>
                                     </div>
                                     <div class="card-plan__feature">
                                       <ul class="card-plan__feature--list">
