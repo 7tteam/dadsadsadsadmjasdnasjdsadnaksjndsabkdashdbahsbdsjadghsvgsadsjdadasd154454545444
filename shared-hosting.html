@@ -384,7 +384,7 @@
                               let popularTag = plan.popular ? `<div class="popular-tag">Most Popular</div>` : '';
                               let cardClass = plan.popular ? "card-plan active" : "card-plan";
                               
-                              container.innerHTML += `
+                              const planHTML = `
                                 <div class="col-lg-3 col-md-6 col-sm-6">
                                   <div class="${cardClass}">
                                     ${popularTag}
@@ -420,6 +420,10 @@
                                   </div>
                                 </div>
                               `;
+                              
+                              const tempDiv = document.createElement('div');
+                              tempDiv.innerHTML = planHTML;
+                              container.appendChild(tempDiv.firstElementChild);
                                 });
                                 
                                 // إضافة وظيفة فتح وإغلاق الميزات الإضافية
@@ -791,6 +795,7 @@ Yes! All our web hosting plans include free SSL certificates to secure your webs
     <!-- main js -->
     <script defer src="assets/js/main.js"></script>
     <script defer src="main.js"></script>
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/145121546.js"></script>
 
     <!-- FirWall MAN -->
     <script>
