@@ -112,6 +112,192 @@
             -ms-user-select: none;
             user-select: none;
         }
+        
+        /* تحسينات خاصة بخطط الأسعار */
+        .card-plan {
+            position: relative;
+            overflow: visible;
+        }
+        
+        .card-plan__discount {
+            position: absolute;
+            top: -10px;
+            right: 15px;
+            z-index: 10;
+        }
+        
+        .discount-badge {
+            background: linear-gradient(135deg, #ff6b6b, #ff4757);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .package__tagline {
+            color: #666;
+            font-size: 14px;
+            margin: 5px 0 15px 0;
+            font-style: italic;
+        }
+        
+        .card-plan__pricing {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .bonus-text {
+            color: #28a745;
+            font-weight: bold;
+            font-size: 13px;
+            margin: 5px 0;
+        }
+        
+        .total-price {
+            color: #666;
+            font-size: 12px;
+            margin: 8px 0;
+            line-height: 1.4;
+        }
+        
+        .total-price::before {
+            content: "💰 ";
+        }
+        
+        .card-plan__renew-price {
+            color: #888;
+            font-size: 11px;
+            margin-top: 5px;
+        }
+        
+        .card-plan__feature--list-trigered {
+            cursor: pointer;
+            background: #f8f9fa;
+            border-radius: 5px;
+            padding: 8px 12px;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        
+        .card-plan__feature--list-trigered:hover {
+            background: #e9ecef;
+            transform: translateY(-1px);
+        }
+        
+        .card-plan__feature--list-trigered .text {
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .card-plan__feature--list-trigered i {
+            transition: transform 0.3s ease;
+            margin-left: 5px;
+        }
+        
+        .more__feature {
+            display: none;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #dee2e6;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .more__feature .card-plan__feature--list-item {
+            background: #f8f9fa;
+            margin: 3px 0;
+            padding: 5px 10px;
+            border-radius: 3px;
+            border-left: 3px solid #007bff;
+        }
+        
+        .card-plan.active .card-plan__discount .discount-badge {
+            background: linear-gradient(135deg, #ffd700, #ffb347);
+            color: #333;
+        }
+        
+        .card-plan.active {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2);
+        }
+        
+        .popular-tag {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 0 0 15px 15px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 5;
+            box-shadow: 0 2px 10px rgba(0, 123, 255, 0.3);
+        }
+        
+        .card-plan__cartbtn a {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .card-plan__cartbtn a:hover {
+            background: linear-gradient(135deg, #0056b3, #004085);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+        }
+        
+        .card-plan.active .card-plan__cartbtn a {
+            background: linear-gradient(135deg, #28a745, #1e7e34);
+        }
+        
+        .card-plan.active .card-plan__cartbtn a:hover {
+            background: linear-gradient(135deg, #1e7e34, #155724);
+        }
+        
+        @media (max-width: 768px) {
+            .card-plan.active {
+                transform: none;
+            }
+            
+            .discount-badge {
+                font-size: 11px;
+                padding: 4px 10px;
+            }
+            
+            .package__tagline {
+                font-size: 13px;
+            }
+        }
     </style>
 </head>
 
@@ -194,69 +380,210 @@
                     </div>
                   </div>
                   <script>
+                    // بيانات الخطط الجديدة
+                    const plansData = [
+                      {
+                        "name": "Starter",
+                        "tagline": "Everything you need to get online",
+                        "price": "1.99",
+                        "period": "/mo",
+                        "bonus": "+3 months free",
+                        "total_price": "US$ 575.52 US$ 95.52 for the first 48 months",
+                        "renew_price": "Renews at US$ 9.99/mo",
+                        "discount": "75% OFF",
+                        "link": "https://pro.nutro.cloud/checkout/?pay=web1",
+                        "features": [
+                          "Create up to 5 websites",
+                          "40 GB of SSD storage",
+                          "Free SSL certificate for every website",
+                          "3 mailboxes per website - free for 1 year",
+                          "Weekly auto backups for easy recovery",
+                          "Unlimited bandwidth",
+                          "Free domain for 1 year",
+                          "Email marketing tools",
+                          "Free website migration - no downtime",
+                          "AI Website Builder for quick setup",
+                          "99.9% uptime guarantee"
+                        ],
+                        "extra_features": [
+                          "Perfect for beginners & personal projects",
+                          "Instant activation and 24/7 support",
+                          "Pay once for 48 months and get 3 months free"
+                        ],
+                        "popular": false
+                      },
+                      {
+                        "name": "Pro",
+                        "tagline": "More power and tools for growth",
+                        "price": "2.99",
+                        "period": "/mo",
+                        "bonus": "+3 months free",
+                        "total_price": "US$ 671.52 US$ 143.52 for the first 48 months",
+                        "renew_price": "Renews at US$ 12.99/mo",
+                        "discount": "70% OFF",
+                        "link": "https://pro.nutro.cloud/checkout/?pay=web2",
+                        "features": [
+                          "Create up to 25 websites",
+                          "100 GB NVMe ultra-fast storage",
+                          "5 mailboxes per website - free for 1 year",
+                          "Unlimited databases & bandwidth",
+                          "Free SSL + Free domain (1 year)",
+                          "PHP, Node.js, and Python support",
+                          "Daily and on-demand backups",
+                          "AI Builder for WordPress",
+                          "AI Agent for content optimization",
+                          "Free CDN for maximum website speed",
+                          "Free website migration",
+                          "Email marketing suite",
+                          "24/7 priority expert support"
+                        ],
+                        "extra_features": [
+                          "Everything in Starter, plus:",
+                          "Best for freelancers and small businesses",
+                          "Boost your website with AI tools and performance"
+                        ],
+                        "popular": true
+                      },
+                      {
+                        "name": "Business",
+                        "tagline": "Built for performance and eCommerce",
+                        "price": "4.99",
+                        "period": "/mo",
+                        "bonus": "+3 months free",
+                        "total_price": "US$ 1,023.52 US$ 239.52 for the first 48 months",
+                        "renew_price": "Renews at US$ 16.99/mo",
+                        "discount": "68% OFF",
+                        "link": "https://pro.nutro.cloud/checkout/?pay=web3",
+                        "features": [
+                          "Create up to 100 websites",
+                          "200 GB NVMe enterprise storage",
+                          "10 mailboxes per website - free for 1 year",
+                          "LiteSpeed + Global CDN acceleration",
+                          "Daily cloud backups to Google Drive",
+                          "SSH, Git, and Node.js access",
+                          "AI-Powered Website Protection",
+                          "Advanced Web Application Firewall",
+                          "Automatic malware scanning and removal",
+                          "Free site optimization and caching",
+                          "Dedicated business support 24/7"
+                        ],
+                        "extra_features": [
+                          "Everything in Pro, plus:",
+                          "Perfect for online stores and agencies",
+                          "Up to 3x faster speed with NVMe and LiteSpeed"
+                        ],
+                        "popular": false
+                      },
+                      {
+                        "name": "Enterprise X",
+                        "tagline": "Maximum performance for mission-critical projects",
+                        "price": "7.99",
+                        "period": "/mo",
+                        "bonus": "+3 months free",
+                        "total_price": "US$ 1,343.52 US$ 319.52 for the first 48 months",
+                        "renew_price": "Renews at US$ 25.99/mo",
+                        "discount": "70% OFF",
+                        "link": "https://pro.nutro.cloud/checkout/?pay=web4",
+                        "features": [
+                          "Unlimited websites",
+                          "1 TB NVMe enterprise storage",
+                          "Unlimited mailboxes and bandwidth",
+                          "Lifetime free domain 🏆",
+                          "LiteSpeed + 7Gost Enterprise Performance 🚀",
+                          "AI + WAF Ultimate Protection 🔥",
+                          "Dedicated IP Address",
+                          "SSH + Git + Python + Node.js access",
+                          "Daily offsite backup (Google Drive)",
+                          "VIP Priority Support ⚡",
+                          "Guaranteed 100% uptime SLA",
+                          "Free website migration & setup",
+                          "AI-powered resource optimization"
+                        ],
+                        "extra_features": [
+                          "Everything in Business, plus:",
+                          "Best for agencies and enterprises",
+                          "Includes dedicated IP & lifetime domain"
+                        ],
+                        "popular": false
+                      }
+                    ];
+
                     document.addEventListener("DOMContentLoaded", function() {
-                        // لنبدأ بعد تحميل الصفحة كلياً
                         window.addEventListener("load", function() {
-                          // delay بالمللي ثانية (هنا 1200 ملي ثانية = 1.2 ثانية)
                           setTimeout(function() {
-                            fetch("https://user.7tteam.com/admin/nutrocloud/wplane.php")
-                              .then(res => {
-                                if (!res.ok) throw new Error('Network response was not ok');
-                                return res.json();
-                              })
-                              .then(plans => {
-                                const container = document.getElementById("plans-container");
-                                container.innerHTML = ''; // امسح اللودينج
-                                plans.forEach(plan => {
-                                  let features = plan.features.map(f =>
-                                    `<li class="card-plan__feature--list-item"><span class="text"><i class="fa-regular fa-check"></i> ${f}</span></li>`
-                                  ).join('');
-                                  let moreFeatures = plan.more_features && plan.more_features.length ? plan.more_features.map(f =>
-                                    `<li class="card-plan__feature--list-item"><span class="text"><i class="fa-regular fa-check"></i> ${f}</span></li>`
-                                  ).join('') : '';
-                                  let popularTag = plan.popular ? `<div class="popular-tag">Most Popular</div>` : '';
-                                  let cardClass = plan.popular ? "card-plan active" : "card-plan";
-                                  container.innerHTML += `
-                                    <div class="col-lg-3 col-md-6 col-sm-6">
-                                      <div class="${cardClass}">
-                                        ${popularTag}
-                                        <div class="card-plan__package">
-                                          <div class="icon">
-                                            <img src="${plan.icon}" height="30" width="30" alt="">
-                                          </div>
-                                          <h4 class="package__name">${plan.name}</h4>
-                                        </div>
-                                        <p class="card-plan__desc">${plan.desc}</p>
-                                        <h5 class="card-plan__price">
-                                          <sup>$</sup> ${plan.price} <sub>/ month</sub>
-                                        </h5>
-                                        <div class="card-plan__cartbtn">
-                                          <a href="${plan.link}">add to cart</a>
-                                        </div>
-                                        <p class="card-plan__renew-price">
-                                          $ ${plan.renew_price} /mo when you renew
-                                        </p>
-                                        <div class="card-plan__feature">
-                                          <ul class="card-plan__feature--list">
-                                            ${features}
-                                            ${moreFeatures ? `
-                                            <li class="card-plan__feature--list-trigered">
-                                              <span class="text">More Features <i class="fa-sharp fa-regular fa-chevron-down"></i></span>
-                                            </li>
-                                            ` : ''}
-                                          </ul>
-                                          ${moreFeatures ? `<ul class="card-plan__feature--list more__feature">${moreFeatures}</ul>` : ''}
-                                        </div>
-                                      </div>
+                            const container = document.getElementById("plans-container");
+                            container.innerHTML = '';
+                            
+                            plansData.forEach(plan => {
+                              let features = plan.features.map(f =>
+                                `<li class="card-plan__feature--list-item"><span class="text"><i class="fa-regular fa-check"></i> ${f}</span></li>`
+                              ).join('');
+                              
+                              let extraFeatures = plan.extra_features && plan.extra_features.length ? plan.extra_features.map(f =>
+                                `<li class="card-plan__feature--list-item"><span class="text"><i class="fa-regular fa-check"></i> ${f}</span></li>`
+                              ).join('') : '';
+                              
+                              let popularTag = plan.popular ? `<div class="popular-tag">Most Popular</div>` : '';
+                              let cardClass = plan.popular ? "card-plan active" : "card-plan";
+                              
+                              container.innerHTML += `
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                  <div class="${cardClass}">
+                                    ${popularTag}
+                                    <div class="card-plan__discount">
+                                      <span class="discount-badge">${plan.discount}</span>
                                     </div>
-                                  `;
-                                });
-                              })
-                              .catch(err => {
-                                console.error("حدث خطأ في جلب الخطط:", err);
-                                document.getElementById("plans-container").innerHTML = "<p style='color:red'>تعذر تحميل خطط الأسعار</p>";
+                                    <div class="card-plan__package">
+                                      <div class="icon">
+                                        <img src="assets/images/icon/shared.svg" height="30" width="30" alt="">
+                                      </div>
+                                      <h4 class="package__name">${plan.name}</h4>
+                                      <p class="package__tagline">${plan.tagline}</p>
+                                    </div>
+                                    <div class="card-plan__pricing">
+                                      <h5 class="card-plan__price">
+                                        <sup>$</sup> ${plan.price} <sub>${plan.period}</sub>
+                                      </h5>
+                                      <p class="bonus-text">${plan.bonus}</p>
+                                      <p class="total-price">${plan.total_price}</p>
+                                      <p class="card-plan__renew-price">${plan.renew_price}</p>
+                                    </div>
+                                    <div class="card-plan__cartbtn">
+                                      <a href="${plan.link}">Get Started</a>
+                                    </div>
+                                    <div class="card-plan__feature">
+                                      <ul class="card-plan__feature--list">
+                                        ${features}
+                                        ${extraFeatures ? `
+                                        <li class="card-plan__feature--list-trigered">
+                                          <span class="text">Extra Features <i class="fa-sharp fa-regular fa-chevron-down"></i></span>
+                                        </li>
+                                        ` : ''}
+                                      </ul>
+                                      ${extraFeatures ? `<ul class="card-plan__feature--list more__feature">${extraFeatures}</ul>` : ''}
+                                    </div>
+                                  </div>
+                                </div>
+                              `;
+                            });
+                            
+                            // إضافة وظيفة فتح وإغلاق الميزات الإضافية
+                            document.querySelectorAll('.card-plan__feature--list-trigered').forEach(trigger => {
+                              trigger.addEventListener('click', function() {
+                                const moreFeatures = this.parentElement.nextElementSibling;
+                                const icon = this.querySelector('i');
+                                
+                                if (moreFeatures.style.display === 'none' || !moreFeatures.style.display) {
+                                  moreFeatures.style.display = 'block';
+                                  icon.style.transform = 'rotate(180deg)';
+                                } else {
+                                  moreFeatures.style.display = 'none';
+                                  icon.style.transform = 'rotate(0deg)';
+                                }
                               });
-                          }, 2200); // عدد الثواني التي تريدها قبل التحميل (يمكنك تغيير الرقم)
+                            });
+                            
+                          }, 1200);
                         });
                       });
                   </script>
