@@ -113,92 +113,131 @@
             user-select: none;
         }
         
-        /* تحسينات خاصة بخطط الأسعار */
+        /* تصميم خطط الأسعار المحسن */
         .card-plan {
             position: relative;
             overflow: visible;
+            padding: 30px 20px;
+            margin-bottom: 30px;
         }
         
         .card-plan__discount {
             position: absolute;
-            top: -10px;
-            left: 15px;
-            z-index: 10;
+            top: 15px;
+            right: 15px;
+            z-index: 5;
         }
         
         .discount-badge {
-            background: linear-gradient(135deg, #ff6b6b, #ff4757);
+            background: #ff4757;
             color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 11px;
             font-weight: bold;
-            box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
-            animation: pulse 2s infinite;
         }
         
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        .popular-tag {
+            background: #007bff;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 0 0 15px 15px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 10;
+        }
+        
+        .card-plan__package {
+            text-align: center;
+            margin: 20px 0 30px 0;
+        }
+        
+        .package__name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
         }
         
         .package__tagline {
             color: #666;
             font-size: 14px;
-            margin: 10px 0 20px 0;
-            font-style: italic;
-            display: block;
-            width: 100%;
-            text-align: center;
-        }
-        
-        .package__name {
-            margin-bottom: 5px;
+            margin: 0;
+            line-height: 1.4;
         }
         
         .card-plan__pricing {
             text-align: center;
-            margin: 20px 0;
+            margin: 25px 0;
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .card-plan__price {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 10px 0;
         }
         
         .bonus-text {
             color: #28a745;
             font-weight: bold;
             font-size: 13px;
-            margin: 5px 0;
+            margin: 8px 0;
         }
         
         .total-price {
             color: #666;
             font-size: 12px;
             margin: 8px 0;
-            line-height: 1.4;
-        }
-        
-        .total-price::before {
-            content: "💰 ";
+            line-height: 1.3;
         }
         
         .card-plan__renew-price {
             color: #888;
             font-size: 11px;
-            margin-top: 5px;
+            margin: 5px 0 0 0;
+        }
+        
+        .card-plan__cartbtn {
+            text-align: center;
+            margin: 25px 0;
+        }
+        
+        .card-plan__cartbtn a {
+            background: #007bff;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        
+        .card-plan__cartbtn a:hover {
+            background: #0056b3;
         }
         
         .card-plan__feature--list-trigered {
             cursor: pointer;
             background: #f8f9fa;
             border-radius: 5px;
-            padding: 8px 12px;
-            margin: 10px 0;
-            transition: all 0.3s ease;
+            padding: 10px 15px;
+            margin: 15px 0;
             border: 1px solid #e9ecef;
+            text-align: center;
         }
         
         .card-plan__feature--list-trigered:hover {
             background: #e9ecef;
-            transform: translateY(-1px);
         }
         
         .card-plan__feature--list-trigered .text {
@@ -206,100 +245,37 @@
             color: #495057;
         }
         
-        .card-plan__feature--list-trigered i {
-            transition: transform 0.3s ease;
-            margin-left: 5px;
-        }
-        
         .more__feature {
             display: none;
-            margin-top: 10px;
-            padding-top: 10px;
+            margin-top: 15px;
+            padding-top: 15px;
             border-top: 1px dashed #dee2e6;
-            animation: slideDown 0.3s ease;
-        }
-        
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
         
         .more__feature .card-plan__feature--list-item {
             background: #f8f9fa;
-            margin: 3px 0;
-            padding: 5px 10px;
-            border-radius: 3px;
+            margin: 5px 0;
+            padding: 8px 12px;
+            border-radius: 4px;
             border-left: 3px solid #007bff;
         }
         
-        .card-plan.active .card-plan__discount .discount-badge {
-            background: linear-gradient(135deg, #ffd700, #ffb347);
-            color: #333;
-        }
-        
         .card-plan.active {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2);
-        }
-        
-        .popular-tag {
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 0 0 15px 15px;
-            position: absolute;
-            top: 0;
-            right: 50%;
-            transform: translateX(50%);
-            font-size: 12px;
-            font-weight: bold;
-            z-index: 15;
-            box-shadow: 0 2px 10px rgba(0, 123, 255, 0.3);
-        }
-        
-        .card-plan__cartbtn a {
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            border: none;
-            padding: 12px 25px;
-            border-radius: 25px;
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .card-plan__cartbtn a:hover {
-            background: linear-gradient(135deg, #0056b3, #004085);
-        }
-        
-        .card-plan.active .card-plan__cartbtn a {
-            background: linear-gradient(135deg, #007bff, #0056b3);
-        }
-        
-        .card-plan.active .card-plan__cartbtn a:hover {
-            background: linear-gradient(135deg, #0056b3, #004085);
+            border: 2px solid #007bff;
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15);
         }
         
         @media (max-width: 768px) {
-            .card-plan.active {
-                transform: none;
+            .card-plan {
+                padding: 20px 15px;
             }
             
-            .discount-badge {
-                font-size: 11px;
-                padding: 4px 10px;
+            .package__name {
+                font-size: 20px;
             }
             
-            .package__tagline {
-                font-size: 13px;
+            .card-plan__price {
+                font-size: 28px;
             }
         }
     </style>
@@ -815,7 +791,6 @@ Yes! All our web hosting plans include free SSL certificates to secure your webs
     <!-- main js -->
     <script defer src="assets/js/main.js"></script>
     <script defer src="main.js"></script>
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/145121546.js"></script>
 
     <!-- FirWall MAN -->
     <script>
