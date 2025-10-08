@@ -276,108 +276,193 @@
             background: #0056b3;
         }
         
-        /* هيرو سكشن مودرن */
-        .hero-badge {
+        /* هيرو سكشن مثل هوستنجر */
+        .hero-offer {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .offer-badge {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+        
+        .banner-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: white;
+            line-height: 1.2;
+            margin: 20px 0 30px 0;
+            max-width: 600px;
+        }
+        
+        .hero-price {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .price-container {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        
+        .currency {
+            font-size: 32px;
+            color: #ffd700;
+            font-weight: 600;
+        }
+        
+        .price {
+            font-size: 72px;
+            color: #ffd700;
+            font-weight: 800;
+            line-height: 1;
+        }
+        
+        .cents {
+            font-size: 32px;
+            color: #ffd700;
+            font-weight: 600;
+        }
+        
+        .period {
+            font-size: 24px;
+            color: white;
+            font-weight: 500;
+            margin-left: 5px;
+        }
+        
+        .price-details {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
-            margin-bottom: 30px;
+            gap: 15px;
         }
         
-        .discount-text {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 6px 14px;
-            border-radius: 4px;
-            font-weight: 500;
-            font-size: 13px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .starting__price {
-            color: white;
-            font-weight: 600;
-            font-size: 18px;
-        }
-        
-        .banner-title .highlight {
-            color: #ffd700;
-            display: block;
-        }
-        
-        .slogan {
+        .original-price {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: line-through;
             font-size: 16px;
-            line-height: 1.5;
-            color: rgba(255, 255, 255, 0.8);
-            margin: 25px 0 35px 0;
-            max-width: 480px;
+        }
+        
+        .discount {
+            background: #28a745;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            font-size: 14px;
+        }
+        
+        .checkmark {
+            color: #28a745;
+            font-weight: bold;
+            font-size: 16px;
         }
         
         .hero-cta {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin: 35px 0 50px 0;
+            text-align: center;
+            margin: 40px 0;
         }
         
-        .btn-primary {
-            background: white;
-            color: #333;
-            padding: 14px 28px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            background: rgba(255, 255, 255, 0.9);
-        }
-        
-        .btn-secondary {
-            background: transparent;
+        .btn-claim {
+            background: linear-gradient(135deg, #28a745, #20c997);
             color: white;
-            padding: 14px 28px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 6px;
+            padding: 18px 40px;
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: 500;
-            font-size: 15px;
+            font-weight: 700;
+            font-size: 18px;
+            display: inline-block;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(40, 167, 69, 0.4);
+            text-transform: uppercase;
         }
         
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.5);
+        .btn-claim:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(40, 167, 69, 0.5);
         }
         
-        .hosting-feature {
-            margin-top: 50px;
-        }
-        
-        .feature-text {
+        .guarantee {
+            margin-top: 15px;
+            color: rgba(255, 255, 255, 0.8);
             font-size: 13px;
-            line-height: 1.6;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffd700;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            display: block;
+            font-size: 12px;
             color: rgba(255, 255, 255, 0.7);
+            margin-top: 5px;
+            text-transform: uppercase;
         }
         
         @media (max-width: 768px) {
-            .hero-badge {
-                flex-direction: column;
-                gap: 15px;
+            .banner-title {
+                font-size: 32px;
             }
             
-            .hero-cta {
+            .price {
+                font-size: 56px;
+            }
+            
+            .currency, .cents {
+                font-size: 24px;
+            }
+            
+            .hero-features {
                 flex-direction: column;
                 align-items: center;
                 gap: 15px;
             }
             
-            .btn-primary, .btn-secondary {
-                width: 220px;
-                text-align: center;
+            .hero-stats {
+                gap: 25px;
             }
         }
         
@@ -448,44 +533,61 @@
                 <div class="col-lg-12">
                     <div class="banner-area">
                         <div class="rts-hosting-banner rts-hosting-banner__content">
-                            <div class="hero-badge" data-sal="slide-down" data-sal-delay="100" data-sal-duration="800">
-                                <span class="discount-text">75% OFF</span>
-                                <span class="starting__price">Starting at $1.99/mo</span>
+                            <div class="hero-offer" data-sal="slide-down" data-sal-delay="100" data-sal-duration="800">
+                                <span class="offer-badge">🔥 LIMITED TIME OFFER</span>
                             </div>
-                            <h1 class="banner-title" data-sal="slide-down" data-sal-delay="300" data-sal-duration="800">
-                                Premium Web Hosting
-                                <span class="highlight">Made Simple</span>
+                            <h1 class="banner-title" data-sal="slide-down" data-sal-delay="200" data-sal-duration="800">
+                                Everything You Need To Create A Website
                             </h1>
-                            <p class="slogan" data-sal="slide-down" data-sal-delay="400" data-sal-duration="800">Launch your website with lightning-fast hosting, free SSL, and 99.9% uptime guarantee. Get 3 months free!</p>
-                            <div class="hero-cta" data-sal="slide-down" data-sal-delay="500" data-sal-duration="800">
-                                <a href="#plans" class="btn-primary">Get Started Now</a>
-                                <a href="#features" class="btn-secondary">View Features</a>
-                            </div>
-                            <div class="hosting-feature" data-sal="slide-down" data-sal-delay="600" data-sal-duration="800">
-                                <div class="hosting-feature__single">
-                                    <div class="icon-image">
-                                        <img src="assets/images/banner/shared/diamond.png" alt="Fast & Secure Hosting">
-                                    </div>
-                                    <p class="feature-text">
-                                        Lightning Fast
-                                        SSL Secured
-                                        99.9% Uptime
-                                    </p>
+                            <div class="hero-price" data-sal="slide-down" data-sal-delay="300" data-sal-duration="800">
+                                <div class="price-container">
+                                    <span class="currency">$</span>
+                                    <span class="price">1</span>
+                                    <span class="cents">.99</span>
+                                    <span class="period">/mo</span>
                                 </div>
-                                <div class="hosting-feature__single">
-                                    <div class="icon-image">
-                                        <img src="assets/images/banner/shared/wordpress.png" alt="WordPress Hosting">
-                                    </div>
-                                    <p class="feature-text">
-                                        AI-Powered Tools
-                                        Mobile Optimized
-                                        Advanced Security
-                                    </p>
+                                <div class="price-details">
+                                    <span class="original-price">$9.99/mo</span>
+                                    <span class="discount">Save 80%</span>
+                                </div>
+                            </div>
+                            <div class="hero-features" data-sal="slide-down" data-sal-delay="400" data-sal-duration="800">
+                                <div class="feature-item">
+                                    <span class="checkmark">✓</span>
+                                    <span>Free Domain</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="checkmark">✓</span>
+                                    <span>Free SSL Certificate</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="checkmark">✓</span>
+                                    <span>99.9% Uptime Guarantee</span>
+                                </div>
+                            </div>
+                            <div class="hero-cta" data-sal="slide-down" data-sal-delay="500" data-sal-duration="800">
+                                <a href="#plans" class="btn-claim">Claim Deal</a>
+                                <div class="guarantee">
+                                    <span>💰 30-Day Money-Back Guarantee</span>
+                                </div>
+                            </div>
+                            <div class="hero-stats" data-sal="slide-down" data-sal-delay="600" data-sal-duration="800">
+                                <div class="stat-item">
+                                    <span class="stat-number">29M+</span>
+                                    <span class="stat-label">Users Worldwide</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">99.9%</span>
+                                    <span class="stat-label">Uptime</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">24/7</span>
+                                    <span class="stat-label">Support</span>
                                 </div>
                             </div>
                         </div>
                         <div class="rts-hosting-banner__image">
-                            <img src="assets/images/banner/shared/shared__hosting.svg" alt="">
+                            <img src="assets/images/banner/shared/shared__hosting.png" alt="">
                             <img class="shape-image one right-left" src="assets/images/banner/shared/shared__hosting-sm1.svg" alt="">
                             <img class="shape-image two pulsing" src="assets/images/banner/shared/shared__hosting-sm2.svg" alt="">
                         </div>
@@ -507,7 +609,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="price__content open" id="monthly" name="plans">
+                <div class="price__content open" id="monthly">
                     <div class="row g-30 monthly" id="plans-container">
                       <div id="plans-loading" style="width: 100%; text-align: center; padding: 40px;">
                         <img src="assets/1.gif" alt="Loading..." style="width:48px;height:48px;">
