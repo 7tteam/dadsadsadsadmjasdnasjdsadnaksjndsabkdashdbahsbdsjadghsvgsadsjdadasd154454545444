@@ -442,6 +442,63 @@
             text-transform: uppercase;
         }
         
+        /* تخطيط الهيرو الجديد */
+        .rts-hosting-banner {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .hero-bg-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-content-col {
+            display: flex;
+            align-items: center;
+            min-height: 600px;
+        }
+        
+        .rts-hosting-banner__content {
+            text-align: left;
+            max-width: 100%;
+        }
+        
+        .hero-features {
+            justify-content: flex-start;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .hero-cta {
+            text-align: left;
+        }
+        
+        .hero-stats {
+            justify-content: flex-start;
+            gap: 30px;
+        }
+        
         @media (max-width: 768px) {
             .banner-title {
                 font-size: 32px;
@@ -456,13 +513,16 @@
             }
             
             .hero-features {
-                flex-direction: column;
-                align-items: center;
+                align-items: flex-start;
                 gap: 15px;
             }
             
             .hero-stats {
                 gap: 25px;
+            }
+            
+            .hero-content-col {
+                min-height: 500px;
             }
         }
         
@@ -528,52 +588,69 @@
     <div id="header"></div>
     <!-- shared hosting banner -->
     <div class="rts-hosting-banner rts-hosting-banner-bg banner-default-height">
-        <div class="container">
-            <div class="row justify-content-sm-center">
-                <div class="col-lg-12">
-                    <div class="banner-area">
-                        <div class="rts-hosting-banner rts-hosting-banner__content">
-                            <div class="hero-offer" data-sal="slide-down" data-sal-delay="100" data-sal-duration="800">
-                                <span class="offer-badge">🔥 LIMITED TIME OFFER</span>
-                            </div>
-                            <h1 class="banner-title" data-sal="slide-down" data-sal-delay="200" data-sal-duration="800">
-                                Everything You Need To Create A Website
-                            </h1>
-                            <div class="hero-price" data-sal="slide-down" data-sal-delay="300" data-sal-duration="800">
-                                <div class="price-container">
-                                    <span class="currency">$</span>
-                                    <span class="price">1</span>
-                                    <span class="cents">.99</span>
-                                    <span class="period">/mo</span>
-                                </div>
-                                <div class="price-details">
-                                    <span class="original-price">$9.99/mo</span>
-                                    <span class="discount">Save 80%</span>
-                                </div>
-                            </div>
-                                 <div class="hero-features" data-sal="slide-down" data-sal-delay="400" data-sal-duration="800">
-                                <div class="feature-item">
-                                    <span class="checkmark">✓</span>
-                                    <span>Free Domain</span>
-                                </div>
-                                <div class="feature-item">
-                                    <span class="checkmark">✓</span>
-                                    <span>Free SSL Certificate</span>
-                                </div>
-                                <div class="feature-item">
-                                    <span class="checkmark">✓</span>
-                                    <span>99.9% Uptime Guarantee</span>
-                                </div>
-                            </div>
-                            <div class="hero-cta" data-sal="slide-down" data-sal-delay="500" data-sal-duration="800">
-                                <a href="#plans" class="btn-claim">Claim Deal</a>
-                            </div>
-                           
+        <div class="hero-background">
+            <img src="assets/images/banner/shared__hosting.png" alt="" class="hero-bg-image">
+        </div>
+        <div class="container hero-container">
+            <div class="row">
+                <div class="col-lg-6 hero-content-col">
+                    <div class="rts-hosting-banner rts-hosting-banner__content">
+                        <div class="hero-offer" data-sal="slide-down" data-sal-delay="100" data-sal-duration="800">
+                            <span class="offer-badge">🔥 LIMITED TIME OFFER</span>
                         </div>
-                        <div class="rts-hosting-banner__image">
-                            <img src="assets/images/banner/shared__hosting.png" alt="webhosting" >
+                        <h1 class="banner-title" data-sal="slide-down" data-sal-delay="200" data-sal-duration="800">
+                            Everything You Need To Create A Website
+                        </h1>
+                        <div class="hero-price" data-sal="slide-down" data-sal-delay="300" data-sal-duration="800">
+                            <div class="price-container">
+                                <span class="currency">$</span>
+                                <span class="price">1</span>
+                                <span class="cents">.99</span>
+                                <span class="period">/mo</span>
+                            </div>
+                            <div class="price-details">
+                                <span class="original-price">$9.99/mo</span>
+                                <span class="discount">Save 80%</span>
+                            </div>
+                        </div>
+                        <div class="hero-features" data-sal="slide-down" data-sal-delay="400" data-sal-duration="800">
+                            <div class="feature-item">
+                                <span class="checkmark">✓</span>
+                                <span>Free Domain</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="checkmark">✓</span>
+                                <span>Free SSL Certificate</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="checkmark">✓</span>
+                                <span>99.9% Uptime Guarantee</span>
+                            </div>
+                        </div>
+                        <div class="hero-cta" data-sal="slide-down" data-sal-delay="500" data-sal-duration="800">
+                            <a href="#plans" class="btn-claim">Claim Deal</a>
+                            <div class="guarantee">
+                                <span>💰 30-Day Money-Back Guarantee</span>
+                            </div>
+                        </div>
+                        <div class="hero-stats" data-sal="slide-down" data-sal-delay="600" data-sal-duration="800">
+                            <div class="stat-item">
+                                <span class="stat-number">29M+</span>
+                                <span class="stat-label">Users Worldwide</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">99.9%</span>
+                                <span class="stat-label">Uptime</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">24/7</span>
+                                <span class="stat-label">Support</span>
+                            </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-lg-6">
+                    <!-- مساحة فارغة للصورة -->
                 </div>
             </div>
         </div>
