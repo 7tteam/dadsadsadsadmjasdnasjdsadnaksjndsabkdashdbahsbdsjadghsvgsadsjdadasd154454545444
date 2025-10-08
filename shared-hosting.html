@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>Nutro Cloud | Affordable Web Hosting - Free & Paid Plans</title>
+    <title>Nutro Cloud | Premium Web Hosting Starting at $1.99/mo - 75% OFF</title>
 
     <!-- Meta Description -->
-    <meta name="description" content="Nutro Cloud offers secure and affordable shared web hosting with free and premium plans. Fast, reliable, and optimized hosting solutions for websites of all sizes.">
+    <meta name="description" content="Get premium web hosting with Nutro Cloud starting at $1.99/mo. Free SSL, unlimited bandwidth, 99.9% uptime, AI tools, and 24/7 support. Save up to 75% on hosting plans!">
     
     <!-- Meta Keywords -->
     <meta name="keywords" content="
@@ -49,16 +49,34 @@
     <!-- Favicon -->
     <link rel="icon" href="https://www.nutro.cloud/assets/images/fav.png" type="image/x-icon">
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.nutro.cloud/">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="author" content="Nutro Cloud">
+    <meta name="publisher" content="Nutro Cloud">
+    <meta name="copyright" content="Nutro Cloud 2024">
+    <meta name="rating" content="general">
+    <meta name="distribution" content="global">
+    <meta name="revisit-after" content="7 days">
+    
     <!-- Open Graph (Social Media Preview) -->
-    <meta property="og:title" content="Nutro Cloud | Affordable Web Hosting">
-    <meta property="og:description" content="Secure and affordable shared hosting with free and premium plans. Nutro Cloud provides optimized web hosting solutions.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Nutro Cloud">
+    <meta property="og:title" content="Nutro Cloud | Premium Web Hosting Starting at $1.99/mo - 75% OFF">
+    <meta property="og:description" content="Get premium web hosting with Nutro Cloud starting at $1.99/mo. Free SSL, unlimited bandwidth, 99.9% uptime, AI tools, and 24/7 support. Save up to 75% on hosting plans!">
     <meta property="og:image" content="https://www.nutro.cloud/assets/images/banner.jpg">
-    <meta property="og:url" content="https://www.nutro.cloud">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://www.nutro.cloud/">
+    <meta property="og:locale" content="en_US">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Nutro Cloud | Affordable Web Hosting">
-    <meta name="twitter:description" content="Fast, secure, and affordable shared hosting. Nutro Cloud offers free and premium hosting plans.">
+    <meta name="twitter:site" content="@nutrocloud">
+    <meta name="twitter:creator" content="@nutrocloud">
+    <meta name="twitter:title" content="Nutro Cloud | Premium Web Hosting Starting at $1.99/mo - 75% OFF">
+    <meta name="twitter:description" content="Get premium web hosting with Nutro Cloud starting at $1.99/mo. Free SSL, unlimited bandwidth, 99.9% uptime, AI tools, and 24/7 support. Save up to 75% on hosting plans!">
     <meta name="twitter:image" content="https://www.nutro.cloud/assets/images/banner.jpg">
 
     <!-- Google Fonts -->
@@ -79,27 +97,55 @@
         <link rel="preload stylesheet" href="assets/css/plugins/fontawesome.min.css" as="style">
         <!-- Custom css -->
         <link rel="preload stylesheet" href="assets/css/style.css" as="style">
-    <!-- Schema Markup -->
+    <!-- Enhanced Schema Markup -->
     <script type="application/ld+json">
     {
-      "@context": "http://schema.org",
-      "@type": "WebHostingService",
-      "name": "Nutro Cloud Web Hosting",
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Nutro Cloud",
       "url": "https://www.nutro.cloud",
-      "description": "Affordable shared web hosting with free and premium plans. Reliable and fast hosting solutions for businesses and individuals.",
-      "provider": {
-        "@type": "Organization",
-        "name": "Nutro Cloud",
-        "url": "https://www.nutro.cloud"
+      "logo": "https://www.nutro.cloud/assets/images/logo.png",
+      "description": "Premium web hosting provider offering secure, fast, and reliable hosting solutions with 99.9% uptime guarantee.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-800-NUTRO-CLOUD",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Arabic"]
       },
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "USD",
-        "price": "3.99",
-        "eligibleRegion": {
-          "@type": "Place",
-          "name": "Worldwide"
-        }
+      "sameAs": [
+        "https://twitter.com/nutrocloud",
+        "https://facebook.com/nutrocloud",
+        "https://linkedin.com/company/nutrocloud"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Web Hosting Plans",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Starter Hosting Plan",
+              "description": "Perfect for beginners with 5 websites, 40GB SSD storage, and free SSL"
+            },
+            "price": "1.99",
+            "priceCurrency": "USD",
+            "priceValidUntil": "2024-12-31",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Pro Hosting Plan",
+              "description": "Best for small businesses with 25 websites, 100GB NVMe storage, and AI tools"
+            },
+            "price": "2.99",
+            "priceCurrency": "USD",
+            "priceValidUntil": "2024-12-31",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
       }
     }
     </script>
@@ -230,6 +276,115 @@
             background: #0056b3;
         }
         
+        /* تحسينات الهيرو سكشن */
+        .hero-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .discount-text {
+            background: linear-gradient(135deg, #ff6b6b, #ff4757);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 14px;
+            animation: pulse 2s infinite;
+        }
+        
+        .starting__price {
+            background: #28a745;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .banner-title .highlight {
+            color: #007bff;
+            display: block;
+        }
+        
+        .slogan {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #666;
+            margin: 20px 0 30px 0;
+            max-width: 500px;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #007bff;
+            padding: 15px 30px;
+            border: 2px solid #007bff;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: #007bff;
+            color: white;
+        }
+        
+        .hosting-feature {
+            margin-top: 40px;
+        }
+        
+        .feature-text {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #555;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-badge {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 200px;
+                text-align: center;
+            }
+        }
+        
         .card-plan__feature--list-trigered {
             cursor: pointer;
             background: #f8f9fa;
@@ -297,29 +452,38 @@
                 <div class="col-lg-12">
                     <div class="banner-area">
                         <div class="rts-hosting-banner rts-hosting-banner__content">
-                            <span class="starting__price" data-sal="slide-down" data-sal-delay="100" data-sal-duration="800">Starting at $2.59/mo</span>
+                            <div class="hero-badge" data-sal="slide-down" data-sal-delay="100" data-sal-duration="800">
+                                <span class="discount-text">🔥 75% OFF</span>
+                                <span class="starting__price">Starting at $1.99/mo</span>
+                            </div>
                             <h1 class="banner-title" data-sal="slide-down" data-sal-delay="300" data-sal-duration="800">
-                                Shared Website
-                                Hosting
+                                Premium Web Hosting
+                                <span class="highlight">Made Simple</span>
                             </h1>
-                            <p class="slogan" data-sal="slide-down" data-sal-delay="400" data-sal-duration="800">Everything you need to launch a website.</p>
-                            <div class="hosting-feature" data-sal="slide-down" data-sal-delay="500" data-sal-duration="800">
+                            <p class="slogan" data-sal="slide-down" data-sal-delay="400" data-sal-duration="800">Launch your website with lightning-fast hosting, free SSL, and 99.9% uptime guarantee. Get 3 months free!</p>
+                            <div class="hero-cta" data-sal="slide-down" data-sal-delay="500" data-sal-duration="800">
+                                <a href="#plans" class="btn-primary">Get Started Now</a>
+                                <a href="#features" class="btn-secondary">View Features</a>
+                            </div>
+                            <div class="hosting-feature" data-sal="slide-down" data-sal-delay="600" data-sal-duration="800">
                                 <div class="hosting-feature__single">
                                     <div class="icon-image">
-                                        <img src="assets/images/banner/shared/diamond.png" alt="">
+                                        <img src="assets/images/banner/shared/diamond.png" alt="Fast & Secure Hosting">
                                     </div>
                                     <p class="feature-text">
-                                        Look like a Pri- Fast,
-                                        Secure, & Always Up
+                                        ⚡ Lightning Fast
+                                        🔒 SSL Secured
+                                        ✅ 99.9% Uptime
                                     </p>
                                 </div>
                                 <div class="hosting-feature__single">
                                     <div class="icon-image">
-                                        <img src="assets/images/banner/shared/wordpress.png" alt="">
+                                        <img src="assets/images/banner/shared/wordpress.png" alt="WordPress Hosting">
                                     </div>
                                     <p class="feature-text">
-                                        You can host your
-                                        WordPress site securely.
+                                        🚀 AI-Powered Tools
+                                        📱 Mobile Optimized
+                                        🛡️ Advanced Security
                                     </p>
                                 </div>
                             </div>
@@ -347,14 +511,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="row justify-content-center" data-sal="slide-down" data-sal-delay="400" data-sal-duration="800">
-                    <div class="col-lg-4 col-md-5">
-                        
-                    </div>
-                </div>
-               
-
-                <div class="price__content open" id="monthly">
+                <div class="price__content open" id="monthly" name="plans">
                     <div class="row g-30 monthly" id="plans-container">
                       <div id="plans-loading" style="width: 100%; text-align: center; padding: 40px;">
                         <img src="assets/1.gif" alt="Loading..." style="width:48px;height:48px;">
@@ -799,7 +956,6 @@ Yes! All our web hosting plans include free SSL certificates to secure your webs
     <!-- main js -->
     <script defer src="assets/js/main.js"></script>
     <script defer src="main.js"></script>
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/145121546.js"></script>
 
     <!-- FirWall MAN -->
     <script>
