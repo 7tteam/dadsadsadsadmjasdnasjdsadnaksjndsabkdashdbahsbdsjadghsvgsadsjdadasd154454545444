@@ -578,18 +578,23 @@
         .hero-image { animation: float 3s ease-in-out infinite; }
         @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
         
+        /* Hero Description */
+        .hero-description { font-size: 18px; color: rgba(255,255,255,0.9); line-height: 1.6; margin: 20px 0 30px 0; }
+        
         /* AI Features */
         .ai-feature-card { transition: all 0.3s ease; border-radius: 15px; overflow: hidden; }
         .ai-feature-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .feature-icon { width: 80px; height: 80px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; }
+        .feature-icon { width: 80px; height: 80px; border: 2px solid #e9ecef; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: #6c757d; background: transparent; }
+        .ai-feature-card:hover .feature-icon { border-color: #667eea; color: #667eea; }
         
         /* Managed Features */
         .managed-feature { background: white; border-radius: 10px; padding: 20px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; }
         .managed-feature:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
         .feature-header { display: flex; align-items: center; cursor: pointer; }
-        .feature-header .feature-icon { width: 50px; height: 50px; margin-right: 15px; margin-bottom: 0; }
-        .feature-content { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; }
-        .managed-feature.active .feature-content { display: block; }
+        .feature-header .feature-icon { width: 50px; height: 50px; margin-right: 15px; margin-bottom: 0; border: 2px solid #e9ecef; background: transparent; color: #6c757d; }
+        .managed-feature:hover .feature-header .feature-icon { border-color: #667eea; color: #667eea; }
+        .feature-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .managed-feature.active .feature-content { max-height: 200px; margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; }
         .toggle-icon { margin-left: auto; transition: transform 0.3s ease; }
         .managed-feature.active .toggle-icon { transform: rotate(180deg); }
         .feature-stats { display: flex; gap: 10px; margin-top: 10px; }
@@ -607,7 +612,8 @@
         
         /* Email Features */
         .email-feature { display: flex; align-items: start; margin-bottom: 20px; }
-        .email-feature .feature-icon { width: 60px; height: 60px; margin-right: 20px; margin-bottom: 0; }
+        .email-feature .feature-icon { width: 60px; height: 60px; margin-right: 20px; margin-bottom: 0; border: 2px solid #e9ecef; background: transparent; color: #6c757d; }
+        .email-feature:hover .feature-icon { border-color: #667eea; color: #667eea; }
         .email-highlights { margin-top: 20px; }
         .highlight-item { background: #f8f9fa; padding: 8px 15px; border-radius: 20px; margin: 5px; display: inline-block; font-size: 14px; }
         .btn-get-started { background: linear-gradient(135deg, #007bff, #0056b3); color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-block; margin-top: 20px; transition: all 0.3s ease; }
@@ -636,41 +642,18 @@
                 <div class="col-lg-6">
                     <div class="rts-hosting-banner rts-hosting-banner__content">
                         <div class="hero-offer">
-                            <span class="offer-badge">🤖 AI-POWERED HOSTING</span>
+                            <span class="offer-badge">Up to 75% off managed hosting for WordPress</span>
                         </div>
                         <h1 class="banner-title">
-                            Your WordPress site, fully managed by AI
+                            Manage your WordPress website the easy way
                         </h1>
-                        <div class="hero-price">
-                            <div class="price-container">
-                                <span class="currency">$</span>
-                                <span class="price">1</span>
-                                <span class="cents">.99</span>
-                                <span class="period">/mo</span>
-                            </div>
-                            <div class="price-details">
-                                <span class="original-price">$7.99/mo</span>
-                                <span class="discount">Save 75%</span>
-                            </div>
-                        </div>
-                        <div class="hero-features">
-                            <div class="feature-item">
-                                <span class="checkmark">✓</span>
-                                <span>AI Website Builder</span>
-                            </div>
-                            <div class="feature-item">
-                                <span class="checkmark">✓</span>
-                                <span>AI Troubleshooter</span>
-                            </div>
-                            <div class="feature-item">
-                                <span class="checkmark">✓</span>
-                                <span>AI Optimizer</span>
-                            </div>
-                        </div>
+                        <p class="hero-description">
+                            Fast, secure, and simple to run - no technical setup. Use AI tools, get 24/7 expert support, and host on infrastructure built for speed.
+                        </p>
                         <div class="hero-cta">
-                            <a href="#plans" class="btn-claim">Get Started</a>
+                            <a href="#plans" class="btn-claim">Start now</a>
                             <div class="guarantee">
-                                <span>💰 30-Day Money-Back Guarantee</span>
+                                <span>30-day money-back guarantee</span>
                             </div>
                         </div>
                     </div>
@@ -1600,17 +1583,15 @@
         
         // Managed Features Toggle
         $(document).ready(function() {
-            $('.managed-feature .feature-header').click(function() {
+            $('.managed-feature .feature-header').click(function(e) {
+                e.preventDefault();
                 const feature = $(this).parent();
-                const content = feature.find('.feature-content');
                 
                 // Close all other features
                 $('.managed-feature').not(feature).removeClass('active');
-                $('.managed-feature').not(feature).find('.feature-content').slideUp();
                 
                 // Toggle current feature
                 feature.toggleClass('active');
-                content.slideToggle();
             });
             
             // Auto-open first feature
