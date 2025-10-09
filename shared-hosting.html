@@ -444,7 +444,7 @@
         
         /* تخطيط الهيرو الطبيعي */
         .rts-hosting-banner {
-            padding: 80px 0;
+            padding: 60px 0;
         }
         
         .rts-hosting-banner__content {
@@ -463,20 +463,25 @@
         }
         
         .hero-features {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin: 30px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 20px;
+            margin: 25px 0;
+        }
+        
+        .hero-features .feature-item:nth-child(3) {
+            grid-column: 1 / -1;
+            justify-self: center;
         }
         
         .hero-cta {
-            margin: 40px 0;
+            margin: 25px 0;
         }
         
         .hero-stats {
             display: flex;
-            gap: 30px;
-            margin-top: 40px;
+            gap: 25px;
+            margin-top: 25px;
         }
         
         @media (max-width: 768px) {
