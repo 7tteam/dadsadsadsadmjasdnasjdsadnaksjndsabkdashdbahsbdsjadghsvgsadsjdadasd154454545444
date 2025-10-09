@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Best VPS Hosting 2025 - Faster & Cheaper Than Competitors | Nutro Cloud</title>
+    <title>Best VPS Hosting 2024 - Faster & Cheaper Than Competitors | Nutro Cloud</title>
 
     <!-- الوصف الذي يظهر أسفل العنوان في نتائج البحث -->
     <meta name="description"
@@ -395,14 +395,14 @@
     </section>
     <!--  QUICK FEATURE END -->
     <!-- PRICING PLAN START -->
-    <div class="rts-pricing-plan section__padding" id="plans" style="background: #1a1a2e; color: white;">
+    <div class="rts-pricing-plan section__padding" id="plans">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="rts-section  text-center">
-                    <h2 class="rts-section__title" data-sal="slide-down" data-sal-delay="100" data-sal-duration="800" style="color: white;">
+                    <h2 class="rts-section__title" data-sal="slide-down" data-sal-delay="100" data-sal-duration="800">
                         Premium VPS Plans - Better Than Competitors</h2>
                     <p class="rts-section__description w-450" data-sal="slide-down" data-sal-delay="300"
-                        data-sal-duration="800" style="color: #ccc;">Choose from our high-performance VPS hosting plans with lightning-fast NVMe SSD, 
+                        data-sal-duration="800">Choose from our high-performance VPS hosting plans with lightning-fast NVMe SSD, 
                         DDoS protection, and 99.9% uptime guarantee. All plans include instant setup and 24/7 support.
                     </p>
                 </div>
@@ -603,6 +603,8 @@
                                         </div>
                                         <p class="card-plan__desc" style="color: #555; line-height: 1.5;">${plan.desc}</p>
                                         
+                                        ${plan.discount ? `<div style="position: absolute; top: -5px; right: 15px; background: linear-gradient(135deg, #ffd700, #ffed4e); color: #333; padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: 700; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);">${plan.discount}</div>` : ''}
+                                        
                                         <div style="text-align: center; padding: 20px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; margin: 20px 0;">
                                           <h5 style="font-size: 36px; font-weight: 800; color: #2d3c58; margin: 0;">
                                             <sup style="color: #ffd700; font-size: 18px;">$</sup>${plan.price}<sub style="color: #666; font-size: 16px;">${plan.period}</sub>
@@ -610,6 +612,7 @@
                                           ${plan.bonus ? `<p style="color: #28a745; font-weight: 600; font-size: 14px; margin: 10px 0;">🎁 ${plan.bonus}</p>` : ''}
                                           ${plan.total_price ? `<p style="font-size: 12px; color: #666; margin: 8px 0;">${plan.total_price}</p>` : ''}
                                           ${plan.renew_price ? `<p style="font-size: 11px; color: #888; margin: 5px 0;">${plan.renew_price}</p>` : ''}
+                                          ${plan.offer_given ? `<div style="background: #e8f5e8; color: #2e7d32; padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; display: inline-block;">${plan.offer_given}</div>` : ''}
                                         </div>
                                         
                                         <div style="text-align: center; margin: 25px 0;">
@@ -621,15 +624,16 @@
                                             ${features}
                                           </ul>
                                           ${moreFeatures ? `
-                                            <div class="mt-3">
-                                              <button class="btn btn-outline-secondary btn-sm w-100" type="button" data-bs-toggle="collapse" data-bs-target="#more-features-${plan.name.replace(/\s+/g, '').replace(/[^a-zA-Z0-9]/g, '')}" aria-expanded="false">
-                                                More Features <i class="fa fa-chevron-down"></i>
+                                            <div style="margin-top: 15px;">
+                                              <button class="btn btn-outline-primary btn-sm w-100 more-features-btn" type="button" onclick="toggleMoreFeatures('${plan.name.replace(/\s+/g, '').replace(/[^a-zA-Z0-9]/g, '')}')"
+                                                style="border: 2px solid #ffd700; color: #333; background: transparent; padding: 8px 16px; border-radius: 8px; font-weight: 500; transition: all 0.3s ease;">
+                                                More Features <i class="fa fa-chevron-down" id="icon-${plan.name.replace(/\s+/g, '').replace(/[^a-zA-Z0-9]/g, '')}"></i>
                                               </button>
-                                              <div class="collapse mt-2" id="more-features-${plan.name.replace(/\s+/g, '').replace(/[^a-zA-Z0-9]/g, '')}">
-                                                <div style="background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%); border-radius: 12px; padding: 15px; margin-top: 10px; border: 2px solid #e1ecff;">
-                                                  <div style="color: #2d3c58; font-size: 14px; font-weight: 600; margin-bottom: 10px;">✨ Premium Features</div>
+                                              <div class="more-features-content" id="more-features-${plan.name.replace(/\s+/g, '').replace(/[^a-zA-Z0-9]/g, '')}" style="display: none; margin-top: 10px;">
+                                                <div style="background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%); border-radius: 12px; padding: 20px; border: 2px solid #ffd700; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.1);">
+                                                  <div style="color: #333; font-size: 16px; font-weight: 700; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">✨ Premium Features</div>
                                                   <ul style="list-style: none; padding: 0; margin: 0;">
-                                                    ${plan.more_features.map(f => `<li style="padding: 4px 0; color: #4a5568; font-size: 13px; display: flex; align-items: center; gap: 8px;"><span style="color: #28a745;">🚀</span> ${f}</li>`).join('')}
+                                                    ${plan.more_features.map(f => `<li style="padding: 8px 0; color: #555; font-size: 14px; display: flex; align-items: center; gap: 10px; transition: all 0.3s ease;"><span style="color: #ffd700; font-size: 16px;">🚀</span> ${f}</li>`).join('')}
                                                   </ul>
                                                 </div>
                                               </div>
@@ -648,6 +652,36 @@
                                     this.style.boxShadow = '0 20px 40px rgba(0,0,0,0.1)';
                                   });
                                   card.addEventListener('mouseleave', function() {
+                                    this.style.transform = 'translateY(0)';
+                                    this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.08)';
+                                  });
+                                });
+                              })
+                              .catch(err => {
+                                console.error("حدث خطأ في جلب الخطط:", err);
+                                document.getElementById("plans-container").innerHTML = `
+                                  <div style="text-align: center; padding: 40px; color: #e74c3c;">
+                                    <h3>⚠️ Unable to load pricing plans</h3>
+                                    <p>Please refresh the page or contact support</p>
+                                  </div>
+                                `;
+                              });
+                          }, 1500);
+                        });
+                      });
+                      
+                      function toggleMoreFeatures(planId) {
+                        const content = document.getElementById('more-features-' + planId);
+                        const icon = document.getElementById('icon-' + planId);
+                        
+                        if (content.style.display === 'none' || content.style.display === '') {
+                          content.style.display = 'block';
+                          icon.style.transform = 'rotate(180deg)';
+                        } else {
+                          content.style.display = 'none';
+                          icon.style.transform = 'rotate(0deg)';
+                        }
+                      }ddEventListener('mouseleave', function() {
                                     this.style.transform = 'translateY(0)';
                                     this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.08)';
                                   });
@@ -890,49 +924,40 @@
                         <h2>Why Choose Nutro Cloud Over Other Providers?</h2>
                         <p>See how our VPS hosting compares to the competition</p>
                     </div>
-                    <div class="comparison-table">
-                        <div class="table-responsive">
-                            <table class="table table-bordered">
-                                <thead class="table-primary">
-                                    <tr>
-                                        <th>Features</th>
-                                        <th class="text-center">Nutro Cloud VPS</th>
-                                        <th class="text-center">Other Providers</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>Starting Price</strong></td>
-                                        <td class="text-center text-success"><strong>$2.99/mo</strong></td>
-                                        <td class="text-center text-danger">$5.99/mo</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Storage Type</strong></td>
-                                        <td class="text-center text-success">NVMe SSD (10x faster)</td>
-                                        <td class="text-center">Regular SSD</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Setup Time</strong></td>
-                                        <td class="text-center text-success">60 seconds</td>
-                                        <td class="text-center">5-10 minutes</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>DDoS Protection</strong></td>
-                                        <td class="text-center text-success">Advanced 7Gost</td>
-                                        <td class="text-center">Basic</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Dedicated IP</strong></td>
-                                        <td class="text-center text-success">Free IPv4 + IPv6</td>
-                                        <td class="text-center text-warning">IPv4 only</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Support Response</strong></td>
-                                        <td class="text-center text-success">Under 3 minutes</td>
-                                        <td class="text-center">15-30 minutes</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <div class="comparison-cards">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="comparison-card nutro-card">
+                                    <div class="card-header">
+                                        <h4>🏆 Nutro Cloud VPS</h4>
+                                        <span class="badge">Recommended</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="feature-item">💰 Starting at <strong>$2.99/mo</strong></div>
+                                        <div class="feature-item">⚡ NVMe SSD (10x faster)</div>
+                                        <div class="feature-item">🚀 60-second setup</div>
+                                        <div class="feature-item">🛡️ Advanced 7Gost DDoS</div>
+                                        <div class="feature-item">🌐 Free IPv4 + IPv6</div>
+                                        <div class="feature-item">💬 Under 3-min support</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="comparison-card competitor-card">
+                                    <div class="card-header">
+                                        <h4>🏢 Other Providers</h4>
+                                        <span class="badge competitor">Standard</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="feature-item">💸 Starting at <strong>$5.99/mo</strong></div>
+                                        <div class="feature-item">💾 Regular SSD</div>
+                                        <div class="feature-item">⏱️ 5-10 minute setup</div>
+                                        <div class="feature-item">🛡️ Basic DDoS protection</div>
+                                        <div class="feature-item">🌐 IPv4 only</div>
+                                        <div class="feature-item">💬 15-30 min support</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1208,32 +1233,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        .table-primary {
-            background-color: #ffd700 !important;
-            color: #333 !important;
-        }
-        
-        .table-primary th {
-            border-color: #ffed4e !important;
-            font-weight: 600;
-        }
-        
-        .table tbody tr:hover {
-            background-color: #fffbf0;
-        }
-        
-        .text-success {
-            color: #28a745 !important;
-            font-weight: 600;
-        }
-        
-        .text-danger {
-            color: #dc3545 !important;
-        }
-        
-        .text-warning {
-            color: #ffc107 !important;
-        }
+
         
         .badge {
             font-size: 12px;
@@ -1255,6 +1255,86 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
             color: #333;
+        }
+        
+        .comparison-cards {
+            margin-top: 30px;
+        }
+        
+        .comparison-card {
+            background: white;
+            border-radius: 20px;
+            padding: 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .comparison-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .nutro-card {
+            border-color: #ffd700;
+        }
+        
+        .competitor-card {
+            border-color: #e9ecef;
+        }
+        
+        .comparison-card .card-header {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #333;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .competitor-card .card-header {
+            background: linear-gradient(135deg, #6c757d, #495057);
+            color: white;
+        }
+        
+        .comparison-card .card-header h4 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        
+        .comparison-card .badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .comparison-card .badge.competitor {
+            background: #6c757d;
+        }
+        
+        .comparison-card .card-body {
+            padding: 30px 25px;
+        }
+        
+        .comparison-card .feature-item {
+            padding: 12px 0;
+            font-size: 16px;
+            color: #333;
+            border-bottom: 1px solid #f8f9fa;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .comparison-card .feature-item:last-child {
+            border-bottom: none;
         }
         
         @media (max-width: 768px) {
