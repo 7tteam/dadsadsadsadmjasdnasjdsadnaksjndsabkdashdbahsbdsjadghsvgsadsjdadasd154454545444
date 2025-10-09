@@ -592,21 +592,21 @@
 
         /* Typography Updates */
         .banner-title {
-            font-size: 32px !important;
+            font-size: 40px !important;
             font-weight: 600 !important;
             line-height: 1.3 !important;
-            margin: 16px 0 24px 0 !important;
+            margin: 20px 0 24px 0 !important;
         }
         
         .offer-badge {
-            font-size: 11px !important;
+            font-size: 13px !important;
             font-weight: 500 !important;
-            padding: 6px 16px !important;
+            padding: 8px 18px !important;
         }
         
         .feature-item {
-            font-size: 13px !important;
-            margin-bottom: 8px !important;
+            font-size: 15px !important;
+            margin-bottom: 10px !important;
         }
         
         .hero-features {
@@ -656,9 +656,12 @@
         .bg-light-gray { background-color: #f8f9fa !important; }
         
         .support-feature, .security-feature, .performance-feature, .ai-feature {
-            display: flex;
-            align-items: flex-start;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
             margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid #007bff;
         }
         
         .support-feature .checkmark {
@@ -666,6 +669,14 @@
             font-size: 18px;
             margin-right: 15px;
             margin-top: 2px;
+        }
+        
+        .section-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
         }
         
         .highlight-item {
@@ -919,17 +930,21 @@
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
-                    <div class="support-content">
+                    <div class="section-card">
                         <h2>24/7 support for your success</h2>
                         <p class="support-intro">Need help with your website? Get expert assistance via live chat or email.</p>
                         <div class="support-features">
                             <div class="support-feature">
-                                <span class="checkmark">✓</span>
-                                <span>Say goodbye to long waits – we will resolve any issues in under 3 minutes</span>
+                                <div class="d-flex align-items-start">
+                                    <span class="checkmark">✓</span>
+                                    <span>Say goodbye to long waits – we will resolve any issues in under 3 minutes</span>
+                                </div>
                             </div>
                             <div class="support-feature">
-                                <span class="checkmark">✓</span>
-                                <span>Eliminate communication barriers – our agents are fluent in 8+ languages</span>
+                                <div class="d-flex align-items-start">
+                                    <span class="checkmark">✓</span>
+                                    <span>Eliminate communication barriers – our agents are fluent in 8+ languages</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -948,7 +963,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
-                    <div class="email-content">
+                    <div class="section-card">
                         <h2>Turn WordPress visitors into customers with AI Email Marketing</h2>
                         <p>Sync your WordPress subscribers to Nutro Reach in seconds – the AI-powered, beginner-friendly email marketing tool that lets you create and send stunning campaigns to grow your audience and boost conversions.</p>
                         <div class="email-features">
@@ -985,14 +1000,14 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right">
-                    <div class="ai-content">
+                    <div class="section-card">
                         <div class="badge bg-primary text-white mb-3">NEW FEATURE</div>
-                        <h2>Meet Kodee - the first AI Agent for WordPress</h2>
-                        <p>Manage your site via simple chat with the first AI agent for WordPress. From publishing posts to managing WooCommerce stores, Kodee does it all - just ask, and it's done.</p>
+                        <h2>Meet BemoAI - the first AI Agent for WordPress</h2>
+                        <p>Manage your site via simple chat with the first AI agent for WordPress. From publishing posts to managing WooCommerce stores, BemoAI does it all - just ask, and it's done.</p>
                         <div class="ai-features">
                             <div class="ai-feature mb-3">
                                 <h5>Work smarter, launch faster</h5>
-                                <p>Kodee instantly turns your requests into live site updates, pages, products, and more - no tech skills required.</p>
+                                <p>BemoAI instantly turns your requests into live site updates, pages, products, and more - no tech skills required.</p>
                             </div>
                             <div class="ai-feature mb-3">
                                 <h5>WooCommerce made easy</h5>
@@ -1025,7 +1040,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
-                    <div class="security-content">
+                    <div class="section-card">
                         <h2>Security is our top priority</h2>
                         <div class="security-features">
                             <div class="security-feature mb-3">
@@ -1052,7 +1067,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right">
-                    <div class="performance-content">
+                    <div class="section-card">
                         <h2>Unmatched website performance</h2>
                         <div class="performance-features">
                             <div class="performance-feature mb-3">
