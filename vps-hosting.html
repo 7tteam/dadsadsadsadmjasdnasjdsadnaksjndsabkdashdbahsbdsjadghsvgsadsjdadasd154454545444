@@ -584,8 +584,7 @@
                                     `;
                                   }
                                   
-                                  let popularTag = plan.popular ? `<div class="popular-tag">🔥 Most Popular</div>` : '';
-                                  let discountBadge = plan.discount ? `<div class="discount-badge">${plan.discount}</div>` : '';
+                                  let popularTag = plan.popular ? `<div class="popular-tag"> Most Popular</div>` : '';
                                   let cardClass = plan.popular ? "card-plan active" : "card-plan";
                                   let priceColor = "#ffd700";
                                   
@@ -598,8 +597,7 @@
                                             <img src="${plan.icon}" height="40" width="40" alt="${plan.name}" style="filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));">
                                           </div>
                                           <h4 class="package__name" style="color: #2d3c58; font-weight: 700; font-size: 24px; margin-bottom: 8px;">${plan.name}</h4>
-                                          <hr style="border: 1px solid #eee; margin: 15px 0;">
-                                          <p style="color: #666; font-size: 14px; margin: 0; font-weight: 500; line-height: 1.4;">${plan.tagline}</p>
+                               
                                         </div>
                                         <p class="card-plan__desc" style="color: #555; line-height: 1.5;">${plan.desc}</p>
                                         
