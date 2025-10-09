@@ -56,6 +56,12 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;1,400;1,800&amp;display=swap"
         rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- all styles -->
     <link rel="preload stylesheet" href="assets/css/plugins.min.css" as="style">
     <!-- fontawesome css -->
@@ -565,6 +571,57 @@
             .hero-features { align-items: center; }
             .ai-demo-box { margin-top: 30px; }
         }
+        
+        /* Bootstrap Enhancements */
+        .bg-gradient-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .hero-section { min-height: 100vh; display: flex; align-items: center; }
+        .hero-image { animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+        
+        /* AI Features */
+        .ai-feature-card { transition: all 0.3s ease; border-radius: 15px; overflow: hidden; }
+        .ai-feature-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .feature-icon { width: 80px; height: 80px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; }
+        
+        /* Managed Features */
+        .managed-feature { background: white; border-radius: 10px; padding: 20px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; }
+        .managed-feature:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        .feature-header { display: flex; align-items: center; cursor: pointer; }
+        .feature-header .feature-icon { width: 50px; height: 50px; margin-right: 15px; margin-bottom: 0; }
+        .feature-content { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; }
+        .managed-feature.active .feature-content { display: block; }
+        .toggle-icon { margin-left: auto; transition: transform 0.3s ease; }
+        .managed-feature.active .toggle-icon { transform: rotate(180deg); }
+        .feature-stats { display: flex; gap: 10px; margin-top: 10px; }
+        .stat { background: #f8f9fa; padding: 5px 10px; border-radius: 15px; font-size: 12px; font-weight: bold; }
+        
+        /* Support Features */
+        .support-feature { display: flex; align-items: center; margin-bottom: 15px; padding: 10px 0; }
+        .support-feature .checkmark { color: #28a745; font-size: 18px; margin-right: 15px; }
+        
+        /* Security Features */
+        .security-feature { background: white; border-radius: 10px; padding: 20px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; }
+        .security-feature:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        .security-feature h4 { color: #333; margin-bottom: 10px; }
+        .security-feature p { color: #666; margin: 0; }
+        
+        /* Email Features */
+        .email-feature { display: flex; align-items: start; margin-bottom: 20px; }
+        .email-feature .feature-icon { width: 60px; height: 60px; margin-right: 20px; margin-bottom: 0; }
+        .email-highlights { margin-top: 20px; }
+        .highlight-item { background: #f8f9fa; padding: 8px 15px; border-radius: 20px; margin: 5px; display: inline-block; font-size: 14px; }
+        .btn-get-started { background: linear-gradient(135deg, #007bff, #0056b3); color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-block; margin-top: 20px; transition: all 0.3s ease; }
+        .btn-get-started:hover { background: linear-gradient(135deg, #0056b3, #004085); color: white; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,123,255,0.3); }
+        
+        /* Responsive Improvements */
+        @media (max-width: 768px) {
+            .hero-section { min-height: auto; padding: 80px 0; }
+            .display-4 { font-size: 2rem; }
+            .lead { font-size: 1rem; }
+            .managed-feature, .security-feature { margin-bottom: 20px; }
+            .email-feature { flex-direction: column; text-align: center; }
+            .email-feature .feature-icon { margin: 0 auto 15px; }
+        }
     </style>
 </head>
 
@@ -621,7 +678,7 @@
                 <div class="col-lg-6">
                     <div class="rts-hosting-banner__image">
                         <div class="ai-demo-box">
-                            <img src="assets/images/ai-managing-website.gif" alt="AI Managing Website" class="ai-gif">
+                            <img src="https://i.postimg.cc/Nfhp4g3s/www-com.png" alt="AI Managing Website" class="ai-gif">
                             <div class="ai-status">
                                 <span class="ai-indicator"></span>
                                 <span>AI Agent Active</span>
@@ -741,7 +798,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="managed-image">
-                        <img src="assets/images/wordpress-performance.png" alt="WordPress Performance">
+                        <img src="https://www.eway-crm.com/wp-content/uploads/2023/04/Exploring-Google-Analytics-4-Interface-and-Reports-01.png" alt="WordPress Performance">
                     </div>
                 </div>
             </div>
@@ -754,7 +811,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="support-image">
-                        <img src="assets/images/24-7-support.png" alt="24/7 WordPress Support">
+                        <img src="https://i.postimg.cc/MTFrxV33/www-com-1.png" alt="24/7 WordPress Support">
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -822,262 +879,37 @@
     <section class="email-marketing-section section__padding bg-white">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="email-image">
-                        <img src="assets/images/email-marketing.png" alt="Email Marketing">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="email-image text-center">
+                        <i class="fas fa-envelope-open-text fa-10x text-primary opacity-75"></i>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="email-content">
-                        <h2>Built-in email marketing tools</h2>
-                        <p class="email-intro">Grow your audience and boost sales with powerful email marketing features built right into your WordPress hosting.</p>
-                        <div class="email-features">
-                            <div class="email-feature">
-                                <div class="feature-icon">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div class="feature-text">
-                                    <h4>Professional email campaigns</h4>
-                                    <p>Create beautiful newsletters and promotional emails with drag-and-drop templates</p>
-                                </div>
-                            </div>
-                            <div class="email-feature">
-                                <div class="feature-icon">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <div class="feature-text">
-                                    <h4>Audience segmentation</h4>
-                                    <p>Target the right customers with smart audience segmentation and personalization</p>
-                                </div>
-                            </div>
-                            <div class="email-feature">
-                                <div class="feature-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <div class="feature-text">
-                                    <h4>Performance analytics</h4>
-                                    <p>Track opens, clicks, and conversions to optimize your email marketing strategy</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRICING SECTION -->
-    <section class="pricing-section section__padding">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2>Choose your WordPress hosting plan</h2>
-                <p>All plans include free SSL, daily backups, and 24/7 support</p>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-card">
-                        <div class="pricing-header">
-                            <h3>Starter</h3>
-                            <div class="price">
-                                <span class="currency">$</span>
-                                <span class="amount">9.99</span>
-                                <span class="period">/month</span>
-                            </div>
-                        </div>
-                        <div class="pricing-features">
-                            <ul>
-                                <li><i class="fas fa-check"></i> 1 WordPress Site</li>
-                                <li><i class="fas fa-check"></i> 10 GB SSD Storage</li>
-                                <li><i class="fas fa-check"></i> Free SSL Certificate</li>
-                                <li><i class="fas fa-check"></i> Daily Backups</li>
-                                <li><i class="fas fa-check"></i> 24/7 Support</li>
-                            </ul>
-                        </div>
-                        <div class="pricing-footer">
-                            <a href="#" class="btn btn-outline">Get Started</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-card featured">
-                        <div class="popular-badge">Most Popular</div>
-                        <div class="pricing-header">
-                            <h3>Professional</h3>
-                            <div class="price">
-                                <span class="currency">$</span>
-                                <span class="amount">19.99</span>
-                                <span class="period">/month</span>
-                            </div>
-                        </div>
-                        <div class="pricing-features">
-                            <ul>
-                                <li><i class="fas fa-check"></i> 5 WordPress Sites</li>
-                                <li><i class="fas fa-check"></i> 50 GB SSD Storage</li>
-                                <li><i class="fas fa-check"></i> Free SSL Certificate</li>
-                                <li><i class="fas fa-check"></i> Daily Backups</li>
-                                <li><i class="fas fa-check"></i> AI Website Optimizer</li>
-                                <li><i class="fas fa-check"></i> Email Marketing Tools</li>
-                                <li><i class="fas fa-check"></i> Priority Support</li>
-                            </ul>
-                        </div>
-                        <div class="pricing-footer">
-                            <a href="#" class="btn btn-primary">Get Started</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-card">
-                        <div class="pricing-header">
-                            <h3>Enterprise</h3>
-                            <div class="price">
-                                <span class="currency">$</span>
-                                <span class="amount">39.99</span>
-                                <span class="period">/month</span>
-                            </div>
-                        </div>
-                        <div class="pricing-features">
-                            <ul>
-                                <li><i class="fas fa-check"></i> Unlimited WordPress Sites</li>
-                                <li><i class="fas fa-check"></i> 200 GB SSD Storage</li>
-                                <li><i class="fas fa-check"></i> Free SSL Certificate</li>
-                                <li><i class="fas fa-check"></i> Daily Backups</li>
-                                <li><i class="fas fa-check"></i> AI Website Optimizer</li>
-                                <li><i class="fas fa-check"></i> Email Marketing Tools</li>
-                                <li><i class="fas fa-check"></i> Advanced Security</li>
-                                <li><i class="fas fa-check"></i> White-label Options</li>
-                            </ul>
-                        </div>
-                        <div class="pricing-footer">
-                            <a href="#" class="btn btn-outline">Get Started</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA SECTION -->
-    <section class="cta-section section__padding bg-gradient">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2>Ready to supercharge your WordPress site?</h2>
-                    <p>Join thousands of satisfied customers who trust Nutro Cloud for their WordPress hosting needs</p>
-                    <div class="cta-buttons">
-                        <a href="#" class="btn btn-primary btn-lg">Start Free Trial</a>
-                        <a href="#" class="btn btn-outline btn-lg">View All Features</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="footer-widget">
-                        <div class="footer-logo">
-                            <img src="assets/images/logo-white.png" alt="Nutro Cloud">
-                        </div>
-                        <p>Powerful WordPress hosting with AI-driven optimization and 24/7 expert support.</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <div class="footer-widget">
-                        <h4>Hosting</h4>
-                        <ul>
-                            <li><a href="#">WordPress Hosting</a></li>
-                            <li><a href="#">Cloud Hosting</a></li>
-                            <li><a href="#">VPS Hosting</a></li>
-                            <li><a href="#">Dedicated Servers</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <div class="footer-widget">
-                        <h4>Features</h4>
-                        <ul>
-                            <li><a href="#">AI Optimization</a></li>
-                            <li><a href="#">Security</a></li>
-                            <li><a href="#">Backups</a></li>
-                            <li><a href="#">Email Marketing</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <div class="footer-widget">
-                        <h4>Support</h4>
-                        <ul>
-                            <li><a href="#">Help Center</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Live Chat</a></li>
-                            <li><a href="#">System Status</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <div class="footer-widget">
-                        <h4>Company</h4>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Service</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <p>&copy; 2024 Nutro Cloud. All rights reserved.</p>
-                    </div>
-                    <div class="col-md-6 text-md-end">
-                        <div class="payment-methods">
-                            <img src="assets/images/visa.png" alt="Visa">
-                            <img src="assets/images/mastercard.png" alt="Mastercard">
-                            <img src="assets/images/paypal.png" alt="PayPal">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/main.js"></script>
-</body>
-</html>s="col-lg-6">
-                    <div class="email-image">
-                        <img src="assets/images/email-marketing.png" alt="Email Marketing">
-                    </div>
-                </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-left">
                     <div class="email-content">
                         <h2>Turn WordPress visitors into customers with AI Email Marketing</h2>
                         <p>Sync your WordPress subscribers to Nutro Reach in seconds – the AI-powered, beginner-friendly email marketing tool that lets you create and send stunning campaigns to grow your audience and boost conversions.</p>
                         <div class="email-features">
-                            <div class="email-feature">
-                                <h4>From WordPress to inbox in minutes</h4>
-                                <p>Capture subscribers directly through Gutenberg, Contact Form 7, or WPForms, and sync them instantly to Nutro Reach.</p>
+                            <div class="email-feature mb-4">
+                                <div class="d-flex align-items-start">
+                                    <div class="feature-icon me-3">
+                                        <i class="fas fa-envelope text-primary fa-2x"></i>
+                                    </div>
+                                    <div class="feature-text">
+                                        <h4>From WordPress to inbox in minutes</h4>
+                                        <p>Capture subscribers directly through Gutenberg, Contact Form 7, or WPForms, and sync them instantly to Nutro Reach.</p>
+                                    </div>
+                                </div>
                             </div>
                             <div class="email-highlights">
-                                <div class="highlight-item">✓ AI-crafted campaigns</div>
-                                <div class="highlight-item">✓ Always on-brand</div>
-                                <div class="highlight-item">✓ Track performance in real time</div>
-                                <div class="highlight-item">✓ Free with your plan</div>
+                                <div class="row g-2">
+                                    <div class="col-6"><span class="badge bg-success">✓ AI-crafted campaigns</span></div>
+                                    <div class="col-6"><span class="badge bg-info">✓ Always on-brand</span></div>
+                                    <div class="col-6"><span class="badge bg-warning">✓ Track performance</span></div>
+                                    <div class="col-6"><span class="badge bg-primary">✓ Free with your plan</span></div>
+                                </div>
                             </div>
                         </div>
-                        <a href="#plans" class="btn-get-started">Get Started</a>
+                        <a href="#plans" class="btn btn-primary btn-lg mt-4">Get Started</a>
                     </div>
                 </div>
             </div>
@@ -1747,10 +1579,70 @@
     </div>
     <!-- BACK TO TOP AREA EDN -->
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- All Plugin -->
     <script defer src="assets/js/plugins.min.js"></script>
     <!-- main js -->
     <script defer src="assets/js/main.js"></script>
+    
+    <!-- Initialize AOS -->
+    <script>
+        AOS.init({
+            duration: 800,
+            delay: 100,
+            once: true
+        });
+        
+        // Managed Features Toggle
+        $(document).ready(function() {
+            $('.managed-feature .feature-header').click(function() {
+                const feature = $(this).parent();
+                const content = feature.find('.feature-content');
+                
+                // Close all other features
+                $('.managed-feature').not(feature).removeClass('active');
+                $('.managed-feature').not(feature).find('.feature-content').slideUp();
+                
+                // Toggle current feature
+                feature.toggleClass('active');
+                content.slideToggle();
+            });
+            
+            // Auto-open first feature
+            $('.managed-feature').first().addClass('active');
+            $('.managed-feature').first().find('.feature-content').show();
+            
+            // Smooth scrolling for anchor links
+            $('a[href^="#"]').on('click', function(event) {
+                var target = $(this.getAttribute('href'));
+                if( target.length ) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top - 80
+                    }, 1000);
+                }
+            });
+            
+            // Add fade-in animation to cards on scroll
+            $(window).scroll(function() {
+                $('.ai-feature-card, .security-feature, .managed-feature').each(function() {
+                    var elementTop = $(this).offset().top;
+                    var elementBottom = elementTop + $(this).outerHeight();
+                    var viewportTop = $(window).scrollTop();
+                    var viewportBottom = viewportTop + $(window).height();
+                    
+                    if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                        $(this).addClass('fade-in');
+                    }
+                });
+            });
+        });
+    </script>
     <script>
         async function loadFooter() {
             try {
