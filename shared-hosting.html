@@ -97,6 +97,12 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;1,400;1,800&amp;display=swap"
         rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- all styles -->
     <link rel="preload stylesheet" href="assets/css/plugins.min.css" as="style">
     <!-- fontawesome css -->
@@ -646,6 +652,51 @@
             color: #00b67a;
         }
         
+        /* Section Styles */
+        .bg-light-gray { background-color: #f8f9fa !important; }
+        
+        .support-feature, .security-feature, .performance-feature, .ai-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .support-feature .checkmark {
+            color: #28a745;
+            font-size: 18px;
+            margin-right: 15px;
+            margin-top: 2px;
+        }
+        
+        .highlight-item {
+            background: #f8f9fa;
+            color: #495057;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin: 4px;
+            display: inline-block;
+            font-size: 13px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .highlight-item::before {
+            content: '●';
+            color: #28a745;
+            margin-right: 6px;
+            font-size: 10px;
+        }
+        
+        .fa-10x {
+            font-size: 8rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
+        
         @media (max-width: 768px) {
             .card-plan {
                 padding: 20px 15px;
@@ -673,6 +724,10 @@
             
             .trustpilot-text {
                 font-size: 12px;
+            }
+            
+            .fa-10x {
+                font-size: 4rem;
             }
         }
     </style>
@@ -715,9 +770,7 @@
                         </div>
                         <div class="hero-cta" data-sal="slide-down" data-sal-delay="400" data-sal-duration="800">
                             <a href="#plans" class="btn-claim">Claim deal</a>
-                            <div class="guarantee">
-                                <span>30-day money-back guarantee</span>
-                            </div>
+                     
                         </div>
 
                     </div>
@@ -749,7 +802,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="price__content open" id="monthly">
+                <div class="price__content open" id="plans">
                     <div class="row g-30 monthly" id="plans-container">
                         <div id="plans-loading" style="width: 100%; text-align: center; padding: 40px;">
                             <img src="assets/1.gif" alt="Loading..." style="width:48px;height:48px;">
@@ -852,63 +905,179 @@
             </div>
         </div>
     </div>
-    <div class="view-plan-btn">
-        <a href="#buy" class="btn long-btn">view all plan</a>
-    </div>
     </div>
     </div>
     <!-- PRICING PLAN START END -->
 
-    <!-- WHY CHOOSE -->
-    <div class="rts-why-choose bg-white section__padding">
+    <!-- SUPPORT SECTION -->
+    <section class="support-section section__padding bg-white">
         <div class="container">
-            <div class="row">
-                <div class="rts-section section-style-two">
-                    <div class="rts-section__two">
-                        <h2 class="title mb-0" data-sal="slide-down" data-sal-delay="100" data-sal-duration="800">Why
-                            <br>
-                            Chooses Nutro</h2>
-                    </div>
-                    <div class="rts-section-description w-400">
-                        <p class="description" data-sal="slide-left" data-sal-delay="200" data-sal-duration="800">
-                            Own your virtual presence with the power of nutro
-                            with + 1.5 K websites already under our care.
-                        </p>
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="support-image text-center">
+                        <i class="fas fa-headset fa-10x text-primary opacity-75"></i>
                     </div>
                 </div>
-            </div>
-            <!-- why choose feature -->
-            <div class="row g-30">
-                <!-- single feature -->
-                <div class="col-lg-3 col-sm-6" data-sal="slide-down" data-sal-delay="300" data-sal-duration="800">
-                    <div class="card-feature">
-                        <div class="card-feature__single">
-                            <div class="card-feature__single--icon">
-                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M37.6562 19.1596V14.4438C37.6562 12.1269 35.8127 10.2335 33.5156 10.1509V7.25626C33.5156 5.74852 32.289 4.52188 30.7812 4.52188H23.2533L22.2812 1.81977C22.0333 1.13071 21.5316 0.580087 20.8684 0.269384C20.2053 -0.0413977 19.4611 -0.0745227 18.773 0.175946L5.1125 5.1479C4.42516 5.39806 3.8768 5.9011 3.56836 6.56438C3.25992 7.22766 3.22859 7.97118 3.48023 8.65806L4.02906 10.1561C1.78414 10.2949 0 12.1645 0 14.4438V35.6938C0 38.0631 1.92758 39.9906 4.29688 39.9906H33.3594C35.7287 39.9906 37.6562 38.0631 37.6562 35.6938V30.8216C38.9795 30.6315 40 29.4907 40 28.1156V21.8656C40 20.4906 38.9795 19.3498 37.6562 19.1596ZM37.6562 28.1156C37.6562 28.331 37.481 28.5063 37.2656 28.5063H31.0156C29.0771 28.5063 27.5 26.9291 27.5 24.9906C27.5 23.0521 29.0771 21.475 31.0156 21.475H37.2656C37.481 21.475 37.6562 21.6502 37.6562 21.8656V28.1156ZM5.68094 7.85181C5.63242 7.71938 5.66797 7.60759 5.69352 7.55266C5.71906 7.49782 5.78164 7.39852 5.91414 7.35032L19.5746 2.37837C19.7073 2.33016 19.8191 2.36602 19.874 2.39173C19.9289 2.41743 20.028 2.4804 20.0758 2.61321L20.7625 4.52196H20.2344C18.7266 4.52196 17.5 5.7486 17.5 7.25634V10.147H6.5218L5.68094 7.85181ZM31.1719 7.25626V10.1469H19.8438V7.25626C19.8438 7.04087 20.019 6.86563 20.2344 6.86563H30.7812C30.9966 6.86563 31.1719 7.04087 31.1719 7.25626ZM33.3594 37.6469H4.29688C3.21992 37.6469 2.34375 36.7707 2.34375 35.6938V14.4438C2.34375 13.3668 3.21992 12.4906 4.29688 12.4906H33.3594C34.4363 12.4906 35.3125 13.3668 35.3125 14.4438V19.1313H31.0156C27.7848 19.1313 25.1562 21.7598 25.1562 24.9906C25.1562 28.2215 27.7848 30.85 31.0156 30.85H35.3125V35.6938C35.3125 36.7707 34.4363 37.6469 33.3594 37.6469Z"
-                                        fill="white" />
-                                </svg>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="support-content">
+                        <h2>24/7 support for your success</h2>
+                        <p class="support-intro">Need help with your website? Get expert assistance via live chat or email.</p>
+                        <div class="support-features">
+                            <div class="support-feature">
+                                <span class="checkmark">✓</span>
+                                <span>Say goodbye to long waits – we will resolve any issues in under 3 minutes</span>
                             </div>
-                            <h5 class="card-feature__single--title">
-                                Money-Back Guaranteed
-                            </h5>
-                            <p class="card-feature__single--description">
-                                You can get your money back if the service does not suit you.
-                            </p>
+                            <div class="support-feature">
+                                <span class="checkmark">✓</span>
+                                <span>Eliminate communication barriers – our agents are fluent in 8+ languages</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- single feature end -->
-                <!-- single feature -->
-                <div class="col-lg-3 col-sm-6" data-sal="slide-down" data-sal-delay="400" data-sal-duration="800">
-                    <div class="card-feature">
-                        <div class="card-feature__single">
-                            <div class="card-feature__single--icon">
-                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
+            </div>
+        </div>
+    </section>
+
+    <!-- AI EMAIL MARKETING SECTION -->
+    <section class="email-marketing-section section__padding bg-light-gray">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="email-image text-center">
+                        <i class="fas fa-envelope-open-text fa-10x text-primary opacity-75"></i>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="email-content">
+                        <h2>Turn WordPress visitors into customers with AI Email Marketing</h2>
+                        <p>Sync your WordPress subscribers to Nutro Reach in seconds – the AI-powered, beginner-friendly email marketing tool that lets you create and send stunning campaigns to grow your audience and boost conversions.</p>
+                        <div class="email-features">
+                            <div class="email-feature mb-4">
+                                <div class="d-flex align-items-start">
+                                    <div class="me-3" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                        <i class="fas fa-envelope text-primary fa-2x"></i>
+                                    </div>
+                                    <div class="feature-text">
+                                        <h4>From WordPress to inbox in minutes</h4>
+                                        <p>Capture subscribers directly through forms and sync them instantly.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="email-highlights">
+                                <div class="row g-2">
+                                    <div class="col-6"><span class="highlight-item">AI-crafted campaigns</span></div>
+                                    <div class="col-6"><span class="highlight-item">Always on-brand</span></div>
+                                    <div class="col-6"><span class="highlight-item">Track performance</span></div>
+                                    <div class="col-6"><span class="highlight-item">Free with your plan</span></div>
+                                </div>
+                            </div>
+                            <p class="mt-3"><small>Included in all plans at no extra cost - send up to 200 emails per month to 100 subscribers, upgrade anytime.</small></p>
+                        </div>
+                        <a href="#plans" class="btn btn-primary btn-lg mt-4">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI WEBSITE BUILDER SECTION -->
+    <section class="ai-builder-section section__padding bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="ai-content">
+                        <div class="badge bg-primary text-white mb-3">NEW FEATURE</div>
+                        <h2>Meet Kodee - the first AI Agent for WordPress</h2>
+                        <p>Manage your site via simple chat with the first AI agent for WordPress. From publishing posts to managing WooCommerce stores, Kodee does it all - just ask, and it's done.</p>
+                        <div class="ai-features">
+                            <div class="ai-feature mb-3">
+                                <h5>Work smarter, launch faster</h5>
+                                <p>Kodee instantly turns your requests into live site updates, pages, products, and more - no tech skills required.</p>
+                            </div>
+                            <div class="ai-feature mb-3">
+                                <h5>WooCommerce made easy</h5>
+                                <p>Add products in bulk, change prices, and view sales reports in seconds.</p>
+                            </div>
+                            <div class="ai-feature mb-3">
+                                <h5>Free with your plan</h5>
+                                <p>Included in WordPress Business and Cloud Hosting at no extra cost.</p>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary btn-lg">Learn more</a>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="ai-image text-center">
+                        <i class="fas fa-robot fa-10x text-primary opacity-75"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECURITY SECTION -->
+    <section class="security-section section__padding bg-light-gray">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="security-image text-center">
+                        <i class="fas fa-shield-alt fa-10x text-success opacity-75"></i>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="security-content">
+                        <h2>Security is our top priority</h2>
+                        <div class="security-features">
+                            <div class="security-feature mb-3">
+                                <h5>Free SSL certificates</h5>
+                                <p>Installed automatically to secure your clients' sensitive information.</p>
+                            </div>
+                            <div class="security-feature mb-3">
+                                <h5>Malware scanner</h5>
+                                <p>Proactively detect and remove harmful files.</p>
+                            </div>
+                            <div class="security-feature mb-3">
+                                <h5>Privacy protection</h5>
+                                <p>Keep your personal information safe with advanced security measures.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PERFORMANCE SECTION -->
+    <section class="performance-section section__padding bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="performance-content">
+                        <h2>Unmatched website performance</h2>
+                        <div class="performance-features">
+                            <div class="performance-feature mb-3">
+                                <h5>NVMe storage</h5>
+                                <p>Experience minimal latency and maximum speed with NVMe storage.</p>
+                            </div>
+                            <div class="performance-feature mb-3">
+                                <h5>Lightning-fast CDN</h5>
+                                <p>Deliver a lightning-fast browsing experience with our in-house CDN and LiteSpeed technology.</p>
+                            </div>
+                            <div class="performance-feature mb-3">
+                                <h5>Unlimited bandwidth</h5>
+                                <p>Handle peak traffic like a pro, thanks to unlimited bandwidth.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="performance-image text-center">
+                        <i class="fas fa-tachometer-alt fa-10x text-warning opacity-75"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
                                         d="M19.8333 0C30.787 0 39.6667 8.87969 39.6667 19.8333C39.6667 30.787 30.787 39.6667 19.8333 39.6667C8.87969 39.6667 0 30.787 0 19.8333C0 8.87969 8.87969 0 19.8333 0ZM19.8333 2.08772C10.0327 2.08772 2.08772 10.0327 2.08772 19.8333C2.08772 29.634 10.0327 37.579 19.8333 37.579C29.634 37.579 37.579 29.634 37.579 19.8333C37.579 10.0327 29.634 2.08772 19.8333 2.08772ZM31.0101 8.65662C31.3864 9.03291 31.4542 9.71168 31.0101 10.1329L23.4307 17.7122C23.798 18.3339 24.0088 19.059 24.0088 19.8333C24.0088 22.1394 22.1394 24.0088 19.8333 24.0088C17.5273 24.0088 15.6579 22.1394 15.6579 19.8333C15.6579 17.5273 17.5273 15.6579 19.8333 15.6579C20.6077 15.6579 21.3328 15.8687 21.9545 16.236L29.5338 8.65662C29.9415 8.24897 30.6024 8.24897 31.0101 8.65662ZM19.8333 17.7456C18.6803 17.7456 17.7456 18.6803 17.7456 19.8333C17.7456 20.9864 18.6803 21.9211 19.8333 21.9211C20.9864 21.9211 21.9211 20.9864 21.9211 19.8333C21.9211 18.6803 20.9864 17.7456 19.8333 17.7456ZM32.1693 14.1715C32.9788 15.9325 33.4035 17.8539 33.4035 19.8333C33.4035 20.4098 32.9362 20.8772 32.3597 20.8772C31.7831 20.8772 31.3158 20.4098 31.3158 19.8333C31.3158 18.1565 30.9568 16.5323 30.2724 15.0435C30.0316 14.5197 30.2611 13.8998 30.7849 13.659C31.3087 13.4183 31.9285 13.6477 32.1693 14.1715ZM19.8333 6.26316C21.831 6.26316 23.7696 6.6958 25.5435 7.51973C26.0664 7.76258 26.2934 8.38331 26.0506 8.90617C25.8077 9.42904 25.187 9.65604 24.6641 9.41319C23.1642 8.71657 21.5257 8.35088 19.8333 8.35088C13.4918 8.35088 8.35088 13.4918 8.35088 19.8333C8.35088 20.4098 7.88353 20.8772 7.30702 20.8772C6.73051 20.8772 6.26316 20.4098 6.26316 19.8333C6.26316 12.3387 12.3387 6.26316 19.8333 6.26316Z"
                                         fill="#2D3C58" />
                                 </svg>
@@ -1256,10 +1425,25 @@
     </div>
     <!-- BACK TO TOP AREA EDN -->
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- All Plugin -->
     <script defer src="assets/js/plugins.min.js"></script>
     <!-- main js -->
     <script defer src="assets/js/main.js"></script>
+    
+    <!-- Initialize AOS -->
+    <script>
+        AOS.init({
+            duration: 800,
+            delay: 100,
+            once: true
+        });
+    </script>
     <script defer src="main.js"></script>
 
     <!-- FirWall MAN -->
