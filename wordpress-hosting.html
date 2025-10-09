@@ -624,7 +624,7 @@
         .ai-features-section { padding: 60px 0; }
         .ai-feature-card { background: white; border-radius: 12px; padding: 24px; border: 1px solid #e9ecef; height: 100%; }
         .ai-feature-card .d-flex { align-items: flex-start; }
-        .feature-image { width: 80px; height: 80px; border-radius: 12px; flex-shrink: 0; margin-right: 20px; object-fit: cover; }
+        .feature-image { width: 30%; height: 120px; border-radius: 12px; flex-shrink: 0; margin-right: 20px; object-fit: cover; }
         .ai-badge { background: #e8f5e8; color: #2e7d32; padding: 4px 10px; border-radius: 16px; font-size: 11px; font-weight: 500; display: inline-block; margin-top: 8px; }
         
         /* Managed Features */
@@ -671,7 +671,8 @@
             .email-feature { flex-direction: column; text-align: center; }
             .email-feature .feature-icon { margin: 0 auto 15px; }
             .ai-feature-card .d-flex { flex-direction: column; text-align: center; }
-            .ai-feature-card .feature-image { margin: 0 auto 15px; }
+            .feature-image { width: 80px !important; height: 80px !important; }
+            .ai-feature-card .feature-image { margin: 0 auto 15px; width: 80px; height: 80px; }
             .banner-title { font-size: 24px; }
             .hero-description { font-size: 13px; }
         }
@@ -962,7 +963,7 @@
                                     <img src="assets/images/pricing/pricing-icon-01.svg" alt="">
                                 </div>
                                 <div class="content">
-                                    <h4 class="title">Auto-Setup</h4>
+                                    <h4 class="title" style="color: white;">Auto-Setup</h4>
                                     <p class="desc text-decoration-none">WordPress is pre-installed </p>
                                 </div>
                                 <div class="pricing-shape-area">
@@ -978,7 +979,7 @@
                                     <img src="assets/images/pricing/pricing-icon-02.svg" alt="">
                                 </div>
                                 <div class="content">
-                                    <h4 class="title">Up To 20X Faster</h4>
+                                    <h4 class="title" style="color: white;">Up To 20X Faster</h4>
                                     <p class="desc text-decoration-none">Host your site on our Turbo</p>
                                 </div>
                                 <div class="pricing-shape-area">
@@ -994,7 +995,7 @@
                                     <img src="assets/images/pricing/pricing-icon-03.svg" alt="">
                                 </div>
                                 <div class="content">
-                                    <h4 class="title">Global Servers</h4>
+                                    <h4 class="title" style="color: white;">Global Servers</h4>
                                     <p class="desc text-decoration-none">Speed and security settings</p>
                                 </div>
                                 <div class="pricing-shape-area">
@@ -1010,7 +1011,7 @@
                                     <img src="assets/images/pricing/pricing-icon-04.svg" alt="">
                                 </div>
                                 <div class="content">
-                                    <h4 class="title">A2 Optimized Plugin</h4>
+                                    <h4 class="title" style="color: white;">A2 Optimized Plugin</h4>
                                     <p class="desc text-decoration-none">global data centers</p>
                                 </div>
                                 <div class="pricing-shape-area">
@@ -1045,17 +1046,13 @@
                     data-sal-duration="800">
                     <div class="col-lg-4 col-md-5">
                         <div class="rts-pricing-plan__tab plan__tab">
-                            <div class="tab__button">
-                                <div class="tab__button__item">
-                                    <button class="tab__price active" data-tab="monthly">monthly</button>
-                                </div>
-                            </div>
+                        
                            
                         </div>
                     </div>
                 </div>
 
-                <div class="price__content open" id="monthly">
+                <div class="price__content open" id="plan">
                     <div class="row g-30 monthly" id="plans-container">
                         <div id="plans-loading" style="width: 100%; text-align: center; padding: 40px;">
                             <img src="assets/1.gif" alt="Loading..." style="width:48px;height:48px;">
