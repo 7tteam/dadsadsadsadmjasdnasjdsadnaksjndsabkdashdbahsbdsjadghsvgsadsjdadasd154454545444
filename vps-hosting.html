@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Best VPS Hosting 2024 - Faster & Cheaper Than Competitors | Nutro Cloud</title>
+    <title>Best VPS Hosting 2025 - Faster & Cheaper Than Competitors | Nutro Cloud</title>
 
     <!-- الوصف الذي يظهر أسفل العنوان في نتائج البحث -->
     <meta name="description"
@@ -568,9 +568,14 @@
                                 container.innerHTML = '';
                                 
                                 plans.forEach(plan => {
-                                  let features = plan.features.map(f =>
-                                    `<li style="padding: 8px 0; color: #555; font-size: 14px; display: flex; align-items: center; gap: 10px;"><i class="fa-regular fa-check" style="color: #28a745;"></i> ${f}</li>`
-                                  ).join('');
+                                  let features = plan.features.map((f, index) => {
+                                    let icon = '<i class="fa-regular fa-check" style="color: #28a745;"></i>';
+                                    if (index === 0) icon = '<i class="fa-solid fa-microchip" style="color: #007bff;"></i>';
+                                    else if (index === 1) icon = '<i class="fa-solid fa-memory" style="color: #28a745;"></i>';
+                                    else if (index === 2) icon = '<i class="fa-solid fa-hard-drive" style="color: #ffc107;"></i>';
+                                    else if (index === 3) icon = '<i class="fa-solid fa-network-wired" style="color: #6f42c1;"></i>';
+                                    return `<li style="padding: 8px 0; color: #555; font-size: 14px; display: flex; align-items: center; gap: 10px;">${icon} ${f}</li>`;
+                                  }).join('');
                                   
                                   let moreFeatures = '';
                                   if (plan.more_features && plan.more_features.length) {
@@ -601,16 +606,17 @@
                                         </div>
                                         <p class="card-plan__desc" style="color: #555; line-height: 1.5;">${plan.desc}</p>
                                         
-                                        ${plan.discount ? `<div style="position: absolute; top: -5px; right: 15px; background: linear-gradient(135deg, #ffd700, #ffed4e); color: #333; padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: 700; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);">${plan.discount}</div>` : ''}
+
                                         
                                         <div style="text-align: center; padding: 20px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; margin: 20px 0;">
                                           <h5 style="font-size: 36px; font-weight: 800; color: #2d3c58; margin: 0;">
                                             <sup style="color: #ffd700; font-size: 18px;">$</sup>${plan.price}<sub style="color: #666; font-size: 16px;">${plan.period}</sub>
                                           </h5>
-                                          ${plan.bonus ? `<p style="color: #28a745; font-weight: 600; font-size: 14px; margin: 10px 0;">🎁 ${plan.bonus}</p>` : ''}
+                                          ${plan.bonus ? `<p style="color: #28a745; font-weight: 600; font-size: 14px; margin: 10px 0;"> ${plan.bonus}</p>` : ''}
                                           ${plan.total_price ? `<p style="font-size: 12px; color: #666; margin: 8px 0;">${plan.total_price}</p>` : ''}
                                           ${plan.renew_price ? `<p style="font-size: 11px; color: #888; margin: 5px 0;">${plan.renew_price}</p>` : ''}
-                                          ${plan.offer_given ? `<div style="background: #e8f5e8; color: #2e7d32; padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; display: inline-block;">${plan.offer_given}</div>` : ''}
+                                          ${plan.offer_given ? `<div style="background: #e8f5e8; color: #2e7d32; padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; display: inline-block; margin-top: 8px;">${plan.offer_given}</div>` : ''}
+                                          ${plan.discount ? `<div style="background: linear-gradient(135deg, #ffd700, #ffed4e); color: #333; padding: 6px 12px; border-radius: 15px; font-size: 11px; font-weight: 700; display: inline-block; margin-top: 8px;">${plan.discount}</div>` : ''}
                                         </div>
                                         
                                         <div style="text-align: center; margin: 25px 0;">
@@ -627,7 +633,7 @@
                                                 style="border: 2px solid #ffd700; color: #333; background: transparent; padding: 8px 16px; border-radius: 8px; font-weight: 500; transition: all 0.3s ease;">
                                                 More Features <i class="fa fa-chevron-down" id="icon-${plan.name.replace(/\s+/g, '').replace(/[^a-zA-Z0-9]/g, '')}"></i>
                                               </button>
-                                              <div class="more-features-content" id="more-features-${plan.name.replace(/\s+/g, '').replace(/[^a-zA-Z0-9]/g, '')}" style="display: none; margin-top: 10px;">
+                                              <div class="more-features-content" id="more-features-${plan.name.replace(/\s+/g, '').replace(/[^a-zA-Z0-9]/g, '')}" style="display: none; margin-top: 10px; opacity: 0; max-height: 0; overflow: hidden; transition: all 0.4s ease;">
                                                 <div style="background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%); border-radius: 12px; padding: 20px; border: 2px solid #ffd700; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.1);">
                                                   <div style="color: #333; font-size: 16px; font-weight: 700; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">✨ Premium Features</div>
                                                   <ul style="list-style: none; padding: 0; margin: 0;">
@@ -672,12 +678,18 @@
                         const content = document.getElementById('more-features-' + planId);
                         const icon = document.getElementById('icon-' + planId);
                         
-                        if (content.style.display === 'none' || content.style.display === '') {
+                        if (content.style.maxHeight === '0px' || content.style.maxHeight === '') {
                           content.style.display = 'block';
+                          content.style.maxHeight = '500px';
+                          content.style.opacity = '1';
                           icon.style.transform = 'rotate(180deg)';
                         } else {
-                          content.style.display = 'none';
+                          content.style.maxHeight = '0px';
+                          content.style.opacity = '0';
                           icon.style.transform = 'rotate(0deg)';
+                          setTimeout(() => {
+                            content.style.display = 'none';
+                          }, 400);
                         }
                       }
                   </script>
