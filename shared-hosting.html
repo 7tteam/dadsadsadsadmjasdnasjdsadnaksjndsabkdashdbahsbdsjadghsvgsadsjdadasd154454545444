@@ -390,22 +390,40 @@
         }
         
         .btn-claim {
-            background: linear-gradient(135deg, #28a745, #20c997);
+            background: linear-gradient(135deg, #007bff, #0056b3);
             color: white;
-            padding: 18px 40px;
-            border-radius: 30px;
+            padding: 16px 32px;
+            border-radius: 8px;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 18px;
+            font-weight: 600;
+            font-size: 16px;
             display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(40, 167, 69, 0.4);
-            text-transform: uppercase;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 14px rgba(0, 123, 255, 0.3);
+            text-transform: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-claim::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s;
         }
         
         .btn-claim:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(40, 167, 69, 0.5);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+            background: linear-gradient(135deg, #0056b3, #004085);
+        }
+        
+        .btn-claim:hover::before {
+            left: 100%;
         }
         
         .guarantee {
@@ -465,8 +483,9 @@
         .hero-features {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px 20px;
+            gap: 12px 15px;
             margin: 25px 0;
+            max-width: 400px;
         }
         
         .hero-features .feature-item:nth-child(3) {
