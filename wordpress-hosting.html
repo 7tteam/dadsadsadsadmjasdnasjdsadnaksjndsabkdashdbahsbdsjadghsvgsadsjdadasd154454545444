@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>Nutro Cloud | Best WordPress Hosting - Affordable & Reliable Free and Paid Plans</title>
+    <title>Nutro Cloud | AI-Powered WordPress Hosting Starting at $1.99/mo - 75% OFF</title>
 
     <!-- الوصف الذي يظهر أسفل العنوان في نتائج البحث -->
     <meta name="description"
-        content="Nutro Cloud offers the best WordPress hosting services with reliable performance, affordable pricing, and both free and paid plans. Perfect for beginners and professionals alike. Powered by 7T Team.">
+        content="Get AI-powered WordPress hosting with Nutro Cloud starting at $1.99/mo. Fully managed by AI agents, automatic optimization, malware protection, and 24/7 expert support. Save up to 75%!">
 
     <!-- الكلمات المفتاحية باللغة الإنجليزية -->
     <meta name="keywords"
@@ -28,17 +28,17 @@
     <link rel="icon" href="https://www.nutro.cloud/assets/images/fav.png" type="image/x-icon">
 
     <!-- Open Graph Tags لتحسين الظهور عند مشاركة الروابط على الشبكات الاجتماعية -->
-    <meta property="og:title" content="Nutro Cloud | Best WordPress Hosting - Affordable & Reliable Plans">
+    <meta property="og:title" content="Nutro Cloud | AI-Powered WordPress Hosting Starting at $1.99/mo - 75% OFF">
     <meta property="og:description"
-        content="Nutro Cloud offers the best WordPress hosting with reliable performance, affordable pricing, and free and paid plans. Ideal for both beginners and professionals.">
+        content="Get AI-powered WordPress hosting with automatic optimization, malware protection, and 24/7 expert support. Fully managed by AI agents starting at $1.99/mo.">
     <meta property="og:image" content="https://www.nutro.cloud/assets/images/banner.jpg">
-    <meta property="og:url" content="https://www.nutro.cloud">
+    <meta property="og:url" content="https://www.nutro.cloud/wordpress">
 
     <!-- Twitter Card Tags لتحسين الظهور على تويتر -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Nutro Cloud | Best WordPress Hosting - Affordable & Reliable Plans">
+    <meta name="twitter:title" content="Nutro Cloud | AI-Powered WordPress Hosting Starting at $1.99/mo - 75% OFF">
     <meta name="twitter:description"
-        content="Nutro Cloud offers affordable and reliable WordPress hosting services, with both free and paid plans. Perfect for websites of all sizes.">
+        content="AI-powered WordPress hosting with automatic optimization, malware protection, and expert support. Save up to 75% on hosting plans.">
     <meta name="twitter:image" content="https://www.nutro.cloud/assets/images/banner.jpg">
 
     <!-- favicon -->
@@ -76,13 +76,494 @@
     <style>
         body {
             -webkit-user-select: none;
-            /* Safari */
             -moz-user-select: none;
-            /* Firefox */
             -ms-user-select: none;
-            /* Internet Explorer/Edge */
             user-select: none;
-            /* Non-prefixed version, currently supported by Chrome, Opera, and Edge */
+        }
+        
+        /* WordPress Hero Styles */
+        .hero-offer {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .offer-badge {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        
+        .banner-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: white;
+            line-height: 1.2;
+            margin: 20px 0 30px 0;
+        }
+        
+        .hero-price {
+            text-align: left;
+            margin: 30px 0;
+        }
+        
+        .price-container {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+        
+        .currency {
+            font-size: 32px;
+            color: #ffd700;
+            font-weight: 600;
+        }
+        
+        .price {
+            font-size: 72px;
+            color: #ffd700;
+            font-weight: 800;
+            line-height: 1;
+        }
+        
+        .cents {
+            font-size: 32px;
+            color: #ffd700;
+            font-weight: 600;
+        }
+        
+        .period {
+            font-size: 24px;
+            color: white;
+            font-weight: 500;
+            margin-left: 5px;
+        }
+        
+        .price-details {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .original-price {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: line-through;
+            font-size: 16px;
+        }
+        
+        .discount {
+            background: #28a745;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .hero-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 15px;
+            margin: 25px auto;
+            max-width: 400px;
+        }
+        
+        .hero-features .feature-item:nth-child(3) {
+            grid-column: 1 / -1;
+            justify-self: center;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            font-size: 14px;
+        }
+        
+        .checkmark {
+            color: #28a745;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .hero-cta {
+            margin: 25px 0;
+        }
+        
+        .btn-claim {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            display: inline-block;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 14px rgba(0, 123, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-claim::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s;
+        }
+        
+        .btn-claim:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+            background: linear-gradient(135deg, #0056b3, #004085);
+            color: #ffd700;
+        }
+        
+        .btn-claim:hover::before {
+            left: 100%;
+        }
+        
+        .guarantee {
+            margin-top: 15px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 13px;
+        }
+        
+        .ai-demo-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .ai-gif {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .ai-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .ai-indicator {
+            width: 8px;
+            height: 8px;
+            background: #28a745;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        /* AI Features Section */
+        .ai-features-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .section-desc {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 0;
+        }
+        
+        .ai-feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ai-feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .ai-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .ai-feature-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .ai-feature-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .ai-badge {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        
+        /* Pricing Plans Styles */
+        .card-plan {
+            position: relative;
+            overflow: visible;
+            padding: 30px 20px;
+            margin-bottom: 30px;
+        }
+        
+        .card-plan__discount {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 5;
+        }
+        
+        .discount-badge {
+            background: #ff4757;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        
+        .popular-tag {
+            background: #007bff;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 0 0 15px 15px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 10;
+        }
+        
+        .card-plan__package {
+            text-align: center;
+            margin: 20px 0 30px 0;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .package__name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+            order: 1;
+        }
+        
+        .package__tagline {
+            color: #666;
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.4;
+            order: 2;
+        }
+        
+        .card-plan__pricing {
+            text-align: center;
+            margin: 25px 0;
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .card-plan__price {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+        
+        .bonus-text {
+            color: #28a745;
+            font-weight: bold;
+            font-size: 13px;
+            margin: 8px 0;
+        }
+        
+        .total-price {
+            color: #666;
+            font-size: 12px;
+            margin: 8px 0;
+            line-height: 1.3;
+        }
+        
+        .card-plan__renew-price {
+            color: #888;
+            font-size: 11px;
+            margin: 5px 0 0 0;
+        }
+        
+        .card-plan__cartbtn {
+            text-align: center;
+            margin: 25px 0;
+        }
+        
+        .card-plan__cartbtn a {
+            background: #007bff;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        
+        .card-plan__cartbtn a:hover {
+            background: #0056b3;
+        }
+        
+        .card-plan__feature--list-trigered {
+            cursor: pointer;
+            background: #f8f9fa;
+            border-radius: 5px;
+            padding: 10px 15px;
+            margin: 15px 0;
+            border: 1px solid #e9ecef;
+            text-align: center;
+        }
+        
+        .card-plan__feature--list-trigered:hover {
+            background: #e9ecef;
+        }
+        
+        .more__feature {
+            display: none;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #dee2e6;
+        }
+        
+        .card-plan.active {
+            border: 2px solid #007bff;
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15);
+        }
+        
+        @media (max-width: 768px) {
+            .banner-title {
+                font-size: 32px;
+                text-align: center;
+            }
+            
+            .price {
+                font-size: 56px;
+            }
+            
+            .currency, .cents {
+                font-size: 24px;
+            }
+            
+            .hero-features {
+                align-items: center;
+            }
+            
+            .ai-demo-box {
+                margin-top: 30px;
+            }
+        }
+    </style>
+    <style>
+        /* WordPress Hero Styles */
+        .hero-offer { text-align: center; margin-bottom: 20px; }
+        .offer-badge { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 8px 20px; border-radius: 25px; font-size: 12px; font-weight: bold; }
+        .banner-title { font-size: 42px; font-weight: 700; color: white; line-height: 1.2; margin: 20px 0 30px 0; }
+        .hero-price { margin: 30px 0; }
+        .price-container { display: flex; align-items: baseline; margin-bottom: 10px; }
+        .currency { font-size: 32px; color: #ffd700; font-weight: 600; }
+        .price { font-size: 72px; color: #ffd700; font-weight: 800; line-height: 1; }
+        .cents { font-size: 32px; color: #ffd700; font-weight: 600; }
+        .period { font-size: 24px; color: white; font-weight: 500; margin-left: 5px; }
+        .price-details { display: flex; align-items: center; gap: 15px; }
+        .original-price { color: rgba(255, 255, 255, 0.6); text-decoration: line-through; font-size: 16px; }
+        .discount { background: #28a745; color: white; padding: 4px 12px; border-radius: 15px; font-size: 12px; font-weight: bold; }
+        .hero-features { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 15px; margin: 25px auto; max-width: 400px; }
+        .hero-features .feature-item:nth-child(3) { grid-column: 1 / -1; justify-self: center; }
+        .feature-item { display: flex; align-items: center; gap: 8px; color: white; font-size: 14px; }
+        .checkmark { color: #28a745; font-weight: bold; font-size: 16px; }
+        .hero-cta { margin: 25px 0; }
+        .btn-claim { background: linear-gradient(135deg, #007bff, #0056b3); color: white; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; transition: all 0.4s; box-shadow: 0 4px 14px rgba(0, 123, 255, 0.3); }
+        .btn-claim:hover { transform: translateY(-1px); box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4); background: linear-gradient(135deg, #0056b3, #004085); color: #ffd700; }
+        .guarantee { margin-top: 15px; color: rgba(255, 255, 255, 0.8); font-size: 13px; }
+        .ai-demo-box { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 20px; text-align: center; }
+        .ai-gif { max-width: 100%; height: auto; border-radius: 10px; margin-bottom: 15px; }
+        .ai-status { display: flex; align-items: center; justify-content: center; gap: 8px; color: white; font-size: 14px; }
+        .ai-indicator { width: 8px; height: 8px; background: #28a745; border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+        
+        /* Plans */
+        .card-plan { position: relative; overflow: visible; padding: 30px 20px; margin-bottom: 30px; }
+        .card-plan__discount { position: absolute; top: 15px; right: 15px; z-index: 5; }
+        .discount-badge { background: #ff4757; color: white; padding: 6px 12px; border-radius: 15px; font-size: 11px; font-weight: bold; }
+        .popular-tag { background: #007bff; color: white; padding: 8px 20px; border-radius: 0 0 15px 15px; position: absolute; top: 0; left: 50%; transform: translateX(-50%); font-size: 12px; font-weight: bold; z-index: 10; }
+        .card-plan__package { text-align: center; margin: 20px 0 30px 0; display: flex; flex-direction: column; }
+        .package__name { font-size: 24px; font-weight: bold; margin-bottom: 8px; color: #333; order: 1; }
+        .package__tagline { color: #666; font-size: 14px; margin: 0; line-height: 1.4; order: 2; }
+        .card-plan__pricing { text-align: center; margin: 25px 0; padding: 20px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+        .card-plan__price { font-size: 36px; font-weight: bold; color: #333; margin: 0 0 10px 0; }
+        .bonus-text { color: #28a745; font-weight: bold; font-size: 13px; margin: 8px 0; }
+        .total-price { color: #666; font-size: 12px; margin: 8px 0; line-height: 1.3; }
+        .card-plan__renew-price { color: #888; font-size: 11px; margin: 5px 0 0 0; }
+        .card-plan__cartbtn { text-align: center; margin: 25px 0; }
+        .card-plan__cartbtn a { background: #007bff; color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-block; text-transform: uppercase; font-size: 14px; }
+        .card-plan__cartbtn a:hover { background: #0056b3; }
+        .card-plan__feature--list-trigered { cursor: pointer; background: #f8f9fa; border-radius: 5px; padding: 10px 15px; margin: 15px 0; border: 1px solid #e9ecef; text-align: center; }
+        .card-plan__feature--list-trigered:hover { background: #e9ecef; }
+        .more__feature { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #dee2e6; }
+        .card-plan.active { border: 2px solid #007bff; box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15); }
+        
+        @media (max-width: 768px) {
+            .banner-title { font-size: 32px; text-align: center; }
+            .price { font-size: 56px; }
+            .currency, .cents { font-size: 24px; }
+            .hero-features { align-items: center; }
+            .ai-demo-box { margin-top: 30px; }
         }
     </style>
 </head>
@@ -91,37 +572,246 @@
 <body>
     <div id="header"></div>
 
-    <!-- shared hosting banner -->
+    <!-- WordPress hosting banner -->
     <div class="rts-hosting-banner rts-hosting-banner-bg banner-default-height">
         <div class="container">
-            <div class="row justify-content-sm-center">
-                <div class="banner-area">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
                     <div class="rts-hosting-banner rts-hosting-banner__content">
-                        <span class="starting__price">WordPress Hosting</span>
+                        <div class="hero-offer">
+                            <span class="offer-badge">🤖 AI-POWERED HOSTING</span>
+                        </div>
                         <h1 class="banner-title">
-                            Get more from your WordPress.
+                            Your WordPress site, fully managed by AI
                         </h1>
-                        <p class="slogan">Expect More From Your Website or App.</p>
-                        <div class="hosting-action">
-                            <a href="#" class="btn__two secondary__bg secondary__color">Buy WordPrass <i
-                                    class="fa-regular fa-arrow-right"></i></a>
-                            <a href="" class="btn__white">Starting @ $5.99/mo</a>
+                        <div class="hero-price">
+                            <div class="price-container">
+                                <span class="currency">$</span>
+                                <span class="price">1</span>
+                                <span class="cents">.99</span>
+                                <span class="period">/mo</span>
+                            </div>
+                            <div class="price-details">
+                                <span class="original-price">$7.99/mo</span>
+                                <span class="discount">Save 75%</span>
+                            </div>
+                        </div>
+                        <div class="hero-features">
+                            <div class="feature-item">
+                                <span class="checkmark">✓</span>
+                                <span>AI Website Builder</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="checkmark">✓</span>
+                                <span>AI Troubleshooter</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="checkmark">✓</span>
+                                <span>AI Optimizer</span>
+                            </div>
+                        </div>
+                        <div class="hero-cta">
+                            <a href="#plans" class="btn-claim">Get Started</a>
+                            <div class="guarantee">
+                                <span>💰 30-Day Money-Back Guarantee</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="rts-hosting-banner__image wordpress-banner__image">
-                        <img src="assets/images/banner/banner__wordpress__image.svg" alt="">
-                        <img class="shape-image one top-bottom"
-                            src="assets/images/banner/banner__wordpress__image-sm1.svg" alt="">
-                        <img class="shape-image two pulsing" src="assets/images/banner/banner__wordpress__image-sm2.svg"
-                            alt="">
-                        <img class="shape-image three pulsing"
-                            src="assets/images/banner/banner__wordpress__image-sm2.svg" alt="">
+                </div>
+                <div class="col-lg-6">
+                    <div class="rts-hosting-banner__image">
+                        <div class="ai-demo-box">
+                            <img src="assets/images/ai-managing-website.gif" alt="AI Managing Website" class="ai-gif">
+                            <div class="ai-status">
+                                <span class="ai-indicator"></span>
+                                <span>AI Agent Active</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- shared hosting banner end-->
+
+    <!-- AI FEATURES SECTION -->
+    <section class="ai-features-section section__padding bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-60">
+                    <h2 class="section-title">Save hours managing WordPress with AI</h2>
+                    <p class="section-desc">Let our AI agents handle the technical work while you focus on growing your business</p>
+                </div>
+            </div>
+            <div class="row g-30">
+                <div class="col-lg-4 col-md-6">
+                    <div class="ai-feature-card">
+                        <div class="ai-icon">
+                            <img src="assets/images/ai-builder-icon.svg" alt="AI Website Builder">
+                        </div>
+                        <h3>AI Website Builder</h3>
+                        <p>Build stunning WordPress sites in minutes - AI creates layouts, pages, and SEO-ready content in 50+ languages. Launch blogs, business sites, or WooCommerce stores instantly</p>
+                        <div class="ai-badge">Powered by AI</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="ai-feature-card">
+                        <div class="ai-icon">
+                            <img src="assets/images/ai-troubleshooter-icon.svg" alt="AI Troubleshooter">
+                        </div>
+                        <h3>AI Website Troubleshooter</h3>
+                        <p>Minimize downtime with automatic error detection and fixes - AI solves 70% of issues within minutes, without your technical input</p>
+                        <div class="ai-badge">Auto-Fix</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="ai-feature-card">
+                        <div class="ai-icon">
+                            <img src="assets/images/ai-optimizer-icon.svg" alt="AI Optimizer">
+                        </div>
+                        <h3>AI Website Optimizer</h3>
+                        <p>Increase site performance by 20% - AI applies LiteSpeed optimizations and detects slow queries automatically, giving you a faster, more reliable website</p>
+                        <div class="ai-badge">20% Faster</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MANAGED HOSTING SECTION -->
+    <section class="managed-hosting-section section__padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="managed-content">
+                        <h2>MANAGED HOSTING FOR WORDPRESS</h2>
+                        <h3>Lightning-fast performance and uptime you can trust</h3>
+                        <div class="managed-features">
+                            <div class="managed-feature">
+                                <h4>Quicker load times</h4>
+                                <p>Keep your site fast with LiteSpeed servers and smart caching. Get a speed boost of up to 40% with code minification, automatic image optimization, and global rerouting.</p>
+                            </div>
+                            <div class="managed-feature">
+                                <h4>No downtime, no lost visitors</h4>
+                                <p>99.9% uptime guarantee ensures your WordPress site stays online when your visitors need it most.</p>
+                            </div>
+                            <div class="managed-feature">
+                                <h4>Higher rankings and AI visibility</h4>
+                                <p>Built-in SEO optimization and AI-powered content suggestions help your site rank higher in search results.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="managed-image">
+                        <img src="assets/images/wordpress-performance.png" alt="WordPress Performance">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUPPORT SECTION -->
+    <section class="support-section section__padding bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="support-image">
+                        <img src="assets/images/24-7-support.png" alt="24/7 WordPress Support">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="support-content">
+                        <h2>24/7 WordPress expert support</h2>
+                        <p class="support-intro">Need some help? Contact our Customer Success team anytime via live chat or email.</p>
+                        <div class="support-features">
+                            <div class="support-feature">
+                                <span class="checkmark">✓</span>
+                                <span>Get professional WordPress help from our expert agents</span>
+                            </div>
+                            <div class="support-feature">
+                                <span class="checkmark">✓</span>
+                                <span>We aim to respond in less than 2 minutes</span>
+                            </div>
+                            <div class="support-feature">
+                                <span class="checkmark">✓</span>
+                                <span>Our specialists are available 24/7 and speak multiple languages</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECURITY SECTION -->
+    <section class="security-section section__padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="security-content">
+                        <h2>Maximum website protection</h2>
+                        <p class="security-intro">Keep your website safe with fully managed, always-on protection - no setup required on your part.</p>
+                        <div class="security-features">
+                            <div class="security-feature">
+                                <h4>Automatic malware removal</h4>
+                                <p>Keep your website clean and secure — we continuously scan for threats and remove malicious files before they can cause harm.</p>
+                            </div>
+                            <div class="security-feature">
+                                <h4>Advanced firewall protection</h4>
+                                <p>Protect your website from attacks — our web application firewall (WAF) blocks threats before they ever reach your site.</p>
+                            </div>
+                            <div class="security-feature">
+                                <h4>DDoS mitigation</h4>
+                                <p>Ensure your website stays online — we filter out malicious traffic to stop large-scale attacks from overwhelming your site.</p>
+                            </div>
+                            <div class="security-feature">
+                                <h4>Fully managed security</h4>
+                                <p>Your website stays protected — we manage all security operations in the background, so you don't have to handle anything manually.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="security-image">
+                        <img src="assets/images/website-security.png" alt="Website Security">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EMAIL MARKETING SECTION -->
+    <section class="email-marketing-section section__padding bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="email-image">
+                        <img src="assets/images/email-marketing.png" alt="Email Marketing">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="email-content">
+                        <h2>Turn WordPress visitors into customers with AI Email Marketing</h2>
+                        <p>Sync your WordPress subscribers to Nutro Reach in seconds – the AI-powered, beginner-friendly email marketing tool that lets you create and send stunning campaigns to grow your audience and boost conversions.</p>
+                        <div class="email-features">
+                            <div class="email-feature">
+                                <h4>From WordPress to inbox in minutes</h4>
+                                <p>Capture subscribers directly through Gutenberg, Contact Form 7, or WPForms, and sync them instantly to Nutro Reach.</p>
+                            </div>
+                            <div class="email-highlights">
+                                <div class="highlight-item">✓ AI-crafted campaigns</div>
+                                <div class="highlight-item">✓ Always on-brand</div>
+                                <div class="highlight-item">✓ Track performance in real time</div>
+                                <div class="highlight-item">✓ Free with your plan</div>
+                            </div>
+                        </div>
+                        <a href="#plans" class="btn-get-started">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- BEST PRICING -->
     <section class="rts-pricing-five inner bg-white">
@@ -226,11 +916,7 @@
                                     <button class="tab__price active" data-tab="monthly">monthly</button>
                                 </div>
                             </div>
-                            <div class="discount">
-                                <span class="line"><img src="assets/images/pricing/offer__vactor.svg" height="20"
-                                        width="85" alt=""></span>
-                                <p>20% save</p>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -246,68 +932,92 @@
                 </div>
                 <script>
                     document.addEventListener("DOMContentLoaded", function () {
-                        // لنبدأ بعد تحميل الصفحة كلياً
                         window.addEventListener("load", function () {
-                            // delay بالمللي ثانية (هنا 1200 ملي ثانية = 1.2 ثانية)
                             setTimeout(function () {
                                 fetch("https://user.7tteam.com/admin/nutrocloud/wpplan.php")
                                     .then(res => {
                                         if (!res.ok) throw new Error('Network response was not ok');
                                         return res.json();
                                     })
-                                    .then(plans => {
+                                    .then(plansData => {
                                         const container = document.getElementById("plans-container");
-                                        container.innerHTML = ''; // امسح اللودينج
-                                        plans.forEach(plan => {
+                                        container.innerHTML = '';
+                                        
+                                        plansData.forEach(plan => {
                                             let features = plan.features.map(f =>
                                                 `<li class="card-plan__feature--list-item"><span class="text"><i class="fa-regular fa-check"></i> ${f}</span></li>`
                                             ).join('');
-                                            let moreFeatures = plan.more_features && plan.more_features.length ? plan.more_features.map(f =>
+                                            
+                                            let extraFeatures = plan.extra_features && plan.extra_features.length ? plan.extra_features.map(f =>
                                                 `<li class="card-plan__feature--list-item"><span class="text"><i class="fa-regular fa-check"></i> ${f}</span></li>`
                                             ).join('') : '';
+                                            
                                             let popularTag = plan.popular ? `<div class="popular-tag">Most Popular</div>` : '';
                                             let cardClass = plan.popular ? "card-plan active" : "card-plan";
-                                            container.innerHTML += `
-                                    <div class="col-lg-3 col-md-6 col-sm-6">
-                                      <div class="${cardClass}">
-                                        ${popularTag}
-                                        <div class="card-plan__package">
-                                          <div class="icon">
-                                            <img src="${plan.icon}" height="30" width="30" alt="">
-                                          </div>
-                                          <h4 class="package__name">${plan.name}</h4>
-                                        </div>
-                                        <p class="card-plan__desc">${plan.desc}</p>
-                                        <h5 class="card-plan__price">
-                                          <sup>$</sup> ${plan.price} <sub>/ month</sub>
-                                        </h5>
-                                        <div class="card-plan__cartbtn">
-                                          <a href="${plan.link}">add to cart</a>
-                                        </div>
-                                        <p class="card-plan__renew-price">
-                                          $ ${plan.renew_price} /mo when you renew
-                                        </p>
-                                        <div class="card-plan__feature">
-                                          <ul class="card-plan__feature--list">
-                                            ${features}
-                                            ${moreFeatures ? `
-                                            <li class="card-plan__feature--list-trigered">
-                                              <span class="text">More Features <i class="fa-sharp fa-regular fa-chevron-down"></i></span>
-                                            </li>
-                                            ` : ''}
-                                          </ul>
-                                          ${moreFeatures ? `<ul class="card-plan__feature--list more__feature">${moreFeatures}</ul>` : ''}
-                                        </div>
-                                      </div>
-                                    </div>
-                                  `;
+                                            
+                                            const planHTML = `
+                                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                                    <div class="${cardClass}">
+                                                        ${popularTag}
+                                                        <div class="card-plan__discount">
+                                                            <span class="discount-badge">${plan.discount}</span>
+                                                        </div>
+                                                        <div class="card-plan__package">
+                                                            <h4 class="package__name">${plan.name}</h4>
+                                                            <p class="package__tagline">${plan.tagline}</p>
+                                                        </div>
+                                                        <div class="card-plan__pricing">
+                                                            <h5 class="card-plan__price">
+                                                                <sup>$</sup> ${plan.price} <sub>${plan.period}</sub>
+                                                            </h5>
+                                                            <p class="bonus-text">${plan.bonus}</p>
+                                                            <p class="total-price">${plan.total_price}</p>
+                                                            <p class="card-plan__renew-price">${plan.renew_price}</p>
+                                                        </div>
+                                                        <div class="card-plan__cartbtn">
+                                                            <a href="${plan.link}" target="_blank" rel="noopener">Get Started</a>
+                                                        </div>
+                                                        <div class="card-plan__feature">
+                                                            <ul class="card-plan__feature--list">
+                                                                ${features}
+                                                                ${extraFeatures ? `
+                                                                <li class="card-plan__feature--list-trigered">
+                                                                    <span class="text">Extra Features <i class="fa-sharp fa-regular fa-chevron-down"></i></span>
+                                                                </li>
+                                                                ` : ''}
+                                                            </ul>
+                                                            ${extraFeatures ? `<ul class="card-plan__feature--list more__feature">${extraFeatures}</ul>` : ''}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            `;
+                                            
+                                            const tempDiv = document.createElement('div');
+                                            tempDiv.innerHTML = planHTML;
+                                            container.appendChild(tempDiv.firstElementChild);
+                                        });
+                                        
+                                        // إضافة وظيفة فتح وإغلاق الميزات الإضافية
+                                        document.querySelectorAll('.card-plan__feature--list-trigered').forEach(trigger => {
+                                            trigger.addEventListener('click', function() {
+                                                const moreFeatures = this.parentElement.nextElementSibling;
+                                                const icon = this.querySelector('i');
+                                                
+                                                if (moreFeatures.style.display === 'none' || !moreFeatures.style.display) {
+                                                    moreFeatures.style.display = 'block';
+                                                    icon.style.transform = 'rotate(180deg)';
+                                                } else {
+                                                    moreFeatures.style.display = 'none';
+                                                    icon.style.transform = 'rotate(0deg)';
+                                                }
+                                            });
                                         });
                                     })
                                     .catch(err => {
                                         console.error("حدث خطأ في جلب الخطط:", err);
                                         document.getElementById("plans-container").innerHTML = "<p style='color:red'>تعذر تحميل خطط الأسعار</p>";
                                     });
-                            }, 2200); // عدد الثواني التي تريدها قبل التحميل (يمكنك تغيير الرقم)
+                            }, 1200);
                         });
                     });
                 </script>
@@ -783,8 +1493,7 @@
         }
         loadFooter();
     </script>
-    <script type="text/javascript" id="hs-script-loader" async defer
-        src="//js-eu1.hs-scripts.com/145121546.js"></script>
+   
 
     <!-- FirWall MAN -->
     <script>
