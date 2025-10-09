@@ -294,12 +294,12 @@
         }
         
         .banner-title {
-            font-size: 36px;
+            font-size: 42px;
             font-weight: 700;
             color: white;
-            line-height: 1.3;
+            line-height: 1.2;
             margin: 20px 0 30px 0;
-            max-width: 500px;
+            max-width: 100%;
         }
         
         .hero-price {
@@ -442,54 +442,47 @@
             text-transform: uppercase;
         }
         
-        /* تخطيط الهيرو الجديد */
+        /* تخطيط الهيرو الطبيعي */
         .rts-hosting-banner {
-            position: relative;
-            overflow: hidden;
-        }
-        
-
-        .hero-container {
-            position: relative;
-            z-index: 2;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            padding: 0 40px;
-            max-width: 100%;
-        }
-        
-        .hero-content-col {
-            display: flex;
-            align-items: center;
-            min-height: 600px;
-            padding-left: 0;
+            padding: 80px 0;
         }
         
         .rts-hosting-banner__content {
             text-align: left;
+        }
+        
+        .rts-hosting-banner__image {
+            text-align: center;
+        }
+        
+        .hero-image {
             max-width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
         }
         
         .hero-features {
-            justify-content: flex-start;
+            display: flex;
             flex-direction: column;
-            align-items: flex-start;
             gap: 15px;
+            margin: 30px 0;
         }
         
         .hero-cta {
-            text-align: left;
+            margin: 40px 0;
         }
         
         .hero-stats {
-            justify-content: flex-start;
+            display: flex;
             gap: 30px;
+            margin-top: 40px;
         }
         
         @media (max-width: 768px) {
             .banner-title {
-                font-size: 28px;
+                font-size: 32px;
+                text-align: center;
             }
             
             .price {
@@ -500,42 +493,22 @@
                 font-size: 24px;
             }
             
+            .rts-hosting-banner__content {
+                text-align: center;
+                margin-bottom: 40px;
+            }
+            
             .hero-features {
-                align-items: flex-start;
-                gap: 15px;
+                align-items: center;
             }
             
             .hero-stats {
-                gap: 25px;
-            }
-            
-            .hero-content-col {
-                min-height: 400px;
-                padding-left: 15px;
-            }
-            
-            .hero-container {
-                padding: 0 20px;
-            }
-            
-            .hero-container .row {
-                flex-direction: column-reverse;
-            }
-            
-            .hero-background {
-                position: relative;
-                right: auto;
-                width: 100%;
-                height: 300px;
-                margin-bottom: 20px;
                 justify-content: center;
+                gap: 20px;
             }
             
-            .hero-bg-image {
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-                object-position: center;
+            .hero-image {
+                max-height: 300px;
             }
         }
         
@@ -601,12 +574,9 @@
     <div id="header"></div>
     <!-- shared hosting banner -->
     <div class="rts-hosting-banner rts-hosting-banner-bg banner-default-height">
-        <div class="hero-background">
-            <img src="assets/images/banner/shared__hosting.png" alt="" class="hero-bg-image">
-        </div>
-        <div class="container hero-container">
-            <div class="row">
-                <div class="col-lg-6 hero-content-col">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
                     <div class="rts-hosting-banner rts-hosting-banner__content">
                         <div class="hero-offer" data-sal="slide-down" data-sal-delay="100" data-sal-duration="800">
                             <span class="offer-badge">🔥 LIMITED TIME OFFER</span>
@@ -662,8 +632,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 hero-image-col">
-                    <!-- مساحة فارغة للصورة -->
+                <div class="col-lg-6">
+                    <div class="rts-hosting-banner__image">
+                        <img src="assets/images/banner/shared__hosting.png" alt="" class="hero-image">
+                    </div>
                 </div>
             </div>
         </div>
