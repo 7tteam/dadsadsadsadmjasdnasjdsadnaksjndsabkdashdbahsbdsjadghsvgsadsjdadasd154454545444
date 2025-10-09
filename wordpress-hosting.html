@@ -581,43 +581,48 @@
         /* Hero Description */
         .hero-description { font-size: 18px; color: rgba(255,255,255,0.9); line-height: 1.6; margin: 20px 0 30px 0; }
         
-        /* AI Features */
-        .ai-feature-card { transition: all 0.3s ease; border-radius: 15px; overflow: hidden; }
-        .ai-feature-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .feature-icon { width: 80px; height: 80px; border: 2px solid #e9ecef; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: #6c757d; background: transparent; }
-        .ai-feature-card:hover .feature-icon { border-color: #667eea; color: #667eea; }
+        /* Section Backgrounds */
+        .bg-light-gray { background-color: #f8f9fa !important; }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6, .section-title, .banner-title { color: #1a1a1a !important; font-weight: 700; }
+        
+        /* AI Features - Horizontal Cards */
+        .ai-feature-card { background: white; border-radius: 12px; padding: 30px; border: 1px solid #e9ecef; height: 100%; }
+        .ai-feature-card .d-flex { align-items: flex-start; }
+        .feature-icon { width: 60px; height: 60px; border: 2px solid #e9ecef; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #6c757d; background: transparent; flex-shrink: 0; margin-right: 20px; }
+        .ai-badge { background: #e3f2fd; color: #1976d2; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; display: inline-block; margin-top: 10px; }
         
         /* Managed Features */
-        .managed-feature { background: white; border-radius: 10px; padding: 20px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; }
-        .managed-feature:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        .managed-feature { background: white; border-radius: 12px; padding: 25px; margin-bottom: 15px; border: 1px solid #e9ecef; }
         .feature-header { display: flex; align-items: center; cursor: pointer; }
-        .feature-header .feature-icon { width: 50px; height: 50px; margin-right: 15px; margin-bottom: 0; border: 2px solid #e9ecef; background: transparent; color: #6c757d; }
-        .managed-feature:hover .feature-header .feature-icon { border-color: #667eea; color: #667eea; }
+        .feature-header .feature-icon { width: 50px; height: 50px; margin-right: 15px; margin-bottom: 0; border: 2px solid #e9ecef; background: transparent; color: #6c757d; border-radius: 12px; }
         .feature-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
         .managed-feature.active .feature-content { max-height: 200px; margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; }
         .toggle-icon { margin-left: auto; transition: transform 0.3s ease; }
         .managed-feature.active .toggle-icon { transform: rotate(180deg); }
         .feature-stats { display: flex; gap: 10px; margin-top: 10px; }
-        .stat { background: #f8f9fa; padding: 5px 10px; border-radius: 15px; font-size: 12px; font-weight: bold; }
+        .stat { background: #f1f3f4; color: #5f6368; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; }
         
         /* Support Features */
         .support-feature { display: flex; align-items: center; margin-bottom: 15px; padding: 10px 0; }
         .support-feature .checkmark { color: #28a745; font-size: 18px; margin-right: 15px; }
         
         /* Security Features */
-        .security-feature { background: white; border-radius: 10px; padding: 20px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; }
-        .security-feature:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
-        .security-feature h4 { color: #333; margin-bottom: 10px; }
-        .security-feature p { color: #666; margin: 0; }
+        .security-feature { background: white; border-radius: 12px; padding: 25px; margin-bottom: 15px; border: 1px solid #e9ecef; }
+        .security-feature h4 { color: #1a1a1a; margin-bottom: 10px; font-weight: 600; }
+        .security-feature p { color: #5f6368; margin: 0; line-height: 1.5; }
         
         /* Email Features */
         .email-feature { display: flex; align-items: start; margin-bottom: 20px; }
-        .email-feature .feature-icon { width: 60px; height: 60px; margin-right: 20px; margin-bottom: 0; border: 2px solid #e9ecef; background: transparent; color: #6c757d; }
-        .email-feature:hover .feature-icon { border-color: #667eea; color: #667eea; }
+        .email-feature .feature-icon { width: 60px; height: 60px; margin-right: 20px; margin-bottom: 0; border: 2px solid #e9ecef; background: transparent; color: #6c757d; border-radius: 12px; }
         .email-highlights { margin-top: 20px; }
-        .highlight-item { background: #f8f9fa; padding: 8px 15px; border-radius: 20px; margin: 5px; display: inline-block; font-size: 14px; }
-        .btn-get-started { background: linear-gradient(135deg, #007bff, #0056b3); color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-block; margin-top: 20px; transition: all 0.3s ease; }
-        .btn-get-started:hover { background: linear-gradient(135deg, #0056b3, #004085); color: white; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,123,255,0.3); }
+        .highlight-item { background: #f1f3f4; color: #5f6368; padding: 8px 15px; border-radius: 20px; margin: 5px; display: inline-block; font-size: 14px; }
+        .btn-get-started { background: #1a73e8; color: white; padding: 12px 30px; border-radius: 6px; text-decoration: none; font-weight: 500; display: inline-block; margin-top: 20px; }
+        .btn-get-started:hover { background: #1557b0; color: white; }
+        
+        /* Remove all animations and transitions */
+        *, *::before, *::after { transition: none !important; animation: none !important; transform: none !important; }
         
         /* Responsive Improvements */
         @media (max-width: 768px) {
@@ -627,6 +632,8 @@
             .managed-feature, .security-feature { margin-bottom: 20px; }
             .email-feature { flex-direction: column; text-align: center; }
             .email-feature .feature-icon { margin: 0 auto 15px; }
+            .ai-feature-card .d-flex { flex-direction: column; text-align: center; }
+            .ai-feature-card .feature-icon { margin: 0 auto 15px; }
         }
     </style>
 </head>
@@ -683,35 +690,47 @@
                     <p class="section-desc">Let our AI agents handle the technical work while you focus on growing your business</p>
                 </div>
             </div>
-            <div class="row g-30">
-                <div class="col-lg-4 col-md-6">
+            <div class="row g-4">
+                <div class="col-12">
                     <div class="ai-feature-card">
-                        <div class="ai-icon">
-                            <i class="fas fa-magic"></i>
+                        <div class="d-flex">
+                            <div class="feature-icon">
+                                <i class="fas fa-magic"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h3>AI Website Builder</h3>
+                                <p>Build stunning WordPress sites in minutes - AI creates layouts, pages, and SEO-ready content in 50+ languages. Launch blogs, business sites, or WooCommerce stores instantly</p>
+                                <div class="ai-badge">Powered by AI</div>
+                            </div>
                         </div>
-                        <h3>AI Website Builder</h3>
-                        <p>Build stunning WordPress sites in minutes - AI creates layouts, pages, and SEO-ready content in 50+ languages. Launch blogs, business sites, or WooCommerce stores instantly</p>
-                        <div class="ai-badge">Powered by AI</div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-12">
                     <div class="ai-feature-card">
-                        <div class="ai-icon">
-                            <i class="fas fa-tools"></i>
+                        <div class="d-flex">
+                            <div class="feature-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h3>AI Website Troubleshooter</h3>
+                                <p>Minimize downtime with automatic error detection and fixes - AI solves 70% of issues within minutes, without your technical input</p>
+                                <div class="ai-badge">Auto-Fix</div>
+                            </div>
                         </div>
-                        <h3>AI Website Troubleshooter</h3>
-                        <p>Minimize downtime with automatic error detection and fixes - AI solves 70% of issues within minutes, without your technical input</p>
-                        <div class="ai-badge">Auto-Fix</div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-12">
                     <div class="ai-feature-card">
-                        <div class="ai-icon">
-                            <i class="fas fa-tachometer-alt"></i>
+                        <div class="d-flex">
+                            <div class="feature-icon">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h3>AI Website Optimizer</h3>
+                                <p>Increase site performance by 20% - AI applies LiteSpeed optimizations and detects slow queries automatically, giving you a faster, more reliable website</p>
+                                <div class="ai-badge">20% Faster</div>
+                            </div>
                         </div>
-                        <h3>AI Website Optimizer</h3>
-                        <p>Increase site performance by 20% - AI applies LiteSpeed optimizations and detects slow queries automatically, giving you a faster, more reliable website</p>
-                        <div class="ai-badge">20% Faster</div>
                     </div>
                 </div>
             </div>
@@ -719,7 +738,7 @@
     </section>
 
     <!-- MANAGED HOSTING SECTION -->
-    <section class="managed-hosting-section section__padding">
+    <section class="managed-hosting-section section__padding bg-light-gray">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
@@ -859,7 +878,7 @@
     </section>
 
     <!-- EMAIL MARKETING SECTION -->
-    <section class="email-marketing-section section__padding bg-white">
+    <section class="email-marketing-section section__padding bg-light-gray">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right">
@@ -900,7 +919,7 @@
     </section>
 
     <!-- BEST PRICING -->
-    <section class="rts-pricing-five inner bg-white">
+    <section class="rts-pricing-five inner bg-light-gray">
         <div class="container">
             <div class="rts-section text-center">
                 <h3 class="rts-section__title font-40 mb-0">WordPress Hosting Features</h3>
@@ -1117,7 +1136,7 @@
     <!-- PRICING PLAN START END -->
 
     <!-- HOSTING FEATURE -->
-    <div class="rts-hosting-feature bg-white section__padding">
+    <div class="rts-hosting-feature bg-light-gray section__padding">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-xl-5">
