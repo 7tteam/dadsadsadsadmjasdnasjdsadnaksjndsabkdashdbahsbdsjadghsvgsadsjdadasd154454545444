@@ -382,24 +382,24 @@
         </div>
     </div>
     <!-- HERO BANNER ONE -->
-    <section class="rts-hero-four rts-hero__four" style="background-image: url(assets/images/banner/newnutro.png);">
+    <section class="rts-hero-four rts-hero__four" style="background-image: url(https://i.postimg.cc/FRN6LxXP/www-com-6.png);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-xl-6 col-md-10">
                     <div class="rts-hero-four__content sal-animate" data-sal="slide-down" data-sal-delay="100"
                         data-sal-duration="800">
-                        <p class="offer" style="font-size: 14px;">🔥 Limited Time Offer!</p>
+                        <p class="offer" style="font-size: 16px;">🔥 Limited Time Offer!</p>
 
-                        <h1 class="banner__title" style="font-size: 2.2rem; line-height: 1.2;">
+                        <h1 class="banner__title" style="font-size: 2.8rem; line-height: 1.2;">
                             Your online success starts here
                         </h1>
 
-                        <p class="description" style="font-size: 16px; line-height: 1.5;">
+                        <p class="description" style="font-size: 18px; line-height: 1.5;">
                             From launching a website to growing your business, Nutro Cloud's got you covered.
                         </p>
 
                         <div class="feature">
-                            <ul class="feature__list" style="font-size: 14px;">
+                            <ul class="feature__list" style="font-size: 16px;">
                                 <li class="feature__item">Lightning-fast WordPress hosting</li>
                                 <li class="feature__item">Free domain + SSL certificate</li>
                                 <li class="feature__item">24/7 expert support + DDoS protection</li>
@@ -408,12 +408,11 @@
 
                         <div class="banner-buttons">
                             <a href="https://nutro.cloud/wordpress-hosting"
-                                class="rts-btn btn__long secondary__bg secondary__color" style="font-size: 14px;">
+                                class="rts-btn btn__long secondary__bg secondary__color" style="font-size: 16px;">
                                 Get Started Now <i class="fa-solid fa-arrow-right"></i>
                             </a>
-                            <div class="countdown-container" style="background: rgba(255,68,68,0.1); padding: 15px; border-radius: 10px; margin: 0; text-align: center; display: inline-block; min-width: 200px;">
-                                <p style="color: #ff4444; font-weight: bold; margin-bottom: 5px; font-size: 12px;">Offer ends in:</p>
-                                <div id="countdown" style="font-size: 18px; font-weight: bold; color: #ff4444; font-family: monospace;"></div>
+                            <div class="countdown-container" style="background: rgba(0,123,255,0.1); padding: 15px; border-radius: 10px; margin: 0; text-align: center; display: inline-block; min-width: 200px;">
+                                <div id="countdown" style="font-size: 22px; font-weight: bold; color: #007bff; font-family: monospace;"></div>
                             </div>
                         </div>
 
@@ -424,36 +423,36 @@
     </section>
     <!-- HERO BANNER ONE END -->
     <script>
-        // تحديد التاريخ المستهدف - 30 يوليو 2025 الساعة 00:00 بتوقيت GMT
+        // Target date - October 15, 2025 at 23:59 GMT
         const targetDate = new Date("2025-10-15T23:59:59Z").getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = targetDate - now;
 
-            // التحقق إذا انتهى الوقت
+            // Check if time is up
             if (distance <= 0) {
-                document.getElementById("countdown").innerHTML = "انتهى العرض!";
+                document.getElementById("countdown").innerHTML = "Offer Ended!";
                 clearInterval(timer);
                 return;
             }
 
-            // حساب الأيام والساعات والدقائق والثواني
+            // Calculate days, hours, minutes and seconds
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // عرض النتيجة
+            // Display result
 
             document.getElementById("countdown").innerHTML =
-                `${days.toString().padStart(2, '0')}د : ${hours.toString().padStart(2, '0')}س : ${minutes.toString().padStart(2, '0')}ق : ${seconds.toString().padStart(2, '0')}ث`;
+                `${days.toString().padStart(2, '0')} : ${hours.toString().padStart(2, '0')} : ${minutes.toString().padStart(2, '0')} : ${seconds.toString().padStart(2, '0')}`;
         }
 
-        // تحديث العداد كل ثانية
+        // Update countdown every second
         const timer = setInterval(updateCountdown, 1000);
 
-        // تشغيل أولي عند التحميل
+        // Initial run on load
         updateCountdown();
 
     </script>
