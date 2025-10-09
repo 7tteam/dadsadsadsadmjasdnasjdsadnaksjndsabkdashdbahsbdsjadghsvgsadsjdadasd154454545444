@@ -71,7 +71,7 @@
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSiteWordPrass",
+  "@type": "WebSite",
   "url": "https://www.nutro.cloud",
   "name": "Nutro Cloud",
   "description": "Affordable hosting services for websites and game servers."
@@ -622,9 +622,9 @@
         
         /* AI Features - Horizontal Cards */
         .ai-features-section { padding: 60px 0; }
-        .ai-feature-card { background: white; border-radius: 12px; padding: 24px; border: 1px solid #e9ecef; height: 100%; }
-        .ai-feature-card .d-flex { align-items: flex-start; }
-        .feature-image { width: 30%; height: 120px; border-radius: 12px; flex-shrink: 0; margin-right: 20px; object-fit: cover; }
+        .ai-feature-card { background: white; border-radius: 12px; padding: 24px; border: 1px solid #e9ecef; min-height: 150px; }
+        .ai-feature-card .d-flex { align-items: stretch; height: 100%; }
+        .feature-image { width: 30%; height: 100%; border-radius: 0; flex-shrink: 0; margin-right: 20px; object-fit: cover; }
         .ai-badge { background: #e8f5e8; color: #2e7d32; padding: 4px 10px; border-radius: 16px; font-size: 11px; font-weight: 500; display: inline-block; margin-top: 8px; }
         
         /* Managed Features */
@@ -661,6 +661,10 @@
         /* Remove only card animations, keep essential ones */
         .ai-feature-card, .security-feature { transition: none !important; transform: none !important; }
         .ai-feature-card:hover, .security-feature:hover { transform: none !important; }
+        
+        /* Pricing Features White Titles */
+        .pricing-wrapper .content .title { color: white !important; }
+        .pricing-wrapper .title { color: white !important; }
         
         /* Responsive Improvements */
         @media (max-width: 768px) {
@@ -734,7 +738,7 @@
                     <i class="fas fa-star"></i>
                 </div>
                 <div class="trustpilot-text">
-                    <span class="trustpilot-rating">4.8/5</span> based on 2K reviews on
+                    <span class="trustpilot-rating">4.8/5</span> based on 2,847 reviews on
                     <strong>Trustpilot</strong>
                 </div>
             </div>
@@ -913,7 +917,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right">
                     <div class="email-image text-center">
-                        <i class="fas fa-envelope-open-text fa-10x text-primary opacity-75"></i>
+                        <img src="https://i.postimg.cc/br9cx80h/www-com-3.png" alt="Website email">
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
@@ -941,7 +945,6 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#plans" class="btn btn-primary btn-lg mt-4">Get Started</a>
                     </div>
                 </div>
             </div>
@@ -1052,7 +1055,7 @@
                     </div>
                 </div>
 
-                <div class="price__content open" id="plan">
+                <div class="price__content open" id="plans">
                     <div class="row g-30 monthly" id="plans-container">
                         <div id="plans-loading" style="width: 100%; text-align: center; padding: 40px;">
                             <img src="assets/1.gif" alt="Loading..." style="width:48px;height:48px;">
@@ -1695,4 +1698,3 @@
 
 
 </html>
-
