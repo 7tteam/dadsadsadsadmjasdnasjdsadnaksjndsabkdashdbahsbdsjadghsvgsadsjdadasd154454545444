@@ -1,107 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Charset & Responsive -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
     
-    <title>Best Reseller Hosting  | Start Your Hosting Business</title>
-    <meta name="description" content="Start your hosting business with Nutro Cloud! Powerful reseller plans, 24/7 support, competitive prices, and guaranteed profits.">
-    <meta name="keywords" content="reseller hosting, web hosting reseller, hosting business, WHM, cPanel">
-    
+    <!-- SEO Meta Tags -->
+    <title>Nutro Cloud – Best Reseller Hosting Plans | Start Your Hosting Business</title>
+    <meta name="description" content="Start your hosting business with Nutro Cloud! Powerful reseller plans, 24/7 support, competitive prices, and guaranteed profits. Join thousands of successful resellers!">
+    <meta name="keywords" content="reseller hosting, web hosting reseller, hosting business, WHM, cPanel, hosting plans, web hosting">
+    <meta name="author" content="Nutro Cloud">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
     <link rel="canonical" href="https://www.nutro.cloud/reseller-hosting">
+
+    <!-- Favicon -->
     <link rel="icon" href="assets/images/fav.png" type="image/x-icon">
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Nutro Cloud | Best Reseller Hosting Plans">
+    <meta property="og:description" content="Start your hosting business with Nutro Cloud! Powerful reseller plans, 24/7 support, competitive prices, and guaranteed profits.">
+    <meta property="og:image" content="https://www.nutro.cloud/assets/images/reseller-banner.jpg">
+    <meta property="og:url" content="https://www.nutro.cloud/reseller-hosting">
+    <meta property="og:type" content="website">
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;1,400;1,800&display=swap" rel="stylesheet">
+
+    <!-- Original Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/plugins.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
     <style>
-        :root {
-            --primary-blue: #1e40af;
-            --secondary-blue: #3b82f6;
-            --light-blue: #dbeafe;
-            --dark-blue: #1e3a8a;
-        }
-        
         body {
             font-family: 'Inter', sans-serif;
         }
-        
-        .btn-primary-custom {
-            background: var(--primary-blue);
-            border: none;
+
+        .rts-hero-four {
+            background: linear-gradient(135deg, #0a2540 0%, #1e3a8a 100%);
+            padding: 100px 0;
             color: white;
-            padding: 12px 30px;
-            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .content-block {
+            margin-bottom: 60px;
+        }
+
+        .content-block h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 30px;
+        }
+
+        .content-block h3 {
+            font-size: 1.8rem;
             font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
+            color: #1e3a8a;
+            margin-bottom: 20px;
+            margin-top: 40px;
         }
-        
-        .btn-primary-custom:hover {
-            background: var(--dark-blue);
-            color: white;
+
+        .content-block p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 20px;
         }
-        
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--light-blue);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-blue);
-            font-size: 1.5rem;
-            margin: 0 auto 1rem;
+
+        .highlight-box {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 4px solid #1e3a8a;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
         }
-        
+
+        .highlight-box h4 {
+            color: #1e3a8a;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 1.1rem;
+            color: #4b5563;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .pricing-section {
+            background: #f8fafc;
+            padding: 80px 0;
+        }
+
         .pricing-card {
-            border: 2px solid #e5e7eb;
-            border-radius: 16px;
-            padding: 2rem;
             background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            border: 2px solid transparent;
             position: relative;
         }
-        
+
         .pricing-card.popular {
-            border-color: var(--primary-blue);
-            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.1);
+            border-color: #1e3a8a;
+            transform: scale(1.05);
         }
-        
+
         .pricing-card.popular::before {
             content: "Most Popular";
             position: absolute;
-            top: -12px;
+            top: -15px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--primary-blue);
+            background: #1e3a8a;
             color: white;
-            padding: 6px 20px;
+            padding: 8px 25px;
             border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 600;
+            font-weight: bold;
+            font-size: 0.9rem;
         }
-        
-        .hero-bg {
-            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--secondary-blue) 100%);
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1e3a8a;
+            margin-bottom: 10px;
         }
-        
-        .section-padding {
-            padding: 5rem 0;
+
+        .contact-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            padding: 80px 0;
+            color: white;
+            text-align: center;
         }
-        
-        .text-primary-custom {
-            color: var(--primary-blue);
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
-        .bg-light-custom {
-            background-color: #f8fafc;
+
+        .btn-primary-custom {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            border: none;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.3);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .pricing-card.popular {
+                transform: none;
+            }
+            
+            .content-block h2 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -110,310 +225,148 @@
     <div id="header"></div>
 
     <!-- Hero Section -->
-    <section class="hero-bg text-white section-padding">
+    <section class="rts-hero-four">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h1 class="display-4 fw-bold mb-4">Start Your Hosting Business Today</h1>
-                    <p class="lead mb-4">Join thousands of successful resellers and earn real money selling hosting services. We provide everything you need to build your digital empire!</p>
-                    <div class="d-flex gap-3 flex-wrap">
-                        <a href="mailto:team@nutro.cloud" class="btn btn-primary-custom">
-                            <i class="fas fa-envelope me-2"></i>Get Started
-                        </a>
-                        <a href="https://wa.me/201226588784" class="btn btn-outline-light">
-                            <i class="fab fa-whatsapp me-2"></i>WhatsApp
-                        </a>
+                    <div class="hero-content">
+                        <h1>Start Your Hosting Business Today</h1>
+                        <p>Join thousands of successful resellers and earn real money selling hosting services. We provide everything you need to build your digital empire with our comprehensive reseller hosting solutions.</p>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a href="mailto:team@nutro.cloud" class="btn-primary-custom">
+                                <i class="fas fa-envelope me-2"></i>Get Started Now
+                            </a>
+                            <a href="https://wa.me/201226588784" class="btn btn-outline-light">
+                                <i class="fab fa-whatsapp me-2"></i>WhatsApp Us
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <img src="https://i.postimg.cc/FRN6LxXP/www-com-6.png" alt="Reseller Hosting" class="img-fluid">
+                    <img src="https://i.postimg.cc/FRN6LxXP/www-com-6.png" alt="Reseller Hosting" class="img-fluid" style="filter: brightness(1.1) contrast(1.05);">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="section-padding">
+    <!-- Main Content Section -->
+    <section class="content-section">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold text-primary-custom mb-3">Why Choose Nutro Cloud for Reselling?</h2>
-                <p class="lead text-muted">We provide the best tools and support to ensure your business success</p>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="text-center p-4">
-                        <div class="feature-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h4 class="fw-bold mb-3">High Guaranteed Profits</h4>
-                        <p class="text-muted">Profit margins up to 70% with competitive prices ensuring satisfied customers and continuous profits</p>
-                    </div>
-                </div>
+            <div class="content-block">
+                <h2>What is Reseller Hosting?</h2>
+                <p>Reseller hosting is a form of web hosting wherein the account owner has the ability to use their allotted hard drive space and bandwidth to host websites on behalf of third parties. The reseller purchases the host's services wholesale and then sells them to customers, possibly for a profit.</p>
                 
-                <div class="col-lg-4 col-md-6">
-                    <div class="text-center p-4">
-                        <div class="feature-icon">
-                            <i class="fas fa-headset"></i>
-                        </div>
-                        <h4 class="fw-bold mb-3">24/7 Technical Support</h4>
-                        <p class="text-muted">Specialized support team available around the clock to help you and your customers anytime</p>
-                    </div>
+                <p>With Nutro Cloud's reseller hosting plans, you get all the tools and resources needed to start your own web hosting business. Our white-label solutions allow you to brand the hosting services as your own, giving you complete control over pricing, packages, and customer relationships.</p>
+
+                <div class="highlight-box">
+                    <h4>Why Choose Reseller Hosting?</h4>
+                    <p>Reseller hosting is perfect for web designers, developers, and entrepreneurs who want to offer hosting services to their clients without the technical complexity and high costs of managing servers. It's an excellent way to generate recurring revenue while providing value to your customers.</p>
                 </div>
-                
-                <div class="col-lg-4 col-md-6">
-                    <div class="text-center p-4">
-                        <div class="feature-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <h4 class="fw-bold mb-3">Free WHM & cPanel</h4>
-                        <p class="text-muted">Complete WHM control panel to manage your customers easily with cPanel for each client</p>
-                    </div>
+
+                <h3>Key Benefits of Our Reseller Program</h3>
+                <p>Our reseller hosting program is designed to help you succeed in the competitive hosting market. We provide comprehensive support, reliable infrastructure, and flexible plans that can grow with your business.</p>
+
+                <ul class="feature-list">
+                    <li>White-label hosting solutions with your branding</li>
+                    <li>Free WHM (Web Host Manager) control panel</li>
+                    <li>cPanel access for all your customers</li>
+                    <li>24/7 technical support for you and your clients</li>
+                    <li>99.9% uptime guarantee with SLA</li>
+                    <li>Free SSL certificates for all hosted domains</li>
+                    <li>Daily automated backups</li>
+                    <li>DDoS protection and security monitoring</li>
+                    <li>Scalable resources as your business grows</li>
+                    <li>Competitive wholesale pricing</li>
+                </ul>
+
+                <h3>How Does Reseller Hosting Work?</h3>
+                <p>When you sign up for our reseller hosting plan, you receive a master hosting account with allocated disk space, bandwidth, and the ability to create individual hosting accounts for your customers. You can set your own prices, create custom hosting packages, and manage all aspects of your hosting business through our intuitive control panels.</p>
+
+                <p>The process is straightforward: you purchase hosting resources from us at wholesale prices, then resell them to your customers at retail prices. The difference between what you pay us and what you charge your customers is your profit. It's that simple!</p>
+
+                <div class="highlight-box">
+                    <h4>Perfect for:</h4>
+                    <p>Web designers and developers who want to offer hosting to clients • Digital agencies looking to expand services • Entrepreneurs starting a hosting business • IT consultants providing comprehensive solutions • Anyone wanting to generate passive income through hosting services</p>
                 </div>
-                
-                <div class="col-lg-4 col-md-6">
-                    <div class="text-center p-4">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h4 class="fw-bold mb-3">Free DDoS Protection</h4>
-                        <p class="text-muted">Advanced protection against DDoS attacks to ensure continuity of your customers' service</p>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6">
-                    <div class="text-center p-4">
-                        <div class="feature-icon">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <h4 class="fw-bold mb-3">Lightning Fast Speed</h4>
-                        <p class="text-muted">High-performance SSD servers with LiteSpeed technology ensuring exceptional loading speeds</p>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6">
-                    <div class="text-center p-4">
-                        <div class="feature-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <h4 class="fw-bold mb-3">Global Data Centers</h4>
-                        <p class="text-muted">Global network of data centers ensuring the best performance for your customers everywhere</p>
-                    </div>
-                </div>
+
+                <h3>Technical Infrastructure</h3>
+                <p>Our reseller hosting is built on enterprise-grade infrastructure with redundant systems, high-performance SSD storage, and global content delivery networks. We use the latest server technologies including LiteSpeed web servers, which provide up to 9x faster performance compared to traditional Apache servers.</p>
+
+                <p>All our servers are housed in Tier-3 data centers with 24/7 monitoring, redundant power supplies, and multiple network connections to ensure maximum uptime and performance for your customers' websites.</p>
+
+                <h3>Support and Training</h3>
+                <p>We understand that starting a hosting business can be challenging, which is why we provide comprehensive support and training resources. Our technical support team is available 24/7 to assist you with any issues, and we offer detailed documentation, video tutorials, and best practices guides to help you succeed.</p>
+
+                <p>Additionally, we provide marketing materials, sales tools, and business guidance to help you attract and retain customers. Our goal is your success, and we're committed to providing the resources you need to build a thriving hosting business.</p>
             </div>
         </div>
     </section>
 
     <!-- Pricing Section -->
-    <section class="section-padding bg-light-custom">
+    <section class="pricing-section">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold text-primary-custom mb-3">Premium Reseller Plans</h2>
-                <p class="lead text-muted">Choose the plan that suits your ambitions and start your journey to success</p>
+                <h2 style="color: #1e3a8a; font-weight: 700; margin-bottom: 20px;">Choose Your Reseller Plan</h2>
+                <p style="font-size: 1.2rem; color: #6b7280;">Select the perfect plan to start or scale your hosting business</p>
             </div>
             
-            <div class="row g-4 justify-content-center">
+            <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-6">
-                    <div class="pricing-card h-100">
+                    <div class="pricing-card">
                         <div class="text-center">
-                            <h3 class="fw-bold mb-3">Starter</h3>
-                            <div class="mb-4">
-                                <span class="display-4 fw-bold text-primary-custom">$19.99</span>
-                                <span class="text-muted">/month</span>
-                            </div>
-                            <ul class="list-unstyled mb-4">
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>50GB SSD Storage</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>500GB Bandwidth</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>25 cPanel Accounts</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Free WHM</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Free SSL</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Daily Backups</li>
+                            <h3>Starter Reseller</h3>
+                            <div class="price">$19.99<span style="font-size: 1.2rem; color: #666;">/month</span></div>
+                            <ul class="feature-list" style="text-align: left; margin: 30px 0;">
+                                <li>50GB SSD Storage</li>
+                                <li>500GB Monthly Bandwidth</li>
+                                <li>25 cPanel Accounts</li>
+                                <li>Free WHM Control Panel</li>
+                                <li>Free SSL Certificates</li>
+                                <li>Daily Backups</li>
+                                <li>24/7 Support</li>
                             </ul>
-                            <a href="mailto:team@nutro.cloud" class="btn btn-primary-custom w-100">Order Now</a>
+                            <a href="mailto:team@nutro.cloud" class="btn-primary-custom">Get Started</a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="col-lg-4 col-md-6">
-                    <div class="pricing-card popular h-100">
+                    <div class="pricing-card popular">
                         <div class="text-center">
-                            <h3 class="fw-bold mb-3">Advanced</h3>
-                            <div class="mb-4">
-                                <span class="display-4 fw-bold text-primary-custom">$39.99</span>
-                                <span class="text-muted">/month</span>
-                            </div>
-                            <ul class="list-unstyled mb-4">
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>100GB SSD Storage</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>1000GB Bandwidth</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>50 cPanel Accounts</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Free WHM</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Free SSL</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Daily Backups</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Advanced DDoS Protection</li>
+                            <h3>Business Reseller</h3>
+                            <div class="price">$39.99<span style="font-size: 1.2rem; color: #666;">/month</span></div>
+                            <ul class="feature-list" style="text-align: left; margin: 30px 0;">
+                                <li>100GB SSD Storage</li>
+                                <li>1TB Monthly Bandwidth</li>
+                                <li>50 cPanel Accounts</li>
+                                <li>Free WHM Control Panel</li>
+                                <li>Free SSL Certificates</li>
+                                <li>Daily Backups</li>
+                                <li>Priority Support</li>
+                                <li>Advanced DDoS Protection</li>
                             </ul>
-                            <a href="mailto:team@nutro.cloud" class="btn btn-primary-custom w-100">Order Now</a>
+                            <a href="mailto:team@nutro.cloud" class="btn-primary-custom">Get Started</a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="col-lg-4 col-md-6">
-                    <div class="pricing-card h-100">
+                    <div class="pricing-card">
                         <div class="text-center">
-                            <h3 class="fw-bold mb-3">Professional</h3>
-                            <div class="mb-4">
-                                <span class="display-4 fw-bold text-primary-custom">$79.99</span>
-                                <span class="text-muted">/month</span>
-                            </div>
-                            <ul class="list-unstyled mb-4">
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>200GB SSD Storage</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Unlimited Bandwidth</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>100 cPanel Accounts</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Free WHM</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Free SSL</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Daily Backups</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Advanced DDoS Protection</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Priority Support</li>
+                            <h3>Enterprise Reseller</h3>
+                            <div class="price">$79.99<span style="font-size: 1.2rem; color: #666;">/month</span></div>
+                            <ul class="feature-list" style="text-align: left; margin: 30px 0;">
+                                <li>200GB SSD Storage</li>
+                                <li>Unlimited Bandwidth</li>
+                                <li>100 cPanel Accounts</li>
+                                <li>Free WHM Control Panel</li>
+                                <li>Free SSL Certificates</li>
+                                <li>Daily Backups</li>
+                                <li>VIP Support</li>
+                                <li>Advanced Security Suite</li>
+                                <li>White-label Branding</li>
                             </ul>
-                            <a href="mailto:team@nutro.cloud" class="btn btn-primary-custom w-100">Order Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Comparison Section -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold text-primary-custom mb-3">Compare with Competitors</h2>
-                <p class="lead text-muted">Discover why we are the best choice for resellers</p>
-            </div>
-            
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Feature</th>
-                            <th>Nutro Cloud</th>
-                            <th>Competitor A</th>
-                            <th>Competitor B</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>24/7 Technical Support</td>
-                            <td><i class="fas fa-check text-success"></i></td>
-                            <td><i class="fas fa-times text-danger"></i></td>
-                            <td><i class="fas fa-check text-success"></i></td>
-                        </tr>
-                        <tr>
-                            <td>Free WHM</td>
-                            <td><i class="fas fa-check text-success"></i></td>
-                            <td><i class="fas fa-times text-danger"></i></td>
-                            <td><i class="fas fa-times text-danger"></i></td>
-                        </tr>
-                        <tr>
-                            <td>DDoS Protection</td>
-                            <td><i class="fas fa-check text-success"></i></td>
-                            <td><i class="fas fa-check text-success"></i></td>
-                            <td><i class="fas fa-times text-danger"></i></td>
-                        </tr>
-                        <tr>
-                            <td>Daily Backups</td>
-                            <td><i class="fas fa-check text-success"></i></td>
-                            <td><i class="fas fa-times text-danger"></i></td>
-                            <td><i class="fas fa-check text-success"></i></td>
-                        </tr>
-                        <tr>
-                            <td>Free SSL</td>
-                            <td><i class="fas fa-check text-success"></i></td>
-                            <td><i class="fas fa-check text-success"></i></td>
-                            <td><i class="fas fa-check text-success"></i></td>
-                        </tr>
-                        <tr>
-                            <td>High Profit Margins</td>
-                            <td><i class="fas fa-check text-success"></i></td>
-                            <td><i class="fas fa-times text-danger"></i></td>
-                            <td><i class="fas fa-times text-danger"></i></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="section-padding bg-light-custom">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold text-primary-custom mb-3">What Our Partners Say</h2>
-                <p class="lead text-muted">Real experiences from successful resellers with us</p>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body">
-                            <div class="text-warning mb-3">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="card-text">"Started with Nutro Cloud a year ago and now I have over 200 clients. Excellent technical support and continuous profits!"</p>
-                            <div class="d-flex align-items-center">
-                                <img src="https://via.placeholder.com/50" alt="Ahmed Mohamed" class="rounded-circle me-3">
-                                <div>
-                                    <h6 class="mb-0">Ahmed Mohamed</h6>
-                                    <small class="text-muted">Reseller since 2023</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body">
-                            <div class="text-warning mb-3">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="card-text">"Very professional service and WHM panel is easy to use. My clients are satisfied and profits increase every month."</p>
-                            <div class="d-flex align-items-center">
-                                <img src="https://via.placeholder.com/50" alt="Sarah Ahmed" class="rounded-circle me-3">
-                                <div>
-                                    <h6 class="mb-0">Sarah Ahmed</h6>
-                                    <small class="text-muted">Reseller since 2022</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body">
-                            <div class="text-warning mb-3">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="card-text">"Best decision I made was joining Nutro Cloud. Support is fast and service is 100% stable."</p>
-                            <div class="d-flex align-items-center">
-                                <img src="https://via.placeholder.com/50" alt="Mohamed Ali" class="rounded-circle me-3">
-                                <div>
-                                    <h6 class="mb-0">Mohamed Ali</h6>
-                                    <small class="text-muted">Reseller since 2021</small>
-                                </div>
-                            </div>
+                            <a href="mailto:team@nutro.cloud" class="btn-primary-custom">Get Started</a>
                         </div>
                     </div>
                 </div>
@@ -422,29 +375,31 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="hero-bg text-white section-padding">
+    <section class="contact-section">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold mb-3">Ready to Start Your Business?</h2>
-                <p class="lead">Contact us now and start your journey to success in the web hosting world</p>
-            </div>
-            
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-6 col-lg-4">
-                    <div class="text-center p-4 bg-white bg-opacity-10 rounded-3">
-                        <i class="fas fa-envelope display-4 mb-3"></i>
-                        <h4>Email</h4>
-                        <p>team@nutro.cloud</p>
-                        <a href="mailto:team@nutro.cloud" class="btn btn-light">Email Us Now</a>
-                    </div>
-                </div>
-                
-                <div class="col-md-6 col-lg-4">
-                    <div class="text-center p-4 bg-white bg-opacity-10 rounded-3">
-                        <i class="fab fa-whatsapp display-4 mb-3"></i>
-                        <h4>WhatsApp</h4>
-                        <p>01226588784</p>
-                        <a href="https://wa.me/201226588784" class="btn btn-light">Contact Us</a>
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="mb-4">Ready to Start Your Hosting Business?</h2>
+                    <p class="mb-5">Contact our team today to discuss your reseller hosting needs and get started with a custom solution that fits your business goals.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="contact-card">
+                                <i class="fas fa-envelope" style="font-size: 3rem; color: #ffd700; margin-bottom: 20px;"></i>
+                                <h4>Email Us</h4>
+                                <p>team@nutro.cloud</p>
+                                <a href="mailto:team@nutro.cloud" class="btn btn-light">Send Email</a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="contact-card">
+                                <i class="fab fa-whatsapp" style="font-size: 3rem; color: #ffd700; margin-bottom: 20px;"></i>
+                                <h4>WhatsApp</h4>
+                                <p>+20 122 658 8784</p>
+                                <a href="https://wa.me/201226588784" class="btn btn-light">Chat Now</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -453,17 +408,27 @@
 
     <div id="footer"></div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Original Scripts -->
+    <script defer src="assets/js/plugins.min.js"></script>
+    <script defer src="assets/js/main.js"></script>
     
     <script>
-        // Load header and footer with AJAX
-        $(document).ready(function() {
-            $('#header').load('header.html');
-            $('#footer').load('footer.html');
-        });
+        // Load header and footer
+        async function loadComponents() {
+            try {
+                const headerResponse = await fetch('header.html');
+                const headerData = await headerResponse.text();
+                document.getElementById('header').innerHTML = headerData;
+                
+                const footerResponse = await fetch('footer.html');
+                const footerData = await footerResponse.text();
+                document.getElementById('footer').innerHTML = footerData;
+            } catch (error) {
+                console.error('Error loading components:', error);
+            }
+        }
+        loadComponents();
     </script>
 </body>
+
 </html>
