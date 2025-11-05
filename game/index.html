@@ -144,130 +144,379 @@
             user-select: none;
         }
         
-        /* Modal Styles */
-        .game-modal {
+        /* Modern Modal Styles */
+        .modern-modal {
             display: none;
             position: fixed;
-            z-index: 9999;
-            left: 0;
             top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
+            z-index: 10000;
+            animation: fadeIn 0.3s ease;
         }
         
-        .modal-content {
-            background-color: white;
-            margin: 2% auto;
-            padding: 0;
-            border-radius: 20px;
-            width: 95%;
-            max-width: 1200px;
-            max-height: 90vh;
-            overflow-y: auto;
+        .modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        
+        .modal-container {
             position: relative;
-            animation: modalSlideIn 0.3s ease-out;
+            width: 95%;
+            max-width: 1400px;
+            max-height: 95vh;
+            margin: 2.5vh auto;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         
-        @keyframes modalSlideIn {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(60px) scale(0.95);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
         
         .modal-header {
-            background: linear-gradient(135deg, #2d3c58, #4a5568);
-            color: white;
-            padding: 30px;
-            border-radius: 20px 20px 0 0;
-            position: relative;
-        }
-        
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            color: white;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-        
-        .modal-close:hover {
-            color: #ffd700;
-        }
-        
-        .modal-game-info {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            padding: 32px;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 20px;
-        }
-        
-        .modal-game-logo {
-            width: 80px;
-            height: 80px;
-            border-radius: 15px;
+            position: relative;
             overflow: hidden;
         }
         
-        .modal-game-logo img {
+        .modal-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .game-info {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .game-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 3px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .game-avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
         
-        .modal-game-title {
+        .game-details h2 {
+            color: #ffffff;
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .game-details p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+        
+        .close-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .close-btn:hover {
+            background: rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.4);
+            transform: scale(1.05);
+        }
+        
+        .modal-content {
+            padding: 48px;
+            max-height: calc(95vh - 160px);
+            overflow-y: auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        
+        .section-title h3 {
             font-size: 2rem;
             font-weight: 700;
+            color: #1e293b;
+            margin: 0 0 12px 0;
+        }
+        
+        .section-title p {
+            color: #64748b;
+            font-size: 1.1rem;
             margin: 0;
         }
         
-        .modal-game-desc {
-            margin: 10px 0 0;
-            opacity: 0.9;
-        }
-        
-        .modal-body {
-            padding: 40px;
-        }
-        
-        .packages-grid {
+        .packages-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
         }
         
         .package-card {
-            background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: 15px;
-            padding: 30px;
+            background: #ffffff;
+            border: 2px solid #f1f5f9;
+            border-radius: 20px;
+            padding: 32px;
             position: relative;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+        }
+        
+        .package-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .package-card:hover::before {
+            left: 100%;
         }
         
         .package-card:hover {
             border-color: #ffd700;
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.15);
         }
         
         .package-card.popular {
             border-color: #ffd700;
-            background: linear-gradient(135deg, #fff9e6 0%, #fffbf0 100%);
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            transform: scale(1.02);
         }
         
         .popular-badge {
             position: absolute;
-            top: -15px;
+            top: -12px;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
-            color: #333;
-            padding: 8px 20px;
+            background: linear-gradient(135deg, #ffd700, #f59e0b);
+            color: #1f2937;
+            padding: 8px 24px;
             border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+        }
+        
+        .package-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 0 0 16px 0;
+            text-align: center;
+        }
+        
+        .package-price {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .price-main {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffd700;
+            line-height: 1;
+        }
+        
+        .price-currency {
+            font-size: 1.25rem;
+            color: #64748b;
+            margin-left: 4px;
+        }
+        
+        .price-period {
+            display: block;
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 4px;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+            padding: 24px;
+            background: #f8fafc;
+            border-radius: 16px;
+        }
+        
+        .spec-item {
+            text-align: center;
+        }
+        
+        .spec-label {
+            display: block;
+            font-size: 0.875rem;
+            color: #64748b;
+            margin-bottom: 4px;
+        }
+        
+        .spec-value {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+        
+        .features-section {
+            margin-bottom: 32px;
+        }
+        
+        .features-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin: 0 0 16px 0;
+        }
+        
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            color: #475569;
+            font-size: 0.95rem;
+        }
+        
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+        
+        .purchase-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #ffd700, #f59e0b);
+            color: #1f2937;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 1.125rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+        
+        .purchase-btn:hover {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4);
+            color: #1f2937;
+        }
+        
+        @media (max-width: 768px) {
+            .modal-container {
+                width: 98%;
+                margin: 1vh auto;
+                max-height: 98vh;
+            }
+            
+            .modal-header {
+                padding: 24px;
+            }
+            
+            .game-info {
+                gap: 16px;
+            }
+            
+            .game-avatar {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .game-details h2 {
+                font-size: 1.75rem;
+            }
+            
+            .modal-content {
+                padding: 24px;
+            }
+            
+            .packages-container {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .package-card.popular {
+                transform: none;
+            }
+        }-radius: 20px;
             font-size: 0.9rem;
             font-weight: 700;
         }
@@ -1132,25 +1381,31 @@
 
     <!-- game collection end -->
 
-    <!-- Bootstrap Game Modal -->
-    <div class="modal fade" id="gameModal" tabindex="-1" aria-labelledby="gameModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header" style="background: linear-gradient(135deg, #2d3c58, #4a5568); color: white;">
-                    <div class="d-flex align-items-center">
-                        <img id="modalGameLogo" src="" alt="" class="me-3" style="width: 60px; height: 60px; border-radius: 10px; object-fit: cover;">
-                        <div>
-                            <h4 class="modal-title" id="modalGameTitle">Game Title</h4>
-                            <p class="mb-0 opacity-75" id="modalGameDesc">Game Description</p>
-                        </div>
+    <!-- Modern Game Modal -->
+    <div id="gameModal" class="modern-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <div class="game-info">
+                    <div class="game-avatar">
+                        <img id="modalGameLogo" src="" alt="">
                     </div>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="game-details">
+                        <h2 id="modalGameTitle">Game Title</h2>
+                        <p id="modalGameDesc">Game Description</p>
+                    </div>
                 </div>
-                <div class="modal-body p-4">
-                    <h5 class="mb-4 text-primary">Choose Your Hosting Plan</h5>
-                    <div class="row g-4" id="packagesContainer">
-                        <!-- Packages will be loaded here -->
-                    </div>
+                <button class="close-btn" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-content">
+                <div class="section-title">
+                    <h3>Choose Your Perfect Plan</h3>
+                    <p>Select the hosting package that fits your gaming needs</p>
+                </div>
+                <div class="packages-container" id="packagesContainer">
+                    <!-- Packages will be loaded here -->
                 </div>
             </div>
         </div>
@@ -1701,8 +1956,8 @@
 
         modalGameLogo.src = game.logo;
         modalGameLogo.onerror = function() {
-            this.style.background = 'linear-gradient(135deg, #ffd700, #ffed4e)';
-            this.style.color = '#333';
+            this.style.background = 'linear-gradient(135deg, #ffd700, #f59e0b)';
+            this.style.color = '#1f2937';
             this.style.display = 'flex';
             this.style.alignItems = 'center';
             this.style.justifyContent = 'center';
@@ -1719,49 +1974,88 @@
             game.packages.forEach((pkg, index) => {
                 const isPopular = index === 1;
                 const packageCard = `
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 ${isPopular ? 'border-warning' : 'border-light'}" style="position: relative;">
-                            ${isPopular ? '<div class="badge bg-warning text-dark position-absolute top-0 start-50 translate-middle px-3 py-2">Most Popular</div>' : ''}
-                            <div class="card-header text-center bg-light">
-                                <h5 class="card-title text-primary">${pkg.title}</h5>
-                                <div class="display-6 fw-bold text-warning">${pkg.price} <small class="text-muted fs-6">EGP/${pkg.billing_cycle}</small></div>
+                    <div class="package-card ${isPopular ? 'popular' : ''}">
+                        ${isPopular ? '<div class="popular-badge">Most Popular</div>' : ''}
+                        <h4 class="package-title">${pkg.title}</h4>
+                        <div class="package-price">
+                            <span class="price-main">${pkg.price}</span>
+                            <span class="price-currency">EGP</span>
+                            <span class="price-period">per ${pkg.billing_cycle}</span>
+                        </div>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <span class="spec-label">RAM</span>
+                                <span class="spec-value">${pkg.specs.ram_gb} GB</span>
                             </div>
-                            <div class="card-body">
-                                <div class="row g-2 mb-3">
-                                    <div class="col-6"><small class="text-muted">RAM:</small><br><strong>${pkg.specs.ram_gb} GB</strong></div>
-                                    <div class="col-6"><small class="text-muted">Storage:</small><br><strong>${pkg.specs.disk_gb} GB</strong></div>
-                                    <div class="col-6"><small class="text-muted">Slots:</small><br><strong>${pkg.specs.slots}</strong></div>
-                                    <div class="col-6"><small class="text-muted">CPU:</small><br><strong>${pkg.specs.cpu_shares}</strong></div>
-                                    <div class="col-6"><small class="text-muted">Backup:</small><br><strong>${pkg.specs.backup ? 'Yes' : 'No'}</strong></div>
-                                    <div class="col-6"><small class="text-muted">DDoS:</small><br><strong>${pkg.specs.ddos_protection}</strong></div>
-                                </div>
-                                <hr>
-                                <h6 class="text-primary mb-2">Features:</h6>
-                                <ul class="list-unstyled">
-                                    ${pkg.features.map(feature => `<li class="mb-1"><i class="fas fa-check text-success me-2"></i>${feature}</li>`).join('')}
-                                </ul>
+                            <div class="spec-item">
+                                <span class="spec-label">Storage</span>
+                                <span class="spec-value">${pkg.specs.disk_gb} GB</span>
                             </div>
-                            <div class="card-footer text-center">
-                                <a href="${pkg.purchase_link}" class="btn btn-warning btn-lg w-100 fw-bold">
-                                    Get Started - ${pkg.price} EGP
-                                </a>
+                            <div class="spec-item">
+                                <span class="spec-label">Player Slots</span>
+                                <span class="spec-value">${pkg.specs.slots}</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">CPU Priority</span>
+                                <span class="spec-value">${pkg.specs.cpu_shares}</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Backup</span>
+                                <span class="spec-value">${pkg.specs.backup ? 'Yes' : 'No'}</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">DDoS Protection</span>
+                                <span class="spec-value">${pkg.specs.ddos_protection}</span>
                             </div>
                         </div>
+                        <div class="features-section">
+                            <h5 class="features-title">What's Included</h5>
+                            <ul class="features-list">
+                                ${pkg.features.map(feature => `
+                                    <li class="feature-item">
+                                        <span class="feature-icon">✓</span>
+                                        ${feature}
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                        <a href="${pkg.purchase_link}" class="purchase-btn">
+                            Get Started - ${pkg.price} EGP
+                        </a>
                     </div>
                 `;
                 
                 packagesContainer.innerHTML += packageCard;
             });
         } else {
-            packagesContainer.innerHTML = '<div class="col-12 text-center"><p class="text-muted">No packages available for this game.</p></div>';
+            packagesContainer.innerHTML = '<div style="text-align: center; padding: 40px; color: #64748b;">No packages available for this game.</div>';
         }
 
-        // Show Bootstrap modal
-        const modal = new bootstrap.Modal(document.getElementById('gameModal'));
-        modal.show();
+        // Show modal
+        document.getElementById('gameModal').style.display = 'block';
+        document.body.style.overflow = 'hidden';
     }
+    
+    function closeModal() {
+        document.getElementById('gameModal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+    
+    // Close modal when clicking overlay
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('modal-overlay')) {
+            closeModal();
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
 
-    // Bootstrap modal is handled automatically
+    // Modal functionality handled by custom functions
 
     // Disable right-click context menu
     document.addEventListener('contextmenu', function(event) {
