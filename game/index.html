@@ -1130,98 +1130,27 @@
 
 
 
-
-    <!-- game collection -->
-
-    <div class="game-collection section__padding">
-
-        <div class="container">
-
-            <div class="row justify-content-center">
-
-                <div class="col-xl-6">
-
-                    <div class="rts-section text-center">
-
-                        <h2 class="rts-section__title sal-animate" data-sal="slide-down" data-sal-delay="100" data-sal-duration="800">Our Game Collection</h2>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="row">
-
-                <div class="game__tab">
-
-                    <nav>
-
-
-
-                    </nav>
-
-                </div>
-
-            </div>
-
-            <div class="tab-content" id="nav-tabContent">
-
-                <div class="tab-pane fade show active" id="all-games" role="tabpanel">
-                    <div id="games-loading" style="text-align: center; padding: 60px;">
-                        <div class="loading-spinner"></div>
-                        <div style="margin-top: 20px; color: #666; font-weight: 500;">Loading Game Servers...</div>
-                    </div>
-                    
-                    <div class="row g-5" id="games-container" style="display: none;">
-                        <!-- Games will be loaded here dynamically -->
-                    </div>
-
-                         
-                        
-
-
-
-
-                       
-
-                 
-
-                      
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-        </div>
-
-    </div>
-
     <!-- game collection end -->
 
-    <!-- Game Modal -->
-    <div id="gameModal" class="game-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="modal-close">&times;</span>
-                <div class="modal-game-info">
-                    <div class="modal-game-logo">
-                        <img id="modalGameLogo" src="" alt="">
+    <!-- Bootstrap Game Modal -->
+    <div class="modal fade" id="gameModal" tabindex="-1" aria-labelledby="gameModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header" style="background: linear-gradient(135deg, #2d3c58, #4a5568); color: white;">
+                    <div class="d-flex align-items-center">
+                        <img id="modalGameLogo" src="" alt="" class="me-3" style="width: 60px; height: 60px; border-radius: 10px; object-fit: cover;">
+                        <div>
+                            <h4 class="modal-title" id="modalGameTitle">Game Title</h4>
+                            <p class="mb-0 opacity-75" id="modalGameDesc">Game Description</p>
+                        </div>
                     </div>
-                    <div>
-                        <h2 class="modal-game-title" id="modalGameTitle"></h2>
-                        <p class="modal-game-desc" id="modalGameDesc"></p>
-                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            </div>
-            <div class="modal-body">
-                <h3 style="color: #2d3c58; margin-bottom: 20px;">Choose Your Hosting Plan</h3>
-                <div class="packages-grid" id="packagesContainer">
-                    <!-- Packages will be loaded here -->
+                <div class="modal-body p-4">
+                    <h5 class="mb-4 text-primary">Choose Your Hosting Plan</h5>
+                    <div class="row g-4" id="packagesContainer">
+                        <!-- Packages will be loaded here -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -1697,9 +1626,27 @@
     };
     
     document.addEventListener('DOMContentLoaded', function() {
-        displayGames(dummyData.games);
-        document.getElementById('games-loading').style.display = 'none';
-        document.getElementById('games-container').style.display = 'flex';
+        // Try to fetch real data first
+        fetch('https://user.7tteam.com/admin/nutrocloud/game.php')
+            .then(response => {
+                if (!response.ok) throw new Error('API not available');
+                return response.json();
+            })
+            .then(data => {
+                if (data && data.games && data.games.length > 0) {
+                    displayGames(data.games);
+                } else {
+                    displayGames(dummyData.games);
+                }
+                document.getElementById('games-loading').style.display = 'none';
+                document.getElementById('games-container').style.display = 'flex';
+            })
+            .catch(error => {
+                console.log('Using dummy data:', error);
+                displayGames(dummyData.games);
+                document.getElementById('games-loading').style.display = 'none';
+                document.getElementById('games-container').style.display = 'flex';
+            });
     });
 
     let gamesData = [];
@@ -1747,7 +1694,6 @@
 
     function openGameModal(gameIndex) {
         const game = gamesData[gameIndex];
-        const modal = document.getElementById('gameModal');
         const modalGameLogo = document.getElementById('modalGameLogo');
         const modalGameTitle = document.getElementById('modalGameTitle');
         const modalGameDesc = document.getElementById('modalGameDesc');
@@ -1760,7 +1706,7 @@
             this.style.display = 'flex';
             this.style.alignItems = 'center';
             this.style.justifyContent = 'center';
-            this.style.fontSize = '2rem';
+            this.style.fontSize = '1.5rem';
             this.style.fontWeight = 'bold';
             this.innerHTML = game.name.charAt(0);
         };
@@ -1771,90 +1717,51 @@
         packagesContainer.innerHTML = '';
         if (game.packages && game.packages.length > 0) {
             game.packages.forEach((pkg, index) => {
-                const isPopular = index === 1; // Make second package popular
-                const packageCard = document.createElement('div');
-                packageCard.className = `package-card ${isPopular ? 'popular' : ''}`;
-                
-                packageCard.innerHTML = `
-                    ${isPopular ? '<div class="popular-badge">Most Popular</div>' : ''}
-                    <h4 class="package-title">${pkg.title}</h4>
-                    <div class="package-price">
-                        <span class="price-amount">${pkg.price}</span>
-                        <span class="price-currency">EGP</span>
-                        <span class="price-period">/${pkg.billing_cycle}</span>
-                    </div>
-                    <div class="package-specs">
-                        <div class="spec-item">
-                            <span class="spec-label">RAM</span>
-                            <span class="spec-value">${pkg.specs.ram_gb} GB</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Storage</span>
-                            <span class="spec-value">${pkg.specs.disk_gb} GB</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Player Slots</span>
-                            <span class="spec-value">${pkg.specs.slots}</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">CPU Priority</span>
-                            <span class="spec-value">${pkg.specs.cpu_shares}</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Backup</span>
-                            <span class="spec-value">${pkg.specs.backup ? 'Yes' : 'No'}</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">DDoS Protection</span>
-                            <span class="spec-value">${pkg.specs.ddos_protection}</span>
+                const isPopular = index === 1;
+                const packageCard = `
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 ${isPopular ? 'border-warning' : 'border-light'}" style="position: relative;">
+                            ${isPopular ? '<div class="badge bg-warning text-dark position-absolute top-0 start-50 translate-middle px-3 py-2">Most Popular</div>' : ''}
+                            <div class="card-header text-center bg-light">
+                                <h5 class="card-title text-primary">${pkg.title}</h5>
+                                <div class="display-6 fw-bold text-warning">${pkg.price} <small class="text-muted fs-6">EGP/${pkg.billing_cycle}</small></div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-2 mb-3">
+                                    <div class="col-6"><small class="text-muted">RAM:</small><br><strong>${pkg.specs.ram_gb} GB</strong></div>
+                                    <div class="col-6"><small class="text-muted">Storage:</small><br><strong>${pkg.specs.disk_gb} GB</strong></div>
+                                    <div class="col-6"><small class="text-muted">Slots:</small><br><strong>${pkg.specs.slots}</strong></div>
+                                    <div class="col-6"><small class="text-muted">CPU:</small><br><strong>${pkg.specs.cpu_shares}</strong></div>
+                                    <div class="col-6"><small class="text-muted">Backup:</small><br><strong>${pkg.specs.backup ? 'Yes' : 'No'}</strong></div>
+                                    <div class="col-6"><small class="text-muted">DDoS:</small><br><strong>${pkg.specs.ddos_protection}</strong></div>
+                                </div>
+                                <hr>
+                                <h6 class="text-primary mb-2">Features:</h6>
+                                <ul class="list-unstyled">
+                                    ${pkg.features.map(feature => `<li class="mb-1"><i class="fas fa-check text-success me-2"></i>${feature}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div class="card-footer text-center">
+                                <a href="${pkg.purchase_link}" class="btn btn-warning btn-lg w-100 fw-bold">
+                                    Get Started - ${pkg.price} EGP
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="package-features">
-                        <h5 class="features-title">Features Included</h5>
-                        <ul class="feature-list">
-                            ${pkg.features.map(feature => `<li class="feature-item">${feature}</li>`).join('')}
-                        </ul>
-                    </div>
-                    <a href="${pkg.purchase_link}" class="purchase-btn">
-                        Get Started - ${pkg.price} EGP/${pkg.billing_cycle}
-                    </a>
                 `;
                 
-                packagesContainer.appendChild(packageCard);
+                packagesContainer.innerHTML += packageCard;
             });
         } else {
-            packagesContainer.innerHTML = '<p style="text-align: center; color: #666;">No packages available for this game.</p>';
+            packagesContainer.innerHTML = '<div class="col-12 text-center"><p class="text-muted">No packages available for this game.</p></div>';
         }
 
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
+        // Show Bootstrap modal
+        const modal = new bootstrap.Modal(document.getElementById('gameModal'));
+        modal.show();
     }
 
-    // Modal close functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const modal = document.getElementById('gameModal');
-        const closeBtn = document.querySelector('.modal-close');
-
-        closeBtn.onclick = function() {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        window.onclick = function(event) {
-            if (event.target === modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape' && modal.style.display === 'block') {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-    });
+    // Bootstrap modal is handled automatically
 
     // Disable right-click context menu
     document.addEventListener('contextmenu', function(event) {
