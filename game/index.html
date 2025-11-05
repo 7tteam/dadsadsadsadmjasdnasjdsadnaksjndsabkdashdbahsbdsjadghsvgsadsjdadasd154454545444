@@ -1715,48 +1715,51 @@
             .catch(error => console.log('API not available, using dummy data'));
     });
 
+    let gamesData = [];
+    
     function displayGames(games) {
+        gamesData = games;
         const container = document.getElementById('games-container');
         container.innerHTML = '';
 
-        games.forEach(game => {
-            const gameCard = document.createElement('div');
-            gameCard.className = 'col-lg-3 col-md-4 col-sm-6';
-            
+        games.forEach((game, index) => {
             const packageCount = game.packages ? game.packages.length : 0;
             const minPrice = game.packages && game.packages.length > 0 
                 ? Math.min(...game.packages.map(p => p.price)) 
                 : 0;
 
-            gameCard.innerHTML = `
-                <div class="game__single">
-                    <div class="game__single__box">
-                        <div class="game__single__box__image">
-                            <a href="javascript:void(0)" onclick="openGameModal(${JSON.stringify(game).replace(/"/g, '&quot;')})">
-                                <img src="${game.logo}" alt="${game.name}" height="308" width="340" onerror="this.style.background='linear-gradient(135deg, #ffd700, #ffed4e)'; this.style.color='#333'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.style.fontSize='4rem'; this.style.fontWeight='bold'; this.innerHTML='${game.name.charAt(0)}'; this.style.textAlign='center';">
-                            </a>
-                            <div class="game__single__box__image__meta">
-                                <div class="off">${packageCount} Plans</div>
-                                <a href="javascript:void(0)" onclick="openGameModal(${JSON.stringify(game).replace(/"/g, '&quot;')})" class="cart__btn"><i class="fa-light fa-cart-shopping"></i> View Plans</a>
+            const gameCard = `
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="game__single">
+                        <div class="game__single__box">
+                            <div class="game__single__box__image">
+                                <a href="javascript:void(0)" onclick="openGameModal(${index})">
+                                    <img src="${game.logo}" alt="${game.name}" height="308" width="340" onerror="this.style.background='linear-gradient(135deg, #ffd700, #ffed4e)'; this.style.color='#333'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.style.fontSize='4rem'; this.style.fontWeight='bold'; this.innerHTML='${game.name.charAt(0)}'; this.style.textAlign='center';">
+                                </a>
+                                <div class="game__single__box__image__meta">
+                                    <div class="off">${packageCount} Plans</div>
+                                    <a href="javascript:void(0)" onclick="openGameModal(${index})" class="cart__btn"><i class="fa-light fa-cart-shopping"></i> View Plans</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="game__single__box__meta">
-                            <h4 class="game__single__box__meta--title">
-                                <a href="javascript:void(0)" onclick="openGameModal(${JSON.stringify(game).replace(/"/g, '&quot;')})">${game.name}</a>
-                            </h4>
-                            <div class="game__single__box__meta--pricing">
-                                <span class="current__pricing">From ${minPrice} EGP</span>
+                            <div class="game__single__box__meta">
+                                <h4 class="game__single__box__meta--title">
+                                    <a href="javascript:void(0)" onclick="openGameModal(${index})">${game.name}</a>
+                                </h4>
+                                <div class="game__single__box__meta--pricing">
+                                    <span class="current__pricing">From ${minPrice} EGP</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             `;
 
-            container.appendChild(gameCard);
+            container.innerHTML += gameCard;
         });
     }
 
-    function openGameModal(game) {
+    function openGameModal(gameIndex) {
+        const game = gamesData[gameIndex];
         const modal = document.getElementById('gameModal');
         const modalGameLogo = document.getElementById('modalGameLogo');
         const modalGameTitle = document.getElementById('modalGameTitle');
