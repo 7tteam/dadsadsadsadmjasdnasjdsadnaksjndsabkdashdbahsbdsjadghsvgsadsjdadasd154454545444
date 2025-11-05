@@ -866,7 +866,7 @@
 
                         </h6>
 
-                        <h1 class="heading sal-animate" data-sal="slide-down" data-sal-delay="300" data-sal-duration="800">Power Up with Our Premium Game Hosting Solutions <img src="assets/images/icon/game-4.svg" alt="">
+                        <h1 class="heading sal-animate" data-sal="slide-down" data-sal-delay="300" data-sal-duration="800">Power Up with Our Premium Game Hosting Solutions <i class="fas fa-gamepad" style="color: #ffd700;"></i>
 
                         </h1>
 
@@ -983,7 +983,7 @@
 
                 <div class="col-lg-12">
 
-                    <div class="game__banner__content" style="background-image: url(assets/images/game/banner__bg.png);">
+                    <div class="game__banner__content" style="background: linear-gradient(135deg, #2d3c58 0%, #4a5568 100%);">
 
                         <div class="game__banner__content__box">
 
@@ -1243,7 +1243,7 @@
 
                     <a href="index" aria-label="main page link" class="footer__logo">
 
-                        <img src="assets/images/logo/logo2.png" alt="">
+                        <img src="../assets/images/logo/logo2.png" alt="">
 
                     </a>
 
@@ -1257,15 +1257,15 @@
 
                         <ul>
 
-                            <li><img src="assets/images/payment/visa.svg" alt=""></li>
+                            <li><img src="../assets/images/payment/visa.svg" alt=""></li>
 
-                            <li><img src="assets/images/payment/master-card.svg" alt=""></li>
+                            <li><img src="../assets/images/payment/master-card.svg" alt=""></li>
 
-                            <li><img src="assets/images/payment/paypal.svg" alt=""></li>
+                            <li><img src="../assets/images/payment/paypal.svg" alt=""></li>
 
-                            <li><img src="assets/images/payment/american-express.svg" alt=""></li>
+                            <li><img src="../assets/images/payment/american-express.svg" alt=""></li>
 
-                            <li><img src="assets/images/payment/wise.svg" alt=""></li>
+                            <li><img src="../assets/images/payment/wise.svg" alt=""></li>
 
                         </ul>
 
@@ -1623,63 +1623,96 @@
 <script>
     // Load games data
     document.addEventListener('DOMContentLoaded', function() {
+        // Load dummy data immediately
+        const dummyData = {
+            games: [
+                {
+                    id: "minecraft",
+                    name: "Minecraft",
+                    logo: "https://th.bing.com/th/id/R.3019bb5189bda92f21249f6e26d192a6?rik=E2ldSDrctzNu8Q&pid=ImgRaw&r=0",
+                    description: "خوادم ماينكرافت مستقرة وسهلة الإعداد",
+                    packages: [
+                        {
+                            package_id: "mc-basic",
+                            title: "Basic",
+                            price: 50,
+                            billing_cycle: "monthly",
+                            specs: { ram_gb: 1, disk_gb: 5, slots: 10, cpu_shares: "low", backup: false, ddos_protection: "shared" },
+                            features: ["Panel تحكم Pterodactyl", "دعم الإضافات (Plugins)", "صلاحيات FTP"],
+                            purchase_link: "https://nutro.cloud/order"
+                        },
+                        {
+                            package_id: "mc-standard",
+                            title: "Standard",
+                            price: 120,
+                            billing_cycle: "monthly",
+                            specs: { ram_gb: 3, disk_gb: 20, slots: 40, cpu_shares: "medium", backup: true, ddos_protection: "dedicated" },
+                            features: ["نسخ احتياطي يومي", "دعم فني 24/7", "تركيب مودات مجانا"],
+                            purchase_link: "https://nutro.cloud/order"
+                        }
+                    ]
+                },
+                {
+                    id: "fivem",
+                    name: "FiveM",
+                    logo: "https://th.bing.com/th/id/R.b33ef4ef5eb7a5b6b4c7c7ca95fdab1a?rik=2WAKY77DOnLK9A&pid=ImgRaw&r=0",
+                    description: "خوادم FiveM لتشغيل سرفرات GTA V المخصصة",
+                    packages: [
+                        {
+                            package_id: "fivem-starter",
+                            title: "Starter",
+                            price: 80,
+                            billing_cycle: "monthly",
+                            specs: { ram_gb: 2, disk_gb: 20, slots: 64, cpu_shares: "medium", backup: false, ddos_protection: "shared" },
+                            features: ["دعم موارد (Resources) FiveM", "FTP و صلاحيات التحكم"],
+                            purchase_link: "https://nutro.cloud/order"
+                        },
+                        {
+                            package_id: "fivem-advanced",
+                            title: "Advanced",
+                            price: 200,
+                            billing_cycle: "monthly",
+                            specs: { ram_gb: 6, disk_gb: 60, slots: 128, cpu_shares: "high", backup: true, ddos_protection: "dedicated" },
+                            features: ["نسخ احتياطي يومي", "مساعدة في تركيب سكربتات متقدمة"],
+                            purchase_link: "https://nutro.cloud/order"
+                        }
+                    ]
+                },
+                {
+                    id: "rust",
+                    name: "Rust",
+                    logo: "https://th.bing.com/th/id/R.0d750935fdd789897c3a953b0b69100b?rik=LNu12VKXFt1O9w&pid=ImgRaw&r=0",
+                    description: "خوادم Rust عالية الأداء للبقاء والبناء",
+                    packages: [
+                        {
+                            package_id: "rust-basic",
+                            title: "Basic",
+                            price: 100,
+                            billing_cycle: "monthly",
+                            specs: { ram_gb: 4, disk_gb: 30, slots: 50, cpu_shares: "medium", backup: true, ddos_protection: "shared" },
+                            features: ["إعداد تلقائي", "دعم المودات", "نسخ احتياطي أسبوعي"],
+                            purchase_link: "https://nutro.cloud/order"
+                        }
+                    ]
+                }
+            ]
+        };
+        
         setTimeout(() => {
-            fetch('https://user.7tteam.com/admin/nutrocloud/game.php')
-                .then(response => {
-                    if (!response.ok) throw new Error('Network response was not ok');
-                    return response.json();
-                })
-                .then(data => {
+            displayGames(dummyData.games);
+            document.getElementById('games-loading').style.display = 'none';
+            document.getElementById('games-container').style.display = 'flex';
+        }, 500);
+        
+        // Try to fetch real data in background
+        fetch('https://user.7tteam.com/admin/nutrocloud/game.php')
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.games) {
                     displayGames(data.games);
-                    document.getElementById('games-loading').style.display = 'none';
-                    document.getElementById('games-container').style.display = 'flex';
-                })
-                .catch(error => {
-                    console.error('Error loading games:', error);
-                    // Load dummy data as fallback
-                    const dummyData = {
-                        games: [
-                            {
-                                id: "minecraft",
-                                name: "Minecraft",
-                                logo: "https://th.bing.com/th/id/R.3019bb5189bda92f21249f6e26d192a6?rik=E2ldSDrctzNu8Q&pid=ImgRaw&r=0",
-                                description: "خوادم ماينكرافت مستقرة وسهلة الإعداد",
-                                packages: [
-                                    {
-                                        package_id: "mc-basic",
-                                        title: "Basic",
-                                        price: 50,
-                                        billing_cycle: "monthly",
-                                        specs: { ram_gb: 1, disk_gb: 5, slots: 10, cpu_shares: "low", backup: false, ddos_protection: "shared" },
-                                        features: ["Panel تحكم Pterodactyl", "دعم الإضافات (Plugins)", "صلاحيات FTP"],
-                                        purchase_link: "https://nutro.cloud/order"
-                                    }
-                                ]
-                            },
-                            {
-                                id: "fivem",
-                                name: "FiveM",
-                                logo: "https://th.bing.com/th/id/R.b33ef4ef5eb7a5b6b4c7c7ca95fdab1a?rik=2WAKY77DOnLK9A&pid=ImgRaw&r=0",
-                                description: "خوادم FiveM لتشغيل سرفرات GTA V المخصصة",
-                                packages: [
-                                    {
-                                        package_id: "fivem-starter",
-                                        title: "Starter",
-                                        price: 80,
-                                        billing_cycle: "monthly",
-                                        specs: { ram_gb: 2, disk_gb: 20, slots: 64, cpu_shares: "medium", backup: false, ddos_protection: "shared" },
-                                        features: ["دعم موارد (Resources) FiveM", "FTP و صلاحيات التحكم"],
-                                        purchase_link: "https://nutro.cloud/order"
-                                    }
-                                ]
-                            }
-                        ]
-                    };
-                    displayGames(dummyData.games);
-                    document.getElementById('games-loading').style.display = 'none';
-                    document.getElementById('games-container').style.display = 'flex';
-                });
-        }, 1000);
+                }
+            })
+            .catch(error => console.log('API not available, using dummy data'));
     });
 
     function displayGames(games) {
@@ -1700,7 +1733,7 @@
                     <div class="game__single__box">
                         <div class="game__single__box__image">
                             <a href="javascript:void(0)" onclick="openGameModal(${JSON.stringify(game).replace(/"/g, '&quot;')})">
-                                <img src="${game.logo}" alt="${game.name}" height="308" width="340" onerror="this.src='https://via.placeholder.com/340x308/ffd700/333?text=${game.name.charAt(0)}'">
+                                <img src="${game.logo}" alt="${game.name}" height="308" width="340" onerror="this.style.background='linear-gradient(135deg, #ffd700, #ffed4e)'; this.style.color='#333'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.style.fontSize='4rem'; this.style.fontWeight='bold'; this.innerHTML='${game.name.charAt(0)}'; this.style.textAlign='center';">
                             </a>
                             <div class="game__single__box__image__meta">
                                 <div class="off">${packageCount} Plans</div>
@@ -1732,7 +1765,14 @@
 
         modalGameLogo.src = game.logo;
         modalGameLogo.onerror = function() {
-            this.src = `https://via.placeholder.com/80x80/ffd700/333?text=${game.name.charAt(0)}`;
+            this.style.background = 'linear-gradient(135deg, #ffd700, #ffed4e)';
+            this.style.color = '#333';
+            this.style.display = 'flex';
+            this.style.alignItems = 'center';
+            this.style.justifyContent = 'center';
+            this.style.fontSize = '2rem';
+            this.style.fontWeight = 'bold';
+            this.innerHTML = game.name.charAt(0);
         };
         modalGameTitle.textContent = game.name;
         modalGameDesc.textContent = game.description;
