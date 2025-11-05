@@ -1621,98 +1621,85 @@
 
 <!-- Game Loading and Modal Scripts -->
 <script>
-    // Load games data
+    // Load games data immediately
+    const dummyData = {
+        games: [
+            {
+                id: "minecraft",
+                name: "Minecraft",
+                logo: "https://th.bing.com/th/id/R.3019bb5189bda92f21249f6e26d192a6?rik=E2ldSDrctzNu8Q&pid=ImgRaw&r=0",
+                description: "خوادم ماينكرافت مستقرة وسهلة الإعداد",
+                packages: [
+                    {
+                        package_id: "mc-basic",
+                        title: "Basic",
+                        price: 50,
+                        billing_cycle: "monthly",
+                        specs: { ram_gb: 1, disk_gb: 5, slots: 10, cpu_shares: "low", backup: false, ddos_protection: "shared" },
+                        features: ["Panel تحكم Pterodactyl", "دعم الإضافات (Plugins)", "صلاحيات FTP"],
+                        purchase_link: "https://nutro.cloud/order"
+                    },
+                    {
+                        package_id: "mc-standard",
+                        title: "Standard",
+                        price: 120,
+                        billing_cycle: "monthly",
+                        specs: { ram_gb: 3, disk_gb: 20, slots: 40, cpu_shares: "medium", backup: true, ddos_protection: "dedicated" },
+                        features: ["نسخ احتياطي يومي", "دعم فني 24/7", "تركيب مودات مجانا"],
+                        purchase_link: "https://nutro.cloud/order"
+                    }
+                ]
+            },
+            {
+                id: "fivem",
+                name: "FiveM",
+                logo: "https://th.bing.com/th/id/R.b33ef4ef5eb7a5b6b4c7c7ca95fdab1a?rik=2WAKY77DOnLK9A&pid=ImgRaw&r=0",
+                description: "خوادم FiveM لتشغيل سرفرات GTA V المخصصة",
+                packages: [
+                    {
+                        package_id: "fivem-starter",
+                        title: "Starter",
+                        price: 80,
+                        billing_cycle: "monthly",
+                        specs: { ram_gb: 2, disk_gb: 20, slots: 64, cpu_shares: "medium", backup: false, ddos_protection: "shared" },
+                        features: ["دعم موارد (Resources) FiveM", "FTP و صلاحيات التحكم"],
+                        purchase_link: "https://nutro.cloud/order"
+                    },
+                    {
+                        package_id: "fivem-advanced",
+                        title: "Advanced",
+                        price: 200,
+                        billing_cycle: "monthly",
+                        specs: { ram_gb: 6, disk_gb: 60, slots: 128, cpu_shares: "high", backup: true, ddos_protection: "dedicated" },
+                        features: ["نسخ احتياطي يومي", "مساعدة في تركيب سكربتات متقدمة"],
+                        purchase_link: "https://nutro.cloud/order"
+                    }
+                ]
+            },
+            {
+                id: "rust",
+                name: "Rust",
+                logo: "https://th.bing.com/th/id/R.0d750935fdd789897c3a953b0b69100b?rik=LNu12VKXFt1O9w&pid=ImgRaw&r=0",
+                description: "خوادم Rust عالية الأداء للبقاء والبناء",
+                packages: [
+                    {
+                        package_id: "rust-basic",
+                        title: "Basic",
+                        price: 100,
+                        billing_cycle: "monthly",
+                        specs: { ram_gb: 4, disk_gb: 30, slots: 50, cpu_shares: "medium", backup: true, ddos_protection: "shared" },
+                        features: ["إعداد تلقائي", "دعم المودات", "نسخ احتياطي أسبوعي"],
+                        purchase_link: "https://nutro.cloud/order"
+                    }
+                ]
+            }
+        ]
+    };
+    
     document.addEventListener('DOMContentLoaded', function() {
-        // Load dummy data immediately
-        const dummyData = {
-            games: [
-                {
-                    id: "minecraft",
-                    name: "Minecraft",
-                    logo: "https://th.bing.com/th/id/R.3019bb5189bda92f21249f6e26d192a6?rik=E2ldSDrctzNu8Q&pid=ImgRaw&r=0",
-                    description: "خوادم ماينكرافت مستقرة وسهلة الإعداد",
-                    packages: [
-                        {
-                            package_id: "mc-basic",
-                            title: "Basic",
-                            price: 50,
-                            billing_cycle: "monthly",
-                            specs: { ram_gb: 1, disk_gb: 5, slots: 10, cpu_shares: "low", backup: false, ddos_protection: "shared" },
-                            features: ["Panel تحكم Pterodactyl", "دعم الإضافات (Plugins)", "صلاحيات FTP"],
-                            purchase_link: "https://nutro.cloud/order"
-                        },
-                        {
-                            package_id: "mc-standard",
-                            title: "Standard",
-                            price: 120,
-                            billing_cycle: "monthly",
-                            specs: { ram_gb: 3, disk_gb: 20, slots: 40, cpu_shares: "medium", backup: true, ddos_protection: "dedicated" },
-                            features: ["نسخ احتياطي يومي", "دعم فني 24/7", "تركيب مودات مجانا"],
-                            purchase_link: "https://nutro.cloud/order"
-                        }
-                    ]
-                },
-                {
-                    id: "fivem",
-                    name: "FiveM",
-                    logo: "https://th.bing.com/th/id/R.b33ef4ef5eb7a5b6b4c7c7ca95fdab1a?rik=2WAKY77DOnLK9A&pid=ImgRaw&r=0",
-                    description: "خوادم FiveM لتشغيل سرفرات GTA V المخصصة",
-                    packages: [
-                        {
-                            package_id: "fivem-starter",
-                            title: "Starter",
-                            price: 80,
-                            billing_cycle: "monthly",
-                            specs: { ram_gb: 2, disk_gb: 20, slots: 64, cpu_shares: "medium", backup: false, ddos_protection: "shared" },
-                            features: ["دعم موارد (Resources) FiveM", "FTP و صلاحيات التحكم"],
-                            purchase_link: "https://nutro.cloud/order"
-                        },
-                        {
-                            package_id: "fivem-advanced",
-                            title: "Advanced",
-                            price: 200,
-                            billing_cycle: "monthly",
-                            specs: { ram_gb: 6, disk_gb: 60, slots: 128, cpu_shares: "high", backup: true, ddos_protection: "dedicated" },
-                            features: ["نسخ احتياطي يومي", "مساعدة في تركيب سكربتات متقدمة"],
-                            purchase_link: "https://nutro.cloud/order"
-                        }
-                    ]
-                },
-                {
-                    id: "rust",
-                    name: "Rust",
-                    logo: "https://th.bing.com/th/id/R.0d750935fdd789897c3a953b0b69100b?rik=LNu12VKXFt1O9w&pid=ImgRaw&r=0",
-                    description: "خوادم Rust عالية الأداء للبقاء والبناء",
-                    packages: [
-                        {
-                            package_id: "rust-basic",
-                            title: "Basic",
-                            price: 100,
-                            billing_cycle: "monthly",
-                            specs: { ram_gb: 4, disk_gb: 30, slots: 50, cpu_shares: "medium", backup: true, ddos_protection: "shared" },
-                            features: ["إعداد تلقائي", "دعم المودات", "نسخ احتياطي أسبوعي"],
-                            purchase_link: "https://nutro.cloud/order"
-                        }
-                    ]
-                }
-            ]
-        };
-        
-        setTimeout(() => {
-            displayGames(dummyData.games);
-            document.getElementById('games-loading').style.display = 'none';
-            document.getElementById('games-container').style.display = 'flex';
-        }, 500);
-        
-        // Try to fetch real data in background
-        fetch('https://user.7tteam.com/admin/nutrocloud/game.php')
-            .then(response => response.json())
-            .then(data => {
-                if (data && data.games) {
-                    displayGames(data.games);
-                }
-            })
-            .catch(error => console.log('API not available, using dummy data'));
+        displayGames(dummyData.games);
+        document.getElementById('games-loading').style.display = 'none';
+        document.getElementById('games-container').style.display = 'flex';
     });
 
     let gamesData = [];
