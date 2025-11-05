@@ -1168,380 +1168,22 @@
             <div class="tab-content" id="nav-tabContent">
 
                 <div class="tab-pane fade show active" id="all-games" role="tabpanel">
+                    <div id="games-loading" style="text-align: center; padding: 60px;">
+                        <div class="loading-spinner"></div>
+                        <div style="margin-top: 20px; color: #666; font-weight: 500;">Loading Game Servers...</div>
+                    </div>
+                    
+                    <div class="row g-5" id="games-container" style="display: none;">
+                        <!-- Games will be loaded here dynamically -->
+                    </div>
 
-                    <div class="row g-5">
+                         
+                        
 
-                        <!-- single game -->
 
-                        <div class="col-lg-3 col-md-4 col-sm-6">
 
-                            <div class="game__single">
 
-                                <div class="game__single__box">
-
-                                    <div class="game__single__box__image">
-
-                                        <a href="minecraft">
-
-                                            <img src="https://th.bing.com/th/id/R.3019bb5189bda92f21249f6e26d192a6?rik=E2ldSDrctzNu8Q&pid=ImgRaw&r=0" alt="" height="308" width="340" >
-
-                                        </a> 
-
-                                        <div class="game__single__box__image__meta">
-
-                                            <div class="off">50% off</div>
-
-                                            <a href="game-details.html" class="cart__btn"><i class="fa-light fa-cart-shopping"></i> Buy Now</a>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="game__single__box__meta">
-
-                                        <h4 class="game__single__box__meta--title">
-
-                                            <a href="game-details.html">Minecraft</a>
-
-                                        </h4>
-
-                                        <div class="game__single__box__meta--pricing">
-
-                                            <span class="old__pricing">
-
-                                                $10.00
-
-                                            </span>
-
-                                            <span class="current__pricing">$7.00</span>
-
-                                        </div>
-
-                                    </div>
-
-
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <!-- single game end -->
-
-                        <!-- single game -->
-
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-
-                            <div class="game__single">
-
-                                <div class="game__single__box">
-
-                                    <div class="game__single__box__image">
-
-                                        <a href="game-details.html">
-
-                                            <img src="https://th.bing.com/th/id/R.0d750935fdd789897c3a953b0b69100b?rik=LNu12VKXFt1O9w&pid=ImgRaw&r=0" alt="">
-
-                                        </a>
-
-                                        <div class="game__single__box__image__meta">
-
-                                            <div class="off">50% off</div>
-
-                                            <a href="game-details.html" class="cart__btn"><i class="fa-light fa-cart-shopping"></i> Buy Now</a>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="game__single__box__meta">
-
-                                        <h4 class="game__single__box__meta--title">
-
-                                            <a href="game-details.html">Rust</a>
-
-                                        </h4>
-
-                                        <div class="game__single__box__meta__flex">
-
-                                            <div class="game__single__box__meta--pricing">
-
-                                                <span class="current__pricing">$10.00</span>
-
-                                            </div>
-
-                                            <div class="game__single__box__meta__rating">
-
-                                                <i class="fa-sharp fa-solid fa-star"></i>
-
-                                                <i class="fa-sharp fa-solid fa-star"></i>
-
-                                                <i class="fa-sharp fa-solid fa-star"></i>
-
-                                                <i class="fa-sharp fa-solid fa-star"></i>
-
-                                                <i class="fa-sharp fa-solid fa-star"></i>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <!-- single game end -->
-
-                        <!-- single game -->
-
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-
-                            <div class="game__single">
-
-                                <div class="game__single__box">
-
-                                    <div class="game__single__box__image">
-
-                                        <a href="fivem">
-
-                                            <img src="https://th.bing.com/th/id/R.b33ef4ef5eb7a5b6b4c7c7ca95fdab1a?rik=2WAKY77DOnLK9A&pid=ImgRaw&r=0" alt="">
-
-                                        </a>
-
-                                        <div class="game__single__box__image__meta">
-
-                                            <div class="off">50% off</div>
-
-                                            <a href="fivem" class="cart__btn"><i class="fa-light fa-cart-shopping"></i> Buy Now</a>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="game__single__box__meta">
-
-                                        <h4 class="game__single__box__meta--title">
-
-                                            <a href="game-details.html">FIVEM</a>
-
-                                        </h4>
-
-                                        <div class="game__single__box__meta--pricing">
-
-                                            <span class="old__pricing">
-
-                                                $10.00
-
-                                            </span>
-
-                                            <span class="current__pricing">$10.00</span>
-
-                                        </div>
-
-                                    </div>
-
-
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <!-- single game end -->
-
-                        <!-- single game -->
-
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-
-                            <div class="game__single">
-
-                                <div class="game__single__box">
-
-                                    <div class="game__single__box__image">
-
-                                        <a href="mta">
-
-                                            <img src="https://th.bing.com/th/id/R.7269fed989628e04b22ae207f8f89400?rik=nBKF6daEyC6GCA&riu=http%3a%2f%2f4.bp.blogspot.com%2f-QHn6w1ogWCo%2fUiIenlf_t6I%2fAAAAAAAACXg%2fEn-Pj1utSrA%2fs1600%2fmtasa.png&ehk=NHxuUx5KqN3Z2UXdd63TK%2f7K9u7r5TpAkj0JHKyBlqQ%3d&risl=&pid=ImgRaw&r=0" alt="">
-
-                                        </a>
-
-                                        <div class="game__single__box__image__meta">
-
-                                            
-
-                                            <a href="mta" class="cart__btn"><i class="fa-light fa-cart-shopping"></i> Buy Now</a>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="game__single__box__meta">
-
-                                        <h4 class="game__single__box__meta--title">
-
-                                            <a href="mta">MTA - SAMP SA</a>
-
-                                        </h4>
-
-                                        <div class="game__single__box__meta--pricing">
-
-                                            <span class="old__pricing">
-
-                                                $6.99
-
-                                            </span>
-
-                                            <span class="current__pricing">$6.99</span>
-
-                                        </div>
-
-                                    </div>
-
-
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <!-- single game end -->
-
-                        <!-- single game -->
-
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-
-                            <div class="game__single">
-
-                                <div class="game__single__box">
-
-                                    <div class="game__single__box__image">
-
-                                        <a href="terraria">
-
-                                            <img src="https://th.bing.com/th/id/R.49d1e37e689915a36363e703221c5964?rik=xIBTw9QM3JoQ%2bg&pid=ImgRaw&r=0" alt="">
-
-                                        </a>
-
-                                        <div class="game__single__box__image__meta">
-
-                                            <div class="off">50% off</div>
-
-                                            <a href="Terraria" class="cart__btn"><i class="fa-light fa-cart-shopping"></i> Buy Now</a>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="game__single__box__meta">
-
-                                        <h4 class="game__single__box__meta--title">
-
-                                            <a href="Terraria">Terraria</a>
-
-                                        </h4>
-
-                                        <div class="game__single__box__meta--pricing">
-
-                                            <span class="old__pricing">
-
-                                                $4.00
-
-                                            </span>
-
-                                            <span class="Terraria">$4.00</span>
-
-                                        </div>
-
-                                    </div>
-
-
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <!-- single game end -->
-
-                        <!-- single game -->
-
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-
-                            <div class="game__single">
-
-                                <div class="game__single__box">
-
-                                    <div class="game__single__box__image">
-
-                                        <a href="ark">
-
-                                            <img src="https://assets-prd.ignimgs.com/2021/12/15/ark-survival-evolved-button-fin-1639607697385.jpg" alt="" height="308">
-
-                                        </a>
-
-                                        <div class="game__single__box__image__meta">
-
-                                            <div class="off">50% off</div>
-
-                                            <a href="ark" class="cart__btn"><i class="fa-light fa-cart-shopping"></i> Buy Now</a>  
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="game__single__box__meta">
-
-                                        <h4 class="game__single__box__meta--title">
-
-                                            <a href="ark">Ark: Survival Evolved</a>
-
-                                        </h4>
-
-                                        <div class="game__single__box__meta__flex">
-
-                                            <div class="game__single__box__meta--pricing">
-
-                                                <span class="current__pricing">$10.00</span>
-
-                                            </div>
-
-                                            <div class="game__single__box__meta__rating">
-
-                                                <i class="fa-sharp fa-solid fa-star"></i>
-
-                                                <i class="fa-sharp fa-solid fa-star"></i>
-
-                                                <i class="fa-sharp fa-solid fa-star"></i>
-
-                                                <i class="fa-sharp fa-solid fa-star"></i>
-
-                                                <i class="fa-sharp fa-solid fa-star"></i>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <!-- single game end -->
+                       
 
                  
 
@@ -2010,7 +1652,7 @@
 
         games.forEach(game => {
             const gameCard = document.createElement('div');
-            gameCard.className = 'col-lg-4 col-md-6 col-sm-6';
+            gameCard.className = 'col-lg-3 col-md-4 col-sm-6';
             
             const packageCount = game.packages ? game.packages.length : 0;
             const minPrice = game.packages && game.packages.length > 0 
@@ -2018,20 +1660,24 @@
                 : 0;
 
             gameCard.innerHTML = `
-                <div class="single__server" style="cursor: pointer; transition: all 0.3s ease;" onclick="openGameModal(${JSON.stringify(game).replace(/"/g, '&quot;')})">
-                    <div class="single__server--content">
-                        <div class="single__server--content__icon">
-                            <img src="${game.logo}" width="73" height="73" alt="${game.name}" onerror="this.src='https://via.placeholder.com/73x73/ffd700/333?text=${game.name.charAt(0)}'">
+                <div class="game__single">
+                    <div class="game__single__box">
+                        <div class="game__single__box__image">
+                            <a href="javascript:void(0)" onclick="openGameModal(${JSON.stringify(game).replace(/"/g, '&quot;')})">
+                                <img src="${game.logo}" alt="${game.name}" height="308" width="340" onerror="this.src='https://via.placeholder.com/340x308/ffd700/333?text=${game.name.charAt(0)}'">
+                            </a>
+                            <div class="game__single__box__image__meta">
+                                <div class="off">${packageCount} Plans</div>
+                                <a href="javascript:void(0)" onclick="openGameModal(${JSON.stringify(game).replace(/"/g, '&quot;')})" class="cart__btn"><i class="fa-light fa-cart-shopping"></i> View Plans</a>
+                            </div>
                         </div>
-                        <h4 class="single__server--content__link">
-                            <a href="javascript:void(0)">${game.name}</a>
-                        </h4>
-                        <p class="single__server--content__description">
-                            ${game.description}
-                        </p>
-                        <div style="margin-top: 15px; display: flex; justify-content: space-between; align-items: center;">
-                            <span style="color: #ffd700; font-weight: bold;">${packageCount} Plans</span>
-                            <span style="color: #2d3c58; font-weight: bold;">From ${minPrice} EGP</span>
+                        <div class="game__single__box__meta">
+                            <h4 class="game__single__box__meta--title">
+                                <a href="javascript:void(0)" onclick="openGameModal(${JSON.stringify(game).replace(/"/g, '&quot;')})">${game.name}</a>
+                            </h4>
+                            <div class="game__single__box__meta--pricing">
+                                <span class="current__pricing">From ${minPrice} EGP</span>
+                            </div>
                         </div>
                     </div>
                 </div>
