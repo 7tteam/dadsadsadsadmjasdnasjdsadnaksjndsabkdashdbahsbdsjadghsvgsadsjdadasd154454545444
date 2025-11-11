@@ -407,7 +407,112 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
             </div>
         </div>
     </div>
-    <div class="h-banner h-banner--bg-bf-red" dir="ltr" data-v-bba2f2d2=""><a class="h-banner__wrapper" href="#pricing" target="_self" data-v-bba2f2d2=""><div class="h-banner__info h-banner__info--centered" data-v-bba2f2d2=""><span class="h-banner__title t-body-4" data-v-bba2f2d2=""><!----><span data-v-bba2f2d2=""><b>Black Friday</b>: Get extra months free</span></span><!----><div class="h-banner__countdown" data-v-bba2f2d2=""><div class="h-countdown h-countdown--with-hints h-countdown--small h-countdown--bg-danger500" dir="ltr" data-qa="countdown-timer" data-v-bba2f2d2="" data-v-66866df2=""><time data-rewriter="countdown-timer-with-hints" data-v-66866df2="" data-counter="79511043"><span class="h-countdown__value">00</span><span class="h-countdown__hint">D</span> <span class="h-countdown__value">22</span><span class="h-countdown__hint">H</span> <span class="h-countdown__value">04</span><span class="h-countdown__hint">M</span> <span class="h-countdown__value">59</span><span class="h-countdown__hint">S</span></time></div></div></div><!--[--><div class="h-banner__sale-image-gradient" data-v-bba2f2d2=""></div><div class="h-banner__sale-image" data-v-bba2f2d2=""></div><!--]--></a></div>
+        <!--  BANNER  -->
+<style>
+    .h-banner--bg-single {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 150px;
+  background-color: #ff5e5e;
+  overflow: hidden;
+  border-radius: 12px;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.h-banner__wrapper {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  z-index: 2;
+}
+
+.h-banner__info--centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 2rem;
+  font-weight: bold;
+  z-index: 3;
+}
+
+.h-banner__emojis {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.emoji {
+  position: absolute;
+  font-size: 24px;
+  opacity: 0.3;
+  animation: floatEmoji 6s linear infinite;
+}
+
+/* Animation لل emojis */
+@keyframes floatEmoji {
+  0% {
+    transform: translateY(100%) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-20%) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* كل emoji يبقى عنده delay مختلف */
+.emoji:nth-child(1) { left: 10%; animation-delay: 0s; }
+.emoji:nth-child(2) { left: 30%; animation-delay: 1s; }
+.emoji:nth-child(3) { left: 50%; animation-delay: 2s; }
+.emoji:nth-child(4) { left: 70%; animation-delay: 3s; }
+.emoji:nth-child(5) { left: 85%; animation-delay: 4s; }
+.emoji:nth-child(6) { left: 20%; animation-delay: 5s; }
+
+/* Gradient خفيف على البنر */
+.h-banner__sale-image-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,0,0,0.1));
+  z-index: 0;
+}
+
+    </style>
+<div class="h-banner h-banner--bg-single" dir="ltr">
+  <a class="h-banner__wrapper" href="#event" target="_self">
+    <div class="h-banner__info h-banner__info--centered">
+      <span class="h-banner__title t-body-4"><b>Happy Single Day!</b></span>
+    </div>
+    <div class="h-banner__emojis">
+      <span class="emoji">💔</span>
+      <span class="emoji">💔</span>
+      <span class="emoji">😢</span>
+      <span class="emoji">💔</span>
+      <span class="emoji">🖤</span>
+      <span class="emoji">💔</span>
+    </div>
+    <div class="h-banner__sale-image-gradient"></div>
+  </a>
+</div>
+    <!--  BANNER  -->
+
     <!-- HERO BANNER ONE -->
     <section class="rts-hero-four rts-hero__four" style="position: relative; overflow: hidden;">
         <img src="https://i.postimg.cc/3rDYByb1/N.png" alt="Hero Image" class="hero-image" style="position: absolute; top: 0; right: 0; height: 100%; width: 50%; object-fit: contain; z-index: 1; opacity: 1; filter: brightness(1.1) contrast(1.05);">
