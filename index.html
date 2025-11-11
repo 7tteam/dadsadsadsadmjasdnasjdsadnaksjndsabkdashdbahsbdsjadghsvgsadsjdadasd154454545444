@@ -409,108 +409,192 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     </div>
         <!--  BANNER  -->
 <style>
-    .h-banner--bg-single {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 150px;
-  background-color: #ff5e5e;
-  overflow: hidden;
-  border-radius: 12px;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  text-align: center;
-}
+    :root{
+      --height:48px;
+      --bg1:#ff2e6d;
+      --bg2:#e91e63;
+      --pill-bg:rgba(255,255,255,0.12);
+      --accent:#fff;
+      --segment-bg:rgba(255,255,255,0.18);
+      --font-sans: "Helvetica Neue", Arial, sans-serif;
+    }
 
-.h-banner__wrapper {
-  display: block;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  color: inherit;
-  position: relative;
-  z-index: 2;
-}
+    /* Top banner */
+    .topbar{
+      box-sizing:border-box;
+      width:100%;
+      min-height:var(--height);
+      border-top:3px solid rgba(0,0,0,0.22);
+      background:linear-gradient(90deg,var(--bg1),var(--bg2));
+      color:var(--accent);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family:var(--font-sans);
+      padding:8px 12px;
+    }
 
-.h-banner__info--centered {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  font-size: 2rem;
-  font-weight: bold;
-  z-index: 3;
-}
+    .inner{
+      width:100%;
+      max-width:1200px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
 
-.h-banner__emojis {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 1;
-}
+    /* Promo text */
+    .message{
+      color:var(--accent);
+      font-size:13px;
+      line-height:1;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-weight:400;
+      white-space:nowrap;
+    }
+    .message strong{ font-weight:700; margin-right:6px; }
 
-.emoji {
-  position: absolute;
-  font-size: 24px;
-  opacity: 0.3;
-  animation: floatEmoji 6s linear infinite;
-}
+    /* Countdown pill */
+    .countdown{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      background:var(--pill-bg);
+      padding:6px;
+      border-radius:999px;
+      box-shadow:inset 0 1px rgba(255,255,255,0.04);
+    }
 
-/* Animation لل emojis */
-@keyframes floatEmoji {
-  0% {
-    transform: translateY(100%) rotate(0deg);
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateY(-20%) rotate(360deg);
-    opacity: 0;
-  }
-}
+    .segment{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      padding:4px 8px;
+      border-radius:999px;
+      color:var(--accent);
+    }
 
-/* كل emoji يبقى عنده delay مختلف */
-.emoji:nth-child(1) { left: 10%; animation-delay: 0s; }
-.emoji:nth-child(2) { left: 30%; animation-delay: 1s; }
-.emoji:nth-child(3) { left: 50%; animation-delay: 2s; }
-.emoji:nth-child(4) { left: 70%; animation-delay: 3s; }
-.emoji:nth-child(5) { left: 85%; animation-delay: 4s; }
-.emoji:nth-child(6) { left: 20%; animation-delay: 5s; }
+    .box{
+      background:var(--segment-bg);
+      padding:6px 10px;
+      border-radius:8px;
+      min-width:48px;
+      text-align:center;
+      font-weight:700;
+      font-size:13px;
+      color:var(--accent);
+      box-shadow:0 1px 0 rgba(0,0,0,0.12);
+    }
 
-/* Gradient خفيف على البنر */
-.h-banner__sale-image-gradient {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,0,0,0.1));
-  z-index: 0;
-}
+    .label{
+      font-size:12px;
+      opacity:0.95;
+      font-weight:600;
+      color:var(--accent);
+      transform:translateY(-1px);
+    }
 
-    </style>
-<div class="h-banner h-banner--bg-single" dir="ltr">
-  <a class="h-banner__wrapper" href="#event" target="_self">
-    <div class="h-banner__info h-banner__info--centered">
-      <span class="h-banner__title t-body-4"><b>Happy Single Day!</b></span>
+    @media (max-width:540px){
+      .message{ display:none; }
+      .box{ min-width:38px; padding:6px 6px; font-size:12px; }
+      .countdown{ gap:6px; padding:4px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Single-day promo banner: displays hours/minutes/seconds until target time -->
+  <div class="topbar" role="banner" aria-hidden="false">
+    <div class="inner" role="region" aria-label="Single day promotion">
+      <div class="message" id="promoText" aria-hidden="false">
+        <strong>Single Day Deals</strong>
+        Get extra months free
+      </div>
+
+      <div class="countdown" aria-live="polite" aria-atomic="true" title="Time left">
+        <div class="segment" aria-hidden="false">
+          <div class="box" id="hours">00</div>
+          <div class="label">H</div>
+        </div>
+
+        <div class="segment" aria-hidden="false">
+          <div class="box" id="minutes">00</div>
+          <div class="label">M</div>
+        </div>
+
+        <div class="segment" aria-hidden="false">
+          <div class="box" id="seconds">00</div>
+          <div class="label">S</div>
+        </div>
+      </div>
     </div>
-    <div class="h-banner__emojis">
-      <span class="emoji">💔</span>
-      <span class="emoji">💔</span>
-      <span class="emoji">😢</span>
-      <span class="emoji">💔</span>
-      <span class="emoji">🖤</span>
-      <span class="emoji">💔</span>
-    </div>
-    <div class="h-banner__sale-image-gradient"></div>
-  </a>
-</div>
+  </div>
+
+  <script>
+    /*
+      Single-day banner countdown (English only).
+
+      Defaults:
+        - useSpecificDate = false  => countdown ends at local device end of current day (23:59:59.999)
+        - useSpecificDate = true   => set specificDateString to desired ISO datetime (local or with Z for UTC)
+
+      Edit useSpecificDate and specificDateString below to change behavior.
+    */
+    (function(){
+      const useSpecificDate = false; // set to true to use specificDateString
+      const specificDateString = '2025-11-11T23:59:59'; // example: local time
+
+      let targetDate;
+      if (useSpecificDate) {
+        targetDate = new Date(specificDateString);
+      } else {
+        targetDate = new Date();
+        targetDate.setHours(23,59,59,999); // end of current day (local)
+      }
+
+      const promoEl = document.getElementById('promoText');
+      const elH = document.getElementById('hours');
+      const elM = document.getElementById('minutes');
+      const elS = document.getElementById('seconds');
+
+      function pad(n){ return String(n).padStart(2,'0'); }
+
+      function updateCountdown(){
+        const now = new Date();
+        let diff = targetDate - now;
+        if (diff <= 0){
+          elH.textContent = '00';
+          elM.textContent = '00';
+          elS.textContent = '00';
+          promoEl.innerHTML = '<strong>Offer ended</strong> Thank you.';
+          clearInterval(countTimer);
+          return;
+        }
+
+        const totalSeconds = Math.floor(diff / 1000);
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+
+        elH.textContent = pad(hours);
+        elM.textContent = pad(minutes);
+        elS.textContent = pad(seconds);
+      }
+
+      // initial render and start interval
+      updateCountdown();
+      const countTimer = setInterval(updateCountdown, 1000);
+
+      // Expose helpers for testing from console
+      window.__singleDayBanner = {
+        getTarget: () => targetDate,
+        remainingSeconds: () => Math.max(0, Math.floor((targetDate - new Date()) / 1000)),
+        stop: () => clearInterval(countTimer)
+      };
+    })();
+  </script>
     <!--  BANNER  -->
 
     <!-- HERO BANNER ONE -->
