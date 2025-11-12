@@ -100,7 +100,7 @@
                             <p class="slogan" data-sal="slide-down" data-sal-delay="300" data-sal-duration="800">Our support team is famous for being fast, friendly
                                 and helpful. Our customers confirm.</p>
                             <div class="hosting-action mt-5" data-sal="slide-down" data-sal-delay="400" data-sal-duration="800">
-                                <img src="assets/images/banner/title-shape-2.svg" alt=""> <a href="#" class="btn__white"> 24/7 Hours Dedicated Support</a>
+                                <img src="assets/images/banner/title-shape-2.svg" alt=""> <a href="#contact-methods" class="btn__white"> 24/7 Hours Dedicated Support</a>
                             </div>
                         </div>
                         <div class="rts-hosting-banner__image support">
@@ -119,6 +119,156 @@
         </div>
     </div>
     <!-- shared hosting banner end-->
+
+    <!-- CONTACT METHODS SECTION -->
+    <section id="contact-methods" class="rts-contact-methods section__padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-5">
+                    <h2 class="section-title" data-sal="slide-down" data-sal-delay="100" data-sal-duration="800">Multiple Ways to Reach Us</h2>
+                    <p class="section-description" data-sal="slide-down" data-sal-delay="200" data-sal-duration="800">Choose your preferred method to get in touch with our support team</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <!-- WhatsApp Support -->
+                <div class="col-lg-4 col-md-6" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800">
+                    <div class="contact-method-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h4>WhatsApp Support</h4>
+                        <p>Get instant support via WhatsApp. Available 24/7 for urgent issues.</p>
+                        <a href="https://wa.me/20122658874?text=Hello, I need support with my hosting" class="contact-btn whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Email Support -->
+                <div class="col-lg-4 col-md-6" data-sal="slide-up" data-sal-delay="200" data-sal-duration="800">
+                    <div class="contact-method-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email Support</h4>
+                        <p>Send us detailed questions and get comprehensive answers.</p>
+                        <div class="email-list">
+                            <a href="mailto:team@nutro.cloud" class="contact-btn email-btn">
+                                <i class="fas fa-envelope"></i> team@nutro.cloud
+                            </a>
+                            <a href="mailto:sales@nutro.cloud" class="contact-btn email-btn">
+                                <i class="fas fa-envelope"></i> sales@nutro.cloud
+                            </a>
+                            <a href="mailto:hello@nutro.cloud" class="contact-btn email-btn">
+                                <i class="fas fa-envelope"></i> hello@nutro.cloud
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="col-lg-4 col-md-6" data-sal="slide-up" data-sal-delay="300" data-sal-duration="800">
+                    <div class="contact-method-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h4>Contact Form</h4>
+                        <p>Fill out our detailed form and we'll get back to you soon.</p>
+                        <a href="#chat" class="contact-btn form-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+    .rts-contact-methods {
+        background: #f8f9fa;
+    }
+    .contact-method-card {
+        background: #fff;
+        padding: 30px 20px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+        height: 100%;
+    }
+    .contact-method-card:hover {
+        transform: translateY(-5px);
+    }
+    .contact-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 30px;
+        color: white;
+    }
+    .contact-method-card:nth-child(2) .contact-icon {
+        background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    }
+    .contact-method-card:nth-child(3) .contact-icon {
+        background: linear-gradient(135deg, #6f42c1 0%, #5a2d91 100%);
+    }
+    .contact-method-card h4 {
+        color: #333;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+    .contact-method-card p {
+        color: #666;
+        margin-bottom: 25px;
+        line-height: 1.6;
+    }
+    .contact-btn {
+        display: inline-block;
+        padding: 12px 25px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        margin: 5px 0;
+    }
+    .whatsapp-btn {
+        background: #25D366;
+        color: white;
+    }
+    .whatsapp-btn:hover {
+        background: #128C7E;
+        color: white;
+    }
+    .email-btn {
+        background: #007bff;
+        color: white;
+        display: block;
+        margin: 8px 0;
+        font-size: 14px;
+    }
+    .email-btn:hover {
+        background: #0056b3;
+        color: white;
+    }
+    .form-btn {
+        background: #6f42c1;
+        color: white;
+    }
+    .form-btn:hover {
+        background: #5a2d91;
+        color: white;
+    }
+    .email-list {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    </style>
 
     <!-- ABOUT RESELLER HOSTING -->
     <div class="rts-about-reseller section__padding support">
