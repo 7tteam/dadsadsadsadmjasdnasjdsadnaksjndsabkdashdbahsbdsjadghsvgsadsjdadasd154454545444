@@ -431,16 +431,21 @@
             telegramData.append('state', state);
             telegramData.append('message', message);
         
-            fetch("https://pro.nutro.cloud/includes/telegram_bot.php", {
+            fetch("https://pro.nutro.cloud/includes/support_telegram.php", {
                 method: "POST",
                 body: telegramData
             })
-            .then(res => res.text())
+            .then(res => res.json())
             .then(data => {
-                showModal({name, email, phone, state, message});
-                form.reset();
+                if (data.status === 'success') {
+                    showModal({name, email, phone, state, message});
+                    form.reset();
+                } else {
+                    alert('Error: ' + data.message);
+                }
             })
             .catch(err => {
+                console.error('Error:', err);
                 alert("Something went wrong. Please try again later.");
             });
         });
