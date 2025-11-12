@@ -5,15 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>Nutro Cloud | Choose your VPS server - Free and Paid Plans</title>
+    <title>24/7 Technical Support | Nutro Cloud Hosting Support Center</title>
 
     <!-- الوصف الذي يظهر أسفل العنوان في نتائج البحث -->
     <meta name="description" 
-    content="Nutro Cloud offers VPS hosting servers 
-    with Cheep paid plans. Powered by 7T Team.">
+    content="Get expert 24/7 technical support for your hosting needs. Nutro Cloud provides professional customer service, live chat support, and technical assistance for all hosting plans.">
 
     <!-- الكلمات المفتاحية باللغة الإنجليزية -->
-    <meta name="keywords" content="hosting, cheap hosting, Nutro Cloud, vps hosting, free hosting, paid hosting, 7T Team, game servers, website hosting">
+    <meta name="keywords" content="technical support, 24/7 support, hosting support, customer service, live chat support, technical assistance, help desk, Nutro Cloud support, hosting help, server support">
 
     <!-- لغة الصفحة -->
     <meta http-equiv="Content-Language" content="en">
@@ -28,16 +27,16 @@
     <link rel="icon" href="https://www.nutro.cloud/logo.ico" type="image/x-icon">
 
     <!-- Open Graph Tags لتحسين الظهور عند مشاركة الروابط على الشبكات الاجتماعية -->
-    <meta property="og:title" content="Nutro Cloud | VPS Hosting Services">
-    <meta property="og:description" content="Nutro Cloud offers VPS hosting servers with Cheep paid plans">
-    <meta property="og:image" content="https://www.nutro.cloud/banner.jpg">
-    <meta property="og:url" content="https://www.nutro.cloud">
+    <meta property="og:title" content="24/7 Technical Support | Nutro Cloud Support Center">
+    <meta property="og:description" content="Get expert 24/7 technical support and customer service for all your hosting needs at Nutro Cloud.">
+    <meta property="og:image" content="https://www.nutro.cloud/support-banner.jpg">
+    <meta property="og:url" content="https://pro.nutro.cloud/sup.html">
 
     <!-- Twitter Card Tags لتحسين الظهور على تويتر -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Nutro Cloud | VPS Hosting Services">
-    <meta name="twitter:description" content="Nutro Cloud offers VPS hosting servers with Cheep paid plans.">
-    <meta name="twitter:image" content="https://www.nutro.cloud/banner.jpg">
+    <meta name="twitter:title" content="24/7 Technical Support | Nutro Cloud Support Center">
+    <meta name="twitter:description" content="Professional hosting support and technical assistance available 24/7.">
+    <meta name="twitter:image" content="https://www.nutro.cloud/support-banner.jpg">
     <!-- favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo.png">
 
@@ -55,7 +54,7 @@
     <link rel="preload stylesheet" href="assets/css/plugins/fontawesome.min.css" as="style">
     <!-- Custom css -->
     <link rel="preload stylesheet" href="assets/css/style.css" as="style">
-    <meta name="keywords" content="استضافة, استضافة رخيصة, Nutro Cloud, خدمات استضافة, استضافة مجانية, استضافة مدفوعة, 7T Team, خوادم الألعاب, استضافة المواقع">
+    <meta name="keywords" content="دعم فني, خدمة عملاء, دعم استضافة, مساعدة تقنية, دعم 24/7, خدمة عملاء نوترو كلاود, مساعدة استضافة, دعم خوادم, حل مشاكل استضافة">
 
     <script defer src="main.js"></script>
     <script>
@@ -293,23 +292,23 @@
                         <h5>Send a message</h5>
                         <form class="form__content" id="contactForm" method="post" action="#">
                             <div class="form__control">
-                                <input type="text" class="input-form" placeholder="what is your name?" required>
-                                <input type="email" class="input-form" placeholder="Email Address" required>
+                                <input type="text" name="name" class="input-form" placeholder="what is your name?" required>
+                                <input type="email" name="email" class="input-form" placeholder="Email Address" required>
                             </div>
                             <div class="form__control">
-                                <input type="text" class="input-form" placeholder="Phone Number" required>
-                                <select name="state" id="state" class="input-form">
-                                    <option value="1">state</option>
-                                    <option value="1">MiddelEast</option>
-                                    <option value="2">USA</option>
-                                    <option value="3">Europa</option>
-                                    <option value="4">Russia</option>
-                                    <option value="5">Chaina</option>
+                                <input type="text" name="phone" class="input-form" placeholder="Phone Number" required>
+                                <select name="state" id="state" class="input-form" required>
+                                    <option value="">Select State</option>
+                                    <option value="MiddelEast">MiddelEast</option>
+                                    <option value="USA">USA</option>
+                                    <option value="Europa">Europa</option>
+                                    <option value="Russia">Russia</option>
+                                    <option value="China">China</option>
                                 </select>
                             </div>
 
                             <textarea name="message" cols="30" rows="10" placeholder="A brief description about your consultation" required></textarea>
-                            <input type="checkbox" name="checkbox" id="checkbox">
+                            <input type="checkbox" name="checkbox" id="checkbox" required>
                             <label for="checkbox">
                                 By submitting your information you provide written consent
                                 to hostie and its family of brands contacting you.
@@ -368,7 +367,6 @@
     <!-- main js -->
     <script defer src="assets/js/main.js"></script>
     <script defer src="main.js"></script>
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/145121546.js"></script>
 
     <!-- FirWall MAN -->
     <script>
@@ -376,19 +374,70 @@
           event.preventDefault();
         });
       </script>
+      <!-- Success Modal -->
+      <div id="successModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
+        <div style="background:#fff; padding:30px; border-radius:15px; max-width:500px; width:90%; text-align:center; box-shadow:0 10px 30px rgba(0,0,0,0.3);">
+          <div style="color:#28a745; font-size:60px; margin-bottom:20px;">✓</div>
+          <h3 style="color:#333; margin-bottom:15px;">Message Sent Successfully!</h3>
+          <p style="color:#666; margin-bottom:20px;">Thank you for contacting us. We have received your message and will get back to you soon.</p>
+          <div id="submittedData" style="background:#f8f9fa; padding:15px; border-radius:8px; margin-bottom:20px; text-align:left;"></div>
+          <button onclick="closeModal()" style="background:#007bff; color:#fff; border:none; padding:10px 30px; border-radius:5px; cursor:pointer;">Close</button>
+        </div>
+      </div>
+
       <script>
+        function showModal(data) {
+          const modal = document.getElementById('successModal');
+          const dataDiv = document.getElementById('submittedData');
+          
+          dataDiv.innerHTML = `
+            <strong>Submitted Information:</strong><br>
+            <strong>Name:</strong> ${data.name}<br>
+            <strong>Email:</strong> ${data.email}<br>
+            <strong>Phone:</strong> ${data.phone}<br>
+            <strong>State:</strong> ${data.state}<br>
+            <strong>Message:</strong> ${data.message}
+          `;
+          
+          modal.style.display = 'flex';
+        }
+        
+        function closeModal() {
+          document.getElementById('successModal').style.display = 'none';
+        }
+        
         document.getElementById("contactForm").addEventListener("submit", function(e) {
             e.preventDefault();
             const form = e.target;
             const formData = new FormData(form);
+            
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const state = formData.get('state');
+            const message = formData.get('message');
+            const checkbox = formData.get('checkbox');
+            
+            if (!name || !email || !phone || !state || !message || !checkbox) {
+              alert('Please fill in all required fields and accept the terms.');
+              return;
+            }
+            
+            const telegramData = new FormData();
+            telegramData.append('type', 'contact_form');
+            telegramData.append('name', name);
+            telegramData.append('email', email);
+            telegramData.append('phone', phone);
+            telegramData.append('state', state);
+            telegramData.append('message', message);
         
-            fetch("https://user.7tteam.com/admin/nutrocloud/callme.php", { // استبدل بالرابط الصحيح
+            fetch("https://pro.nutro.cloud/includes/telegram_bot.php", {
                 method: "POST",
-                body: formData
+                body: telegramData
             })
-            .then(res => res.json())
+            .then(res => res.text())
             .then(data => {
-                alert("Thank you! Our team will contact you via WhatsApp soon.");
+                showModal({name, email, phone, state, message});
                 form.reset();
             })
             .catch(err => {
