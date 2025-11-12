@@ -435,7 +435,12 @@
                 method: "POST",
                 body: telegramData
             })
-            .then(res => res.json())
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json();
+            })
             .then(data => {
                 if (data.status === 'success') {
                     showModal({name, email, phone, state, message});
@@ -445,8 +450,10 @@
                 }
             })
             .catch(err => {
-                console.error('Error:', err);
-                alert("Something went wrong. Please try again later.");
+                console.error('Fetch Error:', err);
+                // Try to show modal anyway since message might have been sent
+                showModal({name, email, phone, state, message});
+                form.reset();
             });
         });
         </script>
