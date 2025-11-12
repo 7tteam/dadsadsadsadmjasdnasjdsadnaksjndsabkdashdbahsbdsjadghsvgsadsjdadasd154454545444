@@ -24,7 +24,7 @@
     <meta name="robots" content="index, follow">
 
     <!-- رفع الأيقونة أو اللوجو الخاص بالموقع -->
-    <link rel="icon" href="assets/images/logo.png" type="image/x-icon">
+    <link rel="icon" href="https://nutro.cloud/assets/images/fav.png" type="image/x-icon">
 
     <!-- Open Graph Tags لتحسين الظهور عند مشاركة الروابط على الشبكات الاجتماعية -->
     <meta property="og:title" content="24/7 Technical Support | Nutro Cloud Support Center">
@@ -38,7 +38,7 @@
     <meta name="twitter:description" content="Professional hosting support and technical assistance available 24/7.">
     <meta name="twitter:image" content="https://www.nutro.cloud/support-banner.jpg">
     <!-- favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo.png">
+    <link rel="shortcut icon" type="image/x-icon" href="https://nutro.cloud/assets/images/fav.png">
 
  
     <!-- Preconnect to Google Fonts and Google Fonts Static -->
@@ -57,6 +57,7 @@
     <meta name="keywords" content="دعم فني, خدمة عملاء, دعم استضافة, مساعدة تقنية, دعم 24/7, خدمة عملاء نوترو كلاود, مساعدة استضافة, دعم خوادم, حل مشاكل استضافة">
 
     <script defer src="main.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script>
         async function loadFooter() {
             try {
@@ -458,12 +459,19 @@
                             </div>
 
                             <textarea name="message" cols="30" rows="10" placeholder="A brief description about your consultation" required></textarea>
+                            
+                            <div class="g-recaptcha" data-sitekey="6LdQyS8qAAAAAKLhxQn3yRf2fTr2FV3EhjoSTabQ"></div>
+                            
                             <input type="checkbox" name="checkbox" id="checkbox" required>
                             <label for="checkbox">
                                 By submitting your information you provide written consent
                                 to hostie and its family of brands contacting you.
                             </label>
-                            <button type="submit" class="submit__btn">Submit Now</button>
+                            
+                            <div id="error-message" style="color: red; margin: 10px 0; display: none;"></div>
+                            <div id="rate-limit-message" style="color: orange; margin: 10px 0; display: none;">You can only send one message per day. Please try again tomorrow.</div>
+                            
+                            <button type="submit" class="submit__btn" id="submitBtn">Submit Now</button>
                         </form>
                     </div>
                 </div>
@@ -556,8 +564,43 @@
           document.getElementById('successModal').style.display = 'none';
         }
         
+        // Check rate limit on page load
+        function checkRateLimit() {
+            const lastSubmission = localStorage.getItem('lastContactSubmission');
+            if (lastSubmission) {
+                const lastDate = new Date(lastSubmission);
+                const today = new Date();
+                const diffTime = Math.abs(today - lastDate);
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                
+                if (diffDays < 1) {
+                    document.getElementById('submitBtn').disabled = true;
+                    document.getElementById('submitBtn').textContent = 'Already Sent Today';
+                    document.getElementById('rate-limit-message').style.display = 'block';
+                    return false;
+                }
+            }
+            return true;
+        }
+        
+        function showError(message) {
+            const errorDiv = document.getElementById('error-message');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+            setTimeout(() => {
+                errorDiv.style.display = 'none';
+            }, 5000);
+        }
+        
+        checkRateLimit();
+        
         document.getElementById("contactForm").addEventListener("submit", function(e) {
             e.preventDefault();
+            
+            if (!checkRateLimit()) {
+                return;
+            }
+            
             const form = e.target;
             const formData = new FormData(form);
             
@@ -568,9 +611,37 @@
             const message = formData.get('message');
             const checkbox = formData.get('checkbox');
             
-            if (!name || !email || !phone || !state || !message || !checkbox) {
-              alert('Please fill in all required fields and accept the terms.');
-              return;
+            // Validate required fields
+            if (!name) {
+                showError('Please enter your name.');
+                return;
+            }
+            if (!email) {
+                showError('Please enter your email address.');
+                return;
+            }
+            if (!phone) {
+                showError('Please enter your phone number.');
+                return;
+            }
+            if (!state) {
+                showError('Please select your state/region.');
+                return;
+            }
+            if (!message) {
+                showError('Please enter your message.');
+                return;
+            }
+            if (!checkbox) {
+                showError('Please accept the terms and conditions.');
+                return;
+            }
+            
+            // Validate reCAPTCHA
+            const recaptchaResponse = grecaptcha.getResponse();
+            if (!recaptchaResponse) {
+                showError('Please complete the reCAPTCHA verification.');
+                return;
             }
             
             const telegramData = new FormData();
@@ -580,6 +651,12 @@
             telegramData.append('phone', phone);
             telegramData.append('state', state);
             telegramData.append('message', message);
+            telegramData.append('recaptcha', recaptchaResponse);
+            
+            // Disable submit button during request
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
         
             fetch("https://pro.nutro.cloud/includes/support_telegram.php", {
                 method: "POST",
@@ -593,17 +670,27 @@
             })
             .then(data => {
                 if (data.status === 'success') {
+                    // Set rate limit
+                    localStorage.setItem('lastContactSubmission', new Date().toISOString());
                     showModal({name, email, phone, state, message});
                     form.reset();
+                    grecaptcha.reset();
+                    
+                    // Disable form for the day
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Already Sent Today';
+                    document.getElementById('rate-limit-message').style.display = 'block';
                 } else {
-                    alert('Error: ' + data.message);
+                    showError('Error: ' + data.message);
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Submit Now';
                 }
             })
             .catch(err => {
                 console.error('Fetch Error:', err);
-                // Try to show modal anyway since message might have been sent
-                showModal({name, email, phone, state, message});
-                form.reset();
+                showError('Something went wrong. Please try again later.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Now';
             });
         });
         </script>
