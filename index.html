@@ -2034,18 +2034,12 @@ Level up your gaming experience with high-performance Nutro servers — ultra-lo
 <script>
 // لغة الصفحة الأصلية
 const sourceLang = "en";
-
-// لتخزين النصوص الأصلية تلقائيًا
 const originalTexts = new WeakMap();
-
-// تخزين الترجمة مؤقتًا لمنع إعادة الطلبات
 const cache = new Map();
 
-// دالة ترجمة نص باستخدام Lingva Translate
+// ترجمة نص باستخدام Lingva
 async function translateTextLingva(text, targetLang) {
     if (!text) return "";
-    
-    // تحقق من الـ cache
     if (cache.has(text + targetLang)) return cache.get(text + targetLang);
 
     try {
@@ -2061,43 +2055,36 @@ async function translateTextLingva(text, targetLang) {
     }
 }
 
-// دالة لترجمة الصفحة كلها
-async function translatePage(targetLang) {
-    const elements = document.querySelectorAll("p, h1, h2, h3, h4, h5, h6, span, button");
-
-    let index = 0;
-    for (let el of elements) {
-        // حفظ النص الأصلي
-        if (!originalTexts.has(el)) originalTexts.set(el, el.innerText);
-
-        // عرض حالة الترجمة
-        el.innerText = "Translating...";
-
-        try {
-            const translated = await translateTextLingva(originalTexts.get(el), targetLang);
-            el.innerText = translated;
-        } catch (e) {
-            el.innerText = originalTexts.get(el) + " (Error)";
+// ترجمة النصوص داخل nodes بدون المساس بالـ HTML أو CSS
+async function translateNode(node, targetLang) {
+    for (let child of node.childNodes) {
+        if (child.nodeType === Node.TEXT_NODE) {
+            const original = child.textContent.trim();
+            if (original) {
+                if (!originalTexts.has(child)) originalTexts.set(child, original);
+                const translated = await translateTextLingva(original, targetLang);
+                child.textContent = translated;
+            }
+        } else if (child.nodeType === Node.ELEMENT_NODE) {
+            await translateNode(child, targetLang); // recursion
         }
-
-        // Optional: delay صغير لتجنب ضغط السيرفر لو فيه آلاف العناصر
-        await new Promise(r => setTimeout(r, 50));
-
-        index++;
-        console.log(`Translated ${index} / ${elements.length}`);
     }
 }
 
-// استرجاع النصوص الأصلية
+// ترجمة الصفحة كلها
+async function translatePage(targetLang) {
+    const body = document.body;
+    await translateNode(body, targetLang);
+}
+
+// إعادة النصوص الأصلية
 function resetPage() {
-    const elements = document.querySelectorAll("p, h1, h2, h3, h4, h5, h6, span, button");
-    for (let el of elements) {
-        if (originalTexts.has(el)) {
-            el.innerText = originalTexts.get(el);
-        }
+    for (let [node, text] of originalTexts) {
+        node.textContent = text;
     }
 }
 </script>
+
 
 
         <script src="https://bemo.7tteam.com/aias/assets/widget.js" data-site="admin" data-chatcolor="#5c3df5"
