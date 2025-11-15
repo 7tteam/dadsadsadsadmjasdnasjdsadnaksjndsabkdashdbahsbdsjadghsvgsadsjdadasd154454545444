@@ -2031,6 +2031,54 @@ Level up your gaming experience with high-performance Nutro servers — ultra-lo
             }
             loadFooter();
         </script>
+        <script>
+// حدد لغة الصفحة الأصلية
+const sourceLang = "en";
+
+// لتخزين النصوص الأصلية تلقائيًا
+const originalTexts = new WeakMap();
+
+// دالة ترجمة نص
+async function translateText(text, targetLang) {
+    const url = "https://api.mymemory.translated.net/get?q=" +
+                encodeURIComponent(text) +
+                "&langpair=" + sourceLang + "|" + targetLang;
+    const res = await fetch(url);
+    const data = await res.json();
+    return data.responseData.translatedText;
+}
+
+// دالة ترجمة كل النصوص داخل عناصر محددة
+async function translatePage(targetLang) {
+    // استهداف العناصر النصية
+    const elements = document.querySelectorAll("p, h1, h2, h3, h4, h5, h6, span, li, a, button");
+
+    for (let el of elements) {
+        // حفظ النص الأصلي
+        if (!originalTexts.has(el)) originalTexts.set(el, el.innerText);
+
+        // تخزين حالة "ترجمة جاريه"
+        el.innerText = "Translating...";
+
+        try {
+            const translated = await translateText(originalTexts.get(el), targetLang);
+            el.innerText = translated;
+        } catch (e) {
+            el.innerText = originalTexts.get(el) + " (Error)";
+        }
+    }
+}
+
+// استرجاع النصوص الأصلية
+function resetPage() {
+    const elements = document.querySelectorAll("p, h1, h2, h3, h4, h5, h6, span, li, a, button");
+    for (let el of elements) {
+        if (originalTexts.has(el)) {
+            el.innerText = originalTexts.get(el);
+        }
+    }
+}
+</script>
         <script src="https://bemo.7tteam.com/aias/assets/widget.js" data-site="admin" data-chatcolor="#5c3df5"
             data-headercolor="#f0f0f0" data-username="BemoN" data-status="Available to help you now!"
             data-questions="I want to buy WordPrass |How Can i buy from Nutro|I need help choosing the right hosting plan">
