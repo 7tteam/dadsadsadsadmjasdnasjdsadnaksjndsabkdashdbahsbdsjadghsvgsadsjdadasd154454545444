@@ -2032,22 +2032,33 @@ Level up your gaming experience with high-performance Nutro servers — ultra-lo
             loadFooter();
         </script>
 <script>
-// لغة الصفحة الأصلية
 const sourceLang = "en";
+const targetLang = "de"; // ممكن تغييره
 const originalTexts = new WeakMap();
-const cache = new Map();
 
-// ترجمة نص باستخدام Lingva
+// Loading overlay
+const overlay = document.createElement("div");
+overlay.style.position = "fixed";
+overlay.style.top = "0";
+overlay.style.left = "0";
+overlay.style.width = "100%";
+overlay.style.height = "100%";
+overlay.style.background = "rgba(255,255,255,0.7)";
+overlay.style.display = "flex";
+overlay.style.alignItems = "center";
+overlay.style.justifyContent = "center";
+overlay.style.fontSize = "2em";
+overlay.style.zIndex = "9999";
+overlay.innerText = "Translating...";
+overlay.style.display = "none";
+document.body.appendChild(overlay);
+
 async function translateTextLingva(text, targetLang) {
-    if (!text) return "";
-    if (cache.has(text + targetLang)) return cache.get(text + targetLang);
-
     try {
         const url = `https://lingva.ml/api/v1/${sourceLang}/${targetLang}/${encodeURIComponent(text)}`;
         const res = await fetch(url);
         if (!res.ok) throw new Error("Lingva API error");
         const data = await res.json();
-        cache.set(text + targetLang, data.translation);
         return data.translation;
     } catch (e) {
         console.error("Translation error:", e);
@@ -2055,35 +2066,49 @@ async function translateTextLingva(text, targetLang) {
     }
 }
 
-// ترجمة النصوص داخل nodes بدون المساس بالـ HTML أو CSS
-async function translateNode(node, targetLang) {
-    for (let child of node.childNodes) {
-        if (child.nodeType === Node.TEXT_NODE) {
-            const original = child.textContent.trim();
-            if (original) {
-                if (!originalTexts.has(child)) originalTexts.set(child, original);
-                const translated = await translateTextLingva(original, targetLang);
-                child.textContent = translated;
+async function translateNode(node) {
+    const textNodes = [];
+    function getTextNodes(n) {
+        for (let child of n.childNodes) {
+            if (child.nodeType === Node.TEXT_NODE && child.textContent.trim()) {
+                textNodes.push(child);
+            } else if (child.nodeType === Node.ELEMENT_NODE) {
+                getTextNodes(child);
             }
-        } else if (child.nodeType === Node.ELEMENT_NODE) {
-            await translateNode(child, targetLang); // recursion
         }
+    }
+    getTextNodes(node);
+
+    const batchSize = 5;
+    for (let i = 0; i < textNodes.length; i += batchSize) {
+        const batch = textNodes.slice(i, i + batchSize);
+        const promises = batch.map(async tn => {
+            if (!originalTexts.has(tn)) originalTexts.set(tn, tn.textContent);
+            const translated = await translateTextLingva(tn.textContent.trim(), targetLang);
+            tn.textContent = translated;
+        });
+        await Promise.all(promises);
     }
 }
 
-// ترجمة الصفحة كلها
-async function translatePage(targetLang) {
-    const body = document.body;
-    await translateNode(body, targetLang);
+async function translatePage() {
+    overlay.style.display = "flex";
+    await translateNode(document.body);
+    overlay.style.display = "none";
 }
 
-// إعادة النصوص الأصلية
 function resetPage() {
     for (let [node, text] of originalTexts) {
         node.textContent = text;
     }
 }
+
+// استدعاء الترجمة
+document.addEventListener("DOMContentLoaded", () => {
+    translatePage();
+});
 </script>
+
 
 
 
