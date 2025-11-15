@@ -2031,41 +2031,54 @@ Level up your gaming experience with high-performance Nutro servers — ultra-lo
             }
             loadFooter();
         </script>
-        <script>
-// حدد لغة الصفحة الأصلية
+ <script>
 const sourceLang = "en";
-
-// لتخزين النصوص الأصلية تلقائيًا
+const batchSize = 10; // عدد الجمل لكل طلب
+const delayMs = 300;  // تأخير بين كل Batch
 const originalTexts = new WeakMap();
+const cache = new Map(); // حفظ الترجمة لتسريع العملية
 
-// دالة ترجمة نص
-async function translateText(text, targetLang) {
-    const url = "https://api.mymemory.translated.net/get?q=" +
-                encodeURIComponent(text) +
-                "&langpair=" + sourceLang + "|" + targetLang;
-    const res = await fetch(url);
-    const data = await res.json();
-    return data.responseData.translatedText;
+// دالة ترجمة نصوص متعددة دفعة واحدة
+async function translateBatch(texts, targetLang) {
+    const translatedBatch = [];
+    for (let text of texts) {
+        if (cache.has(text)) {
+            translatedBatch.push(cache.get(text));
+            continue;
+        }
+        try {
+            const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${sourceLang}|${targetLang}`;
+            const res = await fetch(url);
+            const data = await res.json();
+            const translated = data.responseData.translatedText;
+            cache.set(text, translated);
+            translatedBatch.push(translated);
+        } catch (e) {
+            translatedBatch.push(text + " (Error)");
+        }
+    }
+    return translatedBatch;
 }
 
-// دالة ترجمة كل النصوص داخل عناصر محددة
+// دالة ترجمة الصفحة بالكامل
 async function translatePage(targetLang) {
-    // استهداف العناصر النصية
-    const elements = document.querySelectorAll("p, h1, h2, h3, h4, h5, h6, span, li, a, button");
-
-    for (let el of elements) {
-        // حفظ النص الأصلي
+    const elements = Array.from(document.querySelectorAll("p, h1, h2, h3, h4, h5, h6, span, li, a, button"));
+    
+    // حفظ النصوص الأصلية
+    elements.forEach(el => {
         if (!originalTexts.has(el)) originalTexts.set(el, el.innerText);
-
-        // تخزين حالة "ترجمة جاريه"
         el.innerText = "Translating...";
+    });
 
-        try {
-            const translated = await translateText(originalTexts.get(el), targetLang);
-            el.innerText = translated;
-        } catch (e) {
-            el.innerText = originalTexts.get(el) + " (Error)";
-        }
+    for (let i = 0; i < elements.length; i += batchSize) {
+        const batch = elements.slice(i, i + batchSize);
+        const texts = batch.map(el => originalTexts.get(el));
+        const translatedTexts = await translateBatch(texts, targetLang);
+
+        // تحديث النصوص المترجمة
+        batch.forEach((el, idx) => el.innerText = translatedTexts[idx]);
+
+        await new Promise(r => setTimeout(r, delayMs)); // تأخير بين كل Batch
     }
 }
 
@@ -2079,6 +2092,7 @@ function resetPage() {
     }
 }
 </script>
+
         <script src="https://bemo.7tteam.com/aias/assets/widget.js" data-site="admin" data-chatcolor="#5c3df5"
             data-headercolor="#f0f0f0" data-username="BemoN" data-status="Available to help you now!"
             data-questions="I want to buy WordPrass |How Can i buy from Nutro|I need help choosing the right hosting plan">
