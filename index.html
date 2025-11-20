@@ -1611,47 +1611,27 @@ US$ <span style="color:#facc15;">1.95</span> <span style="font-size: 1.7rem;">/m
 
         <style>
             .pricing-card {
-                background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+                background: #ffffff;
                 border-radius: 16px;
-                padding: 28px 24px;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
-                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                padding: 32px 28px;
+                box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+                transition: all 0.3s ease;
                 position: relative;
                 height: 100%;
-                border: 1px solid rgba(0,0,0,0.06);
-                overflow: hidden;
-            }
-            .pricing-card::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                height: 4px;
-                background: linear-gradient(90deg, #1976d2, #42a5f5);
-                opacity: 0;
-                transition: opacity 0.3s ease;
+                border: 1px solid #e5e7eb;
             }
             .pricing-card:hover {
-                transform: translateY(-12px);
-                box-shadow: 0 20px 40px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08);
-            }
-            .pricing-card:hover::before {
-                opacity: 1;
+                transform: translateY(-8px);
+                box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+                border-color: #1976d2;
             }
             .pricing-card.popular {
                 border: 2px solid #1976d2;
-                transform: scale(1.03);
-                background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%);
-                box-shadow: 0 8px 30px rgba(25,118,210,0.15), 0 2px 8px rgba(25,118,210,0.1);
-            }
-            .pricing-card.popular::before {
-                opacity: 1;
-                height: 5px;
+                box-shadow: 0 8px 24px rgba(25,118,210,0.15);
             }
             .pricing-card.popular:hover {
-                transform: scale(1.03) translateY(-12px);
-                box-shadow: 0 24px 48px rgba(25,118,210,0.2), 0 8px 16px rgba(25,118,210,0.12);
+                transform: translateY(-8px);
+                box-shadow: 0 16px 40px rgba(25,118,210,0.2);
             }
             .popular-badge {
                 position: absolute;
@@ -1684,43 +1664,52 @@ US$ <span style="color:#facc15;">1.95</span> <span style="font-size: 1.7rem;">/m
                 height: 48px;
                 margin-bottom: 16px;
             }
+            .plan-header {
+                margin-bottom: 24px;
+            }
             .plan-name {
-                font-size: 26px;
-                font-weight: 800;
-                color: #1a1a1a;
-                margin-bottom: 10px;
-                letter-spacing: -0.5px;
+                font-size: 24px;
+                font-weight: 700;
+                color: #111827;
+                margin-bottom: 8px;
             }
             .plan-desc {
                 font-size: 14px;
                 color: #6b7280;
-                margin-bottom: 24px;
-                min-height: 40px;
-                line-height: 1.6;
+                line-height: 1.5;
+                margin: 0;
             }
             .plan-price {
                 margin: 24px 0;
+                text-align: center;
+            }
+            .price-main {
+                margin-bottom: 12px;
             }
             .price-amount {
-                font-size: 52px;
-                font-weight: 900;
-                color: #1a1a1a;
-                letter-spacing: -2px;
+                font-size: 48px;
+                font-weight: 800;
+                color: #111827;
+                letter-spacing: -1px;
             }
             .price-currency {
-                font-size: 20px;
+                font-size: 18px;
                 vertical-align: super;
+                color: #6b7280;
             }
             .price-period {
-                font-size: 18px;
-                color: #666;
-            }
-            .price-original {
-                text-decoration: line-through;
-                color: #999;
                 font-size: 16px;
-                display: block;
-                margin-bottom: 8px;
+                color: #6b7280;
+            }
+            .price-details {
+                font-size: 12px;
+                color: #6b7280;
+                margin: 8px 0 4px;
+            }
+            .price-renew {
+                font-size: 11px;
+                color: #9ca3af;
+                margin: 4px 0 0;
             }
             .plan-bonus {
                 background: #e8f5e9;
@@ -1734,33 +1723,22 @@ US$ <span style="color:#facc15;">1.95</span> <span style="font-size: 1.7rem;">/m
             }
             .plan-button {
                 width: 100%;
-                padding: 16px;
+                padding: 14px;
                 border: none;
-                background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+                background: #1976d2;
                 color: white;
-                border-radius: 12px;
-                font-weight: 700;
-                font-size: 16px;
+                border-radius: 10px;
+                font-weight: 600;
+                font-size: 15px;
                 cursor: pointer;
-                transition: all 0.3s ease;
+                transition: all 0.2s ease;
                 text-decoration: none;
                 display: block;
                 text-align: center;
-                box-shadow: 0 4px 12px rgba(25,118,210,0.25);
-                letter-spacing: 0.3px;
             }
             .plan-button:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 6px 20px rgba(25,118,210,0.35);
-                background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
-            }
-            .pricing-card.popular .plan-button {
-                background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
-                box-shadow: 0 6px 16px rgba(25,118,210,0.3);
-            }
-            .pricing-card.popular .plan-button:hover {
-                background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
-                box-shadow: 0 8px 24px rgba(25,118,210,0.4);
+                background: #1565c0;
+                transform: translateY(-1px);
             }
             .plan-features {
                 list-style: none;
@@ -1768,18 +1746,20 @@ US$ <span style="color:#facc15;">1.95</span> <span style="font-size: 1.7rem;">/m
                 margin: 24px 0;
             }
             .plan-features li {
-                padding: 12px 0;
-                color: #4b5563;
+                padding: 10px 0;
+                color: #374151;
                 font-size: 14px;
                 display: flex;
-                align-items: center;
-                gap: 12px;
-                line-height: 1.5;
+                align-items: flex-start;
+                gap: 10px;
+                line-height: 1.6;
             }
-            .feature-icon {
-                width: 20px;
-                height: 20px;
+            .plan-features li i {
+                margin-top: 3px;
                 flex-shrink: 0;
+            }
+            .plan-features li span {
+                flex: 1;
             }
             .plan-divider {
                 border: none;
@@ -1792,7 +1772,7 @@ US$ <span style="color:#facc15;">1.95</span> <span style="font-size: 1.7rem;">/m
         document.addEventListener("DOMContentLoaded", function() {
             window.addEventListener("load", function() {
                 setTimeout(function() {
-                    fetch("https://user.7tteam.com/admin/nutrocloud/wpplan.php")
+                    fetch("https://user.7tteam.com/admin/nutrocloud/plan.php")
                         .then(res => {
                             if (!res.ok) throw new Error('Network response was not ok');
                             return res.json();
@@ -1807,34 +1787,30 @@ US$ <span style="color:#facc15;">1.95</span> <span style="font-size: 1.7rem;">/m
                                 const popularBadge = plan.popular ? '<div class="popular-badge">MOST POPULAR</div>' : '';
                                 const discountBadge = plan.discount ? `<div class="discount-badge">${plan.discount}</div>` : '';
                                 
-                                let features = plan.features.slice(0, 12).map((f, index) => {
-                                    let icon = '<i class="bi bi-check-circle-fill feature-icon" style="color: #1976d2;"></i>';
-                                    if (index === 0) icon = '<i class="bi bi-hdd-fill feature-icon" style="color: #1976d2;"></i>';
-                                    else if (index === 1) icon = '<i class="bi bi-speedometer2 feature-icon" style="color: #1976d2;"></i>';
-                                    else if (index === 2) icon = '<i class="bi bi-envelope-fill feature-icon" style="color: #1976d2;"></i>';
-                                    return `<li>${icon} ${f}</li>`;
-                                }).join('');
+                                let features = plan.features.slice(0, 12).map(f => 
+                                    `<li><i class="bi bi-check-circle-fill" style="color: #1976d2; font-size: 16px;"></i> <span>${f}</span></li>`
+                                ).join('');
 
                                 container.innerHTML += `
                                     <div class="col-lg-4 col-md-6 mb-4">
                                         <div class="pricing-card ${popularClass}">
                                             ${popularBadge}
                                             ${discountBadge}
-
-                                            <h3 class="plan-name">${plan.name}</h3>
-                                            <p class="plan-desc">${plan.desc}</p>
                                             
-                                            <hr class="plan-divider">
+                                            <div class="plan-header">
+                                                <h3 class="plan-name">${plan.name}</h3>
+                                                <p class="plan-desc">${plan.tagline || plan.desc || ''}</p>
+                                            </div>
                                             
                                             <div class="plan-price">
-                                                ${plan.total_price ? `<span class="price-original">${plan.total_price}</span>` : ''}
-                                                <div>
+                                                <div class="price-main">
                                                     <span class="price-currency">US$</span>
                                                     <span class="price-amount">${plan.price}</span>
                                                     <span class="price-period">${plan.period}</span>
                                                 </div>
                                                 ${plan.bonus ? `<div class="plan-bonus">${plan.bonus}</div>` : ''}
-                                                ${plan.renew_price ? `<p style="font-size: 12px; color: #999; margin-top: 8px;">${plan.renew_price}</p>` : ''}
+                                                ${plan.total_price ? `<p class="price-details">${plan.total_price}</p>` : ''}
+                                                ${plan.renew_price ? `<p class="price-renew">${plan.renew_price}</p>` : ''}
                                             </div>
                                             
                                             <a href="${plan.link}" class="plan-button">Choose plan</a>
@@ -1858,7 +1834,7 @@ US$ <span style="color:#facc15;">1.95</span> <span style="font-size: 1.7rem;">/m
                                 </div>
                             `;
                         });
-                }, 1500);
+                }, 1200);
             });
         });
         </script>
