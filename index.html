@@ -1611,38 +1611,62 @@ US$ <span style="color:#facc15;">1.95</span> <span style="font-size: 1.7rem;">/m
 
         <style>
             .pricing-card {
-                background: white;
-                border-radius: 12px;
-                padding: 24px 20px;
-                box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-                transition: all 0.3s ease;
+                background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+                border-radius: 16px;
+                padding: 28px 24px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                 position: relative;
                 height: 100%;
-                border: 2px solid transparent;
+                border: 1px solid rgba(0,0,0,0.06);
+                overflow: hidden;
+            }
+            .pricing-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 4px;
+                background: linear-gradient(90deg, #1976d2, #42a5f5);
+                opacity: 0;
+                transition: opacity 0.3s ease;
             }
             .pricing-card:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+                transform: translateY(-12px);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08);
+            }
+            .pricing-card:hover::before {
+                opacity: 1;
             }
             .pricing-card.popular {
-                border: 3px solid #1976d2;
-                transform: scale(1.05);
+                border: 2px solid #1976d2;
+                transform: scale(1.03);
+                background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%);
+                box-shadow: 0 8px 30px rgba(25,118,210,0.15), 0 2px 8px rgba(25,118,210,0.1);
+            }
+            .pricing-card.popular::before {
+                opacity: 1;
+                height: 5px;
             }
             .pricing-card.popular:hover {
-                transform: scale(1.05) translateY(-8px);
+                transform: scale(1.03) translateY(-12px);
+                box-shadow: 0 24px 48px rgba(25,118,210,0.2), 0 8px 16px rgba(25,118,210,0.12);
             }
             .popular-badge {
                 position: absolute;
-                top: -12px;
+                top: -14px;
                 left: 50%;
                 transform: translateX(-50%);
-                background: #1976d2;
+                background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
                 color: white;
-                padding: 6px 20px;
-                border-radius: 20px;
-                font-size: 13px;
+                padding: 8px 24px;
+                border-radius: 24px;
+                font-size: 12px;
                 font-weight: 700;
                 text-transform: uppercase;
+                letter-spacing: 0.5px;
+                box-shadow: 0 4px 12px rgba(25,118,210,0.3);
             }
             .discount-badge {
                 position: absolute;
@@ -1661,24 +1685,27 @@ US$ <span style="color:#facc15;">1.95</span> <span style="font-size: 1.7rem;">/m
                 margin-bottom: 16px;
             }
             .plan-name {
-                font-size: 24px;
-                font-weight: 700;
-                color: #2c3e50;
-                margin-bottom: 8px;
+                font-size: 26px;
+                font-weight: 800;
+                color: #1a1a1a;
+                margin-bottom: 10px;
+                letter-spacing: -0.5px;
             }
             .plan-desc {
                 font-size: 14px;
-                color: #666;
-                margin-bottom: 20px;
+                color: #6b7280;
+                margin-bottom: 24px;
                 min-height: 40px;
+                line-height: 1.6;
             }
             .plan-price {
                 margin: 24px 0;
             }
             .price-amount {
-                font-size: 48px;
-                font-weight: 800;
-                color: #2c3e50;
+                font-size: 52px;
+                font-weight: 900;
+                color: #1a1a1a;
+                letter-spacing: -2px;
             }
             .price-currency {
                 font-size: 20px;
@@ -1707,29 +1734,33 @@ US$ <span style="color:#facc15;">1.95</span> <span style="font-size: 1.7rem;">/m
             }
             .plan-button {
                 width: 100%;
-                padding: 14px;
-                border: 2px solid #1976d2;
-                background: white;
-                color: #1976d2;
-                border-radius: 8px;
-                font-weight: 600;
+                padding: 16px;
+                border: none;
+                background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+                color: white;
+                border-radius: 12px;
+                font-weight: 700;
                 font-size: 16px;
                 cursor: pointer;
                 transition: all 0.3s ease;
                 text-decoration: none;
                 display: block;
                 text-align: center;
+                box-shadow: 0 4px 12px rgba(25,118,210,0.25);
+                letter-spacing: 0.3px;
             }
             .plan-button:hover {
-                background: #1976d2;
-                color: white;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(25,118,210,0.35);
+                background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
             }
             .pricing-card.popular .plan-button {
-                background: #1976d2;
-                color: white;
+                background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+                box-shadow: 0 6px 16px rgba(25,118,210,0.3);
             }
             .pricing-card.popular .plan-button:hover {
-                background: #1565c0;
+                background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+                box-shadow: 0 8px 24px rgba(25,118,210,0.4);
             }
             .plan-features {
                 list-style: none;
@@ -1737,12 +1768,13 @@ US$ <span style="color:#facc15;">1.95</span> <span style="font-size: 1.7rem;">/m
                 margin: 24px 0;
             }
             .plan-features li {
-                padding: 10px 0;
-                color: #555;
+                padding: 12px 0;
+                color: #4b5563;
                 font-size: 14px;
                 display: flex;
                 align-items: center;
-                gap: 10px;
+                gap: 12px;
+                line-height: 1.5;
             }
             .feature-icon {
                 width: 20px;
@@ -1751,8 +1783,8 @@ US$ <span style="color:#facc15;">1.95</span> <span style="font-size: 1.7rem;">/m
             }
             .plan-divider {
                 border: none;
-                border-top: 1px solid #e0e0e0;
-                margin: 20px 0;
+                border-top: 1px solid rgba(0,0,0,0.08);
+                margin: 24px 0;
             }
         </style>
 
@@ -1760,7 +1792,7 @@ US$ <span style="color:#facc15;">1.95</span> <span style="font-size: 1.7rem;">/m
         document.addEventListener("DOMContentLoaded", function() {
             window.addEventListener("load", function() {
                 setTimeout(function() {
-                    fetch("https://user.7tteam.com/admin/nutrocloud/plan.php")
+                    fetch("https://user.7tteam.com/admin/nutrocloud/wpplan.php")
                         .then(res => {
                             if (!res.ok) throw new Error('Network response was not ok');
                             return res.json();
