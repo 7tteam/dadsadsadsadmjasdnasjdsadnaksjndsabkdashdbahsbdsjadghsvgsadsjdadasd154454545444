@@ -407,15 +407,15 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
             </div>
         </div>
     </div>
-        <!--  BANNER  
+       
 <style>
     :root{
-      --height:48px;
-      --bg1:#ff2e6d;
-      --bg2:#e91e63;
-      --pill-bg:rgba(255,255,255,0.12);
-      --accent:#fff;
-      --segment-bg:rgba(255,255,255,0.18);
+      --height:40px;
+      --bg1:#1f2937;
+      --bg2:#111827;
+      --pill-bg:rgba(251,191,36,0.15);
+      --accent:#fbbf24;
+      --segment-bg:rgba(251,191,36,0.2);
       --font-sans: "Helvetica Neue", Arial, sans-serif;
     }
 
@@ -424,14 +424,14 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       box-sizing:border-box;
       width:100%;
       min-height:var(--height);
-      border-top:3px solid rgba(0,0,0,0.22);
-      background:linear-gradient(90deg,var(--bg1),var(--bg2));
+      background:linear-gradient(135deg,var(--bg1),var(--bg2));
       color:var(--accent);
       display:flex;
       align-items:center;
       justify-content:center;
       font-family:var(--font-sans);
-      padding:8px 12px;
+      padding:6px 12px;
+      border-bottom:2px solid #fbbf24;
     }
 
     .inner{
@@ -446,16 +446,16 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
     /* Promo text */
     .message{
-      color:var(--accent);
-      font-size:13px;
+      color:#fff;
+      font-size:12px;
       line-height:1;
       display:flex;
       align-items:center;
-      gap:8px;
-      font-weight:400;
+      gap:6px;
+      font-weight:500;
       white-space:nowrap;
     }
-    .message strong{ font-weight:700; margin-right:6px; }
+    .message strong{ font-weight:700; margin-right:4px; color:#fbbf24; }
 
     /* Countdown pill */
     .countdown{
@@ -479,38 +479,37 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
     .box{
       background:var(--segment-bg);
-      padding:6px 10px;
-      border-radius:8px;
-      min-width:48px;
+      padding:4px 8px;
+      border-radius:6px;
+      min-width:40px;
       text-align:center;
       font-weight:700;
-      font-size:13px;
-      color:var(--accent);
-      box-shadow:0 1px 0 rgba(0,0,0,0.12);
+      font-size:12px;
+      color:#1f2937;
+      box-shadow:0 2px 4px rgba(0,0,0,0.1);
     }
 
     .label{
-      font-size:12px;
-      opacity:0.95;
+      font-size:10px;
+      opacity:0.8;
       font-weight:600;
-      color:var(--accent);
+      color:#9ca3af;
       transform:translateY(-1px);
     }
 
     @media (max-width:540px){
       .message{ display:none; }
-      .box{ min-width:38px; padding:6px 6px; font-size:12px; }
-      .countdown{ gap:6px; padding:4px; }
+      .box{ min-width:32px; padding:4px 6px; font-size:11px; }
+      .countdown{ gap:4px; padding:4px; }
+      .topbar{ padding:4px 8px; }
     }
   </style>
-</head>
-<body>
-  Single-day promo banner: displays hours/minutes/seconds until target time 
+
   <div class="topbar" role="banner" aria-hidden="false">
     <div class="inner" role="region" aria-label="Single day promotion">
       <div class="message" id="promoText" aria-hidden="false">
-        <strong>Happy Single Day</strong>
-        Get extra months free
+        <strong>🔥 BLACK FRIDAY</strong>
+        Limited time offer - Save up to 75%
       </div>
 
       <div class="countdown" aria-live="polite" aria-atomic="true" title="Time left">
@@ -595,7 +594,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       };
     })();
   </script>
-      BANNER  -->
+      
 
     <!-- HERO BANNER ONE -->
     <section class="rts-hero-four rts-hero__four" style="position: relative; overflow: hidden;">
@@ -605,20 +604,17 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
                 <div class="col-lg-8 col-xl-6 col-md-10">
                     <div class="rts-hero-four__content sal-animate" data-sal="slide-down" data-sal-delay="100"
                         data-sal-duration="800">
-<p class="offer" style="font-size: 18px; color:#facc15; font-weight:bold;">
-🔥 Go online today from
+<p class="offer" style="font-size: 16px; color:#fbbf24; font-weight:600; margin-bottom:12px;">
+🔥 Black Friday Special Offer
 </p>
 
-<h1 class="banner__title" style="font-size: 6rem; line-height: 1.2; font-weight:700;">
-Black Friday Sale
+<h1 class="banner__title" style="font-size: 4.5rem; line-height: 1.1; font-weight:800; margin-bottom:20px;">
+Hosting from <span style="color:#fbbf24;">$1.95</span>/mo
 </h1>
 
-<p class="price" style="font-size: 3.2rem; margin: 10px 0; font-weight:700;">
-US$ <span style="color:#facc15;">1.95</span> <span style="font-size: 1.7rem;">/mo</span>
-</p>
-
-<p class="description" style="font-size: 20px; line-height: 1.5; font-weight:500;">
-+ 3 extra months <span style="color:#facc15;">FREE</span> & free domain included
+<p class="description" style="font-size: 18px; line-height: 1.6; font-weight:500; color:#e5e7eb;">
+✨ <span style="color:#fbbf24; font-weight:700;">+3 months FREE</span> + Free domain + Free SSL<br>
+<span style="font-size:14px; color:#9ca3af;">Limited time offer - Don't miss out!</span>
 </p>
 
                         <div class="banner-buttons">
