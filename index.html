@@ -1585,7 +1585,7 @@ US$ <span style="color:#facc15;">1.95</span> <span style="font-size: 1.7rem;">/m
         <!-- PRICING SECTION -->
         <section class="pricing-section" style="background: #f5f7fa; padding: 80px 0;">
             <div class="container">
-                <div class="text-center mb-5">
+                <div class="text-center" style="margin-bottom: 80px;">
                     <span class="badge" style="background: #e3f2fd; color: #1976d2; padding: 8px 20px; border-radius: 20px; font-size: 14px; font-weight: 600; margin-bottom: 15px; display: inline-block;">Plans and pricing</span>
                     <h2 style="font-size: 42px; font-weight: 800; color: #2c3e50; margin-bottom: 20px;">Don't miss the Black Friday deals</h2>
                     <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 20px;">
@@ -1612,8 +1612,8 @@ US$ <span style="color:#facc15;">1.95</span> <span style="font-size: 1.7rem;">/m
         <style>
             .pricing-card {
                 background: white;
-                border-radius: 16px;
-                padding: 32px 24px;
+                border-radius: 12px;
+                padding: 24px 20px;
                 box-shadow: 0 2px 12px rgba(0,0,0,0.08);
                 transition: all 0.3s ease;
                 position: relative;
@@ -1760,7 +1760,7 @@ US$ <span style="color:#facc15;">1.95</span> <span style="font-size: 1.7rem;">/m
         document.addEventListener("DOMContentLoaded", function() {
             window.addEventListener("load", function() {
                 setTimeout(function() {
-                    fetch("https://user.7tteam.com/admin/nutrocloud/wpplan.php")
+                    fetch("https://user.7tteam.com/admin/nutrocloud/plan.php")
                         .then(res => {
                             if (!res.ok) throw new Error('Network response was not ok');
                             return res.json();
@@ -1769,12 +1769,13 @@ US$ <span style="color:#facc15;">1.95</span> <span style="font-size: 1.7rem;">/m
                             const container = document.getElementById("plans-container");
                             container.innerHTML = '';
 
-                            plans.forEach(plan => {
+                            const limitedPlans = plans.slice(0, 3);
+                            limitedPlans.forEach(plan => {
                                 const popularClass = plan.popular ? 'popular' : '';
                                 const popularBadge = plan.popular ? '<div class="popular-badge">MOST POPULAR</div>' : '';
                                 const discountBadge = plan.discount ? `<div class="discount-badge">${plan.discount}</div>` : '';
                                 
-                                let features = plan.features.map((f, index) => {
+                                let features = plan.features.slice(0, 12).map((f, index) => {
                                     let icon = '<i class="bi bi-check-circle-fill feature-icon" style="color: #1976d2;"></i>';
                                     if (index === 0) icon = '<i class="bi bi-hdd-fill feature-icon" style="color: #1976d2;"></i>';
                                     else if (index === 1) icon = '<i class="bi bi-speedometer2 feature-icon" style="color: #1976d2;"></i>';
@@ -1787,7 +1788,7 @@ US$ <span style="color:#facc15;">1.95</span> <span style="font-size: 1.7rem;">/m
                                         <div class="pricing-card ${popularClass}">
                                             ${popularBadge}
                                             ${discountBadge}
-                                            <img src="${plan.icon}" alt="${plan.name}" class="plan-icon">
+
                                             <h3 class="plan-name">${plan.name}</h3>
                                             <p class="plan-desc">${plan.desc}</p>
                                             
