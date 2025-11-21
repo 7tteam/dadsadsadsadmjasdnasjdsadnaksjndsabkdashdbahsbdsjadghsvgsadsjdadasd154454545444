@@ -410,13 +410,9 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
        
 <style>
     :root{
-      --height:40px;
-      --bg1:#1f2937;
-      --bg2:#111827;
-      --pill-bg:rgba(251,191,36,0.15);
-      --accent:#fbbf24;
-      --segment-bg:rgba(251,191,36,0.2);
-      --font-sans: "Helvetica Neue", Arial, sans-serif;
+      --height:36px;
+      --bg-pink:#e91e63;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
     /* Top banner */
@@ -424,21 +420,20 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       box-sizing:border-box;
       width:100%;
       min-height:var(--height);
-      background:linear-gradient(135deg,var(--bg1),var(--bg2));
-      color:var(--accent);
+      background:var(--bg-pink);
+      color:#fff;
       display:flex;
       align-items:center;
       justify-content:center;
       font-family:var(--font-sans);
-      padding:6px 12px;
-      border-bottom:2px solid #fbbf24;
+      padding:8px 16px;
     }
 
     .inner{
       width:100%;
-      max-width:1200px;
+      max-width:1400px;
       display:flex;
-      gap:12px;
+      gap:20px;
       align-items:center;
       justify-content:center;
       flex-wrap:wrap;
@@ -447,61 +442,62 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     /* Promo text */
     .message{
       color:#fff;
-      font-size:12px;
-      line-height:1;
-      display:flex;
-      align-items:center;
-      gap:6px;
-      font-weight:500;
-      white-space:nowrap;
-    }
-    .message strong{ font-weight:700; margin-right:4px; color:#fbbf24; }
-
-    /* Countdown pill */
-    .countdown{
+      font-size:14px;
+      line-height:1.2;
       display:flex;
       align-items:center;
       gap:8px;
-      background:var(--pill-bg);
-      padding:6px;
-      border-radius:999px;
-      box-shadow:inset 0 1px rgba(255,255,255,0.04);
+      font-weight:500;
+      white-space:nowrap;
+    }
+    .message strong{ 
+      font-weight:700;
+      margin-right:6px;
+    }
+
+    /* Countdown */
+    .countdown{
+      display:flex;
+      align-items:center;
+      gap:12px;
     }
 
     .segment{
       display:flex;
       align-items:center;
-      gap:6px;
-      padding:4px 8px;
-      border-radius:999px;
-      color:var(--accent);
+      gap:4px;
+      color:#fff;
     }
 
     .box{
-      background:var(--segment-bg);
-      padding:4px 8px;
-      border-radius:6px;
-      min-width:40px;
+      background:rgba(255,255,255,0.25);
+      padding:4px 10px;
+      border-radius:4px;
+      min-width:32px;
       text-align:center;
       font-weight:700;
-      font-size:12px;
-      color:#1f2937;
-      box-shadow:0 2px 4px rgba(0,0,0,0.1);
+      font-size:14px;
+      color:#fff;
+      backdrop-filter:blur(10px);
     }
 
     .label{
-      font-size:10px;
-      opacity:0.8;
+      font-size:11px;
       font-weight:600;
-      color:#9ca3af;
-      transform:translateY(-1px);
+      color:#fff;
+      opacity:0.9;
     }
 
+    @media (max-width:768px){
+      .message{ font-size:12px; }
+      .box{ min-width:28px; padding:3px 8px; font-size:12px; }
+      .countdown{ gap:8px; }
+      .topbar{ padding:6px 12px; }
+    }
+    
     @media (max-width:540px){
-      .message{ display:none; }
-      .box{ min-width:32px; padding:4px 6px; font-size:11px; }
-      .countdown{ gap:4px; padding:4px; }
-      .topbar{ padding:4px 8px; }
+      .message strong{ display:block; }
+      .inner{ gap:12px; }
     }
   </style>
 
@@ -604,28 +600,18 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
                 <div class="col-lg-8 col-xl-6 col-md-10">
                     <div class="rts-hero-four__content sal-animate" data-sal="slide-down" data-sal-delay="100"
                         data-sal-duration="800">
-<p class="offer" style="font-size: 18px; color:#fbbf24; font-weight:700; margin-bottom:14px;">
-🔥 Black Friday Mega Deal
+<p class="offer" style="font-size: 16px; color:#fbbf24; font-weight:600; margin-bottom:12px;">
+🔥 Black Friday Special Offer
 </p>
 
-<h1 class="banner__title" style="font-size: 5rem; line-height: 1.1; font-weight:900; margin-bottom:22px;">
-Go Online Today from <span style="color:#fbbf24;">$1.95</span>/mo
+<h1 class="banner__title" style="font-size: 4.5rem; line-height: 1.1; font-weight:800; margin-bottom:20px;">
+Hosting from <span style="color:#fbbf24;">$1.95</span>/mo
 </h1>
 
-<p class="description" style="font-size: 20px; line-height: 1.6; font-weight:500; color:#e5e7eb; margin-bottom:20px;">
-✨ Get <span style="color:#fbbf24; font-weight:700;">3 Months FREE</span> + Free Domain + Free SSL  
-<br>
-<span style="font-size:15px; color:#9ca3af;">Limited-time Black Friday offer — Don’t miss out!</span>
+<p class="description" style="font-size: 18px; line-height: 1.6; font-weight:500; color:#e5e7eb;">
+✨ <span style="color:#fbbf24; font-weight:700;">+3 months FREE</span> + Free domain + Free SSL<br>
+<span style="font-size:14px; color:#9ca3af;">Limited time offer - Don't miss out!</span>
 </p>
-
-<div class="features" style="font-size:18px; color:#e5e7eb; margin-top:20px;">
-    <ul style="list-style:none; padding:0; line-height:1.8;">
-        <li>⚡ Ultra-fast load times & stable hosting</li>
-        <li>🛡️ Powerful DDoS protection included</li>
-        <li>🌍 Global servers for optimal performance</li>
-
-    </ul>
-</div>
 
                         <div class="banner-buttons">
                             <a href="https://nutro.cloud/#deal"
@@ -1589,8 +1575,8 @@ Go Online Today from <span style="color:#fbbf24;">$1.95</span>/mo
         <!-- WHY CHOOSE US END -->
 
         <!-- PRICING SECTION -->
-        <section class="pricing-section" style="background: #f5f7fa; padding: 80px 0;" >
-            <div class="container" id="deal">
+        <section class="pricing-section" style="background: #f5f7fa; padding: 80px 0;">
+            <div class="container">
                 <div class="text-center" style="margin-bottom: 80px;">
                     <span class="badge" style="background: #e3f2fd; color: #1976d2; padding: 8px 20px; border-radius: 20px; font-size: 14px; font-weight: 600; margin-bottom: 15px; display: inline-block;">Plans and pricing</span>
                     <h2 style="font-size: 42px; font-weight: 800; color: #2c3e50; margin-bottom: 20px;">Don't miss the Black Friday deals</h2>
