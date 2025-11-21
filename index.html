@@ -2217,9 +2217,34 @@ function resetPage() {
     data-headercolor="#f0f0f0"
     data-username="BemoN"
     data-status="Available to help you now!"
-    data-questions="I want to buy WordPrass |How Can i buy from Nutro|I need help choosing the right hosting plan">
+    data-questions="Buy WordPress | How can I get it from Nutro? | Help choosing the right plan | Support">
 </script>
+<script>
+// نجيب العنصر ونفصل الأسئلة
+const questionsDiv = document.getElementById('questions');
+const questions = questionsDiv.getAttribute('data-questions').split('|').map(q => q.trim());
 
+// ننشئ قائمة بالأسئلة على الصفحة
+questions.forEach(question => {
+    const btn = document.createElement('button');
+    btn.textContent = question;
+    btn.style.margin = '5px';
+    btn.style.padding = '8px 12px';
+    btn.style.cursor = 'pointer';
+
+    // نضيف حدث عند الضغط
+    btn.addEventListener('click', () => {
+        if(question.toLowerCase() === 'support'){
+            // تحويل لصفحة الدعم
+            window.location.href = '/support';
+        } else {
+            alert(`You clicked: ${question}`);
+        }
+    });
+
+    questionsDiv.appendChild(btn);
+});
+</script>
 </body>
 
 
