@@ -528,25 +528,16 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
   </div>
 
   <script>
-    /*
-      Single-day banner countdown (English only).
-
-      Defaults:
-        - useSpecificDate = false  => countdown ends at local device end of current day (23:59:59.999)
-        - useSpecificDate = true   => set specificDateString to desired ISO datetime (local or with Z for UTC)
-
-      Edit useSpecificDate and specificDateString below to change behavior.
-    */
     (function(){
-      const useSpecificDate = false; // set to true to use specificDateString
-      const specificDateString = '2025-11-15T23:59:59'; // example: local time
+      const useSpecificDate = true; 
+      const specificDateString = '2025-11-30T23:59:59'; // ينتهي يوم 30 الساعة 11:59:59 مساءً
 
       let targetDate;
       if (useSpecificDate) {
         targetDate = new Date(specificDateString);
       } else {
         targetDate = new Date();
-        targetDate.setHours(23,59,59,999); // end of current day (local)
+        targetDate.setHours(23,59,59,999);
       }
 
       const promoEl = document.getElementById('promoText');
@@ -578,18 +569,17 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         elS.textContent = pad(seconds);
       }
 
-      // initial render and start interval
       updateCountdown();
       const countTimer = setInterval(updateCountdown, 1000);
 
-      // Expose helpers for testing from console
       window.__singleDayBanner = {
         getTarget: () => targetDate,
         remainingSeconds: () => Math.max(0, Math.floor((targetDate - new Date()) / 1000)),
         stop: () => clearInterval(countTimer)
       };
     })();
-  </script>
+</script>
+
       
 
     <!-- HERO BANNER ONE -->
