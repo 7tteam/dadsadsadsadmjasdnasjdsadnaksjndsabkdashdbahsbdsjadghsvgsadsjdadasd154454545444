@@ -42,6 +42,37 @@
             margin: 0 auto;
         }
 
+        .domain-search-box input {
+            flex: 1;
+            border: none;
+            padding: 18px 28px;
+            font-size: 16px;
+            border-radius: 50px;
+            outline: none;
+            min-width: 0;
+        }
+        
+        .domain-search-box input::placeholder {
+            color: #999;
+        }
+
+        .domain-search-box button {
+            background: linear-gradient(135deg, #0052cc 0%, #003d99 100%);
+            color: white;
+            border: none;
+            padding: 18px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-width: 60px;
+        }
+
+        .domain-search-box button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,82,204,0.4);
+        }
+
         .section-title {
             font-size: 32px;
             font-weight: 700;
@@ -246,7 +277,9 @@
                 flex-direction: column;
             }
             
-            
+            .domain-search-box button {
+                width: 100%;
+            }
             
             .domain-grid {
                 grid-template-columns: 1fr;
@@ -300,7 +333,80 @@
                     <p class="section-subtitle">Choose from our most popular domain extensions</p>
                 </div>
             </div>
-            <div class="row g-4" id="popular-domains"></div>
+            <div class="row g-4" id="popular-domains">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card p-4 text-center" style="border: none; border-radius: 16px; height: 100%;">
+                        <div style="font-size: 48px; margin-bottom: 16px;">.com</div>
+                        <p class="text-muted mb-3" style="font-size: 14px;">Most popular domain</p>
+                        <div style="font-size: 28px; font-weight: 700; color: #0052cc; margin-bottom: 8px;">$10.99</div>
+                        <p class="text-muted" style="font-size: 13px;">/year</p>
+                        <a href="#" onclick="document.getElementById('domain-input').value='example.com'; document.getElementById('domain-input').focus(); return false;" class="btn btn-register w-100 mt-3">Search</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card p-4 text-center" style="border: none; border-radius: 16px; height: 100%;">
+                        <div style="font-size: 48px; margin-bottom: 16px;">.net</div>
+                        <p class="text-muted mb-3" style="font-size: 14px;">Network & tech sites</p>
+                        <div style="font-size: 28px; font-weight: 700; color: #0052cc; margin-bottom: 8px;">$11.99</div>
+                        <p class="text-muted" style="font-size: 13px;">/year</p>
+                        <a href="#" onclick="document.getElementById('domain-input').value='example.net'; document.getElementById('domain-input').focus(); return false;" class="btn btn-register w-100 mt-3">Search</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card p-4 text-center" style="border: none; border-radius: 16px; height: 100%;">
+                        <div style="font-size: 48px; margin-bottom: 16px;">.org</div>
+                        <p class="text-muted mb-3" style="font-size: 14px;">Organizations</p>
+                        <div style="font-size: 28px; font-weight: 700; color: #0052cc; margin-bottom: 8px;">$7.99</div>
+                        <p class="text-muted" style="font-size: 13px;">/year</p>
+                        <a href="#" onclick="document.getElementById('domain-input').value='example.org'; document.getElementById('domain-input').focus(); return false;" class="btn btn-register w-100 mt-3">Search</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card p-4 text-center" style="border: none; border-radius: 16px; height: 100%;">
+                        <div style="font-size: 48px; margin-bottom: 16px;">.io</div>
+                        <p class="text-muted mb-3" style="font-size: 14px;">Tech startups</p>
+                        <div style="font-size: 28px; font-weight: 700; color: #0052cc; margin-bottom: 8px;">$31.99</div>
+                        <p class="text-muted" style="font-size: 13px;">/year</p>
+                        <a href="#" onclick="document.getElementById('domain-input').value='example.io'; document.getElementById('domain-input').focus(); return false;" class="btn btn-register w-100 mt-3">Search</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card p-4 text-center" style="border: none; border-radius: 16px; height: 100%;">
+                        <div style="font-size: 48px; margin-bottom: 16px;">.ai</div>
+                        <p class="text-muted mb-3" style="font-size: 14px;">AI & tech</p>
+                        <div style="font-size: 28px; font-weight: 700; color: #0052cc; margin-bottom: 8px;">$79.99</div>
+                        <p class="text-muted" style="font-size: 13px;">/year</p>
+                        <a href="#" onclick="document.getElementById('domain-input').value='example.ai'; document.getElementById('domain-input').focus(); return false;" class="btn btn-register w-100 mt-3">Search</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card p-4 text-center" style="border: none; border-radius: 16px; height: 100%;">
+                        <div style="font-size: 48px; margin-bottom: 16px;">.cloud</div>
+                        <p class="text-muted mb-3" style="font-size: 14px;">Cloud services</p>
+                        <div style="font-size: 28px; font-weight: 700; color: #0052cc; margin-bottom: 8px;">$1.99</div>
+                        <p class="text-muted" style="font-size: 13px;">/year</p>
+                        <a href="#" onclick="document.getElementById('domain-input').value='example.cloud'; document.getElementById('domain-input').focus(); return false;" class="btn btn-register w-100 mt-3">Search</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card p-4 text-center" style="border: none; border-radius: 16px; height: 100%;">
+                        <div style="font-size: 48px; margin-bottom: 16px;">.shop</div>
+                        <p class="text-muted mb-3" style="font-size: 14px;">E-commerce</p>
+                        <div style="font-size: 28px; font-weight: 700; color: #0052cc; margin-bottom: 8px;">$0.99</div>
+                        <p class="text-muted" style="font-size: 13px;">/year</p>
+                        <a href="#" onclick="document.getElementById('domain-input').value='example.shop'; document.getElementById('domain-input').focus(); return false;" class="btn btn-register w-100 mt-3">Search</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card p-4 text-center" style="border: none; border-radius: 16px; height: 100%;">
+                        <div style="font-size: 48px; margin-bottom: 16px;">.tech</div>
+                        <p class="text-muted mb-3" style="font-size: 14px;">Technology</p>
+                        <div style="font-size: 28px; font-weight: 700; color: #0052cc; margin-bottom: 8px;">$6.99</div>
+                        <p class="text-muted" style="font-size: 13px;">/year</p>
+                        <a href="#" onclick="document.getElementById('domain-input').value='example.tech'; document.getElementById('domain-input').focus(); return false;" class="btn btn-register w-100 mt-3">Search</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -433,12 +539,12 @@
                     <div class="accordion" id="faqAccordion">
                         <div class="accordion-item" style="border: none; margin-bottom: 12px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                             <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" style="background: white; font-weight: 600; padding: 20px 24px;">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" style="background: white; font-weight: 600; padding: 20px 24px; font-size: 16px;">
                                     <i class="fas fa-question-circle me-3" style="color: #0052cc;"></i>What is a domain name?
                                 </button>
                             </h2>
                             <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body" style="padding: 20px 24px; color: #6c757d;">
+                                <div class="accordion-body" style="padding: 20px 24px; color: #6c757d; font-size: 15px; line-height: 1.7;">
                                     A domain name is your website's address on the internet. It's what people type in their browser to visit your site, like nutro.cloud.
                                 </div>
                             </div>
@@ -446,12 +552,12 @@
 
                         <div class="accordion-item" style="border: none; margin-bottom: 12px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" style="background: white; font-weight: 600; padding: 20px 24px;">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" style="background: white; font-weight: 600; padding: 20px 24px; font-size: 16px;">
                                     <i class="fas fa-question-circle me-3" style="color: #0052cc;"></i>How do I choose the right domain name?
                                 </button>
                             </h2>
                             <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body" style="padding: 20px 24px; color: #6c757d;">
+                                <div class="accordion-body" style="padding: 20px 24px; color: #6c757d; font-size: 15px; line-height: 1.7;">
                                     Choose a domain that's short, memorable, and relevant to your business. Avoid numbers and hyphens.
                                 </div>
                             </div>
@@ -459,13 +565,130 @@
 
                         <div class="accordion-item" style="border: none; margin-bottom: 12px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" style="background: white; font-weight: 600; padding: 20px 24px;">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" style="background: white; font-weight: 600; padding: 20px 24px; font-size: 16px;">
                                     <i class="fas fa-question-circle me-3" style="color: #0052cc;"></i>Can I transfer my existing domain?
                                 </button>
                             </h2>
                             <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body" style="padding: 20px 24px; color: #6c757d;">
+                                <div class="accordion-body" style="padding: 20px 24px; color: #6c757d; font-size: 15px; line-height: 1.7;">
                                     Yes! We make domain transfers easy and free. The process typically takes 5-7 days.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item" style="border: none; margin-bottom: 12px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" style="background: white; font-weight: 600; padding: 20px 24px; font-size: 16px;">
+                                    <i class="fas fa-question-circle me-3" style="color: #0052cc;"></i>What happens if my domain expires?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" style="padding: 20px 24px; color: #6c757d; font-size: 15px; line-height: 1.7;">
+                                    If your domain expires, you'll have a grace period (usually 30 days) to renew it at the regular price. After that, it enters a redemption period where renewal costs more. Enable auto-renewal to avoid this.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item" style="border: none; margin-bottom: 12px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" style="background: white; font-weight: 600; padding: 20px 24px; font-size: 16px;">
+                                    <i class="fas fa-question-circle me-3" style="color: #0052cc;"></i>Do I need hosting to register a domain?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" style="padding: 20px 24px; color: #6c757d; font-size: 15px; line-height: 1.7;">
+                                    No, you can register a domain without hosting. However, to have a live website, you'll need both a domain and hosting. We offer affordable hosting plans that work perfectly with your domain.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item" style="border: none; margin-bottom: 12px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6" style="background: white; font-weight: 600; padding: 20px 24px; font-size: 16px;">
+                                    <i class="fas fa-question-circle me-3" style="color: #0052cc;"></i>Is WHOIS privacy protection included?
+                                </button>
+                            </h2>
+                            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" style="padding: 20px 24px; color: #6c757d; font-size: 15px; line-height: 1.7;">
+                                    Yes! We include free WHOIS privacy protection with all eligible domains. This keeps your personal information private and protects you from spam and unwanted solicitations.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item" style="border: none; margin-bottom: 12px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7" style="background: white; font-weight: 600; padding: 20px 24px; font-size: 16px;">
+                                    <i class="fas fa-question-circle me-3" style="color: #0052cc;"></i>How long does domain registration take?
+                                </button>
+                            </h2>
+                            <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" style="padding: 20px 24px; color: #6c757d; font-size: 15px; line-height: 1.7;">
+                                    Domain registration is instant! Once you complete your purchase, your domain is immediately active and ready to use.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item" style="border: none; margin-bottom: 12px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8" style="background: white; font-weight: 600; padding: 20px 24px; font-size: 16px;">
+                                    <i class="fas fa-question-circle me-3" style="color: #0052cc;"></i>Can I register multiple domains at once?
+                                </button>
+                            </h2>
+                            <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" style="padding: 20px 24px; color: #6c757d; font-size: 15px; line-height: 1.7;">
+                                    Yes! You can register as many domains as you want in a single transaction. We also offer bulk domain registration discounts for multiple domains.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item" style="border: none; margin-bottom: 12px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq9" style="background: white; font-weight: 600; padding: 20px 24px; font-size: 16px;">
+                                    <i class="fas fa-question-circle me-3" style="color: #0052cc;"></i>What payment methods do you accept?
+                                </button>
+                            </h2>
+                            <div id="faq9" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" style="padding: 20px 24px; color: #6c757d; font-size: 15px; line-height: 1.7;">
+                                    We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers for your convenience.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item" style="border: none; margin-bottom: 12px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq10" style="background: white; font-weight: 600; padding: 20px 24px; font-size: 16px;">
+                                    <i class="fas fa-question-circle me-3" style="color: #0052cc;"></i>Can I change my domain name after registration?
+                                </button>
+                            </h2>
+                            <div id="faq10" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" style="padding: 20px 24px; color: #6c757d; font-size: 15px; line-height: 1.7;">
+                                    No, domain names cannot be changed after registration. However, you can register a new domain and redirect your old domain to the new one.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item" style="border: none; margin-bottom: 12px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq11" style="background: white; font-weight: 600; padding: 20px 24px; font-size: 16px;">
+                                    <i class="fas fa-question-circle me-3" style="color: #0052cc;"></i>Do you offer domain privacy protection?
+                                </button>
+                            </h2>
+                            <div id="faq11" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" style="padding: 20px 24px; color: #6c757d; font-size: 15px; line-height: 1.7;">
+                                    Yes! Domain privacy protection is included FREE with all eligible domain registrations to protect your personal information from public WHOIS databases.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item" style="border: none; margin-bottom: 12px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq12" style="background: white; font-weight: 600; padding: 20px 24px; font-size: 16px;">
+                                    <i class="fas fa-question-circle me-3" style="color: #0052cc;"></i>What is the refund policy?
+                                </button>
+                            </h2>
+                            <div id="faq12" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" style="padding: 20px 24px; color: #6c757d; font-size: 15px; line-height: 1.7;">
+                                    We offer a 30-day money-back guarantee on all domain registrations. If you're not satisfied, contact our support team for a full refund within 30 days of purchase.
                                 </div>
                             </div>
                         </div>
@@ -560,6 +783,14 @@
                 return null;
             }
         }
+        
+        async function checkMultipleDomains(domains) {
+            const results = await Promise.all(domains.map(async (domain) => {
+                const available = await checkDomainAPI(domain);
+                return { domain, available };
+            }));
+            return results.filter(r => r.available === true);
+        }
 
         function generateAISuggestions(baseName) {
             const prefixes = ['get', 'my', 'try', 'go', 'new', 'pro'];
@@ -595,6 +826,13 @@
             resultsSection.style.display = 'none';
             
             const isAvailable = await checkDomainAPI(validated.full);
+            
+            const bundleDomains = [
+                validated.name + '.com',
+                validated.name + '.org'
+            ];
+            const bundleResults = await checkMultipleDomains(bundleDomains);
+            const bundleAvailable = bundleResults.length === 2;
             
             loading.style.display = 'none';
             resultsSection.style.display = 'block';
@@ -637,8 +875,9 @@
                         </div>
                     </div>
                     
+                    ${bundleAvailable ? `
                     <div class="bundle-card">
-                        <h6 class="mb-3"><i class="fas fa-layer-group me-2" style="color: #0052cc;"></i>Bundle & save</h6>
+                        <h6 class="mb-3"><i class="fas fa-layer-group me-2" style="color: #0052cc;"></i>Bundle & save <span class="badge bg-success ms-2">All Available</span></h6>
                         <div class="row align-items-center">
                             <div class="col-md-7">
                                 <h5 class="mb-2">${validated.name}+.com+.org</h5>
@@ -656,6 +895,7 @@
                             </div>
                         </div>
                     </div>
+                    ` : ''}
                 `;
             }
             
@@ -675,12 +915,12 @@
                 </ul>
                 
                 <div class="domain-grid" id="alternatives-grid">
-                    ${generateAlternatives(validated.name, validated.ext)}
+                    ${await generateAlternatives(validated.name, validated.ext)}
                 </div>
                 
                 <h5 class="mt-5 mb-3"><i class="fas fa-robot me-2" style="color: #0052cc;"></i>AI generated alternatives</h5>
                 <div class="domain-grid">
-                    ${generateAIAlternatives(validated.name)}
+                    ${await generateAIAlternatives(validated.name)}
                 </div>
             `;
             
@@ -691,11 +931,15 @@
             }, 100);
         }
 
-        function generateAlternatives(baseName, currentExt) {
+        async function generateAlternatives(baseName, currentExt) {
             const alternatives = ['.com', '.net', '.org', '.io', '.tech', '.shop', '.online', '.xyz', '.cloud', '.app', '.dev', '.pro'];
             const filtered = alternatives.filter(ext => ext !== currentExt).slice(0, 5);
             
-            return filtered.map(ext => {
+            const domainsToCheck = filtered.map(ext => baseName + ext);
+            const availableResults = await checkMultipleDomains(domainsToCheck);
+            const availableDomains = availableResults.map(r => r.domain);
+            
+            return filtered.filter(ext => availableDomains.includes(baseName + ext)).map(ext => {
                 const pricing = domainPricing[ext];
                 return `
                     <div class="domain-result-card">
@@ -717,11 +961,15 @@
             }).join('');
         }
 
-        function generateAIAlternatives(baseName) {
+        async function generateAIAlternatives(baseName) {
             const suggestions = generateAISuggestions(baseName);
             const exts = ['.io', '.co', '.net', '.xyz'];
             
-            return suggestions.map((name, i) => {
+            const domainsToCheck = suggestions.map((name, i) => name + exts[i]);
+            const availableResults = await checkMultipleDomains(domainsToCheck);
+            const availableDomains = availableResults.map(r => r.domain);
+            
+            return suggestions.filter((name, i) => availableDomains.includes(name + exts[i])).map((name, i) => {
                 const ext = exts[i];
                 const pricing = domainPricing[ext];
                 return `
