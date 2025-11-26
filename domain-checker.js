@@ -71,27 +71,24 @@ const domainPricing = {
 
 async function checkDomainAvailability(domain) {
     try {
-        // Using WHOIS lookup via CORS proxy
-        const response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent('https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=at_free&domainName=' + domain + '&outputFormat=JSON')}`);
+        const formData = new FormData();
+        formData.append('domain', domain);
+        
+        const response = await fetch('https://pro.nutro.cloud/includes/domain.php', {
+            method: 'POST',
+            body: formData
+        });
+        
         const data = await response.json();
         
-        // Check if domain is registered
-        if (data.WhoisRecord && data.WhoisRecord.registryData) {
-            return false; // Domain is taken
+        if (data.success) {
+            return data.available;
         }
         
-        return true; // Domain is available
+        return null;
     } catch (error) {
-        console.error('WHOIS check failed:', error);
-        // Fallback: check via DNS
-        try {
-            const dnsCheck = await fetch(`https://dns.google/resolve?name=${domain}&type=A`);
-            const dnsData = await dnsCheck.json();
-            return dnsData.Status === 3; // NXDOMAIN means available
-        } catch (e) {
-            console.error('DNS check failed:', e);
-            return null; // Unknown status
-        }
+        console.error('Domain check failed:', error);
+        return null;
     }
 }
 
