@@ -15,7 +15,7 @@
     <link rel="preload stylesheet" href="assets/css/plugins.min.css" as="style">
     <link rel="preload stylesheet" href="assets/css/plugins/fontawesome.min.css" as="style">
     <link rel="preload stylesheet" href="assets/css/style.css" as="style">
-    <style>
+ <style>
         * {
             font-family: 'Inter', sans-serif;
         }
@@ -776,27 +776,12 @@
             }
         }
         
-        async function checkDomainWithRetry(domain, retries = 2) {
-            for (let i = 0; i < retries; i++) {
-                const result = await checkDomainAPI(domain);
-                if (result !== null) {
-                    return result;
-                }
-                await new Promise(resolve => setTimeout(resolve, 500));
-            }
-            return null;
-        }
-        
         async function checkMultipleDomains(domains) {
-            const results = [];
-            for (const domain of domains) {
-                const available = await checkDomainWithRetry(domain, 2);
-                if (available === true) {
-                    results.push({ domain, available: true });
-                }
-                await new Promise(resolve => setTimeout(resolve, 200));
-            }
-            return results;
+            const results = await Promise.all(domains.map(async (domain) => {
+                const available = await checkDomainAPI(domain);
+                return { domain, available };
+            }));
+            return results.filter(r => r.available === true);
         }
 
         function generateAISuggestions(baseName) {
@@ -943,19 +928,37 @@
         }
 
         async function generateAlternatives(baseName, currentExt) {
-            const alternatives = ['.com', '.net', '.org', '.io', '.tech', '.shop', '.online', '.xyz', '.cloud', '.app', '.dev', '.pro', '.co', '.me', '.site', '.store', '.fun', '.blog', '.pro', '.space'];
-            const filtered = alternatives.filter(ext => ext !== currentExt && domainPricing[ext]);
+            const alternatives = ['.com', '.net', '.org', '.io', '.tech', '.shop', '.online', '.xyz', '.cloud', '.me'];
+            const filtered = alternatives.filter(ext => ext !== currentExt && domainPricing[ext]).slice(0, 8);
             
             const domainsToCheck = filtered.map(ext => baseName + ext);
             const availableResults = await checkMultipleDomains(domainsToCheck);
             
             if (availableResults.length === 0) {
-                return '<div class="col-12"><p class="text-center text-muted">No available alternatives found. Try a different domain name.</p></div>';
+                const fallbackDomains = filtered.slice(0, 5).map(ext => {
+                    const pricing = domainPricing[ext];
+                    return `
+                        <div class="domain-result-card">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h6 class="mb-0 fw-bold">${baseName}${ext}</h6>
+                                ${pricing.email ? '<span class="email-badge">Free Email</span>' : ''}
+                            </div>
+                            ${pricing.save > 0 ? `<span class="save-badge">Save ${pricing.save}%</span>` : ''}
+                            <div class="price-display" style="margin: 12px 0;">
+                                <span class="current-price" style="font-size: 24px;">US$ ${pricing.register}</span>
+                                <span class="text-muted" style="font-size: 14px;">/1st yr</span>
+                            </div>
+                            ${pricing.save > 0 ? `<div class="original-price mb-3">US$ ${pricing.original}</div>` : ''}
+                            <a href="https://pro.nutro.cloud/checkout/?pay=domain:${baseName}${ext}" class="btn btn-register w-100">
+                                Check & Buy
+                            </a>
+                        </div>
+                    `;
+                }).join('');
+                return fallbackDomains;
             }
             
-            const limitedResults = availableResults.slice(0, 8);
-            
-            return limitedResults.map(result => {
+            return availableResults.slice(0, 6).map(result => {
                 const domain = result.domain;
                 const ext = '.' + domain.split('.').pop();
                 const pricing = domainPricing[ext];
@@ -980,25 +983,20 @@
         }
 
         async function generateAIAlternatives(baseName) {
-            const suggestions = generateAISuggestions(baseName);
-            const exts = ['.io', '.co', '.net', '.xyz', '.tech', '.online', '.cloud', '.app'];
+            const suggestions = generateAISuggestions(baseName).slice(0, 4);
+            const exts = ['.io', '.co', '.net', '.xyz'];
             
             const domainsToCheck = [];
-            suggestions.forEach(name => {
-                exts.forEach(ext => {
-                    domainsToCheck.push(name + ext);
-                });
+            suggestions.forEach((name, i) => {
+                domainsToCheck.push(name + exts[i % exts.length]);
             });
             
             const availableResults = await checkMultipleDomains(domainsToCheck);
             
-            if (availableResults.length === 0) {
-                return '<div class="col-12"><p class="text-center text-muted">No AI alternatives available at the moment.</p></div>';
-            }
+            const domainsToShow = availableResults.length > 0 ? availableResults.slice(0, 4) : 
+                domainsToCheck.slice(0, 4).map(d => ({ domain: d, available: null }));
             
-            const limitedResults = availableResults.slice(0, 6);
-            
-            return limitedResults.map(result => {
+            return domainsToShow.map(result => {
                 const domain = result.domain;
                 const ext = '.' + domain.split('.').pop();
                 const pricing = domainPricing[ext];
@@ -1015,7 +1013,7 @@
                         </div>
                         ${pricing.save > 0 ? `<div class="original-price mb-3">US$ ${pricing.original}</div>` : ''}
                         <a href="https://pro.nutro.cloud/checkout/?pay=domain:${domain}" class="btn btn-register w-100" style="font-size: 14px; padding: 10px;">
-                            Buy now
+                            ${result.available === true ? 'Buy now' : 'Check & Buy'}
                         </a>
                     </div>
                 `;
