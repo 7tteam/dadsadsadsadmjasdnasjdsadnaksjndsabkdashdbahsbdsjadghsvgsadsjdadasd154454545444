@@ -1,0 +1,185 @@
+const domainPricing = {
+    '.com': { register: 10.99, renew: 10.99, transfer: 10.99 },
+    '.net': { register: 12.99, renew: 12.99, transfer: 12.99 },
+    '.org': { register: 12.99, renew: 12.99, transfer: 12.99 },
+    '.info': { register: 3.99, renew: 18.99, transfer: 18.99 },
+    '.co': { register: 29.99, renew: 29.99, transfer: 29.99 },
+    '.us': { register: 8.99, renew: 8.99, transfer: 8.99 },
+    '.biz': { register: 17.99, renew: 17.99, transfer: 17.99 },
+    '.co.uk': { register: 8.99, renew: 8.99, transfer: 8.99 },
+    '.io': { register: 39.99, renew: 39.99, transfer: 39.99 },
+    '.tech': { register: 6.99, renew: 49.99, transfer: 49.99 },
+    '.love': { register: 4.99, renew: 29.99, transfer: 29.99 },
+    '.tv': { register: 34.99, renew: 34.99, transfer: 34.99 },
+    '.me': { register: 19.99, renew: 19.99, transfer: 19.99 },
+    '.store': { register: 4.99, renew: 59.99, transfer: 59.99 },
+    '.online': { register: 3.99, renew: 39.99, transfer: 39.99 },
+    '.app': { register: 14.99, renew: 14.99, transfer: 14.99 },
+    '.dev': { register: 12.99, renew: 12.99, transfer: 12.99 },
+    '.ai': { register: 89.99, renew: 89.99, transfer: 89.99 },
+    '.xyz': { register: 1.99, renew: 12.99, transfer: 12.99 },
+    '.site': { register: 2.99, renew: 29.99, transfer: 29.99 },
+    '.blog': { register: 29.99, renew: 29.99, transfer: 29.99 },
+    '.shop': { register: 3.99, renew: 38.99, transfer: 38.99 },
+    '.cloud': { register: 6.99, renew: 24.99, transfer: 24.99 },
+    '.digital': { register: 3.99, renew: 33.99, transfer: 33.99 },
+    '.agency': { register: 22.99, renew: 22.99, transfer: 22.99 },
+    '.studio': { register: 26.99, renew: 26.99, transfer: 26.99 },
+    '.design': { register: 49.99, renew: 49.99, transfer: 49.99 },
+    '.solutions': { register: 23.99, renew: 23.99, transfer: 23.99 },
+    '.services': { register: 33.99, renew: 33.99, transfer: 33.99 },
+    '.network': { register: 23.99, renew: 23.99, transfer: 23.99 },
+    '.company': { register: 9.99, renew: 9.99, transfer: 9.99 },
+    '.business': { register: 9.99, renew: 9.99, transfer: 9.99 },
+    '.consulting': { register: 33.99, renew: 33.99, transfer: 33.99 },
+    '.marketing': { register: 33.99, renew: 33.99, transfer: 33.99 },
+    '.media': { register: 33.99, renew: 33.99, transfer: 33.99 },
+    '.photography': { register: 23.99, renew: 23.99, transfer: 23.99 },
+    '.academy': { register: 33.99, renew: 33.99, transfer: 33.99 },
+    '.education': { register: 23.99, renew: 23.99, transfer: 23.99 },
+    '.institute': { register: 23.99, renew: 23.99, transfer: 23.99 },
+    '.university': { register: 49.99, renew: 49.99, transfer: 49.99 },
+    '.school': { register: 33.99, renew: 33.99, transfer: 33.99 },
+    '.center': { register: 23.99, renew: 23.99, transfer: 23.99 },
+    '.clinic': { register: 49.99, renew: 49.99, transfer: 49.99 },
+    '.dental': { register: 49.99, renew: 49.99, transfer: 49.99 },
+    '.care': { register: 33.99, renew: 33.99, transfer: 33.99 },
+    '.health': { register: 79.99, renew: 79.99, transfer: 79.99 },
+    '.fitness': { register: 33.99, renew: 33.99, transfer: 33.99 },
+    '.life': { register: 33.99, renew: 33.99, transfer: 33.99 },
+    '.world': { register: 33.99, renew: 33.99, transfer: 33.99 },
+    '.global': { register: 79.99, renew: 79.99, transfer: 79.99 },
+    '.international': { register: 23.99, renew: 23.99, transfer: 23.99 },
+    '.group': { register: 23.99, renew: 23.99, transfer: 23.99 },
+    '.team': { register: 33.99, renew: 33.99, transfer: 33.99 },
+    '.club': { register: 13.99, renew: 13.99, transfer: 13.99 },
+    '.pro': { register: 18.99, renew: 18.99, transfer: 18.99 },
+    '.expert': { register: 54.99, renew: 54.99, transfer: 54.99 },
+    '.guru': { register: 33.99, renew: 33.99, transfer: 33.99 },
+    '.ninja': { register: 23.99, renew: 23.99, transfer: 23.99 },
+    '.zone': { register: 33.99, renew: 33.99, transfer: 33.99 },
+    '.space': { register: 2.99, renew: 24.99, transfer: 24.99 },
+    '.fun': { register: 2.99, renew: 24.99, transfer: 24.99 },
+    '.games': { register: 21.99, renew: 21.99, transfer: 21.99 },
+    '.casino': { register: 159.99, renew: 159.99, transfer: 159.99 },
+    '.bet': { register: 18.99, renew: 18.99, transfer: 18.99 },
+    '.poker': { register: 54.99, renew: 54.99, transfer: 54.99 },
+    '.news': { register: 26.99, renew: 26.99, transfer: 26.99 },
+    '.today': { register: 23.99, renew: 23.99, transfer: 23.99 },
+    '.live': { register: 26.99, renew: 26.99, transfer: 26.99 }
+};
+
+async function checkDomainAvailability(domain) {
+    try {
+        const response = await fetch(`https://domain-availability.whoisxmlapi.com/api/v1?apiKey=at_demo&domainName=${domain}`);
+        const data = await response.json();
+        return data.DomainInfo?.domainAvailability === 'AVAILABLE';
+    } catch (error) {
+        console.error('Error checking domain:', error);
+        return false;
+    }
+}
+
+function generateAISuggestions(baseName) {
+    const prefixes = ['get', 'my', 'the', 'try', 'use', 'go', 'new', 'pro', 'best', 'top'];
+    const suffixes = ['app', 'hub', 'lab', 'zone', 'spot', 'pro', 'now', 'online', 'web', 'site'];
+    const suggestions = [];
+    
+    suggestions.push(baseName);
+    suggestions.push(baseName + Math.floor(Math.random() * 999));
+    suggestions.push(prefixes[Math.floor(Math.random() * prefixes.length)] + baseName);
+    suggestions.push(baseName + suffixes[Math.floor(Math.random() * suffixes.length)]);
+    suggestions.push(baseName.replace(/[aeiou]/g, ''));
+    
+    return [...new Set(suggestions)].slice(0, 5);
+}
+
+async function checkDomain(event) {
+    event.preventDefault();
+
+    const domainBase = document.getElementById('domain-name').value.trim();
+    const domainExt = document.getElementById('select').value;
+    
+    if (!domainBase) {
+        alert('Please enter a domain name');
+        return;
+    }
+
+    const loading = document.getElementById('loading');
+    const resultTable = document.getElementById('domain-results');
+    const suggestionsDiv = document.getElementById('ai-suggestions');
+    
+    resultTable.innerHTML = '';
+    loading.style.display = 'block';
+
+    const suggestions = generateAISuggestions(domainBase);
+    if (suggestionsDiv) {
+        suggestionsDiv.innerHTML = `
+            <div style="margin: 20px 0; padding: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; color: white;">
+                <h3 style="margin: 0 0 10px 0;">🤖 AI Suggestions</h3>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    ${suggestions.map(s => `<button onclick="document.getElementById('domain-name').value='${s}'; checkDomain(event);" style="padding: 8px 15px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; color: white; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">${s}</button>`).join('')}
+                </div>
+            </div>
+        `;
+    }
+
+    const extensions = Object.keys(domainPricing);
+    const selectedExtensions = [domainExt, ...extensions.filter(ext => ext !== domainExt)];
+
+    const results = await Promise.all(
+        selectedExtensions.map(async (ext) => {
+            const fullDomain = domainBase + ext;
+            const available = await checkDomainAvailability(fullDomain);
+            const pricing = domainPricing[ext] || { register: 9.99, renew: 17.99, transfer: 7.99 };
+            
+            return {
+                domain: fullDomain,
+                available: available,
+                pricing: pricing
+            };
+        })
+    );
+
+    loading.style.display = 'none';
+
+    results.forEach(result => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td class="package">${result.domain}</td>
+            <td class="process">$${result.pricing.register}</td>
+            <td class="ram">$${result.pricing.renew}</td>
+            <td class="storage">$${result.pricing.transfer}</td>
+            <td>
+                ${result.available 
+                    ? `<a href="https://pro.nutro.cloud/checkout/?pay=domain:${result.domain}" style="display: inline-block; padding: 10px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 25px; font-weight: bold; transition: all 0.3s; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(102, 126, 234, 0.6)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.4)'">🛒 Buy Now</a>`
+                    : `<span style="color:#ff4757; font-weight: bold;">❌ Not Available</span>`
+                }
+            </td>
+        `;
+        resultTable.appendChild(row);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    loadPricingTables();
+});
+
+function loadPricingTables() {
+    const tables = document.querySelectorAll('.tab__content .table__content');
+    
+    tables.forEach(table => {
+        table.innerHTML = '';
+        
+        Object.entries(domainPricing).forEach(([ext, prices]) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td class="package">${ext}</td>
+                <td class="process">$${prices.register}</td>
+                <td class="ram">$${prices.renew}</td>
+                <td class="storage">$${prices.transfer}</td>
+            `;
+            table.appendChild(row);
+        });
+    });
+}
