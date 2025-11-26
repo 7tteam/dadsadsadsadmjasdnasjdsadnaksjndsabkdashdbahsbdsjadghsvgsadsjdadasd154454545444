@@ -162,8 +162,45 @@ async function checkDomain(event) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    loadDomainSelect();
     loadPricingTables();
+    loadPopularDomains();
+    loadAllDomainsTable();
 });
+
+function loadDomainSelect() {
+    const select = document.getElementById('select');
+    if (!select) return;
+    
+    const popularFirst = ['.com', '.net', '.org', '.io', '.ai', '.app', '.dev', '.tech', '.xyz', '.online'];
+    const allDomains = Object.keys(domainPricing);
+    
+    // Add popular domains first
+    popularFirst.forEach(ext => {
+        if (domainPricing[ext]) {
+            const option = document.createElement('option');
+            option.value = ext;
+            option.textContent = `${ext} - $${domainPricing[ext].register}`;
+            select.appendChild(option);
+        }
+    });
+    
+    // Add separator
+    const separator = document.createElement('option');
+    separator.disabled = true;
+    separator.textContent = '──────────';
+    select.appendChild(separator);
+    
+    // Add remaining domains
+    allDomains.forEach(ext => {
+        if (!popularFirst.includes(ext)) {
+            const option = document.createElement('option');
+            option.value = ext;
+            option.textContent = `${ext} - $${domainPricing[ext].register}`;
+            select.appendChild(option);
+        }
+    });
+}
 
 function loadPricingTables() {
     const tables = document.querySelectorAll('.tab__content .table__content');
@@ -181,5 +218,53 @@ function loadPricingTables() {
             `;
             table.appendChild(row);
         });
+    });
+}
+
+function loadPopularDomains() {
+    const popularExts = ['.com', '.net', '.org', '.io', '.ai', '.app', '.dev', '.tech'];
+    const images = ['domain-01.svg', 'domain-02.svg', 'domain-03.svg', 'domain-04.svg', 'domain-05.svg', 'domain-06.svg', 'domain-07.svg', 'domain-08.svg'];
+    const container = document.getElementById('popular-domains');
+    
+    if (!container) return;
+    
+    popularExts.forEach((ext, index) => {
+        const pricing = domainPricing[ext];
+        if (pricing) {
+            container.innerHTML += `
+                <div class="col-lg-3 col-md-4 col-sm-6" data-sal="slide-down" data-sal-delay="${200 + (index * 100)}" data-sal-duration="800">
+                    <div class="pricing-wrapper">
+                        <div class="logo"><img src="assets/images/pricing/${images[index]}" alt="${ext}"></div>
+                        <div class="content">
+                            <p class="desc">Register your ${ext} domain today</p>
+                            <div class="price-area">
+                                <span class="now">$${pricing.register}</span>
+                                <span class="period">/year</span>
+                            </div>
+                            <div class="button-area">
+                                <a href="#" onclick="document.getElementById('domain-name').value='example'; document.getElementById('select').value='${ext}'; document.querySelector('form').scrollIntoView({behavior: 'smooth'}); return false;" class="pricing-btn rts-btn">Search</a>
+                                <a href="https://pro.nutro.cloud/checkout/?pay=domain:example${ext}" class="pricing-btn rts-btn border">Register</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+    });
+}
+
+function loadAllDomainsTable() {
+    const table = document.getElementById('all-domains-table');
+    if (!table) return;
+    
+    Object.entries(domainPricing).forEach(([ext, prices]) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td class="package"><strong>${ext}</strong></td>
+            <td class="process">$${prices.register}</td>
+            <td class="ram">$${prices.renew}</td>
+            <td class="storage">$${prices.transfer}</td>
+        `;
+        table.appendChild(row);
     });
 }
