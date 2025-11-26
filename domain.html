@@ -9,198 +9,516 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="assets/css/plugins.min.css">
     <link rel="stylesheet" href="assets/css/plugins/fontawesome.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .domain-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .domain-search-box {
+            background: white;
+            border-radius: 50px;
+            padding: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+        }
+        .domain-search-box input {
+            border: none;
+            padding: 15px 25px;
+            font-size: 16px;
+            flex: 1;
+        }
+        .domain-search-box input:focus {
+            outline: none;
+        }
+        .domain-search-box select {
+            border: none;
+            padding: 15px;
+            max-width: 150px;
+        }
+        .domain-search-box button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .domain-search-box button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+        .domain-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            margin-bottom: 20px;
+            border: 2px solid transparent;
+            height: 100%;
+        }
+        .domain-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+        .domain-extension {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+        .domain-price {
+            font-size: 36px;
+            font-weight: 800;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        .domain-price span {
+            font-size: 16px;
+            color: #718096;
+        }
+        .result-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        .result-card:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .result-card.available {
+            border-left: 4px solid #48bb78;
+        }
+        .result-card.taken {
+            border-left: 4px solid #f56565;
+            opacity: 0.7;
+        }
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .pricing-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        .pricing-table thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .pricing-table th {
+            padding: 20px;
+            font-weight: 600;
+            border: none;
+        }
+        .pricing-table td {
+            padding: 18px 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .pricing-table tbody tr:hover {
+            background: #f7fafc;
+        }
+        .btn-add-cart {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .btn-add-cart:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+        }
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+        .section-subtitle {
+            font-size: 18px;
+            color: #718096;
+            margin-bottom: 50px;
+        }
+        #results-section {
+            display: none;
+        }
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 20px 25px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #2d3748;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        .faq-question:hover {
+            background: #f7fafc;
+            color: #667eea;
+        }
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+            color: #718096;
+        }
+        .faq-answer.active {
+            padding: 0 25px 20px;
+            max-height: 500px;
+        }
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+        .faq-icon.active {
+            transform: rotate(180deg);
+        }
+        .benefit-box {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+        .benefit-box h6 {
+            color: #2d3748;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .benefit-box p {
+            color: #718096;
+            margin: 0;
+            font-size: 14px;
+        }
+    </style>
 </head>
-<body class="page-template template-resell loaded">
+<body>
     <div id="header"></div>
 
-    <!-- HERO BANNER -->
-    <section class="rts-hero-three rts-hero__one rts-hosting-banner domain-checker-padding banner-default-height">
+    <!-- HERO SECTION -->
+    <section class="domain-hero">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <div class="rts-hero__content domain">
-                        <h1 data-sal="slide-down" data-sal-delay="100" data-sal-duration="800">Find Best Unique Domains!</h1>
-                        <p class="description" data-sal="slide-down" data-sal-delay="200" data-sal-duration="800">Web Hosting, Domain Name and Hosting Center Solutions</p>
-                        <form data-sal-delay="300" data-sal-duration="800" onsubmit="checkDomain(event)">
-                            <div class="rts-hero__form-area">
-                                <input type="text" id="domain-name" placeholder="find your domain name" required>
-                                <div class="select-button-area">
-                                    <select id="select" class="price__select"></select>
-                                    <button type="submit">Search</button>
-                                </div>
-                            </div>
-                        </form>
-                        <div id="loading" style="display:none; text-align:center; margin-top:20px; font-size:18px;">🔄 Checking domain availability...</div>
-                        <div id="ai-suggestions"></div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h1 class="text-white mb-3 animate__animated animate__fadeInDown" style="font-size: 48px; font-weight: 800;">
+                        Find Your Perfect Domain Name
+                    </h1>
+                    <p class="text-white mb-4 animate__animated animate__fadeInUp" style="font-size: 20px; opacity: 0.9;">
+                        Search from millions of domains and register yours today
+                    </p>
+                    
+                    <form onsubmit="checkDomain(event)" class="animate__animated animate__fadeInUp animate__delay-1s">
+                        <div class="domain-search-box">
+                            <input type="text" id="domain-name" placeholder="Search your domain name..." required>
+                            <select id="select" class="form-select"></select>
+                            <button type="submit">
+                                <span>Search</span>
+                            </button>
+                        </div>
+                    </form>
+
+                    <div id="loading" style="display:none; margin-top:20px; color:white;">
+                        <div class="spinner-border" role="status"></div>
+                        <p>Checking availability...</p>
                     </div>
+                    <div id="ai-suggestions"></div>
                 </div>
             </div>
-        </div>
-        <div class="banner-shape-area">
-            <img class="three" src="assets/images/banner/banner-bg-element.svg" alt="">
         </div>
     </section>
 
     <!-- SEARCH RESULTS -->
-    <section class="rts-domain-pricing-area area-2 pt--120 pb--60">
+    <section id="results-section" class="py-5">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="section-title-area w-550">
+            <div class="row justify-content-center mb-4">
+                <div class="col-lg-8 text-center">
                     <h2 class="section-title">Search Results</h2>
-                    <p class="desc">Check domain availability and register your perfect domain name today</p>
+                    <p class="section-subtitle">Available domains for your search</p>
                 </div>
             </div>
-            <div class="section-inner">
-                <div class="pricing-table-area">
-                    <table class="table table-hover table-responsive">
-                        <thead class="heading__bg">
-                            <tr>
-                                <th class="cell">Domain</th>
-                                <th class="cell">Register</th>
-                                <th class="cell">Renew</th>
-                                <th class="cell">Transfer</th>
-                                <th class="cell">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody id="domain-results" class="table__content"></tbody>
-                    </table>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="pricing-table">
+                        <table class="table table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Domain</th>
+                                    <th>Register</th>
+                                    <th>Renew</th>
+                                    <th>Transfer</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="domain-results"></tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- DOMAIN PRICING -->
-    <section class="rts-domain-pricing-area pt--60 pb--120">
+    <!-- POPULAR DOMAINS -->
+    <section class="py-5 bg-light">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="section-title-area w-570">
-                    <h2 class="section-title">Straightforward Domain Pricing</h2>
-                    <p class="desc">Choose from our wide selection of domain extensions at competitive prices</p>
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Popular Domain Extensions</h2>
+                    <p class="section-subtitle">Choose from our most popular domain extensions</p>
                 </div>
             </div>
-            <div class="section-inner">
-                <div class="row g-5" id="popular-domains"></div>
+            <div class="row" id="popular-domains"></div>
+        </div>
+    </section>
+
+    <!-- DOMAIN BENEFITS -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">What You Get With Every Domain</h2>
+                    <p class="section-subtitle">Premium features included with all domain registrations</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="benefit-box">
+                        <h6><i class="fas fa-shield-alt text-primary me-2"></i>Free WHOIS Privacy</h6>
+                        <p>Keep your personal information private and secure from spammers</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="benefit-box">
+                        <h6><i class="fas fa-lock text-primary me-2"></i>Free SSL Certificate</h6>
+                        <p>Secure your website with a free SSL certificate for HTTPS</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="benefit-box">
+                        <h6><i class="fas fa-envelope text-primary me-2"></i>Professional Email</h6>
+                        <p>Create unlimited professional email addresses with your domain</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="benefit-box">
+                        <h6><i class="fas fa-sync text-primary me-2"></i>Easy Domain Transfer</h6>
+                        <p>Transfer your existing domains to us with zero downtime</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="benefit-box">
+                        <h6><i class="fas fa-cog text-primary me-2"></i>DNS Management</h6>
+                        <p>Full control over your DNS records with our easy-to-use panel</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="benefit-box">
+                        <h6><i class="fas fa-redo text-primary me-2"></i>Auto-Renewal Option</h6>
+                        <p>Never lose your domain with automatic renewal protection</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- ALL DOMAINS TABLE -->
-    <section class="rts-domain-pricing-area area-2 pt--60 pb--120">
+    <section class="py-5 bg-light">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="section-title-area w-550">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
                     <h2 class="section-title">All Domain Extensions</h2>
-                    <p class="desc">Browse our complete list of available domain extensions</p>
+                    <p class="section-subtitle">Browse our complete list of available domain extensions</p>
                 </div>
             </div>
-            <div class="section-inner">
-                <div class="pricing-table-area">
-                    <table class="table table-hover table-responsive">
-                        <thead class="heading__bg">
-                            <tr>
-                                <th class="cell">TLD</th>
-                                <th class="cell">Register</th>
-                                <th class="cell">Renew</th>
-                                <th class="cell">Transfer</th>
-                            </tr>
-                        </thead>
-                        <tbody id="all-domains-table" class="table__content"></tbody>
-                    </table>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="pricing-table">
+                        <table class="table table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Extension</th>
+                                    <th>Register</th>
+                                    <th>Renew</th>
+                                    <th>Transfer</th>
+                                </tr>
+                            </thead>
+                            <tbody id="all-domains-table"></tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- WHY CHOOSE -->
-    <div class="rts-why-choose bg-white section__padding">
+    <section class="py-5">
         <div class="container">
-            <div class="row">
-                <div class="rts-section section-style-two">
-                    <div class="rts-section__two">
-                        <h2 class="title mb-0">Why Choose Nutro</h2>
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Why Choose Nutro Cloud</h2>
+                    <p class="section-subtitle">Own your virtual presence with the power of Nutro</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="domain-card text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-shield-alt text-white" style="font-size: 28px;"></i>
+                        </div>
+                        <h5 class="mb-3" style="font-weight: 700;">Money-Back Guaranteed</h5>
+                        <p class="text-muted">30-day money-back guarantee on all domain registrations</p>
                     </div>
-                    <div class="rts-section-description">
-                        <p class="description w-400">Own your virtual presence with the power of Nutro</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="domain-card text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-bolt text-white" style="font-size: 28px;"></i>
+                        </div>
+                        <h5 class="mb-3" style="font-weight: 700;">Fast & Reliable</h5>
+                        <p class="text-muted">Instant domain activation and 99.9% uptime guarantee</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="domain-card text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-cog text-white" style="font-size: 28px;"></i>
+                        </div>
+                        <h5 class="mb-3" style="font-weight: 700;">Super Easy to Use</h5>
+                        <p class="text-muted">Simple domain management with our intuitive control panel</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="domain-card text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-headset text-white" style="font-size: 28px;"></i>
+                        </div>
+                        <h5 class="mb-3" style="font-weight: 700;">24/7 Expert Support</h5>
+                        <p class="text-muted">Our support team is always ready to help you</p>
                     </div>
                 </div>
             </div>
-            <div class="row g-30">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="card-feature">
-                        <div class="card-feature__single">
-                            <div class="card-feature__single--icon">
-                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M37.6562 19.1596V14.4438C37.6562 12.1269 35.8127 10.2335 33.5156 10.1509V7.25626C33.5156 5.74852 32.289 4.52188 30.7812 4.52188H23.2533L22.2812 1.81977C22.0333 1.13071 21.5316 0.580087 20.8684 0.269384C20.2053 -0.0413977 19.4611 -0.0745227 18.773 0.175946L5.1125 5.1479C4.42516 5.39806 3.8768 5.9011 3.56836 6.56438C3.25992 7.22766 3.22859 7.97118 3.48023 8.65806L4.02906 10.1561C1.78414 10.2949 0 12.1645 0 14.4438V35.6938C0 38.0631 1.92758 39.9906 4.29688 39.9906H33.3594C35.7287 39.9906 37.6562 38.0631 37.6562 35.6938V30.8216C38.9795 30.6315 40 29.4907 40 28.1156V21.8656C40 20.4906 38.9795 19.3498 37.6562 19.1596Z" fill="white"/></svg>
-                            </div>
-                            <h5 class="card-feature__single--title">Money-Back Guaranteed</h5>
-                            <p class="card-feature__single--description">30-day money-back guarantee on all domain registrations</p>
+        </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Everything you need to know about domain registration</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>What is a domain name?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            A domain name is your website's address on the internet. It's what people type in their browser to visit your site, like nutro.cloud. It's your unique online identity.
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="card-feature">
-                        <div class="card-feature__single">
-                            <div class="card-feature__single--icon">
-                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M19.8333 0C30.787 0 39.6667 8.87969 39.6667 19.8333C39.6667 30.787 30.787 39.6667 19.8333 39.6667C8.87969 39.6667 0 30.787 0 19.8333C0 8.87969 8.87969 0 19.8333 0Z" fill="#2D3C58"/></svg>
-                            </div>
-                            <h5 class="card-feature__single--title">Fast & Reliable</h5>
-                            <p class="card-feature__single--description">Instant domain activation and 99.9% uptime guarantee</p>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>How do I choose the right domain name?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Choose a domain that's short, memorable, and relevant to your business. Avoid numbers and hyphens. Consider using keywords related to your industry and make sure it's easy to spell.
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="card-feature">
-                        <div class="card-feature__single">
-                            <div class="card-feature__single--icon">
-                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M3.77599 0.159466C3.77701 0.159822 3.77805 0.16018 3.77907 0.160536L38.0902 12.0366C40.7087 12.9357 40.5929 16.6231 37.9963 17.4302L22.4859 22.2151Z" fill="#2D3C58"/></svg>
-                            </div>
-                            <h5 class="card-feature__single--title">Super Easy to Use</h5>
-                            <p class="card-feature__single--description">Simple domain management with our intuitive control panel</p>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Can I transfer my existing domain to Nutro?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Yes! We make domain transfers easy and free. Simply unlock your domain at your current registrar, get the authorization code, and initiate the transfer through our panel. The process typically takes 5-7 days.
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="card-feature">
-                        <div class="card-feature__single">
-                            <div class="card-feature__single--icon">
-                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M1.81885 20.0032C1.81836 16.5884 2.77954 13.2425 4.59233 10.3487C6.40513 7.45482 8.99624 5.12998 12.069 3.64037Z" fill="#2D3C58"/></svg>
-                            </div>
-                            <h5 class="card-feature__single--title">24/7 Expert Support</h5>
-                            <p class="card-feature__single--description">Our support team is always ready to help you</p>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>What happens if my domain expires?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            If your domain expires, you'll have a grace period (usually 30 days) to renew it at the regular price. After that, it enters a redemption period where renewal costs more. Enable auto-renewal to avoid this.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Do I need hosting to register a domain?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            No, you can register a domain without hosting. However, to have a live website, you'll need both a domain and hosting. We offer affordable hosting plans that work perfectly with your domain.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Is WHOIS privacy protection included?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Yes! We include free WHOIS privacy protection with all eligible domains. This keeps your personal information private and protects you from spam and unwanted solicitations.
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- CTA -->
-    <div class="rts-cta-two shared-page-bg pt--120">
+    <section class="py-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
         <div class="container">
-            <div class="row">
-                <div class="rts-cta-two__wrapper">
-                    <div class="cta__shape"></div>
-                    <div class="cta-content">
-                        <span>Need help choosing a plan?</span>
-                        <h4>Need help? We're always here for you.</h4>
-                    </div>
-                    <div class="cta-btn">
-                        <a href="#" class="contact__us primary__btn btn__two secondary__bg secondary__color">Go to Live chat Page</a>
-                    </div>
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h3 class="text-white mb-2" style="font-weight: 700;">Need help choosing a domain?</h3>
+                    <p class="text-white mb-0" style="opacity: 0.9;">Our experts are here to help you 24/7</p>
+                </div>
+                <div class="col-lg-4 text-end">
+                    <a href="#" class="btn btn-light btn-lg px-5" style="border-radius: 50px; font-weight: 600;">Contact Support</a>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <div id="footer"></div>
-
-    <div class="loader-wrapper">
-        <div class="loader"></div>
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
-    </div>
 
     <div class="progress-wrap">
         <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
@@ -208,7 +526,40 @@
         </svg>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="domain-checker.js"></script>
+    <script>
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('.faq-icon');
+            const allAnswers = document.querySelectorAll('.faq-answer');
+            const allIcons = document.querySelectorAll('.faq-icon');
+            
+            allAnswers.forEach(a => {
+                if (a !== answer) a.classList.remove('active');
+            });
+            allIcons.forEach(i => {
+                if (i !== icon) i.classList.remove('active');
+            });
+            
+            answer.classList.toggle('active');
+            icon.classList.toggle('active');
+        }
+
+        // Scroll to results when search completes
+        const originalCheckDomain = window.checkDomain;
+        window.checkDomain = async function(event) {
+            await originalCheckDomain(event);
+            const resultsSection = document.getElementById('results-section');
+            if (resultsSection && resultsSection.style.display !== 'none') {
+                resultsSection.style.display = 'block';
+                setTimeout(() => {
+                    resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 300);
+            }
+        };
+    </script>
     <script defer src="assets/js/plugins.min.js"></script>
     <script defer src="assets/js/main.js"></script>
     <script defer src="main.js"></script>
@@ -221,7 +572,5 @@
 /features : ans;Nutro offers 24/7 support, SSD hosting, easy control panel, instant server setup, and high security for all your websites.
 /faq : ans;Ask me anything about Nutro's hosting services, plans, or features and I'll guide you!
 /whatsapp : https://wa.me/201226588784" data-questions="Buy WordPress | How can I get it from Nutro? | Help choosing the right plan | Support"></script>
-
-
 </body>
 </html>
