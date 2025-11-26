@@ -71,21 +71,27 @@ const domainPricing = {
 
 async function checkDomainAvailability(domain) {
     try {
-        // Using multiple fallback APIs
-        const response = await fetch(`https://api.domainsdb.info/v1/domains/search?domain=${domain}&zone=${domain.split('.').pop()}`);
+        // Using WHOIS lookup via CORS proxy
+        const response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent('https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=at_free&domainName=' + domain + '&outputFormat=JSON')}`);
         const data = await response.json();
         
-        // If domain exists in database, it's taken
-        if (data.domains && data.domains.length > 0) {
-            return false;
+        // Check if domain is registered
+        if (data.WhoisRecord && data.WhoisRecord.registryData) {
+            return false; // Domain is taken
         }
         
-        // If not found, likely available (random chance for demo)
-        return Math.random() > 0.3;
+        return true; // Domain is available
     } catch (error) {
-        console.error('Error checking domain:', error);
-        // Return random availability for demo purposes
-        return Math.random() > 0.5;
+        console.error('WHOIS check failed:', error);
+        // Fallback: check via DNS
+        try {
+            const dnsCheck = await fetch(`https://dns.google/resolve?name=${domain}&type=A`);
+            const dnsData = await dnsCheck.json();
+            return dnsData.Status === 3; // NXDOMAIN means available
+        } catch (e) {
+            console.error('DNS check failed:', e);
+            return null; // Unknown status
+        }
     }
 }
 
@@ -123,14 +129,8 @@ async function checkDomain(event) {
 
     const suggestions = generateAISuggestions(domainBase);
     if (suggestionsDiv) {
-        suggestionsDiv.innerHTML = `
-            <div style="margin: 20px 0; padding: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; color: white;">
-                <h3 style="margin: 0 0 10px 0;">🤖 AI Suggestions</h3>
-                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                    ${suggestions.map(s => `<button onclick="document.getElementById('domain-name').value='${s}'; checkDomain(event);" style="padding: 8px 15px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; color: white; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">${s}</button>`).join('')}
-                </div>
-            </div>
-        `;
+        suggestionsDiv.innerHTML = '';
+        suggestionsDiv.style.display = 'none';
     }
 
     const extensions = Object.keys(domainPricing);
@@ -152,19 +152,52 @@ async function checkDomain(event) {
 
     loading.style.display = 'none';
 
+    // Show AI suggestions after first result
+    let firstAvailable = results.find(r => r.available);
+    if (suggestionsDiv && firstAvailable) {
+        const suggestions = generateAISuggestions(domainBase);
+        suggestionsDiv.innerHTML = `
+            <div style="margin: 20px 0; padding: 20px; background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    <h4 style="margin: 0; font-size: 16px; color: #2d3748; font-weight: 600;">AI Suggestions</h4>
+                </div>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    ${suggestions.map(s => `
+                        <button onclick="document.getElementById('domain-name').value='${s}'; checkDomain(event);" 
+                            style="padding: 8px 16px; background: white; border: 1px solid #e2e8f0; border-radius: 6px; color: #4a5568; cursor: pointer; transition: all 0.2s; font-size: 14px; font-weight: 500;"
+                            onmouseover="this.style.borderColor='#667eea'; this.style.color='#667eea'; this.style.transform='translateY(-1px)'; this.style.boxShadow='0 2px 4px rgba(0,0,0,0.1)'"
+                            onmouseout="this.style.borderColor='#e2e8f0'; this.style.color='#4a5568'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                            ${s}
+                        </button>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+        suggestionsDiv.style.display = 'block';
+    }
+
     results.forEach(result => {
         const row = document.createElement('tr');
+        let statusBadge = '';
+        
+        if (result.available === null) {
+            statusBadge = `<span style="color:#ffa502; font-weight: bold;">⚠️ Unknown</span>`;
+        } else if (result.available) {
+            statusBadge = `<a href="https://pro.nutro.cloud/checkout/?pay=domain:${result.domain}" style="display: inline-block; padding: 10px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 25px; font-weight: bold; transition: all 0.3s; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(102, 126, 234, 0.6)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.4)'">✅ Available - Buy Now</a>`;
+        } else {
+            statusBadge = `<span style="color:#ff4757; font-weight: bold;">❌ Taken</span>`;
+        }
+        
         row.innerHTML = `
-            <td class="package">${result.domain}</td>
+            <td class="package"><strong>${result.domain}</strong></td>
             <td class="process">$${result.pricing.register}</td>
             <td class="ram">$${result.pricing.renew}</td>
             <td class="storage">$${result.pricing.transfer}</td>
-            <td>
-                ${result.available 
-                    ? `<a href="https://pro.nutro.cloud/checkout/?pay=domain:${result.domain}" style="display: inline-block; padding: 10px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 25px; font-weight: bold; transition: all 0.3s; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(102, 126, 234, 0.6)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.4)'">🛒 Buy Now</a>`
-                    : `<span style="color:#ff4757; font-weight: bold;">❌ Not Available</span>`
-                }
-            </td>
+            <td>${statusBadge}</td>
         `;
         resultTable.appendChild(row);
     });
