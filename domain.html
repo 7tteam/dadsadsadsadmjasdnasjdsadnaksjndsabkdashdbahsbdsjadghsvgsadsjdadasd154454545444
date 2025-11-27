@@ -709,7 +709,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const domainPricing = {
-            '.com': { register: 0.01, renew: 14.99, save: 99, original: 19.99, email: true },
+            '.com': { register: 1.00, renew: 14.99, save: 99, original: 19.99, email: true },
             '.net': { register: 11.99, renew: 17.99, save: 33, original: 17.99, email: true },
             '.org': { register: 7.99, renew: 15.99, save: 50, original: 15.99, email: true },
             '.io': { register: 31.99, renew: 67.99, save: 53, original: 67.99, email: true },
@@ -777,11 +777,14 @@
         }
         
         async function checkMultipleDomains(domains) {
-            const results = await Promise.all(domains.map(async (domain) => {
+            const results = [];
+            for (const domain of domains) {
                 const available = await checkDomainAPI(domain);
-                return { domain, available };
-            }));
-            return results.filter(r => r.available === true);
+                if (available === true) {
+                    results.push({ domain, available: true });
+                }
+            }
+            return results;
         }
 
         function generateAISuggestions(baseName) {
@@ -820,18 +823,23 @@
             
             loading.style.display = 'block';
             resultsSection.style.display = 'none';
+            resultsContainer.innerHTML = '';
             
-            const isAvailable = await checkDomainAPI(validated.full);
-            
-            const bundleDomains = [
-                validated.name + '.com',
-                validated.name + '.org'
-            ];
-            const bundleResults = await checkMultipleDomains(bundleDomains);
-            const bundleAvailable = bundleResults.length === 2;
-            
-            loading.style.display = 'none';
-            resultsSection.style.display = 'block';
+            try {
+                const isAvailable = await checkDomainAPI(validated.full);
+                
+                if (isAvailable === null) {
+                    loading.style.display = 'none';
+                    alert('Unable to verify domain availability. Please try again.');
+                    return;
+                }
+                
+                const bundleDomains = [
+                    validated.name + '.com',
+                    validated.name + '.org'
+                ];
+                const bundleResults = await checkMultipleDomains(bundleDomains);
+                const bundleAvailable = bundleResults.length === 2;
             
             const pricing = domainPricing[validated.ext] || { register: 9.99, renew: 19.99, save: 0, original: 19.99, email: false };
             
@@ -911,20 +919,34 @@
                 </ul>
                 
                 <div class="domain-grid" id="alternatives-grid">
-                    ${await generateAlternatives(validated.name, validated.ext)}
+                    <div class="col-12 text-center"><div class="spinner-border text-primary" role="status"></div><p class="mt-2">Loading alternatives...</p></div>
                 </div>
                 
                 <h5 class="mt-5 mb-3"><i class="fas fa-robot me-2" style="color: #0052cc;"></i>AI generated alternatives</h5>
-                <div class="domain-grid">
-                    ${await generateAIAlternatives(validated.name)}
+                <div class="domain-grid" id="ai-alternatives-grid">
+                    <div class="col-12 text-center"><div class="spinner-border text-primary" role="status"></div><p class="mt-2">Generating suggestions...</p></div>
                 </div>
             `;
             
             resultsContainer.innerHTML = html;
+            resultsSection.style.display = 'block';
+            loading.style.display = 'none';
             
             setTimeout(() => {
                 resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 100);
+            
+            const alternativesHtml = await generateAlternatives(validated.name, validated.ext);
+            document.getElementById('alternatives-grid').innerHTML = alternativesHtml;
+            
+            const aiHtml = await generateAIAlternatives(validated.name);
+            document.getElementById('ai-alternatives-grid').innerHTML = aiHtml;
+            
+            } catch (error) {
+                loading.style.display = 'none';
+                alert('An error occurred. Please try again.');
+                console.error(error);
+            }
         }
 
         async function generateAlternatives(baseName, currentExt) {
