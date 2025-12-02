@@ -68,7 +68,7 @@
   --banner-one-bg: linear-gradient(180deg, #2D86FF 0%, #033AA7 100%);
   --pricing-single-bg: linear-gradient(180deg, #2987FF 0%, #0755F0 100%);
   --cta-two-bg: linear-gradient(92deg, #3990FF 3.85%, #2C73FE 101.14%);
-  --banner-four-gradient: linear-gradient(90deg, #0441B9 26.56%, rgba(18, 24, 51, 0.00) 83.83%);
+  --banner-four-gradient: linear-gradient(180deg, #0D0D0D 0%, #1262FF 100%);
   --banner-most-used-bg: linear-gradient(180deg, #0774FF 0%, #033AA7 100%);
   --data-center-bg: linear-gradient(180deg, #F6F9FF 0%, rgba(246, 249, 255, 0.00) 100%);
   --data-center-shape-1: linear-gradient(180deg, #FCFDFF 0.14%, #E9EFFF 76.88%);
@@ -17331,7 +17331,6 @@ header.heder-two .sub-dropdown .submenu.third-lvl.base {
   height: 100%;
   width: 100%;
   content: "";
-  background-image: url(../images/banner/banner-hero-four-bg.svg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
