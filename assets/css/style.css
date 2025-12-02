@@ -57,7 +57,7 @@
   --btc: #4C5671;
   --color-secondary-dark: #313149;
   --placeholder: #8D9097;
-  --primary-gradient: linear-gradient(180deg, #308BFF 0%, #1262FF 100%);
+  --primary-gradient: linear-gradient(180deg, #4DA3FF 0%, #0F4DFF 100%);
   --secondary-gradient: linear-gradient(180deg, #F3F5FF 0%, rgba(231, 235, 255, 0.00) 100%);
   --header-top-gradient: linear-gradient(90deg, rgba(255, 255, 255, 0.10) 8.51%, rgba(255, 255, 255, 0.10) 77.02%);
   --icon-bg-1: linear-gradient(147deg, #E8ECFF 14.12%, #D1FFEF 80.26%);
