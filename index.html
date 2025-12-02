@@ -435,6 +435,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     /* Top banner */
     .topbar{
+      position: relative; /* لازم عشان نثبت التلج جواه */
+      overflow: hidden;
       box-sizing:border-box;
       width:100%;
       min-height:var(--height);
@@ -446,6 +448,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       font-family:var(--font-sans);
       padding:8px 16px;
     }
+    
+/* Snowflake style */
+.snowflake {
+  position: absolute;
+  top: -10px;
+  color: #fff;
+  font-size: 8px;
+  user-select: none;
+  pointer-events: none;
+  animation: fall linear infinite;
+  opacity: 0.7;
+}
+
+/* Fall animation */
+@keyframes fall {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(100px) translateX(20px); }
+}
 
     .inner{
       width:100%;
@@ -521,6 +541,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <div class="topbar" role="banner" aria-hidden="false">
     <div class="inner" role="region" aria-label="Single day promotion">
+        <div class="snowflake" style="left:5%;">❄</div>
+<div class="snowflake" style="left:20%; animation-duration:6s;">❄</div>
+<div class="snowflake" style="left:35%; animation-duration:5s;">❄</div>
+<div class="snowflake" style="left:50%; animation-duration:7s;">❄</div>
+<div class="snowflake" style="left:65%; animation-duration:6.5s;">❄</div>
+<div class="snowflake" style="left:80%; animation-duration:8s;">❄</div>
+
       <div class="message" id="promoText" aria-hidden="false">
         <strong>❄️ Nutro Winter Deals! ❄️</strong>
         Limited time offer - Save up to 75%
